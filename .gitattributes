@@ -1,0 +1,22 @@
+# Normalizacao de terminacoes de linha.
+# Scripts .sh DEVEM ter LF; .bat/.cmd DEVEM ter CRLF.
+*.sh text eol=lf
+*.bash text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Arquivos binarios e de dados
+*.ipynb -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.pdf -text
+*.csv -text
+*.iso -text
+*.vdi -text
+*.vmdk -text
+*.vhdx -text
+
+# Padrao
+* text=auto

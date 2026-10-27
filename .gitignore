@@ -1,0 +1,65 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# === Ambientes virtuais ===
+venv/
+.venv/
+env/
+.env/
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === Sistema operacional ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Contexto local do agente ===
+AGENTS.md
+.context.md
+
+# === Virtualizacao e laboratorio ===
+*.iso
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.ova
+*.ovf
+*.qcow2
+Snapshots/
+snapshots/
+exports/
+*.log
+
+# === Segredos e dados sensiveis ===
+*.key
+*.pem
+*.pfx
+*.p12
+secrets/
+credentials/
+*.env
+
+# === Saidas de laboratorio ===
+**/reports/*
+!**/reports/.gitkeep
+**/__pycache__/
+
+# === Rascunhos ===
+TESTE.TXT
+rascunhos/

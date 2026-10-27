@@ -1,0 +1,15 @@
+# Dependencias opcionais para laboratorios e automacao da UC7.
+# A maior parte das praticas usa apenas ferramentas nativas dos sistemas.
+# Instale com: pip install -r requirements.txt
+
+psutil>=5.9.0
+requests>=2.31.0
+paramiko>=3.4.0
+python-dotenv>=1.0.0
+
+# Para scripts de monitoramento e coleta via SNMP (opcional):
+# pysnmp>=6.0.0
+
+# Para gerar relatorios em PDF/planilha (opcional):
+# openpyxl>=3.1.0
+# reportlab>=4.0.0
