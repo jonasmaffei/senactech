@@ -11,6 +11,7 @@ Cada UC é autocontida em uma pasta dentro de `ucs/`, com o seu próprio README,
 | UC | Tema | Carga | Status | Material |
 | :---: | :--- | :---: | :--- | :--- |
 | **UC7** | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [Abrir UC7](ucs/uc7/README.md) |
+| **UC IA** | Introdução a Arquitetura de Computadores | A confirmar | Migrada do repositório `senac-tecnico-ia`; em validação | [Abrir UC IA](ucs/ia-arquitetura-computadores/README.md) |
 
 > Novas UCs serão adicionadas em `ucs/<ucN>/` e registradas em [`ucs/README.md`](ucs/README.md).
 
@@ -50,6 +51,14 @@ senactech/
         provision/
       questionarios/
         README.md
+    ia-arquitetura-computadores/
+      README.md
+      requirements.txt
+      AGENTS.md
+      .context.md
+      aulas/
+      docs/
+      questionarios/
 ```
 
 ---
@@ -64,7 +73,9 @@ senactech/
 
 ---
 
-## UC7 em destaque
+## UCs em destaque
+
+### UC7 - Sistemas Operacionais de Redes Locais (Servidores)
 
 | Recurso | Link |
 | :--- | :--- |
@@ -81,6 +92,20 @@ A UC7 está organizada em **24 aulas de 4 h**, divididas em quatro blocos:
 2. Windows Server
 3. Linux Server e Segurança
 4. Monitoramento, Nuvem, Governança e Projeto
+
+### UC IA - Introdução a Arquitetura de Computadores
+
+| Recurso | Link |
+| :--- | :--- |
+| Guia da UC | [`ucs/ia-arquitetura-computadores/README.md`](ucs/ia-arquitetura-computadores/README.md) |
+| Timeline de engenharia | [`ucs/ia-arquitetura-computadores/docs/01_timeline-engenharia.md`](ucs/ia-arquitetura-computadores/docs/01_timeline-engenharia.md) |
+| Resumos | [`ucs/ia-arquitetura-computadores/docs/02_resumos.md`](ucs/ia-arquitetura-computadores/docs/02_resumos.md) |
+| Índice de aulas | [`ucs/ia-arquitetura-computadores/aulas/README.md`](ucs/ia-arquitetura-computadores/aulas/README.md) |
+| Projeto integrador | [`ucs/ia-arquitetura-computadores/aulas/projeto-integrador/README.md`](ucs/ia-arquitetura-computadores/aulas/projeto-integrador/README.md) |
+| Questionários | [`ucs/ia-arquitetura-computadores/questionarios/README.md`](ucs/ia-arquitetura-computadores/questionarios/README.md) |
+| Materiais complementares | [`ucs/ia-arquitetura-computadores/docs/05_materiais-complementares.md`](ucs/ia-arquitetura-computadores/docs/05_materiais-complementares.md) |
+
+Material migrado do repositório `senac-tecnico-ia`: **24 aulas**, notebooks Colab, laboratórios Windows/Linux e projeto integrador de pesquisa.
 
 ---
 
@@ -113,6 +138,7 @@ A UC7 está organizada em **24 aulas de 4 h**, divididas em quatro blocos:
 ## Status geral
 
 - **UC7:** material completo, com 24 aulas, 24 apresentações HTML, 24 atividades, 24 roteiros de laboratório e laboratório Vagrant + VirtualBox. Falta validar o laboratório no computador do professor.
+- **UC IA:** conteúdo migrado do repositório `senac-tecnico-ia`, com 24 aulas, notebooks Colab, laboratórios e projeto integrador. Falta revisar a integração ao monorepo e confirmar a carga horária oficial.
 - **Próximas UCs:** a estrutura do monorepo já está pronta para recebê-las.
 
 ---
@@ -124,3 +150,5 @@ A documentação específica de cada UC fica dentro da própria UC. Documentos v
 ---
 
 > Para detalhes da UC7, comece por [`ucs/uc7/README.md`](ucs/uc7/README.md).
+>
+> Para detalhes da UC IA, comece por [`ucs/ia-arquitetura-computadores/README.md`](ucs/ia-arquitetura-computadores/README.md).

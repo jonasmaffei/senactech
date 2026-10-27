@@ -63,6 +63,23 @@ credentials/
 !**/reports/.gitkeep
 **/__pycache__/
 
+# === UC IA - Introducao a Arquitetura de Computadores ===
+ucs/ia-arquitetura-computadores/gpu_log*.csv
+ucs/ia-arquitetura-computadores/alertas.log
+ucs/ia-arquitetura-computadores/gpu_alertas.log
+ucs/ia-arquitetura-computadores/gpu_dashboard.png
+ucs/ia-arquitetura-computadores/gpu_log_dashboard.png
+ucs/ia-arquitetura-computadores/dashboard.html
+ucs/ia-arquitetura-computadores/aulas/labs/
+ucs/ia-arquitetura-computadores/**/relatorio.png
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/*.csv
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/*.png
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/*.log
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/*.lockdir/
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/*spool*/
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/train_job.py
+ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/fila_gpu.py
+
 # === Rascunhos ===
 TESTE.TXT
 rascunhos/

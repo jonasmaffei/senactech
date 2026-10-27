@@ -7,6 +7,7 @@ Cada UC fica em uma pasta própria e é autocontida.
 | UC | Tema | Carga | Status | Material |
 | :---: | :--- | :---: | :--- | :--- |
 | **UC7** | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [`uc7/README.md`](uc7/README.md) |
+| **UC IA** | Introdução a Arquitetura de Computadores | A confirmar | Migrada do repositório `senac-tecnico-ia`; em validação | [`ia-arquitetura-computadores/README.md`](ia-arquitetura-computadores/README.md) |
 
 ---
 

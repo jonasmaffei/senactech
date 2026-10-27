@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoramento em Tempo Real — Aula 14</title>
+<style>
+  body { margin:0; background:#020617; color:#e2e8f0;
+         font-family:"Segoe UI",system-ui,Arial,sans-serif; padding:28px; }
+  h1 { font-size:1.4rem; margin:0 0 4px; }
+  .sub { color:#94a3b8; font-size:.85rem; margin-bottom:18px; }
+  .status { display:inline-flex; align-items:center; gap:6px; font-size:.8rem;
+            color:#94a3b8; margin-left:10px; }
+  .ponto { width:9px; height:9px; border-radius:50%; background:#22c55e;
+           box-shadow:0 0 8px #22c55e; animation:pulsa 1.6s infinite; }
+  .ponto.off { background:#ef4444; box-shadow:0 0 8px #ef4444; animation:none; }
+  @keyframes pulsa { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+  .specs { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+           gap:12px 20px; max-width:1200px; margin-bottom:18px; }
+  .spec { background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:12px 16px; }
+  .spec .rotulo { font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:#64748b; }
+  .spec .valor { font-size:.98rem; font-weight:600; margin-top:4px; word-break:break-word; }
+  .spec .extra { font-size:.78rem; color:#94a3b8; margin-top:2px; }
+
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; max-width:1200px; }
+  .card { background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:14px 16px; }
+  .card h3 { margin:0 0 6px; font-size:.98rem; display:flex; justify-content:space-between; }
+  .card h3 .atual { font-weight:700; font-size:1.1rem; }
+  svg { width:100%; height:auto; border-radius:8px; }
+  .tag { display:inline-block; font-size:.75rem; color:#94a3b8; margin-top:16px; }
+  @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+  <h1>Monitoramento em Tempo Real — Aula 14</h1>
+  <div class="sub">
+    Backend de GPU: <b>{{ backend }}</b> · atualizações a cada {{ intervalo }}s ·
+    histórico de {{ max_amostras }} amostras
+    <span class="status" id="status">
+      <span class="ponto" id="ponto"></span><span id="status-txt">conectando…</span>
+    </span>
+  </div>
+
+  <div class="specs">
+    <div class="spec">
+      <div class="rotulo">Host</div>
+      <div class="valor">{{ specs.host or 'container' }}</div>
+      <div class="extra">{{ specs.so or '' }}</div>
+    </div>
+    <div class="spec">
+      <div class="rotulo">CPU</div>
+      <div class="valor">{{ specs.cpu_cores or '?' }} núcleos · {{ specs.cpu_threads or '?' }} threads</div>
+      <div class="extra">em uso agora: <b id="s-cpu">—</b></div>
+    </div>
+    <div class="spec">
+      <div class="rotulo">Memória RAM</div>
+      <div class="valor">{{ '%.1f'|format((specs.ram_total_mb or 0) / 1024) }} GB</div>
+      <div class="extra">em uso agora: <b id="s-ram">—</b></div>
+    </div>
+    <div class="spec">
+      <div class="rotulo">Placa de vídeo</div>
+      <div class="valor">{{ specs.gpu_nome or 'GPU' }}</div>
+      <div class="extra">VRAM total: <b id="s-vram">—</b></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3><span>🌡️ Temperatura da GPU</span><span class="atual" id="v-gpu-temp">—</span></h3>
+      <svg id="c-gpu-temp" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="card">
+      <h3><span>⚙️ Utilização da GPU</span><span class="atual" id="v-gpu-util">—</span></h3>
+      <svg id="c-gpu-util" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="card">
+      <h3><span>🧠 Utilização da CPU</span><span class="atual" id="v-cpu">—</span></h3>
+      <svg id="c-cpu" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="card">
+      <h3><span>🧩 Memória RAM usada</span><span class="atual" id="v-ram">—</span></h3>
+      <svg id="c-ram" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="card">
+      <h3><span>💾 VRAM usada</span><span class="atual" id="v-vram">—</span></h3>
+      <svg id="c-vram" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="card">
+      <h3><span>⚡ Potência da GPU</span><span class="atual" id="v-pot">—</span></h3>
+      <svg id="c-pot" viewBox="0 0 560 200" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+  </div>
+
+  <div class="tag">Gerado por servidor.py (Flask + SSE) · atualização ao vivo, sem recarregar a página.</div>
+
+<script>
+// ---------------------------------------------------------------------------
+// Painel em tempo real desenhado em SVG puro (sem bibliotecas externas).
+//
+// 1. Abre uma conexão SSE com /api/stream.
+// 2. Cada mensagem recebida é UMA amostra (JSON).
+// 3. Guarda as amostras em memória e redesenha os 6 gráficos.
+// ---------------------------------------------------------------------------
+
+const MAX = {{ max_amostras }};      // quantos pontos manter no gráfico
+const W = 560, H = 200, PAD = 30;
+
+// Séries de valores (uma por gráfico)
+const series = {
+  cpu: [], gpu_util: [], gpu_temp: [], ram: [], vram: [], pot: []
+};
+
+// Configuração de cada gráfico
+const graficos = {
+  cpu:      { cor: "#38bdf8", unidade: "%",  max: 100, valor: "v-cpu",       svg: "c-cpu" },
+  gpu_util: { cor: "#10b981", unidade: "%",  max: 100, valor: "v-gpu-util",  svg: "c-gpu-util" },
+  gpu_temp: { cor: "#ef4444", unidade: "°C", max: 100, valor: "v-gpu-temp",  svg: "c-gpu-temp" },
+  ram:      { cor: "#eab308", unidade: "GB", max: 100, valor: "v-ram",       svg: "c-ram" },
+  vram:     { cor: "#a855f7", unidade: "MB", max: 100, valor: "v-vram",      svg: "c-vram" },
+  pot:      { cor: "#f97316", unidade: "W",  max: 100, valor: "v-pot",       svg: "c-pot" },
+};
+
+// Desenha um gráfico de linha. Recebe a chave do gráfico e o array de valores.
+function desenhar(chave) {
+  const cfg = graficos[chave];
+  const svg = document.getElementById(cfg.svg);
+  const vals = series[chave];
+  const n = vals.length;
+  if (n === 0) return;
+
+  // Escala vertical: usa o máximo configurado ou o pico observado.
+  let ymax = cfg.max;
+  for (const v of vals) if (v !== null && v > ymax) ymax = v;
+
+  const pw = W - 2 * PAD, ph = H - 2 * PAD;
+
+  // Constrói os pontos da linha (ignora valores nulos).
+  let pontos = "";
+  let i = 0;
+  for (const v of vals) {
+    if (v !== null) {
+      const x = PAD + (n <= 1 ? pw / 2 : i * pw / (n - 1));
+      const y = H - PAD - (v * ph / ymax);
+      pontos += x + "," + y + " ";
+    }
+    i++;
+  }
+
+  // Grades + rótulos do eixo Y (0, 50%, 100%).
+  let grade = "";
+  for (const pct of [0, 50, 100]) {
+    const yv = Math.round(ymax * pct / 100);
+    const yy = H - PAD - (yv * ph / ymax);
+    grade += `<line x1="${PAD}" y1="${yy}" x2="${W - PAD}" y2="${yy}" stroke="#1e293b"/>`;
+    grade += `<text x="${PAD - 5}" y="${yy + 4}" fill="#94a3b8" font-size="10" text-anchor="end">${yv}</text>`;
+  }
+
+  svg.innerHTML = `
+    <rect x="0" y="0" width="${W}" height="${H}" fill="#0f172a"/>
+    ${grade}
+    <line x1="${PAD}" y1="${H - PAD}" x2="${W - PAD}" y2="${H - PAD}" stroke="#475569"/>
+    <line x1="${PAD}" y1="${PAD}" x2="${PAD}" y2="${H - PAD}" stroke="#475569"/>
+    <polyline fill="none" stroke="${cfg.cor}" stroke-width="2.5" points="${pontos}"/>
+    <text x="${W - PAD}" y="14" fill="#64748b" font-size="9" text-anchor="end">escala 0–${ymax} ${cfg.unidade}</text>
+  `;
+
+  // Valor atual no cabeçalho do cartão
+  const ultimo = [...vals].reverse().find(v => v !== null);
+  document.getElementById(cfg.valor).textContent =
+    ultimo === undefined ? "—" : ultimo + " " + cfg.unidade;
+}
+
+// Empurra uma amostra nova para as séries e atualiza tudo.
+function adicionar(amostra) {
+  const ram_gb = amostra.ram_usada_mb ? Math.round(amostra.ram_usada_mb / 1024) : null;
+  series.cpu.push(amostra.cpu_pct);
+  series.gpu_util.push(amostra.gpu_util_pct);
+  series.gpu_temp.push(amostra.gpu_temp_c);
+  series.ram.push(ram_gb);
+  series.vram.push(amostra.vram_usada_mb);
+  series.pot.push(amostra.gpu_potencia_w);
+
+  // Mantém no máximo MAX pontos por série.
+  for (const k in series) if (series[k].length > MAX) series[k].shift();
+
+  for (const k in graficos) desenhar(k);
+
+  // Atualiza os cartões de specs
+  document.getElementById("s-cpu").textContent = amostra.cpu_pct + " %";
+  document.getElementById("s-ram").textContent =
+    ram_gb + " GB / " + Math.round((amostra.ram_total_mb || 0) / 1024) + " GB";
+  if (amostra.vram_total_mb) {
+    document.getElementById("s-vram").textContent =
+      (amostra.vram_total_mb / 1024).toFixed(1) + " GB";
+  }
+}
+
+// ---------------------------------------------------------------------------
+// CONEXÃO SSE
+// ---------------------------------------------------------------------------
+const ponto = document.getElementById("ponto");
+const statusTxt = document.getElementById("status-txt");
+
+function conectar() {
+  const fonte = new EventSource("/api/stream");
+
+  fonte.onopen = () => {
+    ponto.classList.remove("off");
+    statusTxt.textContent = "ao vivo";
+  };
+
+  fonte.onmessage = (evento) => {
+    try {
+      adicionar(JSON.parse(evento.data));
+    } catch (e) {
+      console.error("Amostra inválida:", e);
+    }
+  };
+
+  fonte.onerror = () => {
+    ponto.classList.add("off");
+    statusTxt.textContent = "reconectando…";
+    // O EventSource tenta reconectar sozinho após alguns segundos.
+  };
+}
+
+// Carrega o histórico já existente e depois abre o fluxo ao vivo.
+fetch("/api/metricas")
+  .then(r => r.json())
+  .then(d => { d.amostras.forEach(adicionar); conectar(); })
+  .catch(() => conectar());
+</script>
+</body>
+</html>
