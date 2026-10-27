@@ -24,7 +24,7 @@ A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades d
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação. |
 | [`apresentacao_aula11.html`](apresentacao_aula11.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

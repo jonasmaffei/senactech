@@ -24,7 +24,7 @@ Os computadores da NexaTech precisam receber IP automaticamente e encontrar os s
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste. |
 | [`apresentacao_aula09.html`](apresentacao_aula09.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

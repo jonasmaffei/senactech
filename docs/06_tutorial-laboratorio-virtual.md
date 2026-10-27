@@ -4,6 +4,8 @@ Este laboratório permite executar todas as práticas da UC no **VirtualBox**, m
 
 A montagem é cumulativa: cada bloco adiciona serviços e validações à mesma rede interna.
 
+> **Opção automatizada:** a base do laboratório pode ser criada com **Vagrant + VirtualBox**. O `Vagrantfile`, os provisionamentos e os comandos estão em [`laboratorio_virtual/README.md`](../laboratorio_virtual/README.md). O tutorial abaixo continua válido como referência manual e para entender o que o Vagrant faz por baixo.
+
 ---
 
 ## Requisitos do computador
@@ -52,7 +54,7 @@ A montagem é cumulativa: cada bloco adiciona serviços e validações à mesma 
    - `192.168.10.20` - LNX01 (Ubuntu Server)
    - `192.168.10.30` - MON01 (Ubuntu Server)
    - `192.168.10.1` - gateway reservado para um futuro roteador/firewall
-5. O cliente CLI01 deve receber IP por **DHCP** a partir do DC01.
+5. No laboratório manual, o cliente CLI01 pode receber IP por **DHCP** a partir do DC01. No laboratório Vagrant, ele começa com `192.168.10.100` e pode ser alterado para DHCP na Aula 09 para testar o escopo.
 6. DNS dos clientes: `192.168.10.10`, após a instalação do Active Directory.
 7. DHCP:
    - `192.168.10.10` no Windows Server (escopo principal);

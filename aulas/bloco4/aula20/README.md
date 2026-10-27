@@ -24,7 +24,7 @@ A direção quer saber, antes dos usuários, quando um serviço cair, o disco en
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Plano de monitoramento com métricas, limiares, dashboards e alertas. |
 | [`apresentacao_aula20.html`](apresentacao_aula20.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

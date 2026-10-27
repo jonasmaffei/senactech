@@ -24,7 +24,7 @@ A equipe percebeu que verifica espaço em disco, serviços e backups manualmente
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Script de automação e plano de monitoramento do Windows Server. |
 | [`apresentacao_aula13.html`](apresentacao_aula13.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

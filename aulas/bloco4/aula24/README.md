@@ -24,7 +24,7 @@ Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, c
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Projeto integrador completo e defesa oral. |
 | [`apresentacao_aula24.html`](apresentacao_aula24.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

@@ -24,7 +24,7 @@ A NexaTech precisa que o servidor Linux também compartilhe arquivos com os clie
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Plano de backup e interoperabilidade com evidências de restauração. |
 | [`apresentacao_aula18.html`](apresentacao_aula18.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

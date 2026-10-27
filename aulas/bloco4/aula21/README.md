@@ -24,7 +24,7 @@ Um simulado de ransomware será executado na aula. A empresa precisa saber o que
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes. |
 | [`apresentacao_aula21.html`](apresentacao_aula21.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

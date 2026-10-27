@@ -24,7 +24,7 @@ A direção só libera a compra e a janela de manutenção depois de ver um plan
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite. |
 | [`apresentacao_aula05.html`](apresentacao_aula05.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

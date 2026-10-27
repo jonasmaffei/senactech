@@ -24,7 +24,7 @@ A equipe precisa definir quais serviços rodarão nos servidores e quais portas 
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Matriz de serviços, protocolos, portas e riscos da NexaTech. |
 | [`apresentacao_aula03.html`](apresentacao_aula03.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

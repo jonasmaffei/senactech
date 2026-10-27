@@ -12,7 +12,9 @@ aulas/
   projeto-integrador/
 ```
 
-Cada aula tem `README.md`, `atividade.md` e `apresentacao_aulaNN.html`. Os roteiros de laboratório no VirtualBox serão adicionados nas próximas etapas.
+> A base comum do laboratório fica em [`../laboratorio_virtual/`](../laboratorio_virtual/README.md), fora da pasta `aulas/`.
+
+Cada aula tem `README.md`, `atividade.md`, `apresentacao_aulaNN.html` e `laboratorio_virtual/README.md`. O laboratório usa Vagrant + VirtualBox e a base comum fica em [`../laboratorio_virtual/`](../laboratorio_virtual/README.md).
 
 ## Bloco 1 - Fundamentos e Planejamento
 

@@ -24,7 +24,7 @@ O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O q
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Runbook de operação do Linux Server. |
 | [`apresentacao_aula15.html`](apresentacao_aula15.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

@@ -200,6 +200,10 @@ senactech/
     bloco3/  README.md + aula14 ... aula19
     bloco4/  README.md + aula20 ... aula24
     projeto-integrador/README.md
+  laboratorio_virtual/
+    Vagrantfile
+    README.md
+    provision/
   questionarios/
     README.md
   docs/
@@ -219,11 +223,34 @@ aulaNN/
   README.md                  # guia da aula
   atividade.md               # atividade de pesquisa/prática
   apresentacao_aulaNN.html   # slides (pronto)
-  laboratorio_virtual/       # roteiro VirtualBox (a produzir)
+  laboratorio_virtual/       # roteiro Vagrant + VirtualBox
   scripts/                   # automação e apoio (a produzir)
 ```
 
-> As **apresentações HTML das 24 aulas** e as **atividades** já estão disponíveis. Os roteiros de laboratório no VirtualBox serão adicionados nas próximas etapas.
+> As **apresentações HTML das 24 aulas**, as **atividades** e os **roteiros de laboratório com Vagrant + VirtualBox** já estão disponíveis. A validação final do laboratório deve ser feita no computador do professor.
+
+---
+
+## Laboratório VirtualBox + Vagrant
+
+A base comum do laboratório fica em [`laboratorio_virtual/`](laboratorio_virtual/README.md) e cria quatro VMs:
+
+| VM | Papel | IP interno |
+| :--- | :--- | :--- |
+| **DC01** | Windows Server: AD, DNS, DHCP, arquivos e GPOs | `192.168.10.10` |
+| **LNX01** | Ubuntu Server: DNS, web, Samba e hardening | `192.168.10.20` |
+| **MON01** | Ubuntu Server: monitoramento e logs | `192.168.10.30` |
+| **CLI01** | Windows 11: cliente para testes | `192.168.10.100` |
+
+```bash
+cd laboratorio_virtual
+vagrant up
+vagrant status
+```
+
+> A rede interna é `rede-nexatech` (`192.168.10.0/24`). O primeiro adaptador de cada VM é NAT, para o Vagrant; o segundo é a rede interna da UC.
+
+Cada aula tem um roteiro próprio em `aulas/blocoN/aulaNN/laboratorio_virtual/README.md`.
 
 ---
 
@@ -263,8 +290,8 @@ Critérios transversais: funcionamento técnico, documentação, segurança, jus
 1. Leia o plano da aula em `aulas/blocoN/aulaNN/README.md`.
 2. Abra `apresentacao_aulaNN.html` no navegador e navegue com as setas.
 3. Abra `atividade.md` e confira a entrega.
-4. Use o laboratório VirtualBox da UC (`docs/06_tutorial-laboratorio-virtual.md`).
+4. Suba o laboratório com Vagrant + VirtualBox (`laboratorio_virtual/README.md`).
 5. Registre evidências (prints, comandos, configurações e testes).
 6. Atualize a documentação do projeto integrador a cada bloco.
 
-> **Pré-requisitos:** computador com virtualização habilitada, 8 GB de RAM ou mais (16 GB recomendado) e cerca de 80 GB livres em disco. Quando o laboratório físico não estiver disponível, as atividades podem ser feitas em VMs ou em nuvem gratuita.
+> **Pré-requisitos:** computador com virtualização habilitada, 8 GB de RAM ou mais (16 GB recomendado), cerca de 80 GB livres em disco e **VirtualBox + Vagrant** instalados. Quando o laboratório físico não estiver disponível, as atividades podem ser feitas nas VMs do [`laboratorio_virtual/`](laboratorio_virtual/README.md) ou em nuvem gratuita.

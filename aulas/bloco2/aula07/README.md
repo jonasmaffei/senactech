@@ -24,7 +24,7 @@ O primeiro servidor da NexaTech será o controlador de domínio e servidor de ar
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Checklist de instalação preenchida com evidências e configurações do servidor. |
 | [`apresentacao_aula07.html`](apresentacao_aula07.html) | Slides de conceito (abra no navegador) |
-| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

@@ -666,3 +666,5 @@ As práticas são realizadas no **VirtualBox**, montando uma infraestrutura clie
 - Snapshots antes de cada mudança relevante
 
 > Roteiro completo de montagem em [`06_tutorial-laboratorio-virtual.md`](06_tutorial-laboratorio-virtual.md).
+>
+> Versão automatizada com **Vagrant + VirtualBox** em [`laboratorio_virtual/README.md`](../laboratorio_virtual/README.md).
