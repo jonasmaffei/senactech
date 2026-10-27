@@ -53,7 +53,7 @@ Hoje não há servidores dedicados. Os arquivos ficam em um PC compartilhado, ca
 | 17 | Monitoramento | 4 | Dashboard e alerta |
 | 18 | Continuidade | 4 | RPO/RTO, backup e playbook |
 | 19 | Nuvem e governança | 4 | Parecer de nuvem e dossie |
-| 20 | Defesa final | 4 | Apresentação, demonstracao e documentação |
+| 20 | Defesa final | 4 | Apresentação, demonstração e documentação |
 
 ---
 
@@ -129,7 +129,7 @@ projeto-nexatech/
 | Linux Server e segurança | 20% | Instalação, serviços, hardening e backup |
 | Monitoramento e continuidade | 15% | Dashboard, alertas, RPO/RTO e teste de restauração |
 | Nuvem e governança | 10% | Análise de custo, risco, LGPD e processos |
-| Apresentação e defesa | 15% | Demonstracao, argumentacao e trabalho em equipe |
+| Apresentação e defesa | 15% | Demonstração, argumentacao e trabalho em equipe |
 
 Critérios eliminadores: ambiente que não autentica, perda de dados sem backup, senhas expostas ou serviço critico sem controle de acesso.
 

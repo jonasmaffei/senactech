@@ -23,8 +23,8 @@ A NexaTech precisa de uma intranet simples para comunicados e de uma forma segur
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Catálogo de serviços web e checklist de acesso remoto seguro. |
-| `apresentacao_aula12.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula12.html`](apresentacao_aula12.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

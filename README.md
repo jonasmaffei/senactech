@@ -118,53 +118,53 @@ As datas abaixo consideram 24 aulas de 4 h em dias úteis, com 20/11/2026 (feria
 
 > Redes locais, servidores, virtualização e plano de implantação
 
-| Aula | Tema | Guia | Atividade |
-| :---: | :--- | :---: | :---: |
-| **01** | O servidor na rede local e a UC7 | [Guia](aulas/bloco1/aula01/README.md) | [Atividade](aulas/bloco1/aula01/atividade.md) |
-| **02** | Arquitetura e topologia de rede local | [Guia](aulas/bloco1/aula02/README.md) | [Atividade](aulas/bloco1/aula02/atividade.md) |
-| **03** | Protocolos e serviços de rede | [Guia](aulas/bloco1/aula03/README.md) | [Atividade](aulas/bloco1/aula03/atividade.md) |
-| **04** | Hardware de servidor, armazenamento e virtualização | [Guia](aulas/bloco1/aula04/README.md) | [Atividade](aulas/bloco1/aula04/atividade.md) |
-| **05** | Planejamento da instalação e documentação | [Guia](aulas/bloco1/aula05/README.md) | [Atividade](aulas/bloco1/aula05/atividade.md) |
-| **06** | Laboratório virtual e plano diretor da rede | [Guia](aulas/bloco1/aula06/README.md) | [Atividade](aulas/bloco1/aula06/atividade.md) |
+| Aula | Tema | Apresentação | Guia | Atividade |
+| :---: | :--- | :---: | :---: | :---: |
+| **01** | O servidor na rede local e a UC7 | [Slides](aulas/bloco1/aula01/apresentacao_aula01.html) | [Guia](aulas/bloco1/aula01/README.md) | [Atividade](aulas/bloco1/aula01/atividade.md) |
+| **02** | Arquitetura e topologia de rede local | [Slides](aulas/bloco1/aula02/apresentacao_aula02.html) | [Guia](aulas/bloco1/aula02/README.md) | [Atividade](aulas/bloco1/aula02/atividade.md) |
+| **03** | Protocolos e serviços de rede | [Slides](aulas/bloco1/aula03/apresentacao_aula03.html) | [Guia](aulas/bloco1/aula03/README.md) | [Atividade](aulas/bloco1/aula03/atividade.md) |
+| **04** | Hardware de servidor, armazenamento e virtualização | [Slides](aulas/bloco1/aula04/apresentacao_aula04.html) | [Guia](aulas/bloco1/aula04/README.md) | [Atividade](aulas/bloco1/aula04/atividade.md) |
+| **05** | Planejamento da instalação e documentação | [Slides](aulas/bloco1/aula05/apresentacao_aula05.html) | [Guia](aulas/bloco1/aula05/README.md) | [Atividade](aulas/bloco1/aula05/atividade.md) |
+| **06** | Laboratório virtual e plano diretor da rede | [Slides](aulas/bloco1/aula06/apresentacao_aula06.html) | [Guia](aulas/bloco1/aula06/README.md) | [Atividade](aulas/bloco1/aula06/atividade.md) |
 
 ### Bloco 2 - Windows Server (Aulas 07 a 13)
 
 > Instalação, Active Directory, DNS/DHCP, arquivos, GPOs, serviços web e automação
 
-| Aula | Tema | Guia | Atividade |
-| :---: | :--- | :---: | :---: |
-| **07** | Instalação e configuração inicial do Windows Server | [Guia](aulas/bloco2/aula07/README.md) | [Atividade](aulas/bloco2/aula07/atividade.md) |
-| **08** | Active Directory Domain Services | [Guia](aulas/bloco2/aula08/README.md) | [Atividade](aulas/bloco2/aula08/atividade.md) |
-| **09** | DNS e DHCP no Windows Server | [Guia](aulas/bloco2/aula09/README.md) | [Atividade](aulas/bloco2/aula09/atividade.md) |
-| **10** | Compartilhamento de arquivos e permissões | [Guia](aulas/bloco2/aula10/README.md) | [Atividade](aulas/bloco2/aula10/atividade.md) |
-| **11** | GPOs e políticas de segurança | [Guia](aulas/bloco2/aula11/README.md) | [Atividade](aulas/bloco2/aula11/atividade.md) |
-| **12** | Serviços web, acesso remoto e administração | [Guia](aulas/bloco2/aula12/README.md) | [Atividade](aulas/bloco2/aula12/atividade.md) |
-| **13** | Automação e monitoramento no Windows Server | [Guia](aulas/bloco2/aula13/README.md) | [Atividade](aulas/bloco2/aula13/atividade.md) |
+| Aula | Tema | Apresentação | Guia | Atividade |
+| :---: | :--- | :---: | :---: | :---: |
+| **07** | Instalação e configuração inicial do Windows Server | [Slides](aulas/bloco2/aula07/apresentacao_aula07.html) | [Guia](aulas/bloco2/aula07/README.md) | [Atividade](aulas/bloco2/aula07/atividade.md) |
+| **08** | Active Directory Domain Services | [Slides](aulas/bloco2/aula08/apresentacao_aula08.html) | [Guia](aulas/bloco2/aula08/README.md) | [Atividade](aulas/bloco2/aula08/atividade.md) |
+| **09** | DNS e DHCP no Windows Server | [Slides](aulas/bloco2/aula09/apresentacao_aula09.html) | [Guia](aulas/bloco2/aula09/README.md) | [Atividade](aulas/bloco2/aula09/atividade.md) |
+| **10** | Compartilhamento de arquivos e permissões | [Slides](aulas/bloco2/aula10/apresentacao_aula10.html) | [Guia](aulas/bloco2/aula10/README.md) | [Atividade](aulas/bloco2/aula10/atividade.md) |
+| **11** | GPOs e políticas de segurança | [Slides](aulas/bloco2/aula11/apresentacao_aula11.html) | [Guia](aulas/bloco2/aula11/README.md) | [Atividade](aulas/bloco2/aula11/atividade.md) |
+| **12** | Serviços web, acesso remoto e administração | [Slides](aulas/bloco2/aula12/apresentacao_aula12.html) | [Guia](aulas/bloco2/aula12/README.md) | [Atividade](aulas/bloco2/aula12/atividade.md) |
+| **13** | Automação e monitoramento no Windows Server | [Slides](aulas/bloco2/aula13/apresentacao_aula13.html) | [Guia](aulas/bloco2/aula13/README.md) | [Atividade](aulas/bloco2/aula13/atividade.md) |
 
 ### Bloco 3 - Linux Server e Segurança (Aulas 14 a 19)
 
 > Instalação, operação, serviços de rede, hardening, arquivos, backup e integração
 
-| Aula | Tema | Guia | Atividade |
-| :---: | :--- | :---: | :---: |
-| **14** | Instalação e configuração inicial do Linux Server | [Guia](aulas/bloco3/aula14/README.md) | [Atividade](aulas/bloco3/aula14/atividade.md) |
-| **15** | Administração e operação do Linux | [Guia](aulas/bloco3/aula15/README.md) | [Atividade](aulas/bloco3/aula15/atividade.md) |
-| **16** | Serviços de rede no Linux: DNS, DHCP e web | [Guia](aulas/bloco3/aula16/README.md) | [Atividade](aulas/bloco3/aula16/atividade.md) |
-| **17** | Segurança em servidores Linux | [Guia](aulas/bloco3/aula17/README.md) | [Atividade](aulas/bloco3/aula17/atividade.md) |
-| **18** | Arquivos, backup e interoperabilidade Linux | [Guia](aulas/bloco3/aula18/README.md) | [Atividade](aulas/bloco3/aula18/atividade.md) |
-| **19** | Laboratório integrado e troubleshooting | [Guia](aulas/bloco3/aula19/README.md) | [Atividade](aulas/bloco3/aula19/atividade.md) |
+| Aula | Tema | Apresentação | Guia | Atividade |
+| :---: | :--- | :---: | :---: | :---: |
+| **14** | Instalação e configuração inicial do Linux Server | [Slides](aulas/bloco3/aula14/apresentacao_aula14.html) | [Guia](aulas/bloco3/aula14/README.md) | [Atividade](aulas/bloco3/aula14/atividade.md) |
+| **15** | Administração e operação do Linux | [Slides](aulas/bloco3/aula15/apresentacao_aula15.html) | [Guia](aulas/bloco3/aula15/README.md) | [Atividade](aulas/bloco3/aula15/atividade.md) |
+| **16** | Serviços de rede no Linux: DNS, DHCP e web | [Slides](aulas/bloco3/aula16/apresentacao_aula16.html) | [Guia](aulas/bloco3/aula16/README.md) | [Atividade](aulas/bloco3/aula16/atividade.md) |
+| **17** | Segurança em servidores Linux | [Slides](aulas/bloco3/aula17/apresentacao_aula17.html) | [Guia](aulas/bloco3/aula17/README.md) | [Atividade](aulas/bloco3/aula17/atividade.md) |
+| **18** | Arquivos, backup e interoperabilidade Linux | [Slides](aulas/bloco3/aula18/apresentacao_aula18.html) | [Guia](aulas/bloco3/aula18/README.md) | [Atividade](aulas/bloco3/aula18/atividade.md) |
+| **19** | Laboratório integrado e troubleshooting | [Slides](aulas/bloco3/aula19/apresentacao_aula19.html) | [Guia](aulas/bloco3/aula19/README.md) | [Atividade](aulas/bloco3/aula19/atividade.md) |
 
 ### Bloco 4 - Monitoramento, Nuvem, Governança e Projeto (Aulas 20 a 24)
 
 > Monitoramento, continuidade, nuvem, governança, certificações e defesa do projeto
 
-| Aula | Tema | Guia | Atividade |
-| :---: | :--- | :---: | :---: |
-| **20** | Monitoramento de servidores e serviços | [Guia](aulas/bloco4/aula20/README.md) | [Atividade](aulas/bloco4/aula20/atividade.md) |
-| **21** | Backup, continuidade e resposta a incidentes | [Guia](aulas/bloco4/aula21/README.md) | [Atividade](aulas/bloco4/aula21/atividade.md) |
-| **22** | Computação em nuvem e tecnologias emergentes | [Guia](aulas/bloco4/aula22/README.md) | [Atividade](aulas/bloco4/aula22/atividade.md) |
-| **23** | Governança de TI, segurança e certificações | [Guia](aulas/bloco4/aula23/README.md) | [Atividade](aulas/bloco4/aula23/atividade.md) |
-| **24** | Projeto integrador: apresentação e defesa | [Guia](aulas/bloco4/aula24/README.md) | [Atividade](aulas/bloco4/aula24/atividade.md) |
+| Aula | Tema | Apresentação | Guia | Atividade |
+| :---: | :--- | :---: | :---: | :---: |
+| **20** | Monitoramento de servidores e serviços | [Slides](aulas/bloco4/aula20/apresentacao_aula20.html) | [Guia](aulas/bloco4/aula20/README.md) | [Atividade](aulas/bloco4/aula20/atividade.md) |
+| **21** | Backup, continuidade e resposta a incidentes | [Slides](aulas/bloco4/aula21/apresentacao_aula21.html) | [Guia](aulas/bloco4/aula21/README.md) | [Atividade](aulas/bloco4/aula21/atividade.md) |
+| **22** | Computação em nuvem e tecnologias emergentes | [Slides](aulas/bloco4/aula22/apresentacao_aula22.html) | [Guia](aulas/bloco4/aula22/README.md) | [Atividade](aulas/bloco4/aula22/atividade.md) |
+| **23** | Governança de TI, segurança e certificações | [Slides](aulas/bloco4/aula23/apresentacao_aula23.html) | [Guia](aulas/bloco4/aula23/README.md) | [Atividade](aulas/bloco4/aula23/atividade.md) |
+| **24** | Projeto integrador: apresentação e defesa | [Slides](aulas/bloco4/aula24/apresentacao_aula24.html) | [Guia](aulas/bloco4/aula24/README.md) | [Atividade](aulas/bloco4/aula24/atividade.md) |
 
 
 ---
@@ -218,12 +218,12 @@ Cada pasta `aulaNN/` segue a estrutura:
 aulaNN/
   README.md                  # guia da aula
   atividade.md               # atividade de pesquisa/prática
-  apresentacao_aulaNN.html   # slides (a produzir)
-  laboratorio_virtual/       # roteiro e scripts das VMs (a produzir)
+  apresentacao_aulaNN.html   # slides (pronto)
+  laboratorio_virtual/       # roteiro VirtualBox (a produzir)
   scripts/                   # automação e apoio (a produzir)
 ```
 
-> Nesta primeira etapa, estão prontos o **plano completo das 24 aulas** e as **atividades**. As apresentações HTML e os laboratórios passo a passo serão adicionados nas próximas etapas.
+> As **apresentações HTML das 24 aulas** e as **atividades** já estão disponíveis. Os roteiros de laboratório no VirtualBox serão adicionados nas próximas etapas.
 
 ---
 
@@ -261,9 +261,10 @@ Critérios transversais: funcionamento técnico, documentação, segurança, jus
 ## Como usar este repositório
 
 1. Leia o plano da aula em `aulas/blocoN/aulaNN/README.md`.
-2. Abra `atividade.md` e confira a entrega.
-3. Use o laboratório virtual da UC (`docs/06_tutorial-laboratorio-virtual.md`).
-4. Registre evidências (prints, comandos, configurações e testes).
-5. Atualize a documentação do projeto integrador a cada bloco.
+2. Abra `apresentacao_aulaNN.html` no navegador e navegue com as setas.
+3. Abra `atividade.md` e confira a entrega.
+4. Use o laboratório VirtualBox da UC (`docs/06_tutorial-laboratorio-virtual.md`).
+5. Registre evidências (prints, comandos, configurações e testes).
+6. Atualize a documentação do projeto integrador a cada bloco.
 
 > **Pré-requisitos:** computador com virtualização habilitada, 8 GB de RAM ou mais (16 GB recomendado) e cerca de 80 GB livres em disco. Quando o laboratório físico não estiver disponível, as atividades podem ser feitas em VMs ou em nuvem gratuita.

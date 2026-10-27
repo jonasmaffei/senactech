@@ -646,18 +646,23 @@
 
 ---
 
-## Diretrizes de conducao
+## Diretrizes de condução
 
 1. Comece cada aula retomando o problema em aberto da aula anterior.
-2. Apresente o conceito com exemplos reais e demonstracao curta.
+2. Apresente o conceito com exemplos reais e demonstração curta.
 3. Reserve a maior parte do tempo para prática nas VMs.
 4. Feche com a entrega e o registro de evidências.
 5. Atualize o projeto integrador ao final de cada bloco.
 
 ## Materiais de laboratório
 
-- 1 VM Windows Server (4 GB RAM, 2 vCPU, 60 GB disco)
-- 1 VM Ubuntu Server (2 GB RAM, 2 vCPU, 20 GB disco)
-- 1 VM cliente Windows (4 GB RAM, 2 vCPU, 40 GB disco)
+As práticas são realizadas no **VirtualBox**, montando uma infraestrutura cliente/servidor cumulativa:
+
+- 1 VM Windows Server DC01 (4 GB RAM, 2 vCPU, 60 GB disco)
+- 1 VM Ubuntu Server LNX01 (2 GB RAM, 2 vCPU, 20 GB disco)
+- 1 VM Ubuntu Server MON01 (2 GB RAM, 2 vCPU, 20 GB disco)
+- 1 VM cliente Windows CLI01 (4 GB RAM, 2 vCPU, 40 GB disco)
 - Rede interna `rede-nexatech` em `192.168.10.0/24`
-- Snapshots antes de cada mudanca relevante
+- Snapshots antes de cada mudança relevante
+
+> Roteiro completo de montagem em [`06_tutorial-laboratorio-virtual.md`](06_tutorial-laboratorio-virtual.md).

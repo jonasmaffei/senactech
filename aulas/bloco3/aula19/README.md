@@ -23,8 +23,8 @@ Depois da implantação, os usuários começam a relatar problemas intermitentes
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Registro de troubleshooting e relatório do ambiente integrado. |
-| `apresentacao_aula19.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula19.html`](apresentacao_aula19.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

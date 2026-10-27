@@ -23,8 +23,8 @@ Para hospedar DNS secundário, intranet e monitoramento com custo baixo, a NexaT
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Checklist de instalação e hardening inicial do Linux Server. |
-| `apresentacao_aula14.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula14.html`](apresentacao_aula14.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

@@ -23,8 +23,8 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Diagnóstico inicial de uma página com os serviços que precisam ser centralizados. |
-| `apresentacao_aula01.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula01.html`](apresentacao_aula01.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

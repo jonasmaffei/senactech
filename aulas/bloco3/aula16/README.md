@@ -23,8 +23,8 @@ A NexaTech quer um DNS secundário, DHCP para a VLAN de visitantes e uma intrane
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Configurações comentadas e evidências dos testes dos três serviços. |
-| `apresentacao_aula16.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula16.html`](apresentacao_aula16.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

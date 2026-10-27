@@ -23,8 +23,8 @@ O orçamento permite um servidor físico e alguns computadores de laboratório. 
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade. |
-| `apresentacao_aula04.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula04.html`](apresentacao_aula04.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

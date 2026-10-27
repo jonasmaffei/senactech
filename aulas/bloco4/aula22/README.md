@@ -23,8 +23,8 @@ A direção pergunta se vale migrar arquivos, intranet e backup para a nuvem. A 
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Recomendação de nuvem para a NexaTech com análise de custo e risco. |
-| `apresentacao_aula22.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula22.html`](apresentacao_aula22.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

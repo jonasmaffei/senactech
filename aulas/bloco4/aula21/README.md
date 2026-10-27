@@ -23,8 +23,8 @@ Um simulado de ransomware será executado na aula. A empresa precisa saber o que
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes. |
-| `apresentacao_aula21.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula21.html`](apresentacao_aula21.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

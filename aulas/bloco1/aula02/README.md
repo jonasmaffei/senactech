@@ -23,8 +23,8 @@ A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Diagrama de rede e planilha de endereçamento IP da NexaTech. |
-| `apresentacao_aula02.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula02.html`](apresentacao_aula02.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

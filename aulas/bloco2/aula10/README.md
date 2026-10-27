@@ -23,8 +23,8 @@ A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compart
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Matriz de permissões e relatório de testes de acesso. |
-| `apresentacao_aula10.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula10.html`](apresentacao_aula10.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

@@ -24,7 +24,7 @@ git push origin main
 
 ## Boas práticas
 
-- Um commit por entrega ou mudanca relevante.
+- Um commit por entrega ou mudança relevante.
 - Mensagens claras: `Aula NN: o que foi feito`.
 - Nunca commitar senhas, chaves, arquivos `.iso` ou exports de VM.
 - Atualizar a documentação junto com a configuração.
@@ -38,4 +38,4 @@ aulaNN      -> rascunhos e experimentos de uma aula
 projeto     -> evolucao do projeto integrador
 ```
 
-> Para o dia a dia em sala, trabalhar direto na `main` e aceitável. Use branches quando a mudanca for grande ou arriscada.
+> Para o dia a dia em sala, trabalhar direto na `main` e aceitável. Use branches quando a mudança for grande ou arriscada.

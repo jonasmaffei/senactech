@@ -23,8 +23,8 @@ A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem c
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Estrutura do Active Directory documentada e teste de login no domínio. |
-| `apresentacao_aula08.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula08.html`](apresentacao_aula08.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos

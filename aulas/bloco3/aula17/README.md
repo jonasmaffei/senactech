@@ -23,8 +23,8 @@ A NexaTech sofreu tentativas de acesso SSH e precisa provar à diretoria que o s
 | Item | O que é |
 | :--- | :--- |
 | [`atividade.md`](atividade.md) | Entrega da aula: Relatório de auditoria de segurança com antes, depois e justificativas. |
-| `apresentacao_aula17.html` | Slides de conceito (a produzir) |
-| `laboratorio_virtual/` | Roteiro prático nas VMs (a produzir) |
+| [`apresentacao_aula17.html`](apresentacao_aula17.html) | Slides de conceito (abra no navegador) |
+| `laboratorio_virtual/` | Roteiro prático no VirtualBox (a produzir) |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
