@@ -20,8 +20,11 @@ Cada aula tem `README.md`, `atividade.md`, `apresentacao_aulaNN.html` e `laborat
 
 > Aulas 01 a 06 | 24 h | Redes locais, servidores, virtualização e plano de implantação
 
+> A **Aula 00** é a abertura da UC e não conta nas 24 aulas.
+
 | Aula | Tema | Apresentação | Guia |
 | :---: | :--- | :---: | :--- |
+| **00**| Quem sou eu e a UC7 (abertura da disciplina) | [Slides](bloco1/aula00/apresentacao_aula00.html) | [Guia](bloco1/aula00/README.md) |
 | **01**| O servidor na rede local e a UC7 | [Slides](bloco1/aula01/apresentacao_aula01.html) | [Guia](bloco1/aula01/README.md) |
 | **02**| Arquitetura e topologia de rede local | [Slides](bloco1/aula02/apresentacao_aula02.html) | [Guia](bloco1/aula02/README.md) |
 | **03**| Protocolos e serviços de rede | [Slides](bloco1/aula03/apresentacao_aula03.html) | [Guia](bloco1/aula03/README.md) |

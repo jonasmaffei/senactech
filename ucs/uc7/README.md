@@ -120,8 +120,11 @@ As datas abaixo consideram 24 aulas de 4 h em dias úteis, com 20/11/2026 (feria
 
 > Redes locais, servidores, virtualização e plano de implantação
 
+> A **Aula 00** é a abertura da UC (quem sou eu, a UC7, redes e VirtualBox) e não conta nas 24 aulas.
+
 | Aula | Tema | Apresentação | Guia | Atividade |
 | :---: | :--- | :---: | :---: | :---: |
+| **00** | Quem sou eu e a UC7 (abertura da disciplina e trajetória do professor) | [Slides](aulas/bloco1/aula00/apresentacao_aula00.html) | [Guia](aulas/bloco1/aula00/README.md) | - |
 | **01** | O servidor na rede local e a UC7 | [Slides](aulas/bloco1/aula01/apresentacao_aula01.html) | [Guia](aulas/bloco1/aula01/README.md) | [Atividade](aulas/bloco1/aula01/atividade.md) |
 | **02** | Arquitetura e topologia de rede local | [Slides](aulas/bloco1/aula02/apresentacao_aula02.html) | [Guia](aulas/bloco1/aula02/README.md) | [Atividade](aulas/bloco1/aula02/atividade.md) |
 | **03** | Protocolos e serviços de rede | [Slides](aulas/bloco1/aula03/apresentacao_aula03.html) | [Guia](aulas/bloco1/aula03/README.md) | [Atividade](aulas/bloco1/aula03/atividade.md) |
@@ -199,7 +202,7 @@ senactech/
       .context.md
       aulas/
         README.md
-        bloco1/  README.md + aula01 ... aula06
+        bloco1/  README.md + aula00 (abertura) + aula01 ... aula06
         bloco2/  README.md + aula07 ... aula13
         bloco3/  README.md + aula14 ... aula19
         bloco4/  README.md + aula20 ... aula24
