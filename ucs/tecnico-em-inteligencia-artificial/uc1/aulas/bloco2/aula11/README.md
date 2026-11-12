@@ -20,7 +20,7 @@ melhor escolha técnica e financeira.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula11.html`](apresentacao_aula11.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula11/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula11/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos portáveis** (FP32/FP16 + custo TCO) |
 | [`atividade.md`](atividade.md) | Atividade de pesquisa (engenharia + negócios) e discussão |
 
@@ -45,7 +45,7 @@ aula11/
 
 ### No Google Colab (recomendado — treino real)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula11/notebook_colab/aula11_aplicacao_modelos.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula11/notebook_colab/aula11_aplicacao_modelos.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Ambiente de execução ➔ Alterar tipo de ambiente ➔ **T4 GPU*** ➔ *Salvar*.
 3. Rode as células na ordem.

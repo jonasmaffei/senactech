@@ -20,7 +20,7 @@ problemas como **condições de corrida**, **deadlocks** e **subutilização de 
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula04.html`](apresentacao_aula04.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco1/aula04/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula04/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com hardware real** (`iniciar.bat`) |
 | [`atividade.md`](atividade.md) | Atividade guiada (medir paralelismo) + discussão em grupo |
 
@@ -41,7 +41,7 @@ aula04/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco1/aula04/notebook_colab/aula04_processos_threads.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula04/notebook_colab/aula04_processos_threads.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Runtime ➔ Change runtime type ➔ **T4 GPU*** ➔ *Save* (para a parte de CUDA).
 3. Rode as células na ordem.

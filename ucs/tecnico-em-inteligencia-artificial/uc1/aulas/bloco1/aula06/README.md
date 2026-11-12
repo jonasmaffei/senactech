@@ -20,7 +20,7 @@ ultrapassa 80°C**. Tudo isso via linha de comando Linux.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula06.html`](apresentacao_aula06.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco1/aula06/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula06/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com hardware real** (AMD/Windows, `iniciar.bat`) |
 | [`atividade.md`](atividade.md) | Atividade de pesquisa e discussão (tarefa de casa) |
 | `scripts/` | Bibliotecas/scripts **compartilhados** (opcional) |
@@ -51,7 +51,7 @@ aula06/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco1/aula06/notebook_colab/aula06_linux_gpu.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula06/notebook_colab/aula06_linux_gpu.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. Rode as células na ordem. As células com `!` usam o shell do Linux.
 

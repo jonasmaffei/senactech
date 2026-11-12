@@ -20,7 +20,7 @@ da solução de IA.
 | [`apresentacao_aula21.html`](apresentacao_aula21.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
 | [`atividade.md`](atividade.md) | Roteiro de pesquisa e tarefa de casa |
 
-> 🚫 **Sem código.** Esta aula não tem `scripts/`, `ucs/ia-arquitetura-computadores/aulas/bloco4-teorico/aula21/notebook_colab/` nem `laboratorio_windows/`.
+> 🚫 **Sem código.** Esta aula não tem `scripts/`, `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco4-teorico/aula21/notebook_colab/` nem `laboratorio_windows/`.
 
 ---
 

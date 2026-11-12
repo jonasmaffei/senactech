@@ -20,7 +20,7 @@ Sem esse conhecimento, o treinamento distribuído simplesmente não funciona.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula05.html`](apresentacao_aula05.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco1/aula05/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula05/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com rede real** (`iniciar.bat`) |
 | [`atividade.md`](atividade.md) | Atividade guiada (netcat/Wireshark, SSH/scp/rsync) + discussão |
 
@@ -41,7 +41,7 @@ aula05/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco1/aula05/notebook_colab/aula05_redes.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula05/notebook_colab/aula05_redes.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. Rode as células na ordem. Tudo funciona **offline** no loopback.
 

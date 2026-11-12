@@ -21,7 +21,7 @@ acessos à VRAM e atingir o desempenho esperado.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula08.html`](apresentacao_aula08.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula08/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula08/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`atividade.md`](atividade.md) | Atividade de pesquisa (engenharia + negócios) e discussão |
 | `scripts/` | Scripts comentados (coalescing, matmul, profiling, estresse) — **referência** |
 
@@ -57,7 +57,7 @@ aula08/
 
 ### No Google Colab (recomendado — **exige GPU NVIDIA**)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula08/notebook_colab/aula08_tiling.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula08/notebook_colab/aula08_tiling.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Runtime ➔ Change runtime type ➔ **T4 GPU*** ➔ *Save*.
 3. Rode as células na ordem.

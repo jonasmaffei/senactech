@@ -49,11 +49,11 @@ direito em um espaço vazio e escolha **"Open Git Bash here"**
 Se essa opção não aparecer, abra o Git Bash pelo Menu Iniciar e navegue até a pasta:
 
 ```bash
-cd /c/caminho/para/senactech/ucs/ia-arquitetura-computadores/aulas/bloco3/aula14/laboratorio_windows
+cd /c/caminho/para/senactech/ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula14/laboratorio_windows
 ```
 
 > 💡 No Git Bash, o disco `C:` é acessado como `/c/`. Exemplo:
-> `cd /c/Users/Jonas/Documents/repos/senactech/ucs/ia-arquitetura-computadores/aulas/bloco3/aula14/laboratorio_windows`
+> `cd /c/Users/Jonas/Documents/repos/senactech/ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula14/laboratorio_windows`
 
 ### 2. Dar permissão de execução (só na primeira vez)
 

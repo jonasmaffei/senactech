@@ -21,7 +21,7 @@ alcançar latência abaixo de **100 ms**.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula07.html`](apresentacao_aula07.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula07/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula07/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`atividade.md`](atividade.md) | Atividade guiada (kernels) + discussão em grupo |
 | `scripts/` | Scripts comentados (detecção de CUDA, kernels, FFT) — **referência** (não exigem GPU para explicar) |
 
@@ -55,7 +55,7 @@ aula07/
 
 ### No Google Colab (recomendado — **exige GPU NVIDIA**)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula07/notebook_colab/aula07_cuda.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula07/notebook_colab/aula07_cuda.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Runtime ➔ Change runtime type ➔ **T4 GPU*** ➔ *Save*.
 3. Rode as células na ordem.

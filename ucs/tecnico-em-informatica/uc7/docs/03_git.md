@@ -7,10 +7,10 @@ git clone https://github.com/jonasmaffei/senactech.git
 cd senactech
 ```
 
-> A UC7 fica em `ucs/uc7/`. Para trabalhar nela:
+> A UC7 fica em `ucs/tecnico-em-informatica/uc7/`. Para trabalhar nela:
 >
 > ```bash
-> cd ucs/uc7
+> cd ucs/tecnico-em-informatica/uc7
 > ```
 
 ## Atualizar antes da aula

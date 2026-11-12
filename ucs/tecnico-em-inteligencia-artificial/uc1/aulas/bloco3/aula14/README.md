@@ -19,7 +19,7 @@ perceber. A missão é automatizar a **coleta, o alerta e o dashboard** das mét
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula14.html`](apresentacao_aula14.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco3/aula14/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula14/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com hardware real** (Git Bash / AMD) |
 | [`scripts_linux/`](scripts_linux) | Scripts para **servidor Linux** (monitor, alerta, gráficos, Sheets) |
 | [`laboratorio_realtime-docker/`](laboratorio_realtime-docker/README.md) | Desafio extra: webservice Flask + SSE em Docker |
@@ -52,7 +52,7 @@ aula14/
    https://github.com/jonasmaffei/senactech
    ```
 5. O Colab irá listar os arquivos do repositório. Clique em:
-   `ucs/ia-arquitetura-computadores/aulas/bloco3/aula14/notebook_colab/aula14_automacao_gpu_bash.ipynb`
+   `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula14/notebook_colab/aula14_automacao_gpu_bash.ipynb`
 6. Pronto! O notebook abrirá na sua tela.
 
 ---
@@ -96,7 +96,7 @@ Por padrão, o Colab roda apenas com **CPU**. Para coletar métricas reais com `
 
 ## 🟢 Conteúdo do Notebook da Aula 14
 
-No notebook `ucs/ia-arquitetura-computadores/aulas/bloco3/aula14/notebook_colab/aula14_automacao_gpu_bash.ipynb`, você encontrará:
+No notebook `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula14/notebook_colab/aula14_automacao_gpu_bash.ipynb`, você encontrará:
 
 1. **Verificação do Ambiente** (detecção de GPU e `nvidia-smi`).
 2. **Teoria: `nvidia-smi`** — queries, formatos e campos úteis.

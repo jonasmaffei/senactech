@@ -21,7 +21,7 @@ o computador funciona por dentro e por que as GPUs são tão eficazes em IA.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula01.html`](apresentacao_aula01.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco1/aula01/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula01/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com hardware real** (`iniciar.bat`) |
 | [`atividade.md`](atividade.md) | Atividade de pesquisa e discussão em grupo |
 
@@ -42,7 +42,7 @@ aula01/
 
 1. Acesse o [Google Colab](https://colab.research.google.com/) e faça login.
 2. Aba **GitHub** → cole `https://github.com/jonasmaffei/senactech` → abra
-   `ucs/ia-arquitetura-computadores/aulas/bloco1/aula01/notebook_colab/aula01_arquiteturas_cpu_gpu.ipynb`.
+   `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula01/notebook_colab/aula01_arquiteturas_cpu_gpu.ipynb`.
 3. **Ative a GPU:** *Runtime ➔ Change runtime type ➔ **T4 GPU*** ➔ *Save*.
 4. Rode as células na ordem. A primeira detecta a GPU:
 

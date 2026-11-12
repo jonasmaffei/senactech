@@ -5,7 +5,7 @@
 **UC7 - Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores)**
 
 - **Carga horária:** 96 horas
-- **Curso:** Técnico em Inteligência Artificial (Senac)
+- **Curso:** Técnico em Informática (Senac)
 - **Organização didática:** 24 aulas de 4 horas, em 4 blocos
 - **Período de aulas:** 12/11/2026 a 17/12/2026
 - **Recesso:** 18/12/2026 a 22/01/2027

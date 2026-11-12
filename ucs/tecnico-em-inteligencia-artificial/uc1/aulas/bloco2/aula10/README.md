@@ -21,7 +21,7 @@ e rodar o modelo **ResNet-18** para comparar desempenho.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula10.html`](apresentacao_aula10.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula10/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula10/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com PyTorch** (portabilidade CUDA/ROCm) |
 | [`laboratorio_rocm-docker/`](laboratorio_rocm-docker/README.md) | **Lab industrial:** ROCm + PyTorch via Docker (GPUs AMD) |
 | [`laboratorio_verificar-gpu/`](laboratorio_verificar-gpu/README.md) | Verificar acesso à GPU no container (Windows/AMD) |
@@ -48,7 +48,7 @@ aula10/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula10/notebook_colab/aula10_rocm.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula10/notebook_colab/aula10_rocm.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. Rode as células na ordem. O notebook detecta CUDA (Colab) ou CPU.
 

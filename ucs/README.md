@@ -4,17 +4,17 @@ Este diretório reúne todas as Unidades Curriculares do monorepo **senactech**.
 
 Cada UC fica em uma pasta própria e é autocontida.
 
-| UC | Tema | Carga | Status | Material |
-| :---: | :--- | :---: | :--- | :--- |
-| **UC7** | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [`uc7/README.md`](uc7/README.md) |
-| **UC1** | Introdução a Arquitetura de Computadores (Técnico em Inteligência Artificial) | 63 h | Migrada do repositório `senac-tecnico-ia`; em validação | [`ia-arquitetura-computadores/README.md`](ia-arquitetura-computadores/README.md) |
+| UC | Curso | Tema | Carga | Status | Material |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [`tecnico-em-informatica/uc7/README.md`](tecnico-em-informatica/uc7/README.md) |
+| **UC1** | Técnico em Inteligência Artificial | Introdução a Arquitetura de Computadores | 63 h | Migrada do repositório `senac-tecnico-ia`; em validação | [`tecnico-em-inteligencia-artificial/uc1/README.md`](tecnico-em-inteligencia-artificial/uc1/README.md) |
 
 ---
 
 ## Estrutura de uma UC
 
 ```text
-ucs/<ucN>/
+ucs/<curso>/<ucN>/
   README.md
   requirements.txt
   AGENTS.md
@@ -48,7 +48,7 @@ ucs/<ucN>/
 
 ## Convenções
 
-- Nome da pasta: `ucN` (ex.: `uc7`, `uc8`) ou `ucN-slug` quando ajudar na identificação.
+- Estrutura: `ucs/<curso>/<ucN>/` (ex.: `ucs/tecnico-em-informatica/uc7/`, `ucs/tecnico-em-inteligencia-artificial/uc1/`).
 - O `README.md` da UC é a porta de entrada.
 - O plano de aulas fica em `docs/04_plano-de-aulas.md`.
 - Cada aula tem `README.md`, `atividade.md` e, quando aplicável, `apresentacao_aulaNN.html` e `laboratorio_virtual/README.md`.
@@ -59,7 +59,7 @@ ucs/<ucN>/
 
 ## Próximas UCs
 
-As próximas UCs devem ser criadas em `ucs/<ucN>/` e registradas na tabela acima.
+As próximas UCs devem ser criadas em `ucs/<curso>/<ucN>/` e registradas na tabela acima.
 
 Sugestão de fluxo:
 

@@ -22,7 +22,7 @@ git clone https://github.com/jonasmaffei/senactech
 # depois, para atualizar:  git pull
 
 # 2) Entre na pasta do laboratório
-cd senactech/ucs/ia-arquitetura-computadores/aulas/bloco2/aula10/laboratorio_verificar-gpu
+cd senactech/ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula10/laboratorio_verificar-gpu
 
 # 3) Construa a imagem
 docker build . -t verificar-gpu-container

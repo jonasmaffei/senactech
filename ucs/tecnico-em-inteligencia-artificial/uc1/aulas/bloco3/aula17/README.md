@@ -25,7 +25,7 @@ Windows do laboratório e no Colab.
 | :--- | :--- |
 | [`apresentacao_aula17.html`](apresentacao_aula17.html) | Slides **só conceito** (foco na versão Python; navegue com ← →) |
 | [`atividade.md`](atividade.md) | Roteiro prático e discussão |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco3/aula17/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** (demo enxuta + 5 exercícios) |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula17/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** (demo enxuta + 5 exercícios) |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Versão Python** dos scripts (roda no Windows, **sem Bash**) |
 
 ### Estrutura da aula
@@ -50,7 +50,7 @@ aula17/
 
 ### No Google Colab
 
-Abra `ucs/ia-arquitetura-computadores/aulas/bloco3/aula17/notebook_colab/aula17_automacao_gpu_python.ipynb` e resolva a seção **Exercícios (5)**.
+Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula17/notebook_colab/aula17_automacao_gpu_python.ipynb` e resolva a seção **Exercícios (5)**.
 
 ### No Windows (host local)
 

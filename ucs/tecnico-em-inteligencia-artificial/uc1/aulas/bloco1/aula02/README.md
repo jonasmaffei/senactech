@@ -20,7 +20,7 @@ precisa identificar objetos **em tempo real** numa câmera industrial. Antes de 
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula02.html`](apresentacao_aula02.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco1/aula02/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula02/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com hardware real** (`iniciar.bat`) |
 | [`atividade.md`](atividade.md) | Atividade guiada (QEMU/emulação) + discussão em grupo |
 | `scripts/lib_backend.py` | Biblioteca **compartilhada** (detecção de backend) usada pelo notebook e pelo lab |
@@ -43,7 +43,7 @@ aula02/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco1/aula02/notebook_colab/aula02_modelos_processamento.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco1/aula02/notebook_colab/aula02_modelos_processamento.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Runtime ➔ Change runtime type ➔ **T4 GPU*** ➔ *Save*.
 3. Rode as células na ordem.

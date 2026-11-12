@@ -1,6 +1,6 @@
 # 🧠 Introdução a Arquitetura de Computadores
 
-> Monorepo: [senactech](../../README.md) · [Índice de UCs](../README.md) · Introdução a Arquitetura de Computadores
+> Monorepo: [senactech](../../../README.md) · [Índice de UCs](../../README.md) · Introdução a Arquitetura de Computadores
 >
 > Material migrado do repositório `senac-tecnico-ia`. A versão oficial agora é este monorepo.
 
@@ -171,7 +171,7 @@ Os questionários de revisão ficam na pasta [`questionarios/`](questionarios/RE
 ## 🗂️ Estrutura do Repositório
 
 ```
-ucs/ia-arquitetura-computadores/
+ucs/tecnico-em-inteligencia-artificial/uc1/
 ├── README.md
 ├── requirements.txt
 ├── aulas/

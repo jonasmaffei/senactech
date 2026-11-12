@@ -22,7 +22,7 @@ Vamos resolver ambos: primeiro a **concorrência**, depois a **energia**.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula18_19.html`](apresentacao_aula18_19.html) | Slides **só conceito** (11 slides; navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/`](notebook_colab) | Notebook único no **Google Colab** (concorrência + energia) + **Exercícios (5)** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula18_19_dupla/notebook_colab/`](notebook_colab) | Notebook único no **Google Colab** (concorrência + energia) + **Exercícios (5)** |
 | [`laboratorio_concorrencia/`](laboratorio_concorrencia/README.md) | **Lab Python** (Windows): lock por diretório + fila por prioridade |
 | [`laboratorio_energia/`](laboratorio_energia/README.md) | **Lab Windows:** monitor térmico, alerta, benchmark de eficiência e Power Limit |
 | [`scripts_linux/`](scripts_linux) | Scripts para **servidor Linux + NVIDIA** (monitorar, definir PL, benchmark, alerta) |
@@ -47,7 +47,7 @@ aula18_19_dupla/
 
 ### No Google Colab (recomendado)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco3/aula18_19_dupla/notebook_colab/aula18_19_concorrencia_energia.ipynb` pelo **GitHub** no Colab.
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula18_19_dupla/notebook_colab/aula18_19_concorrencia_energia.ipynb` pelo **GitHub** no Colab.
 2. Rode as células na ordem. **Sem GPU NVIDIA**, tudo roda em **modo simulado** — os conceitos
    valem igual.
 

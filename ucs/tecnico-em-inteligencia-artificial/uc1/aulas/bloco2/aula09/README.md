@@ -21,7 +21,7 @@ hardware. Você tem **2h30** para entregar um protótipo funcional com benchmark
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula09.html`](apresentacao_aula09.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula09/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula09/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | **Experimentos com hardware real** (OpenCL na GPU AMD) |
 | [`atividade.md`](atividade.md) | Atividade (questões conceituais + pesquisa) e discussão |
 | [`tutorials/`](tutorials) | Tutoriais bônus: rodar **LLMs locais** com Ollama e Open WebUI |
@@ -44,7 +44,7 @@ aula09/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula09/notebook_colab/aula09_opencl.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula09/notebook_colab/aula09_opencl.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. Rode as células na ordem (a primeira instala o `pyopencl`).
 

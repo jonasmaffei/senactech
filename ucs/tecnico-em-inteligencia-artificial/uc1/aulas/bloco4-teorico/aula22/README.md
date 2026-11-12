@@ -17,7 +17,7 @@ construir a **narrativa** e apresentar a **decisão final** para a banca.
 | [`apresentacao_aula22.html`](apresentacao_aula22.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
 | [`atividade.md`](atividade.md) | Estrutura do relatório, roteiro da banca e entrega final |
 
-> 🚫 **Sem código.** Esta aula não tem `scripts/`, `ucs/ia-arquitetura-computadores/aulas/bloco4-teorico/aula22/notebook_colab/` nem `laboratorio_windows/`.
+> 🚫 **Sem código.** Esta aula não tem `scripts/`, `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco4-teorico/aula22/notebook_colab/` nem `laboratorio_windows/`.
 
 ---
 

@@ -133,7 +133,7 @@ git push origin main
 Quando o professor atualizar o repositório do curso ou um colega enviar alterações, navegue até a pasta do projeto em `Documentos/repositorios` e execute:
 
 ```bash
-cd ~/Documentos/repositorios/senactech/ucs/ia-arquitetura-computadores
+cd ~/Documentos/repositorios/senactech/ucs/tecnico-em-inteligencia-artificial/uc1
 git pull
 ```
 

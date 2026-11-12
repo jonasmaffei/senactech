@@ -19,7 +19,7 @@ escrever a mesma operação em 4 níveis de abstração e compará-las.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula13.html`](apresentacao_aula13.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula13/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com a implementação das 4 versões + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula13/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com a implementação das 4 versões + **5 exercícios** |
 | [`atividade.md`](atividade.md) | Roteiro de análise, mini-relatório e questionário (8–13) |
 
 ### Estrutura da aula
@@ -41,7 +41,7 @@ aula13/
 
 ### No Google Colab
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula13/notebook_colab/aula13_implementacao_modelo_paralelo.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula13/notebook_colab/aula13_implementacao_modelo_paralelo.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Ambiente de execução ➔ Alterar tipo de ambiente ➔ **T4 GPU*** ➔ *Salvar*.
 3. Rode as células na ordem.

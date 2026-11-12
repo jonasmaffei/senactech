@@ -19,7 +19,7 @@ modelo pré-treinado analisa avaliações de clientes **de verdade**.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula12.html`](apresentacao_aula12.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco2/aula12/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com os 5 experimentos + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula12/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com os 5 experimentos + **5 exercícios** |
 | [`atividade.md`](atividade.md) | Roteiro de experimentos, análise e discussão |
 | [`../../projeto-integrador/`](../../projeto-integrador/README.md) | **Projeto Integrador** (pesquisa aplicada) |
 
@@ -42,7 +42,7 @@ aula12/
 
 ### No Google Colab
 
-1. Abra `ucs/ia-arquitetura-computadores/aulas/bloco2/aula12/notebook_colab/aula12_pratica_colab.ipynb` pelo **GitHub** no Colab
+1. Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco2/aula12/notebook_colab/aula12_pratica_colab.ipynb` pelo **GitHub** no Colab
    (`https://github.com/jonasmaffei/senactech`).
 2. *Ambiente de execução ➔ Alterar tipo de ambiente ➔ **T4 GPU*** ➔ *Salvar*.
 3. Rode as células na ordem, mexendo nos **sliders e menus**.

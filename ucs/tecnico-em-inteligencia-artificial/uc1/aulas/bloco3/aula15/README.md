@@ -30,7 +30,7 @@ de exclusão mútua.
 | Item | O que é |
 | :--- | :--- |
 | [`apresentacao_aula15.html`](apresentacao_aula15.html) | Slides **só conceito** (abra no navegador, navegue com ← →) |
-| [`ucs/ia-arquitetura-computadores/aulas/bloco3/aula15/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
+| [`ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula15/notebook_colab/`](notebook_colab) | Notebook do **Google Colab** com explicação + **5 exercícios** |
 | [`laboratorio_windows/`](laboratorio_windows/README.md) | Laboratório prático em **Windows + Git Bash** (adaptado à GPU AMD) |
 | [`atividade.md`](atividade.md) | Atividade de pesquisa e discussão (tarefa de casa) |
 
@@ -51,7 +51,7 @@ aula15/
 
 ### No Google Colab (notebook + 5 exercícios)
 
-Abra `ucs/ia-arquitetura-computadores/aulas/bloco3/aula15/notebook_colab/aula15_processos_fila.ipynb` pelo **GitHub** no Colab. Como o Colab não
+Abra `ucs/tecnico-em-inteligencia-artificial/uc1/aulas/bloco3/aula15/notebook_colab/aula15_processos_fila.ipynb` pelo **GitHub** no Colab. Como o Colab não
 tem `flock`/`systemd`, os conceitos de **lock** e **fila** são **simulados em Python** com o
 mesmo comportamento.
 

@@ -1,14 +1,15 @@
 # UC7 - Sistemas Operacionais de Redes Locais (Servidores)
 
-> Monorepo: [senactech](../../README.md) · [Índice de UCs](../README.md) · UC7
+> Monorepo: [senactech](../../../README.md) · [Índice de UCs](../../README.md) · UC7 (Técnico em Informática)
 
 ![Windows Server](https://img.shields.io/badge/Windows_Server-2022%2F2025-blue)
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu%2FRocky-yellow)
 ![Redes](https://img.shields.io/badge/Redes-LAN_e_servidores-green)
 ![Carga horária](https://img.shields.io/badge/Carga_horaria-96h-orange)
 
-Material da **UC7 - Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores)** no monorepo **senactech**, do curso técnico do Senac.
+Material da **UC7 - Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores)** no monorepo **senactech**, do curso **Técnico em Informática** do Senac.
 
+**Curso:** Técnico em Informática  
 **Carga horária:** 96 horas  
 **Organização:** 24 aulas de 4 horas, em 4 blocos  
 **Perfil do egresso:** planeja, instala, configura, monitora e documenta servidores Windows e Linux em redes locais, com foco em segurança, disponibilidade e governança.
