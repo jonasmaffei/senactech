@@ -12,30 +12,30 @@
 
 | Aula | Data | Bloco | Tema | Entrega principal |
 | :---: | :---: | :---: | :--- | :--- |
-| **01** | 12/11/2026 | 1 | O servidor na rede local e a UC7 | Diagnóstico inicial de uma página com os serviços que precisam ser centralizados. |
-| **02** | 13/11/2026 | 1 | Arquitetura e topologia de rede local | Diagrama de rede e planilha de endereçamento IP da NexaTech. |
-| **03** | 16/11/2026 | 1 | Protocolos e serviços de rede | Matriz de serviços, protocolos, portas e riscos da NexaTech. |
-| **04** | 17/11/2026 | 1 | Hardware de servidor, armazenamento e virtualização | Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade. |
-| **05** | 18/11/2026 | 1 | Planejamento da instalação e documentação | Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite. |
-| **06** | 19/11/2026 | 1 | Laboratório virtual e plano diretor da rede | Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos. |
-| **07** | 23/11/2026 | 2 | Instalação e configuração inicial do Windows Server | Checklist de instalação preenchida com evidências e configurações do servidor. |
-| **08** | 24/11/2026 | 2 | Active Directory Domain Services | Estrutura do Active Directory documentada e teste de login no domínio. |
-| **09** | 25/11/2026 | 2 | DNS e DHCP no Windows Server | Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste. |
-| **10** | 26/11/2026 | 2 | Compartilhamento de arquivos e permissões | Matriz de permissões e relatório de testes de acesso. |
-| **11** | 27/11/2026 | 2 | GPOs e políticas de segurança | Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação. |
-| **12** | 30/11/2026 | 2 | Serviços web, acesso remoto e administração | Catálogo de serviços web e checklist de acesso remoto seguro. |
-| **13** | 01/12/2026 | 2 | Automação e monitoramento no Windows Server | Script de automação e plano de monitoramento do Windows Server. |
-| **14** | 02/12/2026 | 3 | Instalação e configuração inicial do Linux Server | Checklist de instalação e hardening inicial do Linux Server. |
-| **15** | 03/12/2026 | 3 | Administração e operação do Linux | Runbook de operação do Linux Server. |
-| **16** | 04/12/2026 | 3 | Serviços de rede no Linux: DNS, DHCP e web | Configurações comentadas e evidências dos testes dos três serviços. |
-| **17** | 07/12/2026 | 3 | Segurança em servidores Linux | Relatório de auditoria de segurança com antes, depois e justificativas. |
-| **18** | 09/12/2026 | 3 | Arquivos, backup e interoperabilidade Linux | Plano de backup e interoperabilidade com evidências de restauração. |
-| **19** | 10/12/2026 | 3 | Laboratório integrado e troubleshooting | Registro de troubleshooting e relatório do ambiente integrado. |
-| **20** | 11/12/2026 | 4 | Monitoramento de servidores e serviços | Plano de monitoramento com métricas, limiares, dashboards e alertas. |
-| **21** | 14/12/2026 | 4 | Backup, continuidade e resposta a incidentes | Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes. |
-| **22** | 15/12/2026 | 4 | Computação em nuvem e tecnologias emergentes | Recomendação de nuvem para a NexaTech com análise de custo e risco. |
-| **23** | 16/12/2026 | 4 | Governança de TI, segurança e certificações | Dossiê de governança de TI com catálogo, riscos e roadmap de certificações. |
-| **24** | 17/12/2026 | 4 | Projeto integrador: apresentação e defesa | Projeto integrador completo e defesa oral. |
+| **01** | 12/11/2026 | 1 | O servidor na rede local e a UC7 | **Diagnóstico inicial** — 1 página com os serviços a centralizar, dores e prioridades da NexaTech. |
+| **02** | 13/11/2026 | 1 | Arquitetura e topologia de rede local | **Diagrama de rede + planilha de endereçamento IP** — faixas, VLANs e reservas. |
+| **03** | 16/11/2026 | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos** — com justificativa de exposição. |
+| **04** | 17/11/2026 | 1 | Hardware de servidor, armazenamento e virtualização | **Especificação do servidor e das VMs** — CPU, RAM, disco e rede, com custo e capacidade. |
+| **05** | 18/11/2026 | 1 | Planejamento da instalação e documentação | **Plano de instalação e documentação** — cronograma, riscos e critérios de aceite. |
+| **06** | 19/11/2026 | 1 | Laboratório virtual e plano diretor da rede | **Plano Diretor da Rede** — topologia, IPs, serviços, cronograma e riscos. |
+| **07** | 23/11/2026 | 2 | Instalação e configuração inicial do Windows Server | **Checklist de instalação do Windows Server** — com evidências e configurações. |
+| **08** | 24/11/2026 | 2 | Active Directory Domain Services | **Documentação do Active Directory + evidência de login no domínio.** |
+| **09** | 25/11/2026 | 2 | DNS e DHCP no Windows Server | **Plano de DNS/DHCP** — zonas, escopos e reservas, com evidências dos testes. |
+| **10** | 26/11/2026 | 2 | Compartilhamento de arquivos e permissões | **Matriz de permissões + relatório de testes de acesso** — com evidências. |
+| **11** | 27/11/2026 | 2 | GPOs e políticas de segurança | **Catálogo de GPOs** — objetivo, escopo e configuração, com evidência de aplicação. |
+| **12** | 30/11/2026 | 2 | Serviços web, acesso remoto e administração | **Catálogo de serviços web + checklist de acesso remoto seguro.** |
+| **13** | 01/12/2026 | 2 | Automação e monitoramento no Windows Server | **Script de automação + plano de monitoramento do Windows Server.** |
+| **14** | 02/12/2026 | 3 | Instalação e configuração inicial do Linux Server | **Checklist de instalação do Linux Server + hardening inicial.** |
+| **15** | 03/12/2026 | 3 | Administração e operação do Linux | **Runbook de operação do Linux Server** — rotinas e contingências. |
+| **16** | 04/12/2026 | 3 | Serviços de rede no Linux: DNS, DHCP e web | **Configurações comentadas de DNS, DHCP e web + evidências dos testes.** |
+| **17** | 07/12/2026 | 3 | Segurança em servidores Linux | **Relatório de auditoria de segurança** — antes × depois e justificativas. |
+| **18** | 09/12/2026 | 3 | Arquivos, backup e interoperabilidade Linux | **Plano de backup e interoperabilidade + evidência de restauração.** |
+| **19** | 10/12/2026 | 3 | Laboratório integrado e troubleshooting | **Registro de troubleshooting + relatório do ambiente integrado.** |
+| **20** | 11/12/2026 | 4 | Monitoramento de servidores e serviços | **Plano de monitoramento** — métricas, limiares, dashboards e alertas. |
+| **21** | 14/12/2026 | 4 | Backup, continuidade e resposta a incidentes | **Mini plano de continuidade** — RPO/RTO, backups e playbook de incidentes. |
+| **22** | 15/12/2026 | 4 | Computação em nuvem e tecnologias emergentes | **Recomendação de nuvem para a NexaTech** — análise de custo × risco. |
+| **23** | 16/12/2026 | 4 | Governança de TI, segurança e certificações | **Dossiê de governança de TI** — catálogo, riscos e roadmap de certificações. |
+| **24** | 17/12/2026 | 4 | Projeto integrador: apresentação e defesa | **Projeto integrador completo + defesa oral.** |
 
 ## Detalhamento
 
