@@ -11,7 +11,7 @@ Cada UC é autocontida em uma pasta dentro de `ucs/`, com o seu próprio README,
 | UC | Tema | Carga | Status | Material |
 | :---: | :--- | :---: | :--- | :--- |
 | **UC7** | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [Abrir UC7](ucs/uc7/README.md) |
-| **UC IA** | Introdução a Arquitetura de Computadores | A confirmar | Migrada do repositório `senac-tecnico-ia`; em validação | [Abrir UC IA](ucs/ia-arquitetura-computadores/README.md) |
+| **UC1** | Introdução a Arquitetura de Computadores (Técnico em Inteligência Artificial) | 63 h | Migrada do repositório `senac-tecnico-ia`; em validação | [Abrir UC1](ucs/ia-arquitetura-computadores/README.md) |
 
 > Novas UCs serão adicionadas em `ucs/<ucN>/` e registradas em [`ucs/README.md`](ucs/README.md).
 
@@ -93,7 +93,7 @@ A UC7 está organizada em **24 aulas de 4 h**, divididas em quatro blocos:
 3. Linux Server e Segurança
 4. Monitoramento, Nuvem, Governança e Projeto
 
-### UC IA - Introdução a Arquitetura de Computadores
+### UC1 - Introdução a Arquitetura de Computadores
 
 | Recurso | Link |
 | :--- | :--- |
@@ -138,7 +138,7 @@ Material migrado do repositório `senac-tecnico-ia`: **24 aulas**, notebooks Col
 ## Status geral
 
 - **UC7:** material completo, com 24 aulas, 24 apresentações HTML, 24 atividades, 24 roteiros de laboratório e laboratório Vagrant + VirtualBox. Falta validar o laboratório no computador do professor.
-- **UC IA:** conteúdo migrado do repositório `senac-tecnico-ia`, com 24 aulas, notebooks Colab, laboratórios e projeto integrador. Falta revisar a integração ao monorepo e confirmar a carga horária oficial.
+- **UC1:** conteúdo migrado do repositório `senac-tecnico-ia`, com 24 aulas, notebooks Colab, laboratórios e projeto integrador. É a UC1 do curso Técnico em Inteligência Artificial, com carga horária de 63 h. Falta revisar a integração ao monorepo.
 - **Próximas UCs:** a estrutura do monorepo já está pronta para recebê-las.
 
 ---
@@ -151,4 +151,4 @@ A documentação específica de cada UC fica dentro da própria UC. Documentos v
 
 > Para detalhes da UC7, comece por [`ucs/uc7/README.md`](ucs/uc7/README.md).
 >
-> Para detalhes da UC IA, comece por [`ucs/ia-arquitetura-computadores/README.md`](ucs/ia-arquitetura-computadores/README.md).
+> Para detalhes da UC1, comece por [`ucs/ia-arquitetura-computadores/README.md`](ucs/ia-arquitetura-computadores/README.md).

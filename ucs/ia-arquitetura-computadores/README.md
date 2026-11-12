@@ -4,6 +4,8 @@
 >
 > Material migrado do repositório `senac-tecnico-ia`. A versão oficial agora é este monorepo.
 
+**UC1** do curso **Técnico em Inteligência Artificial** · **Carga horária: 63 h**
+
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-yellow.svg)](https://www.python.org/)
 [![CUDA](https://img.shields.io/badge/CUDA-12.x-green.svg)](https://developer.nvidia.com/cuda-toolkit)
 [![ROCm](https://img.shields.io/badge/ROCm-6.x-red.svg)](https://www.amd.com/en/products/software/rocm.html)
