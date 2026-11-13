@@ -1,20 +1,20 @@
-# Aula 02 - Arquitetura e topologia de rede local
+# Aula 02 - O servidor na rede local e a UC7
 
-**Data sugerida:** 13/11/2026 (sexta-feira)  
-**Bloco:** 1 - Fundamentos e Planejamento  
-**Carga:** 4 horas
+**Data sugerida:** 16/11/2026 (segunda-feira)
+**Bloco:** 1 - Fundamentos e Planejamento
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
+Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
 
 ---
 
 ## Situação de aprendizagem
 
-A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para visitantes e vai receber servidores. Antes de comprar equipamentos, é preciso desenhar a topologia e definir o plano de endereços.
+A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
 
 ---
 
@@ -22,37 +22,36 @@ A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Diagrama de rede e planilha de endereçamento IP da NexaTech. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Diagnóstico inicial de uma página com os serviços que precisam ser centralizados. |
 | [`apresentacao_aula02.html`](apresentacao_aula02.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Topologias estrela, barramento, anel e malha |
-| Cabeamento Cat5e/Cat6, fibra óptica e patch panel |
-| Rack, switch, roteador, firewall e access point |
-| VLANs e segmentação por setor |
-| IPv4: classes, máscara, CIDR e sub-redes |
-| IPv6 e endereçamento dual stack |
-| Documentação de rede e plano de IPs |
+| Modelo cliente/servidor e redes peer-to-peer |
+| Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem |
+| Serviços essenciais de uma LAN corporativa |
+| On-premise, nuvem e ambiente híbrido |
+| Ciclo de vida: planejar, instalar, configurar, monitorar e manter |
+| Ética profissional, LGPD e segurança da informação |
 
 ### Ferramentas
 
-draw.io ou diagrams.net, planilha, calculadora de sub-redes
+Planilha, editor de texto, draw.io ou diagrams.net
 
 ---
 
 ## Prática em laboratório
 
-Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 06.
+Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
 
-1. Desenhar a topologia física e lógica da NexaTech
-2. Calcular sub-redes para administração, vendas, suporte, servidores e visitantes
-3. Montar a planilha de endereços e reservas
-4. Revisar o diagrama com a turma e corrigir inconsistências
+1. Inventariar os recursos e as dores da NexaTech
+2. Classificar os serviços entre essenciais, importantes e opcionais
+3. Montar um mapa inicial de serviços e responsáveis
+4. Definir os papéis da equipe e o fluxo de documentação
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +59,24 @@ Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 
 
 ## Atividade
 
-- **Entrega:** Diagrama de rede e planilha de endereçamento IP da NexaTech.
+- **Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Qual decisão de topologia ou segmentação reduz mais o risco de um problema em um setor afetar toda a empresa?
+- **Pergunta de reflexão:** Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
 
 ---
 
 ## Relação com o projeto
 
-Transforma o diagnóstico da Aula 01 em uma planta de rede concreta.
+Abre a UC e estabelece o problema de negócio que será resolvido ao longo das 32 aulas.
 
-**O que fica em aberto:** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
+**O que fica em aberto:** Quais serviços serão necessários e como eles se conectam fisicamente?
 
-**Impacto de negócio:** Um plano de IP e VLAN bem feito evita conflitos, lentidão e falhas de segurança.
+**Impacto de negócio:** Evita compras e instalações sem critério, reduzindo custo e retrabalho.
 
 
 ## Próxima aula
 
-**Aula 03 - Protocolos e serviços de rede.** Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.
+**Aula 03 - Arquitetura e topologia de rede local.** Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
 
 ---
 

@@ -1,6 +1,6 @@
-# Atividade - Aula 19: Laboratório integrado e troubleshooting
+# Atividade - Aula 19: Serviços web (IIS), acesso remoto e administração
 
-**Entrega:** Registro de troubleshooting e relatório do ambiente integrado.  
+**Entrega:** Catálogo de serviços web no IIS + checklist de acesso remoto seguro.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Integrar serviços Windows e Linux e diagnosticar falhas comuns em um ambiente misto.
+Publicar serviços web no Windows Server e configurar administração remota segura.
 
 ## Contexto
 
-Depois da implantação, os usuários começam a relatar problemas intermitentes: login lento, nomes que não resolvem, pastas inacessíveis e intranet fora do ar. A equipe precisa de método, não de chute.
+Além do servidor Linux, a NexaTech quer comparar a publicação web no Windows e precisa administrar o servidor sem expor RDP ou HTTP sem proteção.
 
 ## O que deve ser entregue
 
-Registro de troubleshooting e relatório do ambiente integrado.
+Catálogo de serviços web no IIS + checklist de acesso remoto seguro.
 
 ## Etapas
 
-1. Resolver cenários de falha preparados pelo docente
-2. Registrar sintoma, hipótese, teste e solução
-3. Validar o ambiente integrado de ponta a ponta
-4. Atualizar a documentação com as correções
+1. Publicar uma intranet simples no IIS
+2. Configurar HTTPS com certificado de teste
+3. Restringir o RDP por firewall
+4. Administrar por Windows Admin Center ou WinRM
+5. Documentar portas e acessos
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Registro de troubleshooting e relatório do ambiente integrado.
 
 ## Para refletir
 
-Como o registro do diagnóstico ajuda a equipe a não repetir o mesmo erro no futuro?
+Quais diferenças de operação e segurança existem entre publicar no IIS e no Apache?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Como o registro do diagnóstico ajuda a equipe a não repetir o mesmo erro no fu
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

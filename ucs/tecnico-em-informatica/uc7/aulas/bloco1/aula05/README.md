@@ -1,20 +1,20 @@
-# Aula 05 - Planejamento da instalação e documentação
+# Aula 05 - Hardware de servidor, armazenamento e RAID
 
-**Data sugerida:** 18/11/2026 (quarta-feira)  
-**Bloco:** 1 - Fundamentos e Planejamento  
-**Carga:** 4 horas
+**Data sugerida:** 19/11/2026 (quinta-feira)
+**Bloco:** 1 - Fundamentos e Planejamento
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Produzir um plano de instalação com requisitos, riscos, backup, licenciamento e cronograma.
+Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.
 
 ---
 
 ## Situação de aprendizagem
 
-A direção só libera a compra e a janela de manutenção depois de ver um plano claro. É preciso mostrar o que será feito, em que ordem, com quais riscos e como voltar atrás se algo falhar.
+O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória, discos e RAID antes de comprar.
 
 ---
 
@@ -22,37 +22,37 @@ A direção só libera a compra e a janela de manutenção depois de ver um plan
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID. |
 | [`apresentacao_aula05.html`](apresentacao_aula05.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Levantamento e priorização de requisitos |
-| Escopo, cronograma e marcos de entrega |
-| Licenciamento Windows Server, CALs e software livre |
-| Backup 3-2-1 e política de retenção |
-| Segurança física e lógica |
-| Gestão de mudanças e plano de reversão |
-| Documentação: inventário, diagramas, runbooks e critérios de aceite |
+| BIOS/UEFI, POST e CMOS |
+| CPU, núcleos, memória ECC e placas de rede |
+| Discos SAS, SATA e NVMe |
+| RAID 0, 1, 5, 6 e 10 |
+| Tolerância a falhas e desempenho |
+| Fontes redundantes, hot swap e gerenciamento remoto |
 
 ### Ferramentas
 
-Editor de texto, planilha, modelo de plano de projeto
+Planilha de orçamento, calculadora de RAID, editor de texto
 
 ---
 
 ## Prática em laboratório
 
-Planejamento documental; as VMs da Aula 04 são usadas como referência de capacidade.
+Dimensionamento do servidor físico que futuramente dará lugar às VMs.
 
-1. Criar a checklist de pré-instalação
-2. Montar a matriz de riscos com probabilidade, impacto e resposta
-3. Definir a ordem de instalação dos serviços
-4. Escrever os critérios de aceite de cada entrega
+1. Comparar duas configurações de servidor com custo e desempenho
+2. Calcular a capacidade útil de cada arranjo RAID
+3. Escolher discos, memória e fonte com justificativa
+4. Montar a planilha de especificação
+5. Apresentar a proposta e os riscos
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Planejamento documental; as VMs da Aula 04 são usadas como referência de capac
 
 ## Atividade
 
-- **Entrega:** Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite.
+- **Entrega:** Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Qual risco do plano tem maior impacto no negócio e qual medida simples reduz esse risco?
+- **Pergunta de reflexão:** Quando o RAID aumenta a disponibilidade e quando apenas dá uma falsa sensação de segurança?
 
 ---
 
 ## Relação com o projeto
 
-Organiza a execução das aulas seguintes e evita improviso na configuração.
+Define a base física que sustenta a infraestrutura da NexaTech.
 
-**O que fica em aberto:** O plano está no papel; falta montar o laboratório e validar a rede de ponta a ponta.
+**O que fica em aberto:** Com o hardware definido, é preciso virtualizar para aproveitar melhor a capacidade.
 
-**Impacto de negócio:** Planejamento reduz paradas não programadas e facilita a aprovação orçamentária.
+**Impacto de negócio:** Dimensionamento correto evita gasto excessivo e gargalos previsíveis.
 
 
 ## Próxima aula
 
-**Aula 06 - Laboratório virtual e plano diretor da rede.** Com a base pronta, qual sistema operacional será instalado e configurado primeiro?
+**Aula 06 - Virtualização e criação de VMs no VirtualBox.** Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
 
 ---
 

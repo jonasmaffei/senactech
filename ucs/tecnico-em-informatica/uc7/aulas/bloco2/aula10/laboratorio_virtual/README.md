@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 10: Compartilhamento de arquivos e permissões
+# Laboratório VirtualBox - Aula 10: Controlador de domínio e ingresso de clientes
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Matriz de permissões e relatório de testes de acesso.
+**Entrega da aula:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
 
 ---
 
 ## Objetivo
 
-Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.
+Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
 
 ## VMs desta aula
 
-DC01 e CLI01.
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Criar pastas por setor e compartilhar via SMB
-2. Aplicar permissões NTFS usando grupos
-3. Configurar quotas e cópias de sombra
-4. Mapear unidades e testar acessos permitidos e negados
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS e promover nexatech.local
+3. Configurar o CLI01 com o DNS do DC01
+4. Ingressar o CLI01 e fazer login com usuário do domínio
+5. Validar com whoami /fqdn e registrar eventos
 
 ## Testes e evidências
 
@@ -42,25 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 cli01
-vagrant winrm dc01 -c "hostname"
-vagrant winrm cli01 -c "ipconfig /all"
-vagrant rdp dc01
-vagrant snapshot save dc01 antes-ad
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula10"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula10"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Entrega o serviço que mais afeta o dia a dia dos usuários da NexaTech.
+Entrega o núcleo de identidade da NexaTech.
 
-**O que fica em aberto:** As permissões estão corretas, mas precisam ser aplicadas de forma padronizada em todos os computadores.
+**O que fica em aberto:** Organizar setores, usuários e grupos dentro do domínio recém-criado.
 
 ---
 

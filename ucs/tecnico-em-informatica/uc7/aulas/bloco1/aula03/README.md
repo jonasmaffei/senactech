@@ -1,20 +1,20 @@
-# Aula 03 - Protocolos e serviços de rede
+# Aula 03 - Arquitetura e topologia de rede local
 
-**Data sugerida:** 16/11/2026 (segunda-feira)  
-**Bloco:** 1 - Fundamentos e Planejamento  
-**Carga:** 4 horas
+**Data sugerida:** 17/11/2026 (terça-feira)
+**Bloco:** 1 - Fundamentos e Planejamento
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
+Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
 
 ---
 
 ## Situação de aprendizagem
 
-A equipe precisa definir quais serviços rodarão nos servidores e quais portas deverão ser liberadas no firewall. Um erro nessa matriz pode deixar a rede insegura ou quebrar serviços essenciais.
+A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para visitantes e vai receber servidores. Antes de comprar equipamentos, é preciso desenhar a topologia e definir o plano de endereços.
 
 ---
 
@@ -22,37 +22,37 @@ A equipe precisa definir quais serviços rodarão nos servidores e quais portas 
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Matriz de serviços, protocolos, portas e riscos da NexaTech. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Diagrama de rede e planilha de endereçamento IP da NexaTech. |
 | [`apresentacao_aula03.html`](apresentacao_aula03.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Modelo OSI e pilha TCP/IP |
-| TCP versus UDP |
-| Portas essenciais: DNS 53, DHCP 67/68, HTTP 80, HTTPS 443, SMB 445, SSH 22, RDP 3389, LDAP 389/636 |
-| DNS: hierarquia, tipos de registro e resolução |
-| DHCP: descoberta, oferta, requisição e confirmação |
-| HTTP/HTTPS, SMB, SSH, NTP e SNMP |
-| Ferramentas de diagnóstico e captura de pacotes |
+| Topologias estrela, barramento, anel e malha |
+| Cabeamento Cat5e/Cat6, fibra óptica e patch panel |
+| Rack, switch, roteador, firewall e access point |
+| VLANs e segmentação por setor |
+| IPv4: endereço, máscara e notação CIDR |
+| IPv6 e endereçamento dual stack |
+| Documentação de rede e plano de IPs |
 
 ### Ferramentas
 
-Prompt de comando, PowerShell, Wireshark, nslookup, dig, netstat/ss
+draw.io ou diagrams.net, planilha
 
 ---
 
 ## Prática em laboratório
 
-Diagnóstico de rede no host e captura de tráfego local.
+Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 06.
 
-1. Testar conectividade com ping, tracert e Test-NetConnection
-2. Consultar nomes com nslookup e dig
-3. Observar portas abertas com netstat ou ss
-4. Capturar uma requisição HTTP no Wireshark e identificar as camadas
+1. Desenhar a topologia física e lógica da NexaTech
+2. Definir a distribuição de IPs por setor
+3. Montar a planilha de endereços e reservas
+4. Revisar o diagrama com a turma e corrigir inconsistências
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Diagnóstico de rede no host e captura de tráfego local.
 
 ## Atividade
 
-- **Entrega:** Matriz de serviços, protocolos, portas e riscos da NexaTech.
+- **Entrega:** Diagrama de rede e planilha de endereçamento IP da NexaTech.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por qué a mesma porta pode ser necessária para o serviço e, ao mesmo tempo, representar um risco de segurança?
+- **Pergunta de reflexão:** Qual decisão de topologia ou segmentação reduz mais o risco de um problema em um setor afetar toda a empresa?
 
 ---
 
 ## Relação com o projeto
 
-Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.
+Transforma o diagnóstico da Aula 01 em uma planta de rede concreta.
 
-**O que fica em aberto:** Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.
+**O que fica em aberto:** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
 
-**Impacto de negócio:** Uma matriz de portas correta reduz indisponibilidade e exposição desnecessária.
+**Impacto de negócio:** Um plano de IP e VLAN bem feito evita conflitos, lentidão e falhas de segurança.
 
 
 ## Próxima aula
 
-**Aula 04 - Hardware de servidor, armazenamento e virtualização.** Com o laboratório pronto, é preciso um plano de implantação para não configurar tudo de forma desordenada.
+**Aula 04 - Protocolos e serviços de rede.** Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
 
 ---
 

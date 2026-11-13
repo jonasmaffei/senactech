@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 20: Monitoramento de servidores e serviços
+# Laboratório VirtualBox - Aula 20: Instalação e configuração inicial do Ubuntu Server
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Plano de monitoramento com métricas, limiares, dashboards e alertas.
+**Entrega da aula:** Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SSH e evidências.
 
 ---
 
 ## Objetivo
 
-Implementar monitoramento de métricas, logs e alertas para os servidores da NexaTech.
+Instalar o Ubuntu Server sem interface gráfica nas VMs APP01 e DB01, particionar o disco e configurar rede, SSH e atualizações.
 
 ## VMs desta aula
 
-MON01, DC01 e LNX01.
+APP01 e DB01 (instalação do Ubuntu Server). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Instalar Zabbix ou Prometheus/Grafana na VM de monitoramento
-2. Adicionar o Windows Server e o Linux como hosts monitorados
-3. Criar um dashboard com CPU, memória, disco e disponibilidade
-4. Configurar um alerta e testar a notificação
+1. Criar a VM com dois adaptadores (NAT e rede interna)
+2. Particionar: EFI 200 MB, / 20 GB ext4, /home 25 GB ext4 e swap
+3. Instalar sem ambiente gráfico
+4. Configurar IP estático 192.168.10.20 e hostname
+5. Instalar SSH, atualizar o sistema e configurar o ufw
 
 ## Testes e evidências
 
@@ -42,23 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up mon01 dc01 lnx01
-vagrant ssh mon01
-vagrant ssh lnx01
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula20"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula20"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Inicia o Bloco 4 transformando o ambiente instalado em um serviço observável.
+Entrega o servidor Linux base da NexaTech.
 
-**O que fica em aberto:** Monitorar detecta falhas; é preciso também recuperar dados e continuar operando.
+**O que fica em aberto:** Aprender a operar serviços, processos, logs e agendamentos.
 
 ---
 

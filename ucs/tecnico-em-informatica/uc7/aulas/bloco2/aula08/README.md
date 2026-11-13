@@ -1,20 +1,20 @@
-# Aula 08 - Active Directory Domain Services
+# Aula 08 - Instalação e configuração inicial do Windows Server
 
-**Data sugerida:** 24/11/2026 (terça-feira)  
-**Bloco:** 2 - Windows Server  
-**Carga:** 4 horas
+**Data sugerida:** 25/11/2026 (quarta-feira)
+**Bloco:** 2 - Windows Server
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+Instalar o Windows Server e executar a configuração inicial segura do servidor.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
+O primeiro servidor da NexaTech será o controlador de domínio e servidor de arquivos. A instalação precisa sair do padrão inseguro de fábrica e já nascer com nome, rede, atualizações e administração remota definidos.
 
 ---
 
@@ -22,37 +22,38 @@ A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem c
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Estrutura do Active Directory documentada e teste de login no domínio. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Checklist de instalação preenchida com evidências e configurações do servidor. |
 | [`apresentacao_aula08.html`](apresentacao_aula08.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Conceitos de domínio, floresta, árvore e controlador de domínio |
-| LDAP, Kerberos e dependência do DNS |
-| Promoção do servidor a controlador de domínio |
-| Unidades organizacionais por setor |
-| Usuários, grupos, UPN e políticas de senha |
-| Ingresso de clientes no domínio |
-| Boas práticas de separação de privilégios |
+| Edições Standard e Datacenter |
+| Desktop Experience versus Server Core |
+| Requisitos de hardware e virtualização |
+| Instalação e configuração pós-instalação |
+| Nome do host, fuso horário, rede estática e ativação |
+| Funções e recursos do Windows Server |
+| Windows Admin Center, RSAT e administração remota |
+| Licenciamento e CALs |
 
 ### Ferramentas
 
-Windows Server, Active Directory Users and Computers, RSAT
+VirtualBox/Hyper-V, ISO do Windows Server, Windows Admin Center
 
 ---
 
 ## Prática em laboratório
 
-Domínio nexatech.local ativo com estrutura de OUs e usuários.
+Instalação completa do Windows Server no laboratório virtual.
 
-1. Promover o servidor a controlador do domínio nexatech.local
-2. Criar OUs para Administração, Vendas, Suporte e Servidores
-3. Criar usuários e grupos de segurança
-4. Ingressar um cliente Windows no domínio e testar login
+1. Instalar o Windows Server na VM do laboratório
+2. Definir nome, IP estático, DNS e fuso horário
+3. Executar atualizações e ativar o sistema
+4. Instalar as funções iniciais e habilitar administração remota
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +61,24 @@ Domínio nexatech.local ativo com estrutura de OUs e usuários.
 
 ## Atividade
 
-- **Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.
+- **Entrega:** Checklist de instalação preenchida com evidências e configurações do servidor.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?
+- **Pergunta de reflexão:** Por que Server Core é preferível em muitos servidores de produção, mesmo sendo menos visual?
 
 ---
 
 ## Relação com o projeto
 
-Transforma o servidor instalado na Aula 07 em uma autoridade de autenticação.
+Inicia o Bloco 2 instalando a base que receberá o Active Directory.
 
-**O que fica em aberto:** O domínio precisa de DNS confiável e de endereçamento automático para os clientes.
+**O que fica em aberto:** Um servidor isolado não autentica ninguém; é preciso criar o domínio.
 
-**Impacto de negócio:** Autenticação centralizada reduz contas soltas e facilita desligamentos e auditorias.
+**Impacto de negócio:** Uma instalação padronizada reduz falhas e facilita suporte e auditoria.
 
 
 ## Próxima aula
 
-**Aula 09 - DNS e DHCP no Windows Server.** Com nomes e endereços resolvidos, os usuários precisam de pastas e permissões.
+**Aula 09 - Active Directory Domain Services.** Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
 
 ---
 

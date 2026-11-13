@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 10 - Compartilhamento de arquivos e permissões | UC7</title>
+<title>Aula 10 - Controlador de domínio e ingresso de clientes | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,113 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 10</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 2 · Aula 10</span>
-      <h1>Compartilhamento de arquivos e permissões</h1>
-      <p class="lead">Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.</p>
+      <h1>Controlador de domínio e ingresso de clientes</h1>
+      <p class="lead">Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.</p>
       <div class="meta-row">
-        <span class="pill">26/11/2026 · quinta-feira</span>
+        <span class="pill">27/11/2026 (sexta-feira)</span>
         <span class="pill">Windows Server</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compartilhada sem controle. A diretoria quer acesso por setor, rastreabilidade e possibilidade de recuperar arquivos apagados.</p>
-        </div>
+        <div><p class="lead">O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.</p></div>
         <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Matriz de permissões e relatório de testes de acesso.</p>
-          </div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.</p></div>
+          <div class="card"><h3>Entrega principal</h3><p>Evidência de promoção do controlador de domínio e login do CLI01 no domínio.</p></div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>SMB e compartilhamentos de rede</h3></div><div class="card"><span class="card-num">02</span><h3>Permissões de compartilhamento versus NTFS</h3></div><div class="card"><span class="card-num">03</span><h3>Herança, acesso efetivo e princípio do menor privilégio</h3></div><div class="card"><span class="card-num">04</span><h3>Modelo AGDLP: contas, grupos globais, grupos locais de domínio e permissões</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Domínio, floresta, árvore e controlador de domínio</h3></div><div class="card"><span class="card-num">02</span><h3>DNS integrado ao AD e registros SRV</h3></div><div class="card"><span class="card-num">03</span><h3>Promoção do servidor e reinício</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Quotas e File Server Resource Manager</h3></div><div class="card"><span class="card-num">06</span><h3>Shadow Copies e versões anteriores</h3></div><div class="card"><span class="card-num">07</span><h3>Backup, DFS e auditoria de acesso</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Ingresso do cliente e credenciais de domínio</h3></div><div class="card"><span class="card-num">05</span><h3>Contas de computador e GPO padrão</h3></div><div class="card"><span class="card-num">06</span><h3>Diagnóstico com dcdiag e nltest</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Servidor de arquivos com pastas departamentais e permissões testadas.</p>
+      <p class="lead">Criação do domínio e ingresso do cliente Windows.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar pastas por setor e compartilhar via SMB</li><li>Aplicar permissões NTFS usando grupos</li><li>Configurar quotas e cópias de sombra</li><li>Mapear unidades e testar acessos permitidos e negados</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Windows Server, Explorador de Arquivos, FSRM, PowerShell</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Verificar IP e DNS do DC01</li><li>Instalar a função AD DS e promover nexatech.local</li><li>Configurar o CLI01 com o DNS do DC01</li><li>Ingressar o CLI01 e fazer login com usuário do domínio</li><li>Validar com whoami /fqdn e registrar eventos</li></ol></div>
+        <div class="card"><h3>Ferramentas e ambiente</h3><p>Server Manager, PowerShell, Active Directory Users and Computers</p>
+          <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <div class="topology" aria-label="Topologia do laboratório">
+      <div class="top-node client"><strong>CLI01 / CLI02</strong><span>cliente Windows</span><small>IP via DHCP</small></div>
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
+        <div class="top-node dc"><strong>DC01</strong><span>Windows Server</span><small>192.168.10.10</small></div>
+        <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
+        <div class="top-node mon"><strong>DB01</strong><span>Ubuntu Server</span><small>192.168.10.30</small></div>
       </div>
     </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM DC01 (Windows Server). Use a VM CLI01 como cliente para testar login, DNS, DHCP, arquivos e políticas.</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Matriz de permissões e relatório de testes de acesso.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
+      <div class="card highlight"><h3>Evidência de promoção do controlador de domínio e login do CLI01 no domínio.</h3>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
       <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+        <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Por que a permissão efetiva é a mais restritiva entre compartilhamento e NTFS?</blockquote>
+      <blockquote>Por que o DNS é pré-requisito do Active Directory?</blockquote>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Controle de acesso a arquivos reduz vazamentos, perdas e retrabalho jurídico.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>As permissões estão corretas, mas precisam ser aplicadas de forma padronizada em todos os computadores.</p>
-        </div>
+        <div class="card"><h3>Impacto no negócio</h3><p>Centraliza a autenticação e elimina contas locais espalhadas pela empresa.</p></div>
+        <div class="card"><h3>O que fica em aberto</h3><p>Organizar setores, usuários e grupos dentro do domínio recém-criado.</p></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Entrega o serviço que mais afeta o dia a dia dos usuários da NexaTech.</p>
+      <p class="lead">Entrega o núcleo de identidade da NexaTech.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Matriz de permissões e relatório de testes de acesso.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>As permissões estão corretas, mas precisam ser aplicadas de forma padronizada em todos os computadores.</p>
-        </div>
+        <div class="card"><h3>Entrega que sustenta o projeto</h3><p>Evidência de promoção do controlador de domínio e login do CLI01 no domínio.</p></div>
+        <div class="card"><h3>Próximo gargalo</h3><p>Organizar setores, usuários e grupos dentro do domínio recém-criado.</p></div>
       </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Permissões de compartilhamento e NTFS se combinam; vale a mais restritiva.</li><li>Grupos bem estruturados simplificam a manutenção e reduzem erros.</li><li>Shadow Copies e backup são complementares, não substitutos.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 11 - GPOs e políticas de segurança</strong>
-          <p>O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.</p>
-        </div>
-        
+      <ul class="check"><li>O controlador de domínio concentra autenticação e informações do diretório.</li><li>O cliente precisa apontar para o DNS do DC para encontrar o domínio.</li><li>dcdiag e nltest ajudam a diagnosticar problemas de domínio.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 11 - Unidades organizacionais, grupos e usuários</strong><p>Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

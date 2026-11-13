@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 11 - GPOs e políticas de segurança | UC7</title>
+<title>Aula 11 - Unidades organizacionais, grupos e usuários | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,113 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 11</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 2 · Aula 11</span>
-      <h1>GPOs e políticas de segurança</h1>
-      <p class="lead">Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.</p>
+      <h1>Unidades organizacionais, grupos e usuários</h1>
+      <p class="lead">Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.</p>
       <div class="meta-row">
-        <span class="pill">27/11/2026 · sexta-feira</span>
+        <span class="pill">30/11/2026 (segunda-feira)</span>
         <span class="pill">Windows Server</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div>
-          <p class="lead">A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades de rede mapeadas manualmente. A equipe precisa padronizar isso sem visitar cada computador.</p>
-        </div>
+        <div><p class="lead">A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.</p></div>
         <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.</p>
-          </div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.</p></div>
+          <div class="card"><h3>Entrega principal</h3><p>Estrutura de OUs, grupos e usuários documentada, com evidência de logins.</p></div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Objetos de GPO, escopo e herança</h3></div><div class="card"><span class="card-num">02</span><h3>Ordem de precedência e filtragem de segurança</h3></div><div class="card"><span class="card-num">03</span><h3>Política de senha e bloqueio de conta</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Unidades organizacionais e delegação</h3></div><div class="card"><span class="card-num">02</span><h3>Usuários, grupos de segurança e grupos de distribuição</h3></div><div class="card"><span class="card-num">03</span><h3>UPN, senha e políticas de conta</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>Firewall, atualizações e restrições de software</h3></div><div class="card"><span class="card-num">05</span><h3>Mapeamento de unidades e impressoras</h3></div><div class="card"><span class="card-num">06</span><h3>Auditoria e diagnóstico com gpresult e RSOP</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Grupos globais, locais de domínio e universais</h3></div><div class="card"><span class="card-num">05</span><h3>Modelo AGDLP</h3></div><div class="card"><span class="card-num">06</span><h3>Menor privilégio e contas administrativas</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">GPOs aplicadas em OUs específicas e validadas em clientes.</p>
+      <p class="lead">Modelagem dos setores e das contas da NexaTech.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar GPO de política de senha e bloqueio de tela</li><li>Mapear unidades de rede e impressoras por setor</li><li>Aplicar configurações de firewall e atualizações</li><li>Validar com gpresult e testar com usuários de OUs diferentes</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Group Policy Management Console, gpresult, RSOP</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar as OUs ADM, RH, PROD e TI</li><li>Criar grupos de segurança por setor</li><li>Criar usuários e adicionar aos grupos</li><li>Testar login de um usuário comum</li><li>Documentar a estrutura criada</li></ol></div>
+        <div class="card"><h3>Ferramentas e ambiente</h3><p>Active Directory Users and Computers, PowerShell</p>
+          <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <div class="topology" aria-label="Topologia do laboratório">
+      <div class="top-node client"><strong>CLI01 / CLI02</strong><span>cliente Windows</span><small>IP via DHCP</small></div>
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
+        <div class="top-node dc"><strong>DC01</strong><span>Windows Server</span><small>192.168.10.10</small></div>
+        <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
+        <div class="top-node mon"><strong>DB01</strong><span>Ubuntu Server</span><small>192.168.10.30</small></div>
       </div>
     </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM DC01 (Windows Server). Use a VM CLI01 como cliente para testar login, DNS, DHCP, arquivos e políticas.</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
+      <div class="card highlight"><h3>Estrutura de OUs, grupos e usuários documentada, com evidência de logins.</h3>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
       <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+        <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Como a herança e a precedência de GPOs podem fazer uma política funcionar em um setor e falhar em outro?</blockquote>
+      <blockquote>Por que é melhor conceder permissão a grupos do que a usuários individuais?</blockquote>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Políticas centralizadas reduzem falhas humanas e custo de suporte.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.</p>
-        </div>
+        <div class="card"><h3>Impacto no negócio</h3><p>Permite aplicar regras por setor e reduz o esforço de administração.</p></div>
+        <div class="card"><h3>O que fica em aberto</h3><p>Publicar serviços de rede que dependem do domínio: DNS e DHCP.</p></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Aplica em escala as permissões e padrões definidos nas aulas anteriores.</p>
+      <p class="lead">Organiza a identidade e as permissões da NexaTech.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.</p>
-        </div>
+        <div class="card"><h3>Entrega que sustenta o projeto</h3><p>Estrutura de OUs, grupos e usuários documentada, com evidência de logins.</p></div>
+        <div class="card"><h3>Próximo gargalo</h3><p>Publicar serviços de rede que dependem do domínio: DNS e DHCP.</p></div>
       </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>GPOs aplicam configurações em massa e devem ser testadas antes da produção.</li><li>Herança e precedência explicam por que uma política pode não ter o efeito esperado.</li><li>Políticas de senha, bloqueio de tela e firewall são controles mínimos de segurança.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 12 - Serviços web, acesso remoto e administração</strong>
-          <p>Serviços publicados precisam de rotinas automáticas de verificação e monitoramento.</p>
-        </div>
-        
+      <ul class="check"><li>OUs organizam objetos e permitem delegar administração.</li><li>Grupos simplificam a concessão de permissões.</li><li>O modelo AGDLP evita permissões diretas a usuários.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 12 - DNS no Windows Server</strong><p>Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

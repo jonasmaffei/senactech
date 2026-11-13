@@ -1,20 +1,20 @@
-# Aula 13 - Automação e monitoramento no Windows Server
+# Aula 13 - DHCP no Windows Server
 
-**Data sugerida:** 01/12/2026 (terça-feira)  
-**Bloco:** 2 - Windows Server  
-**Carga:** 4 horas
+**Data sugerida:** 02/12/2026 (quarta-feira)
+**Bloco:** 2 - Windows Server
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Automatizar tarefas rotineiras e monitorar a saúde do Windows Server com ferramentas nativas.
+Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.
 
 ---
 
 ## Situação de aprendizagem
 
-A equipe percebeu que verifica espaço em disco, serviços e backups manualmente todos os dias. Isso consome tempo e ainda deixa falhas passarem. É hora de automatizar e registrar evidências.
+Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.
 
 ---
 
@@ -22,37 +22,37 @@ A equipe percebeu que verifica espaço em disco, serviços e backups manualmente
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Script de automação e plano de monitoramento do Windows Server. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Plano de DHCP com escopo, exclusões, reservas e evidências de concessão. |
 | [`apresentacao_aula13.html`](apresentacao_aula13.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| PowerShell: cmdlets, pipeline, variáveis e scripts |
-| Agendador de Tarefas |
-| Visualizador de Eventos e logs |
-| Monitor de Desempenho e conjuntos de coletores |
-| Windows Update e WSUS |
-| Relatórios de backup e alertas |
-| PowerShell Remoting e boas práticas de script |
+| Escopo, faixa e exclusões |
+| Opções 003, 006 e 015 |
+| Reservas e tempo de concessão |
+| Autorização do DHCP no AD |
+| Failover e boas práticas |
+| Testes com ipconfig e logs |
 
 ### Ferramentas
 
-PowerShell, Task Scheduler, Event Viewer, Performance Monitor
+DHCP Console, PowerShell, ipconfig
 
 ---
 
 ## Prática em laboratório
 
-Rotina automatizada de verificação e coleta de métricas no Windows Server.
+Criação do escopo DHCP da LAN da NexaTech.
 
-1. Criar script que verifica disco, serviços e eventos críticos
-2. Agendar o script no Task Scheduler
-3. Criar um data collector set no Performance Monitor
-4. Gerar um relatório simples e analisar os resultados
+1. Criar o escopo 192.168.10.100-200
+2. Definir gateway e DNS nas opções
+3. Reservar IPs para servidores e impressoras
+4. Autorizar e ativar o escopo
+5. Testar a concessão em um cliente
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Rotina automatizada de verificação e coleta de métricas no Windows Server.
 
 ## Atividade
 
-- **Entrega:** Script de automação e plano de monitoramento do Windows Server.
+- **Entrega:** Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** O que deve ser monitorado para prever uma falha antes que o usuário perceba?
+- **Pergunta de reflexão:** Quais riscos existem ao entregar um gateway ou DNS errado via DHCP?
 
 ---
 
 ## Relação com o projeto
 
-Fecha o Bloco 2 com o ambiente Windows operável e observável.
+Completa o serviço de endereçamento da NexaTech.
 
-**O que fica em aberto:** A empresa também precisa de serviços abertos e de baixo custo; entra o Linux.
+**O que fica em aberto:** Controlar o acesso aos dados compartilhados com permissões adequadas.
 
-**Impacto de negócio:** Automação reduz tempo de reação e libera a equipe para tarefas de maior valor.
+**Impacto de negócio:** Reduz trabalho manual e evita erros de configuração nos clientes.
 
 
 ## Próxima aula
 
-**Aula 14 - Instalação e configuração inicial do Linux Server.** Instalado o sistema, é preciso aprender a operá-lo no dia a dia.
+**Aula 14 - Compartilhamento de arquivos, permissões e quotas.** Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.
 
 ---
 

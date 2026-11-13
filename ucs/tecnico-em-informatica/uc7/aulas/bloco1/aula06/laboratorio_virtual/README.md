@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 06: Laboratório virtual e plano diretor da rede
+# Laboratório VirtualBox - Aula 06: Virtualização e criação de VMs no VirtualBox
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.
+**Entrega da aula:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
 
 ---
 
 ## Objetivo
 
-Montar o laboratório virtual e consolidar o plano diretor da rede da NexaTech.
+Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
 
 ## VMs desta aula
 
-DC01, LNX01 e CLI01 (validação da rede interna).
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Criar a rede interna rede-nexatech em 192.168.10.0/24
-2. Configurar IP estático nas VMs e testar conectividade
-3. Tirar snapshot limpo de cada VM
-4. Consolidar o plano diretor em um único documento
+1. Criar a VM e nomear conforme o padrão da UC
+2. Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)
+3. Criar disco virtual de 40 GB e revisar o tipo
+4. Adicionar adaptador NAT e adaptador de rede interna
+5. Iniciar a VM, testar a rede e tirar o snapshot baseline
 
 ## Testes e evidências
 
@@ -42,26 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 lnx01 cli01
-vagrant winrm dc01 -c "ipconfig"
-vagrant ssh lnx01 -c "ping -c 3 192.168.10.10"
-vagrant winrm cli01 -c "ping 192.168.10.10"
-vagrant snapshot save dc01 baseline-dc01
-vagrant snapshot save lnx01 baseline-lnx01
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula06"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula06"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Fecha o Bloco 1 com o laboratório pronto e o plano aprovado para a instalação dos serviços.
+Cria a plataforma que hospedará todos os servidores da NexaTech.
 
-**O que fica em aberto:** Com a base pronta, qual sistema operacional será instalado e configurado primeiro?
+**O que fica em aberto:** Definir quantas VMs o host suporta e como a rede interna será montada.
 
 ---
 

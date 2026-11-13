@@ -1,6 +1,6 @@
-# Atividade - Aula 18: Arquivos, backup e interoperabilidade Linux
+# Atividade - Aula 18: pfSense: firewall, NAT e liberação de internet
 
-**Entrega:** Plano de backup e interoperabilidade com evidências de restauração.  
+**Entrega:** Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Configurar compartilhamento de arquivos, backup e integração do Linux com clientes Windows.
+Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação da LAN.
 
 ## Contexto
 
-A NexaTech precisa que o servidor Linux também compartilhe arquivos com os clientes Windows e que os dados sejam recuperáveis após exclusão acidental ou falha.
+Com o pfSense no lugar, os clientes da rede interna precisam navegar sem expor a LAN.
 
 ## O que deve ser entregue
 
-Plano de backup e interoperabilidade com evidências de restauração.
+Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.
 
 ## Etapas
 
-1. Configurar um compartilhamento Samba e acessar pelo Windows
-2. Criar rotina de backup com rsync
-3. Simular exclusão de arquivo e restaurar a versão anterior
-4. Documentar permissões e retenção
+1. Configurar o DHCP da LAN em 192.168.10.100-200
+2. Criar regra na LAN permitindo web e DNS
+3. Conferir o NAT automático de saída
+4. Testar ping, curl e abrir um site no cliente
+5. Conferir os logs e exportar o backup da configuração
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Plano de backup e interoperabilidade com evidências de restauração.
 
 ## Para refletir
 
-Por que um backup que nunca foi restaurado não pode ser considerado confiável?
+Se a regra padrão da LAN fosse liberar tudo, quais riscos apareceriam?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Por que um backup que nunca foi restaurado não pode ser considerado confiável?
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

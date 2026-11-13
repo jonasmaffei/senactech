@@ -1,6 +1,6 @@
-# Atividade - Aula 08: Active Directory Domain Services
+# Atividade - Aula 08: Instalação e configuração inicial do Windows Server
 
-**Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.  
+**Entrega:** Checklist de instalação preenchida com evidências e configurações do servidor.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+Instalar o Windows Server e executar a configuração inicial segura do servidor.
 
 ## Contexto
 
-A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
+O primeiro servidor da NexaTech será o controlador de domínio e servidor de arquivos. A instalação precisa sair do padrão inseguro de fábrica e já nascer com nome, rede, atualizações e administração remota definidos.
 
 ## O que deve ser entregue
 
-Estrutura do Active Directory documentada e teste de login no domínio.
+Checklist de instalação preenchida com evidências e configurações do servidor.
 
 ## Etapas
 
-1. Promover o servidor a controlador do domínio nexatech.local
-2. Criar OUs para Administração, Vendas, Suporte e Servidores
-3. Criar usuários e grupos de segurança
-4. Ingressar um cliente Windows no domínio e testar login
+1. Instalar o Windows Server na VM do laboratório
+2. Definir nome, IP estático, DNS e fuso horário
+3. Executar atualizações e ativar o sistema
+4. Instalar as funções iniciais e habilitar administração remota
 
 ## Evidências esperadas
 
@@ -33,7 +33,7 @@ Estrutura do Active Directory documentada e teste de login no domínio.
 
 ## Para refletir
 
-Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?
+Por que Server Core é preferível em muitos servidores de produção, mesmo sendo menos visual?
 
 ## Critérios de avaliação
 

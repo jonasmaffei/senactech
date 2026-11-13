@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 19 - Laboratório integrado e troubleshooting | UC7</title>
+<title>Aula 19 - Serviços web (IIS), acesso remoto e administração | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -206,204 +206,29 @@
   <div id="counter">1 / 10</div>
 </header>
 <main id="deck">
-
-    <section class="slide active">
-      <span class="kicker">UC7 · Bloco 3 · Aula 19</span>
-      <h1>Laboratório integrado e troubleshooting</h1>
-      <p class="lead">Integrar serviços Windows e Linux e diagnosticar falhas comuns em um ambiente misto.</p>
-      <div class="meta-row">
-        <span class="pill">10/12/2026 · quinta-feira</span>
-        <span class="pill">Linux Server e Segurança</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
-      </div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">Depois da implantação, os usuários começam a relatar problemas intermitentes: login lento, nomes que não resolvem, pastas inacessíveis e intranet fora do ar. A equipe precisa de método, não de chute.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Integrar serviços Windows e Linux e diagnosticar falhas comuns em um ambiente misto.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Registro de troubleshooting e relatório do ambiente integrado.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Fluxo DHCP -&gt; DNS -&gt; autenticação -&gt; arquivos/web</h3></div><div class="card"><span class="card-num">02</span><h3>Metodologia de troubleshooting e registro de hipóteses</h3></div><div class="card"><span class="card-num">03</span><h3>Ferramentas: ping, traceroute, dig, nslookup, ss, tcpdump, Wireshark</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>Event Viewer, journalctl e logs de firewall</h3></div><div class="card"><span class="card-num">05</span><h3>Problemas comuns: DNS, horário, firewall, permissões e certificados</h3></div><div class="card"><span class="card-num">06</span><h3>Documentação da solução e gestão de mudanças</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Diagnóstico de cenários quebrados e validação do ambiente integrado.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Resolver cenários de falha preparados pelo docente</li><li>Registrar sintoma, hipótese, teste e solução</li><li>Validar o ambiente integrado de ponta a ponta</li><li>Atualizar a documentação com as correções</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Ferramentas de rede, logs do Windows e Linux, Wireshark</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM LNX01 (Ubuntu Server). Use DC01 e CLI01 para testar a integração e o troubleshooting do ambiente misto.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Registro de troubleshooting e relatório do ambiente integrado.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Como o registro do diagnóstico ajuda a equipe a não repetir o mesmo erro no futuro?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Diagnóstico estruturado reduz tempo de parada e melhora a confiança dos usuários.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>O ambiente funciona, mas ainda não está sendo observado de forma contínua.</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Fecha o Bloco 3 provando que os dois sistemas operacionais funcionam juntos.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Registro de troubleshooting e relatório do ambiente integrado.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>O ambiente funciona, mas ainda não está sendo observado de forma contínua.</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>A maioria das falhas em ambiente misto envolve DNS, horário, firewall ou permissões.</li><li>Um método com hipótese e teste evita mudanças aleatórias.</li><li>Toda correção deve atualizar a documentação e, se possível, virar automação.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 20 - Monitoramento de servidores e serviços</strong>
-          <p>Monitorar detecta falhas; é preciso também recuperar dados e continuar operando.</p>
-        </div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
-    </section>
-    
+    <section class="slide active"><span class="kicker">UC7 · Bloco 3 · Aula 19</span><h1>Serviços web (IIS), acesso remoto e administração</h1><p class="lead">Publicar serviços web no Windows Server e configurar administração remota segura.</p>
+      <div class="meta-row"><span class="pill">11/12/2026 (sexta-feira)</span><span class="pill">Redes, Roteamento e Firewall</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
+      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
+    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">Além do servidor Linux, a NexaTech quer comparar a publicação web no Windows e precisa administrar o servidor sem expor RDP ou HTTP sem proteção.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Publicar serviços web no Windows Server e configurar administração remota segura.</p></div><div class="card"><h3>Entrega principal</h3><p>Catálogo de serviços web no IIS + checklist de acesso remoto seguro.</p></div></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>IIS: sites, bindings, permissões e logs</h3></div><div class="card"><span class="card-num">02</span><h3>HTTP, HTTPS e certificados TLS</h3></div><div class="card"><span class="card-num">03</span><h3>RDP: riscos e boas práticas</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>VPN e acesso remoto seguro</h3></div><div class="card"><span class="card-num">05</span><h3>Windows Admin Center e PowerShell Remoting</h3></div><div class="card"><span class="card-num">06</span><h3>WinRM, firewall e menor privilégio</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Publicação web e administração remota no Windows Server.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Publicar uma intranet simples no IIS</li><li>Configurar HTTPS com certificado de teste</li><li>Restringir o RDP por firewall</li><li>Administrar por Windows Admin Center ou WinRM</li><li>Documentar portas e acessos</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>IIS, Windows Admin Center, PowerShell e pfSense</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway pelo FW01</p>
+      <p class="note"><strong>Nesta aula:</strong> use DC01, CLI01, CLI02, APP01, DB01 e FW01 conforme a necessidade.</p></section>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Catálogo de serviços web no IIS + checklist de acesso remoto seguro.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="grid cols-2" style="margin-top:14px"><div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div><div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div></div></section>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Quais diferenças de operação e segurança existem entre publicar no IIS e no Apache?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Permite comparar as duas plataformas e escolher com critério.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Com os serviços web e o acesso remoto entendidos, começa o servidor Linux da aplicação.</p></div></div></section>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Completa o espelhamento dos serviços web entre Windows e Linux.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Catálogo de serviços web no IIS + checklist de acesso remoto seguro.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Com os serviços web e o acesso remoto entendidos, começa o servidor Linux da aplicação.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>IIS publica sites no Windows com bindings e permissões.</li><li>HTTPS e certificados protegem o tráfego web.</li><li>RDP e WinRM precisam de firewall, MFA e menor privilégio.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 20 - Instalação e configuração inicial do Ubuntu Server</strong><p>Instalar o Ubuntu Server sem interface gráfica, particionar o disco e configurar rede, SSH e atualizações.</p></div>
+      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p></section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

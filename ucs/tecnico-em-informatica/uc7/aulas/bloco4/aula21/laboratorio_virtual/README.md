@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 21: Backup, continuidade e resposta a incidentes
+# Laboratório VirtualBox - Aula 21: Administração e operação do Linux
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes.
+**Entrega da aula:** Runbook de operação do Linux Server.
 
 ---
 
 ## Objetivo
 
-Definir estratégia de backup, continuidade de negócio e resposta a incidentes para a NexaTech.
+Operar serviços, processos, armazenamento, logs e agendamentos em um servidor Linux.
 
 ## VMs desta aula
 
-MON01, DC01, LNX01 e CLI01.
+APP01.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Executar um simulado de falha e restaurar os serviços
-2. Medir o tempo de recuperação
-3. Criar um playbook de resposta a incidentes
-4. Registrar lições aprendidas
+1. Configurar os repositórios e atualizar o sistema com APT
+2. Criar um serviço systemd simples
+3. Agendar um backup com systemd timer
+4. Analisar logs e identificar um erro
+5. Verificar uso de disco e permissões de arquivos
 
 ## Testes e evidências
 
@@ -42,25 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up mon01 dc01 lnx01 cli01
-vagrant ssh mon01
-vagrant ssh lnx01
-vagrant winrm dc01 -c "Get-Service"
-vagrant snapshot save mon01 baseline-mon01
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula21"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula21"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Protege tudo o que foi construído nos blocos anteriores.
+Transforma a instalação da Aula 20 em operação repetível e auditável.
 
-**O que fica em aberto:** A empresa precisa decidir o que mantém na própria infraestrutura e o que vai para a nuvem.
+**O que fica em aberto:** Com a operação sob controle, é hora de publicar os serviços de rede no Linux.
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 04 - Hardware de servidor, armazenamento e virtualização | UC7</title>
+<title>Aula 04 - Protocolos e serviços de rede | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -209,13 +209,13 @@
 
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 1 · Aula 04</span>
-      <h1>Hardware de servidor, armazenamento e virtualização</h1>
-      <p class="lead">Especificar hardware de servidor e projetar um laboratório virtualizado compatível com o projeto.</p>
+      <h1>Protocolos e serviços de rede</h1>
+      <p class="lead">Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.</p>
       <div class="meta-row">
-        <span class="pill">17/11/2026 · terça-feira</span>
+        <span class="pill">18/11/2026 (quarta-feira)</span>
         <span class="pill">Fundamentos e Planejamento</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
@@ -226,16 +226,16 @@
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
         <div>
-          <p class="lead">O orçamento permite um servidor físico e alguns computadores de laboratório. A equipe precisa decidir como hospedar Windows Server, Linux e monitoramento sem comprar três máquinas.</p>
+          <p class="lead">A equipe precisa definir quais serviços rodarão nos servidores e quais portas deverão ser liberadas no firewall. Um erro nessa matriz pode deixar a rede insegura ou quebrar serviços essenciais.</p>
         </div>
         <div class="grid">
           <div class="card highlight">
             <h3>Objetivo da aula</h3>
-            <p>Especificar hardware de servidor e projetar um laboratório virtualizado compatível com o projeto.</p>
+            <p>Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.</p>
           </div>
           <div class="card">
             <h3>Entrega principal</h3>
-            <p>Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.</p>
+            <p>Matriz de serviços, protocolos, portas e riscos da NexaTech.</p>
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>CPU, núcleos, memória ECC e placas de rede</h3></div><div class="card"><span class="card-num">02</span><h3>Discos SAS, SATA e NVMe</h3></div><div class="card"><span class="card-num">03</span><h3>RAID 0, 1, 5 e 10 e tolerância a falhas</h3></div><div class="card"><span class="card-num">04</span><h3>Fontes redundantes, hot swap e gerenciamento remoto</h3></div>
+        <div class="card"><span class="card-num">01</span><h3>Modelo OSI e pilha TCP/IP</h3></div><div class="card"><span class="card-num">02</span><h3>TCP versus UDP</h3></div><div class="card"><span class="card-num">03</span><h3>Portas essenciais: DNS 53, DHCP 67/68, HTTP 80, HTTPS 443, SMB 445, SSH 22, RDP 3389, LDAP 389/636</h3></div><div class="card"><span class="card-num">04</span><h3>DNS: hierarquia, tipos de registro e resolução</h3></div>
       </div>
     </section>
     
@@ -255,7 +255,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Hypervisors tipo 1 e tipo 2: Hyper-V, Proxmox, VMware e VirtualBox</h3></div><div class="card"><span class="card-num">06</span><h3>Redes virtuais NAT, bridge e interna</h3></div><div class="card"><span class="card-num">07</span><h3>Snapshots, clones e planejamento de capacidade</h3></div>
+        <div class="card"><span class="card-num">05</span><h3>DHCP: descoberta, oferta, requisição e confirmação</h3></div><div class="card"><span class="card-num">06</span><h3>HTTP/HTTPS, SMB, SSH, NTP e SNMP</h3></div><div class="card"><span class="card-num">07</span><h3>Ferramentas de diagnóstico e captura de pacotes</h3></div>
       </div>
     </section>
     
@@ -263,15 +263,15 @@
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Criação das máquinas virtuais que serão usadas no restante da UC.</p>
+      <p class="lead">Diagnóstico de rede no host e captura de tráfego local.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Comparar duas configurações de servidor com custo e desempenho</li><li>Criar as VMs de Windows Server e Ubuntu Server no laboratório</li><li>Configurar a rede interna do laboratório</li><li>Registrar uma linha de base com snapshot antes das próximas aulas</li></ol>
+          <ol class="steps"><li>Testar conectividade com ping, tracert e Test-NetConnection</li><li>Consultar nomes com nslookup e dig</li><li>Observar portas abertas com netstat ou ss</li><li>Capturar uma requisição HTTP no Wireshark e identificar as camadas</li></ol>
         </div>
         <div class="card">
           <h3>Ferramentas e ambiente</h3>
-          <p>VirtualBox ou Hyper-V, planilha de orçamento</p>
+          <p>Prompt de comando, PowerShell, Wireshark, nslookup, dig, netstat/ss</p>
           <div class="note">
             Trabalhe sempre com snapshots antes de mudanças arriscadas.
             Registre prints, saídas de comando e testes no portfólio do grupo.
@@ -282,14 +282,14 @@
     
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
       <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
+      <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
       
     <div class="topology" aria-label="Topologia do laboratório">
       <div class="top-node client">
-        <strong>CLI01</strong>
+        <strong>CLI01 / CLI02</strong>
         <span>cliente Windows</span>
         <small>IP via DHCP</small>
       </div>
@@ -301,12 +301,12 @@
           <small>192.168.10.10</small>
         </div>
         <div class="top-node lnx">
-          <strong>LNX01</strong>
+          <strong>APP01</strong>
           <span>Ubuntu Server</span>
           <small>192.168.10.20</small>
         </div>
         <div class="top-node mon">
-          <strong>MON01</strong>
+          <strong>DB01</strong>
           <span>Ubuntu Server</span>
           <small>192.168.10.30</small>
         </div>
@@ -315,10 +315,10 @@
     
       <div class="grid cols-3">
         <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
+        <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
+        <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
       </div>
-      <p class="note"><strong>Nesta aula:</strong> Crie as VMs DC01 e LNX01, configure a rede interna rede-nexatech e tire o snapshot baseline-uc7.</p>
+      <p class="note"><strong>Nesta aula:</strong> As VMs ainda não são necessárias. Produza o artefato desta aula e guarde-o na pasta do projeto integrador.</p>
     </section>
     
 
@@ -326,7 +326,7 @@
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
       <div class="card highlight">
-        <h3>Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.</h3>
+        <h3>Matriz de serviços, protocolos, portas e riscos da NexaTech.</h3>
         <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
       </div>
       <div class="grid cols-2" style="margin-top:14px">
@@ -353,15 +353,15 @@
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Quando a virtualização reduz custo de verdade e quando ela apenas concentra risco em uma única máquina?</blockquote>
+      <blockquote>Por que a mesma porta pode ser necessária para o serviço e, ao mesmo tempo, representar um risco de segurança?</blockquote>
       <div class="grid cols-2">
         <div class="card">
           <h3>Impacto no negócio</h3>
-          <p>Dimensionamento correto evita gasto excessivo e gargalos previsíveis.</p>
+          <p>Uma matriz de portas correta reduz indisponibilidade e exposição desnecessária.</p>
         </div>
         <div class="card">
           <h3>O que fica em aberto</h3>
-          <p>Com o laboratório pronto, é preciso um plano de implantação para não configurar tudo de forma desordenada.</p>
+          <p>Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.</p>
         </div>
       </div>
     </section>
@@ -370,15 +370,15 @@
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Escolhe a plataforma física e virtual que sustentará todas as instalações seguintes.</p>
+      <p class="lead">Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Entrega que sustenta o projeto</h3>
-          <p>Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.</p>
+          <p>Matriz de serviços, protocolos, portas e riscos da NexaTech.</p>
         </div>
         <div class="card">
           <h3>Próximo gargalo</h3>
-          <p>Com o laboratório pronto, é preciso um plano de implantação para não configurar tudo de forma desordenada.</p>
+          <p>Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.</p>
         </div>
       </div>
       <div class="note">
@@ -392,14 +392,10 @@
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
       <ul class="check">
-        <li>Servidores priorizam confiabilidade: ECC, RAID, fontes redundantes e gerenciamento remoto.</li><li>RAID protege contra falha de disco, mas não substitui backup.</li><li>A virtualização permite consolidar serviços, desde que haja planejamento de CPU, RAM e disco.</li>
+        <li>TCP garante entrega e ordem; UDP prioriza velocidade e é usado em consultas e telemetria.</li><li>DNS traduz nomes em endereços; DHCP entrega configuração de rede automaticamente.</li><li>Portas abertas devem seguir o princípio do menor privilégio e ser documentadas.</li>
       </ul>
       
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 05 - Planejamento da instalação e documentação</strong>
-          <p>O plano está no papel; falta montar o laboratório e validar a rede de ponta a ponta.</p>
-        </div>
+        <div class="next"><span>Próxima aula</span><strong>Aula 05 - Hardware de servidor, armazenamento e RAID</strong><p>Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.</p></div>
         
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>

@@ -1,20 +1,20 @@
-# Aula 24 - Projeto integrador: apresentação e defesa
+# Aula 24 - DHCP no Linux
 
-**Data sugerida:** 17/12/2026 (quinta-feira)  
-**Bloco:** 4 - Monitoramento, Nuvem, Governança e Projeto  
-**Carga:** 4 horas
+**Data sugerida:** 25/01/2027 (segunda-feira)
+**Bloco:** 4 - Linux Server e Segurança
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
+Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.
 
 ---
 
 ## Situação de aprendizagem
 
-É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.
+A NexaTech já usa DHCP no Windows; a equipe precisa saber operar o mesmo serviço no Linux e entender as diferenças.
 
 ---
 
@@ -22,36 +22,37 @@ Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, c
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Projeto integrador completo e defesa oral. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Configuração do DHCP Linux comentada e evidência de concessão para o cliente. |
 | [`apresentacao_aula24.html`](apresentacao_aula24.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Síntese dos quatro blocos |
-| Pacote de documentação do projeto |
-| Demonstração do ambiente e das evidências |
-| Métricas de funcionamento e monitoramento |
-| Lições aprendidas e próximos passos |
-| Comunicação técnica e arguição |
+| isc-dhcp-server e Kea DHCP |
+| /etc/dhcp/dhcpd.conf |
+| Faixa, gateway e DNS |
+| Reservas e concessões |
+| Logs e diagnóstico |
+| Convivência com o DHCP do Windows |
 
 ### Ferramentas
 
-Ambiente virtual, documentação, dashboard, apresentação
+Ubuntu Server, isc-dhcp-server, journalctl e ip
 
 ---
 
 ## Prática em laboratório
 
-Demonstração final do ambiente integrado.
+Configuração do DHCP no Ubuntu Server.
 
-1. Apresentar o projeto em 10 a 15 minutos
-2. Demonstrar login, DNS/DHCP, arquivos, web e monitoramento
-3. Responder à arguição da banca
-4. Entregar a documentação final e a autoavaliação
+1. Instalar o isc-dhcp-server no APP01
+2. Configurar a rede 192.168.10.0/24
+3. Definir faixa, gateway e DNS
+4. Iniciar e habilitar o serviço
+5. Testar a concessão em CLI01/CLI02 e registrar logs
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -59,24 +60,24 @@ Demonstração final do ambiente integrado.
 
 ## Atividade
 
-- **Entrega:** Projeto integrador completo e defesa oral.
+- **Entrega:** Configuração do DHCP Linux comentada e evidência de concessão para o cliente.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Qual foi a decisão técnica mais difícil do projeto e o que você faria diferente hoje?
+- **Pergunta de reflexão:** Por que dois servidores DHCP na mesma rede podem causar conflitos?
 
 ---
 
 ## Relação com o projeto
 
-Fecha a UC provando que o aluno consegue planejar, instalar, configurar e monitorar uma rede cliente/servidor.
+Amplia o domínio de serviços de rede em Linux.
 
-**O que fica em aberto:** Depois da UC, o próximo passo é aprofundar certificações e especializações.
+**O que fica em aberto:** O próximo serviço espelhado é o DNS.
 
-**Impacto de negócio:** Um projeto bem documentado e demonstrável reduz risco e facilita a continuidade.
+**Impacto de negócio:** Dá autonomia para operar o mesmo serviço em Windows e Linux.
 
 
-## Encerramento
+## Próxima aula
 
-Esta é a última aula da UC. O fechamento administrativo ocorre entre 25/01/2027 e 18/02/2027, conforme o calendário da unidade.
+**Aula 25 - DNS no Linux.** Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.
 
 ---
 

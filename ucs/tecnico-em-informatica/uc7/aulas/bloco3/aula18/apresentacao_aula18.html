@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 18 - Arquivos, backup e interoperabilidade Linux | UC7</title>
+<title>Aula 18 - pfSense: firewall, NAT e liberação de internet | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,114 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 18</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 3 · Aula 18</span>
-      <h1>Arquivos, backup e interoperabilidade Linux</h1>
-      <p class="lead">Configurar compartilhamento de arquivos, backup e integração do Linux com clientes Windows.</p>
+      <h1>pfSense: firewall, NAT e liberação de internet</h1>
+      <p class="lead">Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação da LAN.</p>
       <div class="meta-row">
-        <span class="pill">09/12/2026 · quarta-feira</span>
-        <span class="pill">Linux Server e Segurança</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">10/12/2026 (quinta-feira)</span>
+        <span class="pill">Redes, Roteamento e Firewall</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech precisa que o servidor Linux também compartilhe arquivos com os clientes Windows e que os dados sejam recuperáveis após exclusão acidental ou falha.</p>
-        </div>
+        <div><p class="lead">Com o pfSense no lugar, os clientes da rede interna precisam navegar sem expor a LAN.</p></div>
         <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Configurar compartilhamento de arquivos, backup e integração do Linux com clientes Windows.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Plano de backup e interoperabilidade com evidências de restauração.</p>
-          </div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação da LAN.</p></div>
+          <div class="card"><h3>Entrega principal</h3><p>Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.</p></div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Samba: compartilhamentos, usuários e permissões</h3></div><div class="card"><span class="card-num">02</span><h3>NFS para clientes Linux</h3></div><div class="card"><span class="card-num">03</span><h3>rsync, tar e backup incremental</h3></div><div class="card"><span class="card-num">04</span><h3>Regra 3-2-1 e política de retenção</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Regras na interface LAN e política padrão</h3></div><div class="card"><span class="card-num">02</span><h3>NAT de saída e aliases</h3></div><div class="card"><span class="card-num">03</span><h3>DHCP e DNS no pfSense</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Testes de restauração</h3></div><div class="card"><span class="card-num">06</span><h3>Integração com AD via winbind ou sssd</h3></div><div class="card"><span class="card-num">07</span><h3>Quotas e monitoramento de espaço</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Logs e diagnóstico</h3></div><div class="card"><span class="card-num">05</span><h3>Bloqueio de tráfego indesejado</h3></div><div class="card"><span class="card-num">06</span><h3>Backup da configuração</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Compartilhamento Samba e rotina de backup com restauração testada.</p>
+      <p class="lead">Laboratório de liberação de internet através do pfSense.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Configurar um compartilhamento Samba e acessar pelo Windows</li><li>Criar rotina de backup com rsync</li><li>Simular exclusão de arquivo e restaurar a versão anterior</li><li>Documentar permissões e retenção</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Samba, rsync, tar, systemd timer, Windows Explorer</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Configurar o DHCP da LAN em 192.168.10.100-200</li><li>Criar regra na LAN permitindo web e DNS</li><li>Conferir o NAT automático de saída</li><li>Testar ping, curl e abrir um site no cliente</li><li>Conferir os logs e exportar o backup da configuração</li></ol></div>
+        <div class="card"><h3>Ferramentas e ambiente</h3><p>pfSense, cliente Windows/Ubuntu, navegador, curl</p>
+          <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <div class="topology" aria-label="Topologia com pfSense">
+      <div class="top-node client"><strong>Internet</strong><span>rede externa</span><small>WAN</small></div>
+      <div class="top-link"><span>NAT / bridge</span></div>
+      <div class="top-node dc"><strong>FW01</strong><span>pfSense</span><small>WAN + LAN</small></div>
+      <div class="top-link"><span>rede interna</span></div>
       <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
+        <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
+        <div class="top-node mon"><strong>CLI01 / CLI02</strong><span>cliente</span><small>DHCP</small></div>
       </div>
     </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM LNX01 (Ubuntu Server). Use DC01 e CLI01 para testar a integração e o troubleshooting do ambiente misto.</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Plano de backup e interoperabilidade com evidências de restauração.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
+      <div class="card highlight"><h3>Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.</h3>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
       <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+        <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Por que um backup que nunca foi restaurado não pode ser considerado confiável?</blockquote>
+      <blockquote>Se a regra padrão da LAN fosse liberar tudo, quais riscos apareceriam?</blockquote>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Backup testado é a diferença entre uma falha e um desastre.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Windows e Linux já compartilham recursos; falta testar o ambiente integrado e diagnosticar falhas.</p>
-        </div>
+        <div class="card"><h3>Impacto no negócio</h3><p>Libera a navegação com regras explícitas, logs e possibilidade de auditoria.</p></div>
+        <div class="card"><h3>O que fica em aberto</h3><p>Integrar o firewall ao restante do ambiente e documentar o acesso remoto seguro.</p></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Integra o Linux ao dia a dia dos usuários Windows e protege os dados da empresa.</p>
+      <p class="lead">Prova que a LAN navega com controle e evidências.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Plano de backup e interoperabilidade com evidências de restauração.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Windows e Linux já compartilham recursos; falta testar o ambiente integrado e diagnosticar falhas.</p>
-        </div>
+        <div class="card"><h3>Entrega que sustenta o projeto</h3><p>Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.</p></div>
+        <div class="card"><h3>Próximo gargalo</h3><p>Integrar o firewall ao restante do ambiente e documentar o acesso remoto seguro.</p></div>
       </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Samba permite compartilhar arquivos com clientes Windows usando SMB.</li><li>Backup precisa de cópias em mídias e locais diferentes, com retenção definida.</li><li>A restauração deve ser testada e documentada, não presumida.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 19 - Laboratório integrado e troubleshooting</strong>
-          <p>O ambiente funciona, mas ainda não está sendo observado de forma contínua.</p>
-        </div>
-        
+      <ul class="check"><li>A política padrão bloqueia e cada liberação deve ter justificativa.</li><li>O NAT de saída permite navegar sem expor a LAN.</li><li>Logs e backup tornam as regras auditáveis e recuperáveis.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 19 - Serviços web (IIS), acesso remoto e administração</strong><p>Publicar serviços web no Windows Server e configurar administração remota segura.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

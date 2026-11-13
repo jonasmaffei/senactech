@@ -1,62 +1,76 @@
-# Laboratório Virtual - Aula 01: O servidor na rede local e a UC7
+# Laboratório VirtualBox - Aula 01: TCP/IP e IPv4
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+**Entrega da aula:** Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.
 
 ---
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação entre elas.
 
 ## VMs desta aula
 
-Nenhuma VM é obrigatória nesta aula. O foco é planejamento e documentação no host.
+- **CLI01** — Windows 10
+- **CLI02** — Windows 10
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
-
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
+1. Abra o VirtualBox e confirme que não há VMs da UC em execução.
+2. Tenha em mãos a ISO do Windows 10.
+3. Registre prints das configurações e dos testes.
 
 ## Roteiro
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Criar duas VMs Windows 10: **CLI01** e **CLI02** (4 GB de RAM e 2 vCPUs cada).
+2. Em cada VM, adicionar um adaptador de rede em **Rede Interna** com o nome `rede-nexatech`.
+3. Iniciar as duas VMs e configurar:
+   - **CLI01:** IP `192.168.10.100`, máscara `255.255.255.0`;
+   - **CLI02:** IP `192.168.10.101`, máscara `255.255.255.0`.
+4. Confirmar que as duas estão na mesma rede `192.168.10.0/24`.
+5. Testar a comunicação nos dois sentidos:
+   - na CLI01: `ping 192.168.10.101`;
+   - na CLI02: `ping 192.168.10.100`.
+
+> Não é necessário configurar gateway nesta prática: o objetivo é apenas testar a comunicação na rede interna.
+
+## Configuração de exemplo
+
+| VM | IP | Máscara | Rede | Gateway |
+| :--- | :--- | :--- | :--- | :--- |
+| CLI01 | 192.168.10.100 | 255.255.255.0 | 192.168.10.0/24 | não configurado |
+| CLI02 | 192.168.10.101 | 255.255.255.0 | 192.168.10.0/24 | não configurado |
 
 ## Testes e evidências
 
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
+- Print do `ipconfig /all` nas duas VMs.
+- Print do `ping` da CLI01 para a CLI02 e da CLI02 para a CLI01.
+- Registro do que acontece quando uma VM está em outra rede interna ou com máscara diferente.
+- Atualize o documento do projeto integrador com a ficha das duas VMs.
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-# As VMs desta aula ainda nao sao necessarias.
+```powershell
+# Conferir IP, máscara e rede
+ipconfig /all
+
+# Testar a comunicação entre as VMs
+ping 192.168.10.101
+ping 192.168.10.100
 ```
 
 ## Observações
 
-- As VMs ainda não são necessárias. Produza o artefato da aula e guarde-o na pasta do projeto integrador.
+- As duas VMs precisam usar **exatamente o mesmo nome de rede interna** (`rede-nexatech`).
+- Se o ping falhar, confira o adaptador de rede, o IP/máscara e o firewall do Windows.
+- A rede interna não dá acesso à internet por si só.
 
 ## Relação com o projeto
 
-Abre a UC e estabelece o problema de negócio que será resolvido ao longo das 24 aulas.
+Define os conceitos de endereçamento que sustentarão toda a infraestrutura.
 
-**O que fica em aberto:** Quais serviços serão necessários e como eles se conectam fisicamente?
+**O que fica em aberto:** Com os conceitos entendidos, é preciso definir o papel de cada servidor.
 
 ---
 

@@ -1,6 +1,6 @@
-# Atividade - Aula 13: Automação e monitoramento no Windows Server
+# Atividade - Aula 13: DHCP no Windows Server
 
-**Entrega:** Script de automação e plano de monitoramento do Windows Server.  
+**Entrega:** Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Automatizar tarefas rotineiras e monitorar a saúde do Windows Server com ferramentas nativas.
+Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.
 
 ## Contexto
 
-A equipe percebeu que verifica espaço em disco, serviços e backups manualmente todos os dias. Isso consome tempo e ainda deixa falhas passarem. É hora de automatizar e registrar evidências.
+Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.
 
 ## O que deve ser entregue
 
-Script de automação e plano de monitoramento do Windows Server.
+Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.
 
 ## Etapas
 
-1. Criar script que verifica disco, serviços e eventos críticos
-2. Agendar o script no Task Scheduler
-3. Criar um data collector set no Performance Monitor
-4. Gerar um relatório simples e analisar os resultados
+1. Criar o escopo 192.168.10.100-200
+2. Definir gateway e DNS nas opções
+3. Reservar IPs para servidores e impressoras
+4. Autorizar e ativar o escopo
+5. Testar a concessão em um cliente
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Script de automação e plano de monitoramento do Windows Server.
 
 ## Para refletir
 
-O que deve ser monitorado para prever uma falha antes que o usuário perceba?
+Quais riscos existem ao entregar um gateway ou DNS errado via DHCP?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ O que deve ser monitorado para prever uma falha antes que o usuário perceba?
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

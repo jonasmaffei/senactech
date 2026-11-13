@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 11: GPOs e políticas de segurança
+# Laboratório VirtualBox - Aula 11: Unidades organizacionais, grupos e usuários
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.
+**Entrega da aula:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
 
 ---
 
 ## Objetivo
 
-Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.
+Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
 
 ## VMs desta aula
 
-DC01 e CLI01.
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Criar GPO de política de senha e bloqueio de tela
-2. Mapear unidades de rede e impressoras por setor
-3. Aplicar configurações de firewall e atualizações
-4. Validar com gpresult e testar com usuários de OUs diferentes
+1. Criar as OUs ADM, RH, PROD e TI
+2. Criar grupos de segurança por setor
+3. Criar usuários e adicionar aos grupos
+4. Testar login de um usuário comum
+5. Documentar a estrutura criada
 
 ## Testes e evidências
 
@@ -42,25 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 cli01
-vagrant winrm dc01 -c "hostname"
-vagrant winrm cli01 -c "ipconfig /all"
-vagrant rdp dc01
-vagrant snapshot save dc01 antes-ad
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula11"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula11"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Aplica em escala as permissões e padrões definidos nas aulas anteriores.
+Organiza a identidade e as permissões da NexaTech.
 
-**O que fica em aberto:** O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.
+**O que fica em aberto:** Publicar serviços de rede que dependem do domínio: DNS e DHCP.
 
 ---
 

@@ -10,7 +10,7 @@ Cada UC é autocontida em uma pasta dentro de `ucs/`, com o seu próprio README,
 
 | UC | Curso | Tema | Carga | Status | Material |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [Abrir UC7](ucs/tecnico-em-informatica/uc7/README.md) |
+| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo (32 aulas de 3 h, serviços espelhados Windows/Linux e pfSense); laboratório VirtualBox em validação | [Abrir UC7](ucs/tecnico-em-informatica/uc7/README.md) |
 | **UC1** | Técnico em Inteligência Artificial | Introdução a Arquitetura de Computadores | 63 h | Migrada do repositório `senac-tecnico-ia`; em validação | [Abrir UC1](ucs/tecnico-em-inteligencia-artificial/uc1/README.md) |
 
 > Novas UCs serão adicionadas em `ucs/<curso>/<ucN>/` e registradas em [`ucs/README.md`](ucs/README.md).
@@ -36,8 +36,11 @@ senactech/
         .context.md            # contexto pedagógico da UC7 (local)
         aulas/
           README.md
-          bloco1/ ... bloco4/
+          bloco1/ ... bloco5/
           projeto-integrador/
+        extras/
+          README.md
+          computacao-em-nuvem/
         docs/
           00_ementa.md
           01_timeline-engenharia.md
@@ -47,9 +50,7 @@ senactech/
           05_materiais-complementares.md
           06_tutorial-laboratorio-virtual.md
         laboratorio_virtual/
-          Vagrantfile
           README.md
-          provision/
         questionarios/
           README.md
     tecnico-em-inteligencia-artificial/
@@ -85,15 +86,16 @@ senactech/
 | Ementa | [`ucs/tecnico-em-informatica/uc7/docs/00_ementa.md`](ucs/tecnico-em-informatica/uc7/docs/00_ementa.md) |
 | Plano de aulas | [`ucs/tecnico-em-informatica/uc7/docs/04_plano-de-aulas.md`](ucs/tecnico-em-informatica/uc7/docs/04_plano-de-aulas.md) |
 | Projeto integrador | [`ucs/tecnico-em-informatica/uc7/aulas/projeto-integrador/README.md`](ucs/tecnico-em-informatica/uc7/aulas/projeto-integrador/README.md) |
-| Laboratório Vagrant + VirtualBox | [`ucs/tecnico-em-informatica/uc7/laboratorio_virtual/README.md`](ucs/tecnico-em-informatica/uc7/laboratorio_virtual/README.md) |
+| Laboratório VirtualBox | [`ucs/tecnico-em-informatica/uc7/laboratorio_virtual/README.md`](ucs/tecnico-em-informatica/uc7/laboratorio_virtual/README.md) |
 | Primeira aula | [`ucs/tecnico-em-informatica/uc7/aulas/bloco1/aula01/README.md`](ucs/tecnico-em-informatica/uc7/aulas/bloco1/aula01/README.md) |
 
-A UC7 está organizada em **24 aulas de 4 h**, divididas em quatro blocos:
+A UC7 está organizada em **32 aulas de 3 h**, divididas em cinco blocos:
 
 1. Fundamentos e Planejamento
 2. Windows Server
-3. Linux Server e Segurança
-4. Monitoramento, Nuvem, Governança e Projeto
+3. Redes, Roteamento e Firewall (pfSense)
+4. Linux Server e Segurança
+5. Operação, Monitoramento e Projeto
 
 ### UC1 - Introdução a Arquitetura de Computadores — Técnico em Inteligência Artificial
 
@@ -130,7 +132,7 @@ Material migrado do repositório `senac-tecnico-ia`: **24 aulas**, notebooks Col
 2. Criar o `README.md` da UC com identificação, carga horária, ementa, organização e links.
 3. Criar `docs/` com a ementa, o plano de aulas e os materiais complementares.
 4. Criar `aulas/` com a estrutura por blocos e aulas.
-5. Criar `laboratorio_virtual/` com Vagrant + VirtualBox, se a UC tiver prática.
+5. Criar `laboratorio_virtual/` com as instruções do laboratório (VirtualBox manual, quando aplicável).
 6. Criar `questionarios/` e `projeto-integrador/`, se aplicável.
 7. Registrar a UC em [`ucs/README.md`](ucs/README.md) e neste README.
 8. Criar o `AGENTS.md` e o `.context.md` da UC com as decisões pedagógicas e técnicas.
@@ -139,7 +141,7 @@ Material migrado do repositório `senac-tecnico-ia`: **24 aulas**, notebooks Col
 
 ## Status geral
 
-- **UC7:** do Técnico em Informática, material completo, com 24 aulas, 24 apresentações HTML, 24 atividades, 24 roteiros de laboratório e laboratório Vagrant + VirtualBox. Falta validar o laboratório no computador do professor.
+- **UC7:** do Técnico em Informática, material completo, com 32 aulas de 3 h, 32 apresentações HTML, 32 atividades, 32 roteiros de laboratório, serviços espelhados (DNS/DHCP/web em Windows e Linux), aplicação Apache/PHP com banco, pfSense e laboratório VirtualBox manual. Conteúdo de nuvem em `extras/`. Falta validar o laboratório no computador do professor.
 - **UC1:** conteúdo migrado do repositório `senac-tecnico-ia`, com 24 aulas, notebooks Colab, laboratórios e projeto integrador. É a UC1 do curso Técnico em Inteligência Artificial, com carga horária de 63 h. Falta revisar a integração ao monorepo.
 - **Próximas UCs:** a estrutura do monorepo já está pronta para recebê-las.
 

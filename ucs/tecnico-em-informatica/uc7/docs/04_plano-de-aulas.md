@@ -1,47 +1,82 @@
 # Plano de Aulas - UC7
 
 **Carga horária:** 96 h  
-**Distribuição:** 24 aulas de 4 h em 4 blocos  
-**Período:** 12/11/2026 a 17/12/2026  
+**Distribuição:** 32 aulas de 3 h em 5 blocos  
+**Período:** 13/11/2026 a 17/12/2026 e 25/01/2027 a 04/02/2027  
 **Recesso:** 18/12/2026 a 22/01/2027  
-**Finalização:** 25/01/2027 a 18/02/2027
+**Finalização:** 05/02/2027 a 18/02/2027
 
-> As datas são sugestões alinhadas ao calendário informado. Feriados e eventos da unidade devem ser ajustados pelo docente.
+> As datas são sugestões alinhadas ao calendário informado. O conteúdo de nuvem é extra em [`../extras/`](../extras/README.md).
 
 ## Visão geral
 
 | Aula | Data | Bloco | Tema | Entrega principal |
 | :---: | :---: | :---: | :--- | :--- |
-| **01** | 12/11/2026 | 1 | O servidor na rede local e a UC7 | **Diagnóstico inicial** — 1 página com os serviços a centralizar, dores e prioridades da NexaTech. |
-| **02** | 13/11/2026 | 1 | Arquitetura e topologia de rede local | **Diagrama de rede + planilha de endereçamento IP** — faixas, VLANs e reservas. |
-| **03** | 16/11/2026 | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos** — com justificativa de exposição. |
-| **04** | 17/11/2026 | 1 | Hardware de servidor, armazenamento e virtualização | **Especificação do servidor e das VMs** — CPU, RAM, disco e rede, com custo e capacidade. |
-| **05** | 18/11/2026 | 1 | Planejamento da instalação e documentação | **Plano de instalação e documentação** — cronograma, riscos e critérios de aceite. |
-| **06** | 19/11/2026 | 1 | Laboratório virtual e plano diretor da rede | **Plano Diretor da Rede** — topologia, IPs, serviços, cronograma e riscos. |
-| **07** | 23/11/2026 | 2 | Instalação e configuração inicial do Windows Server | **Checklist de instalação do Windows Server** — com evidências e configurações. |
-| **08** | 24/11/2026 | 2 | Active Directory Domain Services | **Documentação do Active Directory + evidência de login no domínio.** |
-| **09** | 25/11/2026 | 2 | DNS e DHCP no Windows Server | **Plano de DNS/DHCP** — zonas, escopos e reservas, com evidências dos testes. |
-| **10** | 26/11/2026 | 2 | Compartilhamento de arquivos e permissões | **Matriz de permissões + relatório de testes de acesso** — com evidências. |
-| **11** | 27/11/2026 | 2 | GPOs e políticas de segurança | **Catálogo de GPOs** — objetivo, escopo e configuração, com evidência de aplicação. |
-| **12** | 30/11/2026 | 2 | Serviços web, acesso remoto e administração | **Catálogo de serviços web + checklist de acesso remoto seguro.** |
-| **13** | 01/12/2026 | 2 | Automação e monitoramento no Windows Server | **Script de automação + plano de monitoramento do Windows Server.** |
-| **14** | 02/12/2026 | 3 | Instalação e configuração inicial do Linux Server | **Checklist de instalação do Linux Server + hardening inicial.** |
-| **15** | 03/12/2026 | 3 | Administração e operação do Linux | **Runbook de operação do Linux Server** — rotinas e contingências. |
-| **16** | 04/12/2026 | 3 | Serviços de rede no Linux: DNS, DHCP e web | **Configurações comentadas de DNS, DHCP e web + evidências dos testes.** |
-| **17** | 07/12/2026 | 3 | Segurança em servidores Linux | **Relatório de auditoria de segurança** — antes × depois e justificativas. |
-| **18** | 09/12/2026 | 3 | Arquivos, backup e interoperabilidade Linux | **Plano de backup e interoperabilidade + evidência de restauração.** |
-| **19** | 10/12/2026 | 3 | Laboratório integrado e troubleshooting | **Registro de troubleshooting + relatório do ambiente integrado.** |
-| **20** | 11/12/2026 | 4 | Monitoramento de servidores e serviços | **Plano de monitoramento** — métricas, limiares, dashboards e alertas. |
-| **21** | 14/12/2026 | 4 | Backup, continuidade e resposta a incidentes | **Mini plano de continuidade** — RPO/RTO, backups e playbook de incidentes. |
-| **22** | 15/12/2026 | 4 | Computação em nuvem e tecnologias emergentes | **Recomendação de nuvem para a NexaTech** — análise de custo × risco. |
-| **23** | 16/12/2026 | 4 | Governança de TI, segurança e certificações | **Dossiê de governança de TI** — catálogo, riscos e roadmap de certificações. |
-| **24** | 17/12/2026 | 4 | Projeto integrador: apresentação e defesa | **Projeto integrador completo + defesa oral.** |
+| **01** | 13/11/2026 (sexta-feira) | 1 | TCP/IP e IPv4 | **Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.** |
+| **02** | 16/11/2026 (segunda-feira) | 1 | O servidor na rede local e a UC7 | **Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.** |
+| **03** | 17/11/2026 (terça-feira) | 1 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
+| **04** | 18/11/2026 (quarta-feira) | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
+| **05** | 19/11/2026 (quinta-feira) | 1 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
+| **06** | 23/11/2026 (segunda-feira) | 1 | Virtualização e criação de VMs no VirtualBox | **Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
+| **07** | 24/11/2026 (terça-feira) | 1 | Planejamento, laboratório e plano diretor da rede | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
+| **08** | 25/11/2026 (quarta-feira) | 2 | Instalação e configuração inicial do Windows Server | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
+| **09** | 26/11/2026 (quinta-feira) | 2 | Active Directory Domain Services | **Estrutura do Active Directory documentada e teste de login no domínio.** |
+| **10** | 27/11/2026 (sexta-feira) | 2 | Controlador de domínio e ingresso de clientes | **Evidência de promoção do controlador de domínio e login do CLI01 no domínio.** |
+| **11** | 30/11/2026 (segunda-feira) | 2 | Unidades organizacionais, grupos e usuários | **Estrutura de OUs, grupos e usuários documentada, com evidência de logins.** |
+| **12** | 01/12/2026 (terça-feira) | 2 | DNS no Windows Server | **Plano de DNS com zonas direta e reversa, registros e evidências de resolução.** |
+| **13** | 02/12/2026 (quarta-feira) | 2 | DHCP no Windows Server | **Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.** |
+| **14** | 03/12/2026 (quinta-feira) | 2 | Compartilhamento de arquivos, permissões e quotas | **Matriz de permissões e relatório de testes de acesso.** |
+| **15** | 04/12/2026 (sexta-feira) | 2 | GPOs e políticas de segurança | **Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.** |
+| **16** | 07/12/2026 (segunda-feira) | 3 | Roteamento e NAT | **Configuração de NAT aplicada e teste de internet a partir do cliente.** |
+| **17** | 09/12/2026 (quarta-feira) | 3 | pfSense: instalação e configuração inicial | **pfSense instalado e acesso à interface web documentado.** |
+| **18** | 10/12/2026 (quinta-feira) | 3 | pfSense: firewall, NAT e liberação de internet | **Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.** |
+| **19** | 11/12/2026 (sexta-feira) | 3 | Serviços web (IIS), acesso remoto e administração | **Catálogo de serviços web no IIS + checklist de acesso remoto seguro.** |
+| **20** | 14/12/2026 (segunda-feira) | 4 | Instalação e configuração inicial do Ubuntu Server | **Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SSH e evidências.** |
+| **21** | 15/12/2026 (terça-feira) | 4 | Administração e operação do Linux | **Runbook de operação do Linux Server.** |
+| **22** | 16/12/2026 (quarta-feira) | 4 | Usuários, grupos e permissões no Linux | **Relatório de contas, grupos e permissões, com testes de sudo.** |
+| **23** | 17/12/2026 (quinta-feira) | 4 | SSH e administração remota | **Checklist de SSH seguro com testes de acesso e bloqueio de root.** |
+| **24** | 25/01/2027 (segunda-feira) | 4 | DHCP no Linux | **Configuração do DHCP Linux comentada e evidência de concessão para o cliente.** |
+| **25** | 26/01/2027 (terça-feira) | 4 | DNS no Linux | **Zonas BIND9 configuradas e evidências de resolução direta e reversa.** |
+| **26** | 27/01/2027 (quarta-feira) | 4 | Servidor web Apache + PHP | **Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.** |
+| **27** | 28/01/2027 (quinta-feira) | 4 | Banco de dados e integração da aplicação | **Aplicação integrada ao banco funcionando nos clientes, com evidências do fluxo completo.** |
+| **28** | 29/01/2027 (sexta-feira) | 4 | Segurança em servidores Linux | **Relatório de auditoria de segurança com antes, depois e justificativas.** |
+| **29** | 01/02/2027 (segunda-feira) | 4 | Backup, continuidade e recuperação de dados | **Plano de backup e continuidade com evidências de restauração e RPO/RTO.** |
+| **30** | 02/02/2027 (terça-feira) | 5 | Monitoramento, automação e troubleshooting | **Plano de monitoramento, script de automação e registro de troubleshooting.** |
+| **31** | 03/02/2027 (quarta-feira) | 5 | Governança de TI, segurança e certificações | **Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.** |
+| **32** | 04/02/2027 (quinta-feira) | 5 | Projeto integrador: apresentação e defesa | **Projeto integrador completo e defesa oral.** |
 
 ## Detalhamento
 
 ## Bloco 1 - Fundamentos e Planejamento
 
-### Aula 01 - O servidor na rede local e a UC7 (12/11/2026, quinta-feira)
+### Aula 01 - TCP/IP e IPv4 (13/11/2026 (sexta-feira))
+
+**Objetivo:** Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.
+
+**Situação de aprendizagem:** Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.
+
+**Tópicos:**
+- Modelo TCP/IP e comparação com o modelo OSI
+- Endereços IPv4: rede, host, máscara e gateway
+- IPs privados, públicos e NAT
+- Notação CIDR e identificação da rede
+- DNS e DHCP no fluxo de configuração
+- Testes com ping, ipconfig, ip e tracert
+
+**Prática:**
+Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
+
+1. Criar as VMs CLI01 e CLI02 com Windows 10
+2. Adicionar as duas VMs à rede interna rede-nexatech
+3. Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101
+4. Testar ping entre as duas VMs nos dois sentidos
+5. Registrar prints do ipconfig e do ping
+
+**Entrega:** Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.
+
+**Ferramentas:** 
+
+### Aula 02 - O servidor na rede local e a UC7 (16/11/2026 (segunda-feira))
 
 **Objetivo:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
 
@@ -56,16 +91,18 @@
 - Ética profissional, LGPD e segurança da informação
 
 **Prática:**
-- Inventariar os recursos e as dores da NexaTech
-- Classificar os serviços entre essenciais, importantes e opcionais
-- Montar um mapa inicial de serviços e responsáveis
-- Definir os papéis da equipe e o fluxo de documentação
+Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
+
+1. Inventariar os recursos e as dores da NexaTech
+2. Classificar os serviços entre essenciais, importantes e opcionais
+3. Montar um mapa inicial de serviços e responsáveis
+4. Definir os papéis da equipe e o fluxo de documentação
 
 **Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
 
-**Ferramentas:** Planilha, editor de texto, draw.io ou diagrams.net
+**Ferramentas:** 
 
-### Aula 02 - Arquitetura e topologia de rede local (13/11/2026, sexta-feira)
+### Aula 03 - Arquitetura e topologia de rede local (17/11/2026 (terça-feira))
 
 **Objetivo:** Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
 
@@ -76,21 +113,23 @@
 - Cabeamento Cat5e/Cat6, fibra óptica e patch panel
 - Rack, switch, roteador, firewall e access point
 - VLANs e segmentação por setor
-- IPv4: classes, máscara, CIDR e sub-redes
+- IPv4: endereço, máscara e notação CIDR
 - IPv6 e endereçamento dual stack
 - Documentação de rede e plano de IPs
 
 **Prática:**
-- Desenhar a topologia física e lógica da NexaTech
-- Calcular sub-redes para administração, vendas, suporte, servidores e visitantes
-- Montar a planilha de endereços e reservas
-- Revisar o diagrama com a turma e corrigir inconsistências
+Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 06.
+
+1. Desenhar a topologia física e lógica da NexaTech
+2. Definir a distribuição de IPs por setor
+3. Montar a planilha de endereços e reservas
+4. Revisar o diagrama com a turma e corrigir inconsistências
 
 **Entrega:** Diagrama de rede e planilha de endereçamento IP da NexaTech.
 
-**Ferramentas:** draw.io ou diagrams.net, planilha, calculadora de sub-redes
+**Ferramentas:** 
 
-### Aula 03 - Protocolos e serviços de rede (16/11/2026, segunda-feira)
+### Aula 04 - Protocolos e serviços de rede (18/11/2026 (quarta-feira))
 
 **Objetivo:** Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
 
@@ -106,92 +145,101 @@
 - Ferramentas de diagnóstico e captura de pacotes
 
 **Prática:**
-- Testar conectividade com ping, tracert e Test-NetConnection
-- Consultar nomes com nslookup e dig
-- Observar portas abertas com netstat ou ss
-- Capturar uma requisição HTTP no Wireshark e identificar as camadas
+Diagnóstico de rede no host e captura de tráfego local.
+
+1. Testar conectividade com ping, tracert e Test-NetConnection
+2. Consultar nomes com nslookup e dig
+3. Observar portas abertas com netstat ou ss
+4. Capturar uma requisição HTTP no Wireshark e identificar as camadas
 
 **Entrega:** Matriz de serviços, protocolos, portas e riscos da NexaTech.
 
-**Ferramentas:** Prompt de comando, PowerShell, Wireshark, nslookup, dig, netstat/ss
+**Ferramentas:** 
 
-### Aula 04 - Hardware de servidor, armazenamento e virtualização (17/11/2026, terça-feira)
+### Aula 05 - Hardware de servidor, armazenamento e RAID (19/11/2026 (quinta-feira))
 
-**Objetivo:** Especificar hardware de servidor e projetar um laboratório virtualizado compatível com o projeto.
+**Objetivo:** Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.
 
-**Situação de aprendizagem:** O orçamento permite um servidor físico e alguns computadores de laboratório. A equipe precisa decidir como hospedar Windows Server, Linux e monitoramento sem comprar três máquinas.
+**Situação de aprendizagem:** O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória, discos e RAID antes de comprar.
 
 **Tópicos:**
+- BIOS/UEFI, POST e CMOS
 - CPU, núcleos, memória ECC e placas de rede
 - Discos SAS, SATA e NVMe
-- RAID 0, 1, 5 e 10 e tolerância a falhas
+- RAID 0, 1, 5, 6 e 10
+- Tolerância a falhas e desempenho
 - Fontes redundantes, hot swap e gerenciamento remoto
-- Hypervisors tipo 1 e tipo 2: Hyper-V, Proxmox, VMware e VirtualBox
-- Redes virtuais NAT, bridge e interna
-- Snapshots, clones e planejamento de capacidade
 
 **Prática:**
-- Comparar duas configurações de servidor com custo e desempenho
-- Criar as VMs de Windows Server e Ubuntu Server no laboratório
-- Configurar a rede interna do laboratório
-- Registrar uma linha de base com snapshot antes das próximas aulas
+Dimensionamento do servidor físico que futuramente dará lugar às VMs.
 
-**Entrega:** Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.
+1. Comparar duas configurações de servidor com custo e desempenho
+2. Calcular a capacidade útil de cada arranjo RAID
+3. Escolher discos, memória e fonte com justificativa
+4. Montar a planilha de especificação
+5. Apresentar a proposta e os riscos
 
-**Ferramentas:** VirtualBox ou Hyper-V, planilha de orçamento
+**Entrega:** Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.
 
-### Aula 05 - Planejamento da instalação e documentação (18/11/2026, quarta-feira)
+**Ferramentas:** 
 
-**Objetivo:** Produzir um plano de instalação com requisitos, riscos, backup, licenciamento e cronograma.
+### Aula 06 - Virtualização e criação de VMs no VirtualBox (23/11/2026 (segunda-feira))
 
-**Situação de aprendizagem:** A direção só libera a compra e a janela de manutenção depois de ver um plano claro. É preciso mostrar o que será feito, em que ordem, com quais riscos e como voltar atrás se algo falhar.
+**Objetivo:** Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
+
+**Situação de aprendizagem:** A NexaTech não pode comprar quatro servidores. A equipe vai usar um único computador com VirtualBox para simular a rede cliente/servidor, começando pela primeira máquina virtual.
 
 **Tópicos:**
-- Levantamento e priorização de requisitos
-- Escopo, cronograma e marcos de entrega
+- Virtualização: vários sistemas isolados em um único computador
+- Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado)
+- VirtualBox como hypervisor tipo 2
+- Recursos do host: núcleos, RAM, disco e VT-x/AMD-V
+- Redes virtuais: NAT, bridge (ponte) e rede interna
+- Snapshots, clones e alocação de disco
+
+**Prática:**
+Criação da primeira VM e configuração dos recursos do host.
+
+1. Criar a VM e nomear conforme o padrão da UC
+2. Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)
+3. Criar disco virtual de 40 GB e revisar o tipo
+4. Adicionar adaptador NAT e adaptador de rede interna
+5. Iniciar a VM, testar a rede e tirar o snapshot baseline
+
+**Entrega:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
+
+**Ferramentas:** 
+
+### Aula 07 - Planejamento, laboratório e plano diretor da rede (24/11/2026 (terça-feira))
+
+**Objetivo:** Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.
+
+**Situação de aprendizagem:** A direção quer previsibilidade: cronograma, riscos, critérios de aceite e um laboratório que reproduza a rede antes da implantação real.
+
+**Tópicos:**
+- Requisitos, escopo, cronograma e marcos
 - Licenciamento Windows Server, CALs e software livre
-- Backup 3-2-1 e política de retenção
-- Segurança física e lógica
-- Gestão de mudanças e plano de reversão
-- Documentação: inventário, diagramas, runbooks e critérios de aceite
+- Riscos, plano de reversão e critérios de aceite
+- Rede interna rede-nexatech e IPs estáticos
+- Snapshots e linha de base do laboratório
+- Documentação: topologia, inventário e runbooks
 
 **Prática:**
-- Criar a checklist de pré-instalação
-- Montar a matriz de riscos com probabilidade, impacto e resposta
-- Definir a ordem de instalação dos serviços
-- Escrever os critérios de aceite de cada entrega
+Consolidação do plano e validação do laboratório.
 
-**Entrega:** Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite.
+1. Criar a checklist de pré-instalação
+2. Montar a matriz de riscos
+3. Configurar a rede interna e os IPs estáticos
+4. Testar conectividade e tirar snapshot baseline
+5. Consolidar o plano diretor em um único documento
 
-**Ferramentas:** Editor de texto, planilha, modelo de plano de projeto
+**Entrega:** Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.
 
-### Aula 06 - Laboratório virtual e plano diretor da rede (19/11/2026, quinta-feira)
-
-**Objetivo:** Montar o laboratório virtual e consolidar o plano diretor da rede da NexaTech.
-
-**Situação de aprendizagem:** Chegou o momento de provar que o plano funciona. A equipe precisa deixar as VMs prontas, a rede interna respondendo e o documento consolidado para a primeira entrega à direção.
-
-**Tópicos:**
-- Revisão dos blocos anteriores
-- Configuração de rede interna e host-only
-- Endereçamento estático do laboratório
-- Snapshots e linha de base
-- Organização de pastas e versionamento da documentação
-- Apresentação do plano diretor
-
-**Prática:**
-- Criar a rede interna rede-nexatech em 192.168.10.0/24
-- Configurar IP estático nas VMs e testar conectividade
-- Tirar snapshot limpo de cada VM
-- Consolidar o plano diretor em um único documento
-
-**Entrega:** Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.
-
-**Ferramentas:** VirtualBox ou Hyper-V, Git, editor de texto
+**Ferramentas:** 
 
 ## Bloco 2 - Windows Server
 
-### Aula 07 - Instalação e configuração inicial do Windows Server (23/11/2026, segunda-feira)
+### Aula 08 - Instalação e configuração inicial do Windows Server (25/11/2026 (quarta-feira))
 
 **Objetivo:** Instalar o Windows Server e executar a configuração inicial segura do servidor.
 
@@ -208,16 +256,18 @@
 - Licenciamento e CALs
 
 **Prática:**
-- Instalar o Windows Server na VM do laboratório
-- Definir nome, IP estático, DNS e fuso horário
-- Executar atualizações e ativar o sistema
-- Instalar as funções iniciais e habilitar administração remota
+Instalação completa do Windows Server no laboratório virtual.
+
+1. Instalar o Windows Server na VM do laboratório
+2. Definir nome, IP estático, DNS e fuso horário
+3. Executar atualizações e ativar o sistema
+4. Instalar as funções iniciais e habilitar administração remota
 
 **Entrega:** Checklist de instalação preenchida com evidências e configurações do servidor.
 
-**Ferramentas:** VirtualBox/Hyper-V, ISO do Windows Server, Windows Admin Center
+**Ferramentas:** 
 
-### Aula 08 - Active Directory Domain Services (24/11/2026, terça-feira)
+### Aula 09 - Active Directory Domain Services (26/11/2026 (quinta-feira))
 
 **Objetivo:** Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
 
@@ -233,41 +283,126 @@
 - Boas práticas de separação de privilégios
 
 **Prática:**
-- Promover o servidor a controlador do domínio nexatech.local
-- Criar OUs para Administração, Vendas, Suporte e Servidores
-- Criar usuários e grupos de segurança
-- Ingressar um cliente Windows no domínio e testar login
+Domínio nexatech.local ativo com estrutura de OUs e usuários.
+
+1. Promover o servidor a controlador do domínio nexatech.local
+2. Criar OUs para Administração, Vendas, Suporte e Servidores
+3. Criar usuários e grupos de segurança
+4. Ingressar um cliente Windows no domínio e testar login
 
 **Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.
 
-**Ferramentas:** Windows Server, Active Directory Users and Computers, RSAT
+**Ferramentas:** 
 
-### Aula 09 - DNS e DHCP no Windows Server (25/11/2026, quarta-feira)
+### Aula 10 - Controlador de domínio e ingresso de clientes (27/11/2026 (sexta-feira))
 
-**Objetivo:** Configurar DNS e DHCP integrados ao Active Directory para atender os clientes da rede.
+**Objetivo:** Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
 
-**Situação de aprendizagem:** Os computadores da NexaTech precisam receber IP automaticamente e encontrar os servidores pelo nome. Sem DNS e DHCP bem configurados, o domínio e os compartilhamentos falham de forma intermitente.
+**Situação de aprendizagem:** O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.
+
+**Tópicos:**
+- Domínio, floresta, árvore e controlador de domínio
+- DNS integrado ao AD e registros SRV
+- Promoção do servidor e reinício
+- Ingresso do cliente e credenciais de domínio
+- Contas de computador e GPO padrão
+- Diagnóstico com dcdiag e nltest
+
+**Prática:**
+Criação do domínio e ingresso do cliente Windows.
+
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS e promover nexatech.local
+3. Configurar o CLI01 com o DNS do DC01
+4. Ingressar o CLI01 e fazer login com usuário do domínio
+5. Validar com whoami /fqdn e registrar eventos
+
+**Entrega:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
+
+**Ferramentas:** 
+
+### Aula 11 - Unidades organizacionais, grupos e usuários (30/11/2026 (segunda-feira))
+
+**Objetivo:** Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
+
+**Situação de aprendizagem:** A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
+
+**Tópicos:**
+- Unidades organizacionais e delegação
+- Usuários, grupos de segurança e grupos de distribuição
+- UPN, senha e políticas de conta
+- Grupos globais, locais de domínio e universais
+- Modelo AGDLP
+- Menor privilégio e contas administrativas
+
+**Prática:**
+Modelagem dos setores e das contas da NexaTech.
+
+1. Criar as OUs ADM, RH, PROD e TI
+2. Criar grupos de segurança por setor
+3. Criar usuários e adicionar aos grupos
+4. Testar login de um usuário comum
+5. Documentar a estrutura criada
+
+**Entrega:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
+
+**Ferramentas:** 
+
+### Aula 12 - DNS no Windows Server (01/12/2026 (terça-feira))
+
+**Objetivo:** Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
+
+**Situação de aprendizagem:** Os computadores da NexaTech precisam encontrar o controlador de domínio e os serviços pelo nome; sem DNS confiável, o domínio falha de forma intermitente.
 
 **Tópicos:**
 - Zonas direta e reversa
 - Registros A, AAAA, CNAME, MX e PTR
-- Encaminhadores e cache DNS
-- Lixeira e limpeza de registros antigos
-- Escopo DHCP, reservas e opções 003, 006 e 015
-- Autorização do DHCP no Active Directory
-- Failover e boas práticas de endereçamento
+- Encaminhadores e cache
+- Integração com o Active Directory
+- Limpeza de registros antigos
+- Testes com nslookup, dig e Resolve-DnsName
 
 **Prática:**
-- Criar zona direta e reversa para nexatech.local
-- Cadastrar registros de servidores e apelidos
-- Criar escopo DHCP com faixa, gateway e DNS
-- Reservar IPs para servidores e impressoras e testar em um cliente
+Configuração e teste do DNS do domínio nexatech.local.
 
-**Entrega:** Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.
+1. Criar a zona direta nexatech.local
+2. Criar a zona reversa da faixa 192.168.10.0/24
+3. Cadastrar registros de servidores e apelidos
+4. Configurar encaminhadores externos
+5. Testar resolução direta e reversa no cliente
 
-**Ferramentas:** DNS Manager, DHCP Console, ipconfig, nslookup
+**Entrega:** Plano de DNS com zonas direta e reversa, registros e evidências de resolução.
 
-### Aula 10 - Compartilhamento de arquivos e permissões (26/11/2026, quinta-feira)
+**Ferramentas:** 
+
+### Aula 13 - DHCP no Windows Server (02/12/2026 (quarta-feira))
+
+**Objetivo:** Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.
+
+**Situação de aprendizagem:** Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.
+
+**Tópicos:**
+- Escopo, faixa e exclusões
+- Opções 003, 006 e 015
+- Reservas e tempo de concessão
+- Autorização do DHCP no AD
+- Failover e boas práticas
+- Testes com ipconfig e logs
+
+**Prática:**
+Criação do escopo DHCP da LAN da NexaTech.
+
+1. Criar o escopo 192.168.10.100-200
+2. Definir gateway e DNS nas opções
+3. Reservar IPs para servidores e impressoras
+4. Autorizar e ativar o escopo
+5. Testar a concessão em um cliente
+
+**Entrega:** Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.
+
+**Ferramentas:** 
+
+### Aula 14 - Compartilhamento de arquivos, permissões e quotas (03/12/2026 (quinta-feira))
 
 **Objetivo:** Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.
 
@@ -283,16 +418,18 @@
 - Backup, DFS e auditoria de acesso
 
 **Prática:**
-- Criar pastas por setor e compartilhar via SMB
-- Aplicar permissões NTFS usando grupos
-- Configurar quotas e cópias de sombra
-- Mapear unidades e testar acessos permitidos e negados
+Servidor de arquivos com pastas departamentais e permissões testadas.
+
+1. Criar pastas por setor e compartilhar via SMB
+2. Aplicar permissões NTFS usando grupos
+3. Configurar quotas e cópias de sombra
+4. Mapear unidades e testar acessos permitidos e negados
 
 **Entrega:** Matriz de permissões e relatório de testes de acesso.
 
-**Ferramentas:** Windows Server, Explorador de Arquivos, FSRM, PowerShell
+**Ferramentas:** 
 
-### Aula 11 - GPOs e políticas de segurança (27/11/2026, sexta-feira)
+### Aula 15 - GPOs e políticas de segurança (04/12/2026 (sexta-feira))
 
 **Objetivo:** Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.
 
@@ -307,99 +444,164 @@
 - Auditoria e diagnóstico com gpresult e RSOP
 
 **Prática:**
-- Criar GPO de política de senha e bloqueio de tela
-- Mapear unidades de rede e impressoras por setor
-- Aplicar configurações de firewall e atualizações
-- Validar com gpresult e testar com usuários de OUs diferentes
+GPOs aplicadas em OUs específicas e validadas em clientes.
+
+1. Criar GPO de política de senha e bloqueio de tela
+2. Mapear unidades de rede e impressoras por setor
+3. Aplicar configurações de firewall e atualizações
+4. Validar com gpresult e testar com usuários de OUs diferentes
 
 **Entrega:** Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.
 
-**Ferramentas:** Group Policy Management Console, gpresult, RSOP
+**Ferramentas:** 
 
-### Aula 12 - Serviços web, acesso remoto e administração (30/11/2026, segunda-feira)
+## Bloco 3 - Redes, Roteamento e Firewall
 
-**Objetivo:** Publicar serviços web e configurar administração remota segura no Windows Server.
+### Aula 16 - Roteamento e NAT (07/12/2026 (segunda-feira))
 
-**Situação de aprendizagem:** A NexaTech precisa de uma intranet simples para comunicados e de uma forma segura de administrar o servidor sem ficar fisicamente na sala. A solução não pode expor RDP ou HTTP sem proteção.
+**Objetivo:** Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT para liberar internet.
+
+**Situação de aprendizagem:** A rede interna não tem acesso à internet; é preciso configurar o gateway e o NAT antes de instalar o firewall dedicado.
+
+**Tópicos:**
+- Rede interna, rede externa e gateway padrão
+- Roteamento estático e encaminhamento de pacotes
+- NAT, PAT e MASQUERADE
+- ip_forward no Linux e RRAS no Windows
+- Regras de firewall e NAT
+- Testes com ping, traceroute e curl
+
+**Prática:**
+Encaminhamento de pacotes e NAT de saída.
+
+1. Habilitar ip_forward no Linux ou RRAS no Windows
+2. Configurar NAT de saída na interface WAN
+3. Ajustar o gateway no cliente
+4. Testar internet e registrar as regras
+5. Tirar snapshot da configuração
+
+**Entrega:** Configuração de NAT aplicada e teste de internet a partir do cliente.
+
+**Ferramentas:** 
+
+### Aula 17 - pfSense: instalação e configuração inicial (09/12/2026 (quarta-feira))
+
+**Objetivo:** Instalar o pfSense em uma VM com duas interfaces e configurar o acesso inicial.
+
+**Situação de aprendizagem:** A NexaTech quer um firewall dedicado entre a LAN e a internet, com regras claras e administração centralizada.
+
+**Tópicos:**
+- pfSense como firewall e roteador baseado em FreeBSD
+- Interfaces WAN e LAN
+- Instalação e configuração inicial
+- Endereçamento da LAN e da WAN
+- Acesso web e credenciais
+- Boas práticas de senha e atualização
+
+**Prática:**
+Montagem da VM do firewall e primeiros passos.
+
+1. Baixar a ISO e criar a VM FW01
+2. Adaptador 1 em NAT (WAN) e adaptador 2 na rede interna (LAN)
+3. Instalar e definir as interfaces
+4. Configurar o IP da LAN e acessar a interface web
+5. Atualizar o pfSense e tirar snapshot
+
+**Entrega:** pfSense instalado e acesso à interface web documentado.
+
+**Ferramentas:** 
+
+### Aula 18 - pfSense: firewall, NAT e liberação de internet (10/12/2026 (quinta-feira))
+
+**Objetivo:** Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação da LAN.
+
+**Situação de aprendizagem:** Com o pfSense no lugar, os clientes da rede interna precisam navegar sem expor a LAN.
+
+**Tópicos:**
+- Regras na interface LAN e política padrão
+- NAT de saída e aliases
+- DHCP e DNS no pfSense
+- Logs e diagnóstico
+- Bloqueio de tráfego indesejado
+- Backup da configuração
+
+**Prática:**
+Laboratório de liberação de internet através do pfSense.
+
+1. Configurar o DHCP da LAN em 192.168.10.100-200
+2. Criar regra na LAN permitindo web e DNS
+3. Conferir o NAT automático de saída
+4. Testar ping, curl e abrir um site no cliente
+5. Conferir os logs e exportar o backup da configuração
+
+**Entrega:** Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.
+
+**Ferramentas:** 
+
+### Aula 19 - Serviços web (IIS), acesso remoto e administração (11/12/2026 (sexta-feira))
+
+**Objetivo:** Publicar serviços web no Windows Server e configurar administração remota segura.
+
+**Situação de aprendizagem:** Além do servidor Linux, a NexaTech quer comparar a publicação web no Windows e precisa administrar o servidor sem expor RDP ou HTTP sem proteção.
 
 **Tópicos:**
 - IIS: sites, bindings, permissões e logs
-- HTTP versus HTTPS e certificados TLS
-- RDP: riscos, restrições e boas práticas
+- HTTP, HTTPS e certificados TLS
+- RDP: riscos e boas práticas
 - VPN e acesso remoto seguro
 - Windows Admin Center e PowerShell Remoting
-- WinRM, firewall e princípio do menor privilégio
-- Autenticação multifator e gestão de credenciais
+- WinRM, firewall e menor privilégio
 
 **Prática:**
-- Publicar uma intranet simples no IIS
-- Configurar HTTPS com certificado de teste
-- Restringir RDP por firewall e testar acesso
-- Administrar o servidor pelo Windows Admin Center ou PowerShell Remoting
+Publicação web e administração remota no Windows Server.
 
-**Entrega:** Catálogo de serviços web e checklist de acesso remoto seguro.
+1. Publicar uma intranet simples no IIS
+2. Configurar HTTPS com certificado de teste
+3. Restringir o RDP por firewall
+4. Administrar por Windows Admin Center ou WinRM
+5. Documentar portas e acessos
 
-**Ferramentas:** IIS, Windows Admin Center, PowerShell, OpenSSL ou certificado interno
+**Entrega:** Catálogo de serviços web no IIS + checklist de acesso remoto seguro.
 
-### Aula 13 - Automação e monitoramento no Windows Server (01/12/2026, terça-feira)
+**Ferramentas:** 
 
-**Objetivo:** Automatizar tarefas rotineiras e monitorar a saúde do Windows Server com ferramentas nativas.
+## Bloco 4 - Linux Server e Segurança
 
-**Situação de aprendizagem:** A equipe percebeu que verifica espaço em disco, serviços e backups manualmente todos os dias. Isso consome tempo e ainda deixa falhas passarem. É hora de automatizar e registrar evidências.
+### Aula 20 - Instalação e configuração inicial do Ubuntu Server (14/12/2026 (segunda-feira))
+
+**Objetivo:** Instalar o Ubuntu Server sem interface gráfica nas VMs APP01 e DB01, particionar o disco e configurar rede, SSH e atualizações.
+
+**Situação de aprendizagem:** A NexaTech vai usar um servidor Linux de baixo custo para DNS, web e monitoramento; a instalação precisa nascer documentada e segura.
 
 **Tópicos:**
-- PowerShell: cmdlets, pipeline, variáveis e scripts
-- Agendador de Tarefas
-- Visualizador de Eventos e logs
-- Monitor de Desempenho e conjuntos de coletores
-- Windows Update e WSUS
-- Relatórios de backup e alertas
-- PowerShell Remoting e boas práticas de script
+- Ubuntu Server 24.04 LTS sem ambiente gráfico
+- Particionamento EFI, /, /home e swap
+- Usuários, root e sudo
+- Rede estática em /etc/netplan/50-cloud-init.yaml
+- Hostname, SSH e NTP
+- apt update/upgrade e firewall básico
 
 **Prática:**
-- Criar script que verifica disco, serviços e eventos críticos
-- Agendar o script no Task Scheduler
-- Criar um data collector set no Performance Monitor
-- Gerar um relatório simples e analisar os resultados
+Instalação do Ubuntu Server nas VMs APP01 e DB01.
 
-**Entrega:** Script de automação e plano de monitoramento do Windows Server.
+1. Criar a VM com dois adaptadores (NAT e rede interna)
+2. Particionar: EFI 200 MB, / 20 GB ext4, /home 25 GB ext4 e swap
+3. Instalar sem ambiente gráfico
+4. Configurar IP estático 192.168.10.20 e hostname
+5. Instalar SSH, atualizar o sistema e configurar o ufw
 
-**Ferramentas:** PowerShell, Task Scheduler, Event Viewer, Performance Monitor
+**Entrega:** Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SSH e evidências.
 
-## Bloco 3 - Linux Server e Segurança
+**Ferramentas:** 
 
-### Aula 14 - Instalação e configuração inicial do Linux Server (02/12/2026, quarta-feira)
-
-**Objetivo:** Instalar uma distribuição Linux de servidor e realizar a configuração inicial segura.
-
-**Situação de aprendizagem:** Para hospedar DNS secundário, intranet e monitoramento com custo baixo, a NexaTech vai usar um servidor Linux. A instalação precisa seguir padrões de segurança e documentação desdé o primeiro boot.
-
-**Tópicos:**
-- Distribuições Ubuntu LTS, Debian e Rocky Linux
-- Instalação, particionamento e LVM
-- Usuários, grupos e sudo
-- Rede estática com netplan ou NetworkManager
-- SSH, fuso horário e NTP
-- Atualizações e gerenciadores de pacotes apt e dnf
-- Firewall inicial e comandos essenciais
-
-**Prática:**
-- Instalar o Ubuntu Server na VM do laboratório
-- Configurar IP estático e hostname
-- Criar usuário administrativo e habilitar SSH
-- Atualizar o sistema e configurar o firewall básico
-
-**Entrega:** Checklist de instalação e hardening inicial do Linux Server.
-
-**Ferramentas:** Ubuntu Server, VirtualBox/Hyper-V, SSH, ufw
-
-### Aula 15 - Administração e operação do Linux (03/12/2026, quinta-feira)
+### Aula 21 - Administração e operação do Linux (15/12/2026 (terça-feira))
 
 **Objetivo:** Operar serviços, processos, armazenamento, logs e agendamentos em um servidor Linux.
 
 **Situação de aprendizagem:** O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O que éstá rodando, quanto disco resta, o que falhou e como agendar tarefas sem depender de lembretes.
 
 **Tópicos:**
+- APT: sources.list, update, upgrade e remoção de pacotes
 - systemd: units, enable, start, status e journalctl
 - Processos: ps, top, htop e kill
 - Disco: df, du, lsblk, mount e LVM
@@ -409,41 +611,181 @@
 - Chaves SSH e sessões persistentes com tmux/screen
 
 **Prática:**
-- Criar um serviço systemd simples
-- Agendar um backup com systemd timer
-- Analisar logs e identificar um erro
-- Verificar uso de disco e permissões de arquivos
+Rotinas de operação e um serviço próprio rodando sob systemd.
+
+1. Configurar os repositórios e atualizar o sistema com APT
+2. Criar um serviço systemd simples
+3. Agendar um backup com systemd timer
+4. Analisar logs e identificar um erro
+5. Verificar uso de disco e permissões de arquivos
 
 **Entrega:** Runbook de operação do Linux Server.
 
-**Ferramentas:** systemd, journalctl, htop, cron, tmux, rsync
+**Ferramentas:** 
 
-### Aula 16 - Serviços de rede no Linux: DNS, DHCP e web (04/12/2026, sexta-feira)
+### Aula 22 - Usuários, grupos e permissões no Linux (16/12/2026 (quarta-feira))
 
-**Objetivo:** Configurar DNS, DHCP e servidor web em Linux para atender a rede da NexaTech.
+**Objetivo:** Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
-**Situação de aprendizagem:** A NexaTech quer um DNS secundário, DHCP para a VLAN de visitantes e uma intranet em Linux. Esses serviços precisam coexistir com o ambiente Windows sem conflitos.
+**Situação de aprendizagem:** O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.
 
 **Tópicos:**
-- BIND9: zonas, registros e encaminhadores
-- isc-dhcp-server ou Kea DHCP
-- Apache e Nginx: virtual hosts e permissões
-- PHP e conteúdo estático
-- TLS e certificados
-- Proxy reverso e cabeçalhos
-- Testes com dig, nslookup, curl e navegador
+- useradd/adduser, passwd e grupos
+- chmod simbólico e octal
+- chown, chgrp e umask
+- sudo e menor privilégio
+- /etc/passwd, /etc/group e /etc/shadow
+- Permissões de dono, grupo e outros
 
 **Prática:**
-- Configurar zona DNS no BIND e testar com dig
-- Criar escopo DHCP para visitantes
-- Publicar uma intranet simples no Nginx ou Apache
-- Testar resolução, endereçamento e acesso web
+Separação de contas e permissões no servidor Linux.
 
-**Entrega:** Configurações comentadas e evidências dos testes dos três serviços.
+1. Criar o grupo dev e os usuários devfrontend e devbackend
+2. Ajustar home e permissões de /var/www/html
+3. Testar leitura e escrita com cada usuário
+4. Configurar sudo restrito
+5. Documentar o antes e o depois
 
-**Ferramentas:** BIND9, Kea/isc-dhcp-server, Nginx ou Apache, dig, curl
+**Entrega:** Relatório de contas, grupos e permissões, com testes de sudo.
 
-### Aula 17 - Segurança em servidores Linux (07/12/2026, segunda-feira)
+**Ferramentas:** 
+
+### Aula 23 - SSH e administração remota (17/12/2026 (quinta-feira))
+
+**Objetivo:** Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
+
+**Situação de aprendizagem:** A equipe precisa administrar o servidor sem ir até o console; acesso remoto seguro é obrigatório.
+
+**Tópicos:**
+- openssh-server e sshd_config
+- Autenticação por senha e por chave
+- Porta, PermitRootLogin e AllowUsers
+- Geração e cópia de chaves
+- Fail2ban e firewall
+- scp, sftp e boas práticas
+
+**Prática:**
+Acesso remoto seguro ao Ubuntu Server.
+
+1. Instalar o openssh-server
+2. Desabilitar login root e senhas vazias
+3. Criar par de chaves e copiar para o servidor
+4. Testar login e acesso negado
+5. Registrar a configuração final
+
+**Entrega:** Checklist de SSH seguro com testes de acesso e bloqueio de root.
+
+**Ferramentas:** 
+
+### Aula 24 - DHCP no Linux (25/01/2027 (segunda-feira))
+
+**Objetivo:** Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.
+
+**Situação de aprendizagem:** A NexaTech já usa DHCP no Windows; a equipe precisa saber operar o mesmo serviço no Linux e entender as diferenças.
+
+**Tópicos:**
+- isc-dhcp-server e Kea DHCP
+- /etc/dhcp/dhcpd.conf
+- Faixa, gateway e DNS
+- Reservas e concessões
+- Logs e diagnóstico
+- Convivência com o DHCP do Windows
+
+**Prática:**
+Configuração do DHCP no Ubuntu Server.
+
+1. Instalar o isc-dhcp-server no APP01
+2. Configurar a rede 192.168.10.0/24
+3. Definir faixa, gateway e DNS
+4. Iniciar e habilitar o serviço
+5. Testar a concessão em CLI01/CLI02 e registrar logs
+
+**Entrega:** Configuração do DHCP Linux comentada e evidência de concessão para o cliente.
+
+**Ferramentas:** 
+
+### Aula 25 - DNS no Linux (26/01/2027 (terça-feira))
+
+**Objetivo:** Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.
+
+**Situação de aprendizagem:** O DNS do Windows atende o domínio; a NexaTech quer uma alternativa Linux para entender e comparar a configuração.
+
+**Tópicos:**
+- BIND9 e named.conf
+- Zonas direta e reversa
+- Registros e serial
+- Forwarders
+- named-checkconf e named-checkzone
+- Convivência com o DNS do Windows
+
+**Prática:**
+Configuração do DNS Linux com BIND9.
+
+1. Instalar o bind9 no APP01
+2. Configurar zonas para senactech.edu.br
+3. Criar a zona reversa
+4. Definir forwarders 8.8.8.8 e 8.8.4.4
+5. Validar com named-checkzone e testar com dig
+
+**Entrega:** Zonas BIND9 configuradas e evidências de resolução direta e reversa.
+
+**Ferramentas:** 
+
+### Aula 26 - Servidor web Apache + PHP (27/01/2027 (quarta-feira))
+
+**Objetivo:** Publicar a aplicação web em Apache e PHP no Ubuntu Server.
+
+**Situação de aprendizagem:** A NexaTech quer uma aplicação simples para a intranet no servidor Linux.
+
+**Tópicos:**
+- Apache e PHP no Ubuntu
+- Virtual host e permissões
+- Estrutura da aplicação
+- Testes com curl e navegador
+- Logs do Apache
+- Boas práticas de publicação
+
+**Prática:**
+Publicação da aplicação web no APP01.
+
+1. Instalar Apache e PHP no APP01
+2. Criar o virtual host da aplicação
+3. Publicar a página inicial em PHP
+4. Testar pelo navegador do CLI01 e do CLI02
+5. Registrar a configuração e as permissões
+
+**Entrega:** Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.
+
+**Ferramentas:** 
+
+### Aula 27 - Banco de dados e integração da aplicação (28/01/2027 (quinta-feira))
+
+**Objetivo:** Configurar o servidor de banco de dados e integrar a aplicação PHP ao DB01.
+
+**Situação de aprendizagem:** A aplicação está publicada, mas ainda não armazena dados; a NexaTech precisa de um banco dedicado e do fluxo completo funcionando.
+
+**Tópicos:**
+- MariaDB/MySQL no Ubuntu
+- Banco, usuário e permissões
+- Conexão PHP + MariaDB
+- Testes de leitura e escrita
+- Validação nos clientes CLI01 e CLI02
+- Logs do Apache e do banco
+
+**Prática:**
+Configuração do banco e integração ponta a ponta.
+
+1. Instalar MariaDB no DB01
+2. Criar banco, usuário e tabelas
+3. Configurar a conexão da aplicação com o DB01
+4. Testar o fluxo no CLI01 e no CLI02
+5. Registrar backup inicial e documentar a arquitetura
+
+**Entrega:** Aplicação integrada ao banco funcionando nos clientes, com evidências do fluxo completo.
+
+**Ferramentas:** 
+
+### Aula 28 - Segurança em servidores Linux (29/01/2027 (sexta-feira))
 
 **Objetivo:** Aplicar hardening e controles de segurança em servidores Linux e seus serviços de rede.
 
@@ -460,142 +802,74 @@
 - Resposta a incidentes e análise de logs
 
 **Prática:**
-- Endurecer a configuração do SSH
-- Configurar firewall e fail2ban
-- Auditar usuários, permissões e serviços ativos
-- Comparar o antes e o depois com evidências
+Servidor Linux endurecido e com tentativas de acesso bloqueadas.
+
+1. Endurecer a configuração do SSH
+2. Configurar firewall e fail2ban
+3. Auditar usuários, permissões e serviços ativos
+4. Comparar o antes e o depois com evidências
 
 **Entrega:** Relatório de auditoria de segurança com antes, depois e justificativas.
 
-**Ferramentas:** SSH, ufw/nftables, fail2ban, auditd, Lynis
+**Ferramentas:** 
 
-### Aula 18 - Arquivos, backup e interoperabilidade Linux (09/12/2026, quarta-feira)
+### Aula 29 - Backup, continuidade e recuperação de dados (01/02/2027 (segunda-feira))
 
-**Objetivo:** Configurar compartilhamento de arquivos, backup e integração do Linux com clientes Windows.
+**Objetivo:** Definir e testar a rotina de backup, restauração e continuidade dos dados do ambiente.
 
-**Situação de aprendizagem:** A NexaTech precisa que o servidor Linux também compartilhe arquivos com os clientes Windows e que os dados sejam recuperáveis após exclusão acidental ou falha.
+**Situação de aprendizagem:** A NexaTech já compartilha arquivos no Windows Server; agora precisa garantir que esses dados sobrevivam a exclusões acidentais e falhas.
 
 **Tópicos:**
-- Samba: compartilhamentos, usuários e permissões
-- NFS para clientes Linux
-- rsync, tar e backup incremental
 - Regra 3-2-1 e política de retenção
-- Testes de restauração
-- Integração com AD via winbind ou sssd
-- Quotas e monitoramento de espaço
-
-**Prática:**
-- Configurar um compartilhamento Samba e acessar pelo Windows
-- Criar rotina de backup com rsync
-- Simular exclusão de arquivo e restaurar a versão anterior
-- Documentar permissões e retenção
-
-**Entrega:** Plano de backup e interoperabilidade com evidências de restauração.
-
-**Ferramentas:** Samba, rsync, tar, systemd timer, Windows Explorer
-
-### Aula 19 - Laboratório integrado e troubleshooting (10/12/2026, quinta-feira)
-
-**Objetivo:** Integrar serviços Windows e Linux e diagnosticar falhas comuns em um ambiente misto.
-
-**Situação de aprendizagem:** Depois da implantação, os usuários começam a relatar problemas intermitentes: login lento, nomes que não resolvem, pastas inacessíveis e intranet fora do ar. A equipe precisa de método, não de chute.
-
-**Tópicos:**
-- Fluxo DHCP -> DNS -> autenticação -> arquivos/web
-- Metodologia de troubleshooting e registro de hipóteses
-- Ferramentas: ping, traceroute, dig, nslookup, ss, tcpdump, Wireshark
-- Event Viewer, journalctl e logs de firewall
-- Problemas comuns: DNS, horário, firewall, permissões e certificados
-- Documentação da solução e gestão de mudanças
-
-**Prática:**
-- Resolver cenários de falha preparados pelo docente
-- Registrar sintoma, hipótese, teste e solução
-- Validar o ambiente integrado de ponta a ponta
-- Atualizar a documentação com as correções
-
-**Entrega:** Registro de troubleshooting e relatório do ambiente integrado.
-
-**Ferramentas:** Ferramentas de rede, logs do Windows e Linux, Wireshark
-
-## Bloco 4 - Monitoramento, Nuvem, Governança e Projeto
-
-### Aula 20 - Monitoramento de servidores e serviços (11/12/2026, sexta-feira)
-
-**Objetivo:** Implementar monitoramento de métricas, logs e alertas para os servidores da NexaTech.
-
-**Situação de aprendizagem:** A direção quer saber, antes dos usuários, quando um serviço cair, o disco encher ou a carga subir. A equipe precisa de um painel e de alertas confiáveis.
-
-**Tópicos:**
-- Conceitos de monitoramento: disponibilidade, latência, capacidade e SLO
-- SNMP, agentes e coleta de métricas
-- Zabbix, Prometheus e Grafana
-- Monitoramento de Windows e Linux
-- Dashboards e limiares
-- Alertas por e-mail, Telegram ou webhook
-- Centralização de logs
-
-**Prática:**
-- Instalar Zabbix ou Prometheus/Grafana na VM de monitoramento
-- Adicionar o Windows Server e o Linux como hosts monitorados
-- Criar um dashboard com CPU, memória, disco e disponibilidade
-- Configurar um alerta e testar a notificação
-
-**Entrega:** Plano de monitoramento com métricas, limiares, dashboards e alertas.
-
-**Ferramentas:** Zabbix ou Prometheus/Grafana, SNMP, agentes, webhook
-
-### Aula 21 - Backup, continuidade e resposta a incidentes (14/12/2026, segunda-feira)
-
-**Objetivo:** Definir estratégia de backup, continuidade de negócio e resposta a incidentes para a NexaTech.
-
-**Situação de aprendizagem:** Um simulado de ransomware será executado na aula. A empresa precisa saber o que restaurar, em quanto tempo e quem toma cada decisão durante uma crise.
-
-**Tópicos:**
-- RPO e RTO
-- Regra 3-2-1 e cópias imutáveis ou offline
 - Backup completo, incremental e diferencial
-- Retenção e descarte seguro
-- Plano de continuidade e recuperação de desastres
-- Resposta a incidentes: preparar, detectar, conter, erradicar, recuperar e aprender
-- Comunicação e notificação LGPD
+- rsync, tar e systemd timer
+- RPO, RTO e continuidade de negócio
+- Testes de restauração
+- Cópia dos dados do Windows Server e do Linux
 
 **Prática:**
-- Executar um simulado de falha e restaurar os serviços
-- Medir o tempo de recuperação
-- Criar um playbook de resposta a incidentes
-- Registrar lições aprendidas
+Rotina de backup e restauração no ambiente misto.
 
-**Entrega:** Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes.
+1. Definir o que será copiado (pastas compartilhadas no Windows e dados do Linux)
+2. Criar uma rotina de backup com rsync
+3. Agendar a rotina com systemd timer
+4. Simular exclusão de arquivo e restaurar a versão anterior
+5. Definir RPO/RTO e documentar a retenção
 
-**Ferramentas:** Backup do Windows Server, rsync, snapshots, playbook
+**Entrega:** Plano de backup e continuidade com evidências de restauração e RPO/RTO.
 
-### Aula 22 - Computação em nuvem e tecnologias emergentes (15/12/2026, terça-feira)
+**Ferramentas:** 
 
-**Objetivo:** Comparar on-premise e nuvem e avaliar tecnologias emergentes para a infraestrutura da NexaTech.
+## Bloco 5 - Operação, Monitoramento e Projeto
 
-**Situação de aprendizagem:** A direção pergunta se vale migrar arquivos, intranet e backup para a nuvem. A resposta precisa considerar custo, segurança, latência, LGPD e equipe disponível.
+### Aula 30 - Monitoramento, automação e troubleshooting (02/02/2027 (terça-feira))
+
+**Objetivo:** Monitorar servidores, automatizar rotinas e diagnosticar falhas no ambiente integrado.
+
+**Situação de aprendizagem:** A equipe precisa saber antes dos usuários quando um serviço cair e ter método para diagnosticar problemas de rede, DNS, aplicação e banco.
 
 **Tópicos:**
-- IaaS, PaaS e SaaS
-- Nuvem pública, privada e híbrida
-- Azure, AWS e Google Cloud
-- Virtualização versus containers
-- Docker e Kubernetes
-- Serverless, edge computing e infraestrutura como código
-- CapEx versus OpEx, SLA, lock-in e residência de dados
+- Métricas, logs, SNMP e SLO
+- Zabbix, Prometheus e Grafana
+- Fluxo DHCP -> DNS -> aplicação -> banco
+- PowerShell, Task Scheduler e Event Viewer
+- systemd timers e cron
+- Método: sintoma, hipótese, teste e solução
 
 **Prática:**
-- Montar uma comparação de TCO entre on-premise e nuvem
-- Criar uma VM gratuita ou simular um serviço em nuvem
-- Executar um container simples e comparar com VM
-- Avaliar riscos de LGPD e dependência de fornecedor
+Monitoramento, automação e diagnóstico do ambiente.
 
-**Entrega:** Recomendação de nuvem para a NexaTech com análise de custo e risco.
+1. Instalar o monitoramento no APP01
+2. Adicionar DC01, APP01 e DB01 como hosts
+3. Criar dashboard e alerta
+4. Criar script/timer de verificação
+5. Resolver cenários de falha e registrar o diagnóstico
 
-**Ferramentas:** Calculadora de nuvem, Docker, navegador
+**Entrega:** Plano de monitoramento, script de automação e registro de troubleshooting.
 
-### Aula 23 - Governança de TI, segurança e certificações (16/12/2026, quarta-feira)
+**Ferramentas:** 
+
+### Aula 31 - Governança de TI, segurança e certificações (03/02/2027 (quarta-feira))
 
 **Objetivo:** Aplicar conceitos de governança e segurança na administração dos servidores e planejar certificações.
 
@@ -611,23 +885,25 @@
 - Plano de desenvolvimento profissional
 
 **Prática:**
-- Criar catálogo de serviços e matriz de riscos
-- Mapear controles de segurança e evidências
-- Comparar trilhas de certificação
-- Montar um plano de melhoria para a NexaTech
+Dossiê de governança e plano de certificação.
+
+1. Criar catálogo de serviços e matriz de riscos
+2. Mapear controles de segurança e evidências
+3. Comparar trilhas de certificação
+4. Montar um plano de melhoria para a NexaTech
 
 **Entrega:** Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.
 
-**Ferramentas:** Modelos de catálogo, matriz de riscos, Microsoft Learn, NetAcad
+**Ferramentas:** 
 
-### Aula 24 - Projeto integrador: apresentação e defesa (17/12/2026, quinta-feira)
+### Aula 32 - Projeto integrador: apresentação e defesa (04/02/2027 (quinta-feira))
 
 **Objetivo:** Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
 
 **Situação de aprendizagem:** É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.
 
 **Tópicos:**
-- Síntese dos quatro blocos
+- Síntese dos cinco blocos
 - Pacote de documentação do projeto
 - Demonstração do ambiente e das evidências
 - Métricas de funcionamento e monitoramento
@@ -635,36 +911,13 @@
 - Comunicação técnica e arguição
 
 **Prática:**
-- Apresentar o projeto em 10 a 15 minutos
-- Demonstrar login, DNS/DHCP, arquivos, web e monitoramento
-- Responder à arguição da banca
-- Entregar a documentação final e a autoavaliação
+Demonstração final do ambiente integrado.
+
+1. Apresentar o projeto em 10 a 15 minutos
+2. Demonstrar login, DNS/DHCP, arquivos, web, pfSense e monitoramento
+3. Responder à arguição da banca
+4. Entregar a documentação final e a autoavaliação
 
 **Entrega:** Projeto integrador completo e defesa oral.
 
-**Ferramentas:** Ambiente virtual, documentação, dashboard, apresentação
-
----
-
-## Diretrizes de condução
-
-1. Comece cada aula retomando o problema em aberto da aula anterior.
-2. Apresente o conceito com exemplos reais e demonstração curta.
-3. Reserve a maior parte do tempo para prática nas VMs.
-4. Feche com a entrega e o registro de evidências.
-5. Atualize o projeto integrador ao final de cada bloco.
-
-## Materiais de laboratório
-
-As práticas são realizadas no **VirtualBox**, montando uma infraestrutura cliente/servidor cumulativa:
-
-- 1 VM Windows Server DC01 (4 GB RAM, 2 vCPU, 60 GB disco)
-- 1 VM Ubuntu Server LNX01 (2 GB RAM, 2 vCPU, 20 GB disco)
-- 1 VM Ubuntu Server MON01 (2 GB RAM, 2 vCPU, 20 GB disco)
-- 1 VM cliente Windows CLI01 (4 GB RAM, 2 vCPU, 40 GB disco)
-- Rede interna `rede-nexatech` em `192.168.10.0/24`
-- Snapshots antes de cada mudança relevante
-
-> Roteiro completo de montagem em [`06_tutorial-laboratorio-virtual.md`](06_tutorial-laboratorio-virtual.md).
->
-> Versão automatizada com **Vagrant + VirtualBox** em [`laboratorio_virtual/README.md`](../laboratorio_virtual/README.md).
+**Ferramentas:** 

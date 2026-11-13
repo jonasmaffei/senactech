@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 12 - Serviços web, acesso remoto e administração | UC7</title>
+<title>Aula 12 - DNS no Windows Server | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,40 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 12</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 2 · Aula 12</span>
-      <h1>Serviços web, acesso remoto e administração</h1>
-      <p class="lead">Publicar serviços web e configurar administração remota segura no Windows Server.</p>
-      <div class="meta-row">
-        <span class="pill">30/11/2026 · segunda-feira</span>
-        <span class="pill">Windows Server</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
-      </div>
+      <h1>DNS no Windows Server</h1>
+      <p class="lead">Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.</p>
+      <div class="meta-row"><span class="pill">01/12/2026 (terça-feira)</span><span class="pill">Windows Server</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech precisa de uma intranet simples para comunicados e de uma forma segura de administrar o servidor sem ficar fisicamente na sala. A solução não pode expor RDP ou HTTP sem proteção.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Publicar serviços web e configurar administração remota segura no Windows Server.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Catálogo de serviços web e checklist de acesso remoto seguro.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>IIS: sites, bindings, permissões e logs</h3></div><div class="card"><span class="card-num">02</span><h3>HTTP versus HTTPS e certificados TLS</h3></div><div class="card"><span class="card-num">03</span><h3>RDP: riscos, restrições e boas práticas</h3></div><div class="card"><span class="card-num">04</span><h3>VPN e acesso remoto seguro</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Windows Admin Center e PowerShell Remoting</h3></div><div class="card"><span class="card-num">06</span><h3>WinRM, firewall e princípio do menor privilégio</h3></div><div class="card"><span class="card-num">07</span><h3>Autenticação multifator e gestão de credenciais</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Intranet publicada e administração remota funcional com restrições.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Publicar uma intranet simples no IIS</li><li>Configurar HTTPS com certificado de teste</li><li>Restringir RDP por firewall e testar acesso</li><li>Administrar o servidor pelo Windows Admin Center ou PowerShell Remoting</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>IIS, Windows Admin Center, PowerShell, OpenSSL ou certificado interno</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM DC01 (Windows Server). Use a VM CLI01 como cliente para testar login, DNS, DHCP, arquivos e políticas.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Catálogo de serviços web e checklist de acesso remoto seguro.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Por que expor RDP diretamente à internet é uma das práticas mais perigosas em servidores Windows?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Acesso remoto seguro evita sequestro de servidor e vazamento de dados.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Serviços publicados precisam de rotinas automáticas de verificação e monitoramento.</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Amplia o servidor de arquivos e domínio para serviços de comunicação e administração.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Catálogo de serviços web e checklist de acesso remoto seguro.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Serviços publicados precisam de rotinas automáticas de verificação e monitoramento.</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>HTTPS protege o tráfego e exige certificado válido e configuração correta.</li><li>RDP deve ser restrito por firewall, VPN ou gateway, nunca exposto sem controle.</li><li>Windows Admin Center e PowerShell Remoting reduzem a necessidade de acesso físico.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 13 - Automação e monitoramento no Windows Server</strong>
-          <p>A empresa também precisa de serviços abertos e de baixo custo; entra o Linux.</p>
-        </div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
-    </section>
-    
+    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">Os computadores da NexaTech precisam encontrar o controlador de domínio e os serviços pelo nome; sem DNS confiável, o domínio falha de forma intermitente.</p></div><div class="grid">
+      <div class="card highlight"><h3>Objetivo da aula</h3><p>Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.</p></div>
+      <div class="card"><h3>Entrega principal</h3><p>Plano de DNS com zonas direta e reversa, registros e evidências de resolução.</p></div></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Zonas direta e reversa</h3></div><div class="card"><span class="card-num">02</span><h3>Registros A, AAAA, CNAME, MX e PTR</h3></div><div class="card"><span class="card-num">03</span><h3>Encaminhadores e cache</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Integração com o Active Directory</h3></div><div class="card"><span class="card-num">05</span><h3>Limpeza de registros antigos</h3></div><div class="card"><span class="card-num">06</span><h3>Testes com nslookup, dig e Resolve-DnsName</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Configuração e teste do DNS do domínio nexatech.local.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar a zona direta nexatech.local</li><li>Criar a zona reversa da faixa 192.168.10.0/24</li><li>Cadastrar registros de servidores e apelidos</li><li>Configurar encaminhadores externos</li><li>Testar resolução direta e reversa no cliente</li></ol></div>
+      <div class="card"><h3>Ferramentas e ambiente</h3><p>DNS Manager, PowerShell, nslookup e dig</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p></section>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Plano de DNS com zonas direta e reversa, registros e evidências de resolução.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="grid cols-2" style="margin-top:14px"><div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+      <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div></div></section>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Por que uma zona reversa é importante para diagnóstico e auditoria?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Resolução de nomes confiável é pré-requisito para domínio, arquivos e web.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Entregar endereçamento automático aos clientes com DHCP.</p></div></div></section>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Consolida a camada de nomes da NexaTech.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Plano de DNS com zonas direta e reversa, registros e evidências de resolução.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Entregar endereçamento automático aos clientes com DHCP.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>Zonas direta e reversa cobrem nomes para IP e IP para nome.</li><li>Registros SRV e A sustentam o Active Directory.</li><li>Encaminhadores permitem resolver nomes externos.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 13 - DHCP no Windows Server</strong><p>Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.</p></div>
+      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p></section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

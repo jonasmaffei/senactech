@@ -1,37 +1,32 @@
-# Laboratório Virtual - Aula 24: Projeto integrador: apresentação e defesa
+# Laboratório VirtualBox - Aula 24: DHCP no Linux
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Projeto integrador completo e defesa oral.
+**Entrega da aula:** Configuração do DHCP Linux comentada e evidência de concessão para o cliente.
 
 ---
 
 ## Objetivo
 
-Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
+Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.
 
 ## VMs desta aula
 
-MON01, DC01, LNX01 e CLI01.
+Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
-
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
 ## Roteiro
 
-1. Apresentar o projeto em 10 a 15 minutos
-2. Demonstrar login, DNS/DHCP, arquivos, web e monitoramento
-3. Responder à arguição da banca
-4. Entregar a documentação final e a autoavaliação
+1. Instalar o isc-dhcp-server no APP01
+2. Configurar a rede 192.168.10.0/24
+3. Definir faixa, gateway e DNS
+4. Iniciar e habilitar o serviço
+5. Testar a concessão em CLI01/CLI02 e registrar logs
 
 ## Testes e evidências
 
@@ -43,24 +38,23 @@ vagrant status
 ## Comandos úteis
 
 ```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up mon01 dc01 lnx01 cli01
-vagrant ssh mon01
-vagrant ssh lnx01
-vagrant winrm dc01 -c "Get-Service"
-vagrant snapshot save mon01 baseline-mon01
+# Ubuntu
+sudo systemctl status apache2
+sudo systemctl status mariadb
+sudo systemctl status isc-dhcp-server
+sudo systemctl status bind9
 ```
 
 ## Observações
 
-- Não destrua as VMs antes da defesa. A banca deve ser feita com o ambiente no ar e com as evidências organizadas.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+- O Windows Server mantém o DNS e o DHCP oficiais do domínio; os serviços Linux são usados para comparação e prática.
 
 ## Relação com o projeto
 
-Fecha a UC provando que o aluno consegue planejar, instalar, configurar e monitorar uma rede cliente/servidor.
+Amplia o domínio de serviços de rede em Linux.
 
-**O que fica em aberto:** Depois da UC, o próximo passo é aprofundar certificações e especializações.
+**O que fica em aberto:** O próximo serviço espelhado é o DNS.
 
 ---
 

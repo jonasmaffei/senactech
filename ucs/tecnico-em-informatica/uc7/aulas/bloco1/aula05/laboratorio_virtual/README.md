@@ -1,64 +1,61 @@
-# Laboratório Virtual - Aula 05: Planejamento da instalação e documentação
+# Laboratório VirtualBox - Aula 05: Hardware de servidor, armazenamento e RAID
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite.
+**Entrega da aula:** Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.
 
 ---
 
 ## Objetivo
 
-Produzir um plano de instalação com requisitos, riscos, backup, licenciamento e cronograma.
+Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.
 
 ## VMs desta aula
 
-DC01 e LNX01 (usadas como referência de capacidade).
+Nenhuma VM é obrigatória nesta aula. O foco é a especificação do servidor físico e do arranjo de armazenamento.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Criar a checklist de pré-instalação
-2. Montar a matriz de riscos com probabilidade, impacto e resposta
-3. Definir a ordem de instalação dos serviços
-4. Escrever os critérios de aceite de cada entrega
+1. Comparar duas configurações de servidor com custo e desempenho
+2. Calcular a capacidade útil de cada arranjo RAID
+3. Escolher discos, memória e fonte com justificativa
+4. Montar a planilha de especificação
+5. Apresentar a proposta e os riscos
 
 ## Testes e evidências
 
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
+- Registre a comparação de configurações e os cálculos de RAID.
+- Anote a capacidade útil e a tolerância a falhas de cada arranjo.
+- Justifique a escolha final.
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant status
-vagrant winrm dc01 -c "Get-ComputerInfo"
-vagrant ssh lnx01 -c "lscpu && free -h && lsblk"
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula05"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula05"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Organiza a execução das aulas seguintes e evita improviso na configuração.
+Define a base física que sustenta a infraestrutura da NexaTech.
 
-**O que fica em aberto:** O plano está no papel; falta montar o laboratório e validar a rede de ponta a ponta.
+**O que fica em aberto:** Com o hardware definido, é preciso virtualizar para aproveitar melhor a capacidade.
 
 ---
 

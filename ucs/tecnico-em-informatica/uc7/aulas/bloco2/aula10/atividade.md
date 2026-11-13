@@ -1,6 +1,6 @@
-# Atividade - Aula 10: Compartilhamento de arquivos e permissões
+# Atividade - Aula 10: Controlador de domínio e ingresso de clientes
 
-**Entrega:** Matriz de permissões e relatório de testes de acesso.  
+**Entrega:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.
+Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
 
 ## Contexto
 
-A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compartilhada sem controle. A diretoria quer acesso por setor, rastreabilidade e possibilidade de recuperar arquivos apagados.
+O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.
 
 ## O que deve ser entregue
 
-Matriz de permissões e relatório de testes de acesso.
+Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
 
 ## Etapas
 
-1. Criar pastas por setor e compartilhar via SMB
-2. Aplicar permissões NTFS usando grupos
-3. Configurar quotas e cópias de sombra
-4. Mapear unidades e testar acessos permitidos e negados
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS e promover nexatech.local
+3. Configurar o CLI01 com o DNS do DC01
+4. Ingressar o CLI01 e fazer login com usuário do domínio
+5. Validar com whoami /fqdn e registrar eventos
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Matriz de permissões e relatório de testes de acesso.
 
 ## Para refletir
 
-Por que a permissão efetiva é a mais restritiva entre compartilhamento e NTFS?
+Por que o DNS é pré-requisito do Active Directory?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Por que a permissão efetiva é a mais restritiva entre compartilhamento e NTFS?
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

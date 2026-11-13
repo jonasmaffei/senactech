@@ -1,6 +1,6 @@
-# Atividade - Aula 02: Arquitetura e topologia de rede local
+# Atividade - Aula 02: O servidor na rede local e a UC7
 
-**Entrega:** Diagrama de rede e planilha de endereçamento IP da NexaTech.  
+**Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
+Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
 
 ## Contexto
 
-A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para visitantes e vai receber servidores. Antes de comprar equipamentos, é preciso desenhar a topologia e definir o plano de endereços.
+A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
 
 ## O que deve ser entregue
 
-Diagrama de rede e planilha de endereçamento IP da NexaTech.
+Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
 
 ## Etapas
 
-1. Desenhar a topologia física e lógica da NexaTech
-2. Calcular sub-redes para administração, vendas, suporte, servidores e visitantes
-3. Montar a planilha de endereços e reservas
-4. Revisar o diagrama com a turma e corrigir inconsistências
+1. Inventariar os recursos e as dores da NexaTech
+2. Classificar os serviços entre essenciais, importantes e opcionais
+3. Montar um mapa inicial de serviços e responsáveis
+4. Definir os papéis da equipe e o fluxo de documentação
 
 ## Evidências esperadas
 
@@ -33,7 +33,7 @@ Diagrama de rede e planilha de endereçamento IP da NexaTech.
 
 ## Para refletir
 
-Qual decisão de topologia ou segmentação reduz mais o risco de um problema em um setor afetar toda a empresa?
+Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
 
 ## Critérios de avaliação
 

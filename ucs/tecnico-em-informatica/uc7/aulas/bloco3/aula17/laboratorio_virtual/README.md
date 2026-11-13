@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 17: Segurança em servidores Linux
+# Laboratório VirtualBox - Aula 17: pfSense: instalação e configuração inicial
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Relatório de auditoria de segurança com antes, depois e justificativas.
+**Entrega da aula:** pfSense instalado e acesso à interface web documentado.
 
 ---
 
 ## Objetivo
 
-Aplicar hardening e controles de segurança em servidores Linux e seus serviços de rede.
+Instalar o pfSense em uma VM com duas interfaces e configurar o acesso inicial.
 
 ## VMs desta aula
 
-LNX01.
+FW01 (pfSense) com dois adaptadores: NAT (WAN) e Rede Interna `rede-nexatech` (LAN). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Endurecer a configuração do SSH
-2. Configurar firewall e fail2ban
-3. Auditar usuários, permissões e serviços ativos
-4. Comparar o antes e o depois com evidências
+1. Baixar a ISO e criar a VM FW01
+2. Adaptador 1 em NAT (WAN) e adaptador 2 na rede interna (LAN)
+3. Instalar e definir as interfaces
+4. Configurar o IP da LAN e acessar a interface web
+5. Atualizar o pfSense e tirar snapshot
 
 ## Testes e evidências
 
@@ -42,24 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up lnx01
-vagrant ssh lnx01
-vagrant ssh lnx01 -c "systemctl status ssh"
-vagrant snapshot save lnx01 baseline-lnx01
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula17"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula17"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Protege os serviços publicados na Aula 16 e prepara a integração com Windows.
+Entrega o perímetro de segurança da NexaTech.
 
-**O que fica em aberto:** Protegido o servidor, ainda é preciso compartilhar arquivos e garantir recuperação.
+**O que fica em aberto:** Configurar DHCP, regras e NAT para liberar a navegação com segurança.
 
 ---
 

@@ -216,7 +216,7 @@
       laboratório com <strong>VirtualBox</strong>.</p>
     <div class="meta-row">
       <div class="meta"><div class="k">Professor</div><div class="v">Jonas Maffei</div></div>
-      <div class="meta"><div class="k">UC</div><div class="v">UC7 - 96 h - 24 aulas</div></div>
+      <div class="meta"><div class="k">UC</div><div class="v">UC7 - 96 h - 32 aulas · 3 h por noite</div></div>
       <div class="meta"><div class="k">Formato</div><div class="v">Apresentação + conversa</div></div>
     </div>
     <div class="grid cols-2" style="margin-top:26px">
@@ -384,10 +384,11 @@
       <thead><tr><th>Etapa da carreira</th><th>O que usei</th><th>Onde aparece na UC7</th></tr></thead>
       <tbody>
         <tr><td>Monitor e suporte</td><td>Hardware, rede e usuários</td><td class="yes">Bloco 1 - Fundamentos</td></tr>
-        <tr><td>Estágio em manutenção</td><td>Virtualização e instalação</td><td class="yes">Bloco 1 - Aulas 4 e 6</td></tr>
+        <tr><td>Estágio em manutenção</td><td>Virtualização, RAID e instalação</td><td class="yes">Bloco 1 - Aulas 05 e 06</td></tr>
         <tr><td>Sysadmin na escola</td><td>Windows Server, AD, DNS, DHCP e arquivos</td><td class="yes">Bloco 2 - Windows Server</td></tr>
-        <tr><td>Operação de servidores</td><td>Linux, segurança, backup e troubleshooting</td><td class="yes">Bloco 3 - Linux e Segurança</td></tr>
-        <tr><td>SRE e DevOps hoje</td><td>Monitoramento, nuvem, governança e custo</td><td class="yes">Bloco 4 - Monitoramento e Nuvem</td></tr>
+        <tr><td>Operação de servidores</td><td>Linux, segurança, backup e troubleshooting</td><td class="yes">Bloco 4 - Linux e Segurança</td></tr>
+        <tr><td>Redes e firewall</td><td>Roteamento, NAT e pfSense</td><td class="yes">Bloco 3 - Redes, Roteamento e Firewall</td></tr>
+        <tr><td>SRE e DevOps hoje</td><td>Monitoramento, governança e custo</td><td class="yes">Bloco 5 - Operação e Projeto</td></tr>
       </tbody>
     </table>
   </section>
@@ -399,13 +400,15 @@
     <p>O objetivo é formar o profissional capaz de <strong>planejar, instalar, configurar,
       proteger e monitorar</strong> servidores em uma rede local.</p>
     <div class="pipeline">
-      <div class="pipe-step"><span class="step-ico">B1</span><span class="step-title">Fundamentos</span><span class="step-sub">Rede, servidores, virtualização e planejamento</span></div>
+      <div class="pipe-step"><span class="step-ico">B1</span><span class="step-title">Fundamentos</span><span class="step-sub">Rede, hardware, RAID, VirtualBox e planejamento</span></div>
       <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B2</span><span class="step-title">Windows Server</span><span class="step-sub">AD, DNS/DHCP, arquivos, GPOs e automação</span></div>
+      <div class="pipe-step"><span class="step-ico">B2</span><span class="step-title">Windows Server</span><span class="step-sub">AD, DNS/DHCP, arquivos e GPOs</span></div>
       <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B3</span><span class="step-title">Linux Server</span><span class="step-sub">Serviços, hardening, backup e integração</span></div>
+      <div class="pipe-step"><span class="step-ico">B3</span><span class="step-title">Redes e Firewall</span><span class="step-sub">Roteamento, NAT e pfSense</span></div>
       <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B4</span><span class="step-title">Operação e Nuvem</span><span class="step-sub">Monitoramento, continuidade, nuvem e projeto</span></div>
+      <div class="pipe-step"><span class="step-ico">B4</span><span class="step-title">Linux Server</span><span class="step-sub">Serviços, SSH, hardening e CMS</span></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step"><span class="step-ico">B5</span><span class="step-title">Operação e Projeto</span><span class="step-sub">Monitoramento, governança e defesa</span></div>
     </div>
     <div class="grid cols-2" style="margin-top:18px">
       <div class="card">
@@ -450,25 +453,24 @@
     </div>
     <div class="note" style="margin-top:16px">
       <span class="ico">Próximo passo</span>
-      <span>Na Aula 01 vamos aprofundar esses conceitos e entender por que a NexaTech precisa
-        centralizar seus serviços em servidores.</span>
+      <span>Na Aula 01 vamos aprofundar TCP/IP e IPv4; na Aula 02, vamos entender por que a NexaTech precisa centralizar seus serviços em servidores.</span>
     </div>
   </section>
 
   <!-- 10 - VirtualBox e laboratório -->
   <section class="slide">
-    <div class="kicker">Aquecimento - Virtualização</div>
+    <div class="kicker">Virtualização - VirtualBox</div>
     <h2>VirtualBox e o laboratório da UC</h2>
-    <p>Em vez de comprar quatro computadores, vamos criar quatro <strong>máquinas virtuais</strong>
-      no mesmo computador. O <strong>VirtualBox</strong> é o software que hospeda essas VMs.</p>
+    <p>Em vez de comprar quatro computadores, criamos <strong>máquinas virtuais</strong> no mesmo
+      computador. O <strong>VirtualBox</strong> é o software que hospeda essas VMs.</p>
     <div class="grid cols-2">
       <div>
-        <h3 style="margin-bottom:10px">Como funciona</h3>
+        <h3 style="margin-bottom:10px">O que já fizemos</h3>
         <ul class="clean">
-          <li><strong>Máquina virtual (VM)</strong>: um computador inteiro rodando dentro de outro.</li>
-          <li><strong>Hypervisor</strong>: camada que distribui CPU, memória e disco para cada VM.</li>
-          <li><strong>Vagrant</strong>: automatiza a criação e a configuração das VMs.</li>
-          <li>Cada VM tem seu próprio sistema operacional e endereço IP.</li>
+          <li>Criamos a <strong>primeira VM</strong> da turma.</li>
+          <li>Escolhemos <strong>CPU, memória e disco</strong> da VM.</li>
+          <li>Configuramos os <strong>adaptadores de rede</strong>.</li>
+          <li>Iniciamos a VM e vimos o hypervisor usar os recursos do host.</li>
         </ul>
         <div class="note" style="margin-top:12px">
           <span class="ico">Por quê</span>
@@ -476,20 +478,123 @@
         </div>
       </div>
       <div>
-        <h3 style="margin-bottom:10px">Nosso laboratório</h3>
-        <table>
-          <thead><tr><th>VM</th><th>Papel</th><th>IP</th></tr></thead>
-          <tbody>
-            <tr><td>DC01</td><td>Windows Server: AD, DNS, DHCP e arquivos</td><td>192.168.10.10</td></tr>
-            <tr><td>LNX01</td><td>Ubuntu Server: DNS, web e Samba</td><td>192.168.10.20</td></tr>
-            <tr><td>MON01</td><td>Ubuntu Server: monitoramento e logs</td><td>192.168.10.30</td></tr>
-            <tr><td>CLI01</td><td>Windows 11: cliente para testes</td><td>192.168.10.100</td></tr>
-          </tbody>
-        </table>
-        <p style="margin-top:10px">Rede interna <code>rede-nexatech</code> -
-          <code>192.168.10.0/24</code>.</p>
+        <h3 style="margin-bottom:10px">Vocabulário</h3>
+        <div class="grid">
+          <div class="card"><h3><span class="ico">VM</span> Máquina virtual</h3><p>Um computador inteiro rodando dentro de outro, com sistema operacional próprio.</p></div>
+          <div class="card"><h3><span class="ico">HOST</span> Computador físico</h3><p>É quem oferece CPU, memória, disco e rede para as VMs.</p></div>
+          <div class="card"><h3><span class="ico">GUEST</span> Sistema convidado</h3><p>É o sistema operacional que roda dentro da VM.</p></div>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- 11 - Hypervisor -->
+  <section class="slide">
+    <div class="kicker">Virtualização - Hypervisor</div>
+    <h2>Hypervisor: quem controla o quê</h2>
+    <p>O <strong>hypervisor</strong> é a camada que fica entre o hardware e as VMs. Ele divide os
+      recursos do host e impede que uma VM acesse diretamente o hardware da outra.</p>
+    <div class="grid cols-2">
+      <div class="card" style="border-top:3px solid var(--accent)">
+        <h3><span class="ico">Tipo 1</span> Bare-metal</h3>
+        <p>Roda direto sobre o hardware. Ex.: <strong>Hyper-V</strong>, VMware ESXi e Proxmox.
+          É o padrão em servidores e datacenters.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--accent-2)">
+        <h3><span class="ico">Tipo 2</span> Hospedado</h3>
+        <p>Roda como um programa dentro do sistema operacional. Ex.: <strong>VirtualBox</strong> e
+          VMware Workstation. É o nosso caso no laboratório.</p>
+      </div>
+    </div>
+    <table style="margin-top:16px">
+      <thead><tr><th>Recurso do host</th><th>Como a VM enxerga</th><th>Risco se exagerar</th></tr></thead>
+      <tbody>
+        <tr><td>CPU / núcleos</td><td>vCPUs (ex.: 2 vCPU)</td><td>Host e VMs lentos</td></tr>
+        <tr><td>Memória RAM</td><td>Memória reservada para a VM</td><td>Swap e travamentos</td></tr>
+        <tr><td>Disco</td><td>Arquivo de disco virtual (VDI/VMDK)</td><td>Disco do host cheio</td></tr>
+        <tr><td>Rede</td><td>Adaptadores virtuais</td><td>Sem comunicação entre VMs</td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Regra</span>
+      <span>A soma de CPU/RAM das VMs ligadas não deve ultrapassar a capacidade real do host.</span>
+    </div>
+  </section>
+
+  <!-- 12 - Criando a primeira VM -->
+  <section class="slide">
+    <div class="kicker">Virtualização - Prática</div>
+    <h2>Criando a primeira VM</h2>
+    <p>O roteiro que usamos na abertura será repetido nas próximas aulas, sempre com um
+      <strong>snapshot</strong> antes de mudanças arriscadas.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Passo a passo</h3>
+        <ul class="clean">
+          <li><strong>Novo</strong> -> nome da VM e ISO do sistema.</li>
+          <li>Definir <strong>CPU</strong>, <strong>memória</strong> e <strong>disco</strong>.</li>
+          <li>Adicionar os <strong>adaptadores de rede</strong>.</li>
+          <li>Iniciar, instalar o sistema e atualizar.</li>
+          <li>Tirar um <strong>snapshot baseline</strong>.</li>
+        </ul>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Recurso</th><th>Sugestão</th></tr></thead>
+          <tbody>
+            <tr><td>vCPU</td><td>2</td></tr>
+            <tr><td>Memória</td><td>4 GB (2 GB para Linux sem interface)</td></tr>
+            <tr><td>Disco</td><td>40 GB (Windows) / 20 GB (Linux)</td></tr>
+            <tr><td>Rede</td><td>NAT + rede interna</td></tr>
+          </tbody>
+        </table>
+        <div class="note" style="margin-top:12px">
+          <span class="ico">Ajuste</span>
+          <span>Host com 8 GB: reduza a memória das VMs e ligue uma por vez.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 - Redes virtuais -->
+  <section class="slide">
+    <div class="kicker">Virtualização - Redes</div>
+    <h2>Redes NAT, bridge e interna</h2>
+    <p>O modo de rede define quem consegue falar com a VM. Essa escolha aparece em quase todas as
+      aulas e é decisiva no laboratório de pfSense.</p>
+    <table>
+      <thead><tr><th>Modo</th><th>Como funciona</th><th>Quando usar</th><th>Exemplo na UC</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NAT</strong></td><td>A VM sai pela internet usando o IP do host, mas não recebe conexões de fora.</td><td>Atualizar pacotes e baixar arquivos.</td><td><code>apt update</code> no Ubuntu e Windows Update.</td></tr>
+        <tr><td><strong>Bridge</strong></td><td>A VM entra na rede física como se fosse um computador real.</td><td>Acessar a VM de outro computador da mesma rede.</td><td>Administrar o servidor a partir do notebook do professor.</td></tr>
+        <tr><td><strong>Interna</strong></td><td>Só as VMs da mesma rede interna se enxergam; não há internet direta.</td><td>Simular a LAN isolada da empresa.</td><td>Rede <code>rede-nexatech</code> em <code>192.168.10.0/24</code>.</td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Nosso padrão</span>
+      <span>Cada VM usa <strong>NAT</strong> para internet e <strong>rede interna</strong> para a LAN.
+        O <strong>pfSense</strong> faz a ponte entre as duas.</span>
+    </div>
+  </section>
+
+  <!-- 14 - Laboratório da UC -->
+  <section class="slide">
+    <div class="kicker">Nosso laboratório</div>
+    <h2>As VMs da UC7</h2>
+    <p>A base comum fica em <code>laboratorio_virtual/</code> e as VMs são criadas
+      <strong>manualmente no VirtualBox</strong>, sem Vagrant.</p>
+    <table>
+      <thead><tr><th>VM</th><th>Papel</th><th>IP</th></tr></thead>
+      <tbody>
+        <tr><td>DC01</td><td>Windows Server: AD, DNS, DHCP e arquivos</td><td>192.168.10.10</td></tr>
+        <tr><td>APP01</td><td>Ubuntu Server: DNS, DHCP, web e hardening</td><td>192.168.10.20</td></tr>
+        <tr><td>DB01</td><td>Ubuntu Server: banco de dados e práticas de serviços</td><td>192.168.10.30</td></tr>
+        <tr><td>CLI01</td><td>Windows 10: cliente para testes</td><td>192.168.10.100</td></tr>
+        <tr><td>CLI02</td><td>Windows 10: segundo cliente para testes</td><td>192.168.10.101</td></tr>
+        <tr><td>FW01</td><td>pfSense: firewall, NAT e DHCP</td><td>192.168.10.1</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px">Rede interna <code>rede-nexatech</code> - <code>192.168.10.0/24</code>.</p>
   </section>
 
   <!-- 11 - Como vamos trabalhar -->
@@ -503,7 +608,7 @@
       </div>
       <div class="card" style="border-top:3px solid var(--accent-2)">
         <h3><span class="ico">02</span> Laboratório virtual</h3>
-        <p>Prática guiada nas VMs com VirtualBox + Vagrant, registrando evidências de cada etapa.</p>
+        <p>Prática guiada nas VMs com VirtualBox, registrando evidências de cada etapa.</p>
       </div>
       <div class="card" style="border-top:3px solid var(--accent-3)">
         <h3><span class="ico">03</span> Documentação</h3>
@@ -532,8 +637,7 @@
     <div class="grid cols-2" style="margin-top:16px">
       <div class="card" style="border-top:3px solid var(--accent-2)">
         <h3><span class="ico">Próxima</span> Aula 01</h3>
-        <p>O servidor na rede local e a UC7: por que centralizar serviços e como começar o
-          diagnóstico da NexaTech.</p>
+        <p>TCP/IP e IPv4: endereçamento, sub-redes, máscaras e testes de conectividade.</p>
       </div>
       <div class="card" style="border-top:3px solid var(--accent)">
         <h3><span class="ico">Resumo</span> A ideia desta aula</h3>

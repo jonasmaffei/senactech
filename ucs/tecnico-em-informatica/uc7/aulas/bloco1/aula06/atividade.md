@@ -1,6 +1,6 @@
-# Atividade - Aula 06: Laboratório virtual e plano diretor da rede
+# Atividade - Aula 06: Virtualização e criação de VMs no VirtualBox
 
-**Entrega:** Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.  
+**Entrega:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Montar o laboratório virtual e consolidar o plano diretor da rede da NexaTech.
+Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
 
 ## Contexto
 
-Chegou o momento de provar que o plano funciona. A equipe precisa deixar as VMs prontas, a rede interna respondendo e o documento consolidado para a primeira entrega à direção.
+A NexaTech não pode comprar quatro servidores. A equipe vai usar um único computador com VirtualBox para simular a rede cliente/servidor, começando pela primeira máquina virtual.
 
 ## O que deve ser entregue
 
-Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.
+Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
 
 ## Etapas
 
-1. Criar a rede interna rede-nexatech em 192.168.10.0/24
-2. Configurar IP estático nas VMs e testar conectividade
-3. Tirar snapshot limpo de cada VM
-4. Consolidar o plano diretor em um único documento
+1. Criar a VM e nomear conforme o padrão da UC
+2. Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)
+3. Criar disco virtual de 40 GB e revisar o tipo
+4. Adicionar adaptador NAT e adaptador de rede interna
+5. Iniciar a VM, testar a rede e tirar o snapshot baseline
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e risc
 
 ## Para refletir
 
-O que precisa estar documentado para que outra pessoa consiga continuar o projeto sem perguntar nada?
+Quando vale a pena virtualizar e quando o recurso do host vira o gargalo?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ O que precisa estar documentado para que outra pessoa consiga continuar o projet
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

@@ -1,20 +1,20 @@
-# Aula 22 - Computação em nuvem e tecnologias emergentes
+# Aula 22 - Usuários, grupos e permissões no Linux
 
-**Data sugerida:** 15/12/2026 (terça-feira)  
-**Bloco:** 4 - Monitoramento, Nuvem, Governança e Projeto  
-**Carga:** 4 horas
+**Data sugerida:** 16/12/2026 (quarta-feira)
+**Bloco:** 4 - Linux Server e Segurança
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Comparar on-premise e nuvem e avaliar tecnologias emergentes para a infraestrutura da NexaTech.
+Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
 ---
 
 ## Situação de aprendizagem
 
-A direção pergunta se vale migrar arquivos, intranet e backup para a nuvem. A resposta precisa considerar custo, segurança, latência, LGPD e equipe disponível.
+O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.
 
 ---
 
@@ -22,37 +22,37 @@ A direção pergunta se vale migrar arquivos, intranet e backup para a nuvem. A 
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Recomendação de nuvem para a NexaTech com análise de custo e risco. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Relatório de contas, grupos e permissões, com testes de sudo. |
 | [`apresentacao_aula22.html`](apresentacao_aula22.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| IaaS, PaaS e SaaS |
-| Nuvem pública, privada e híbrida |
-| Azure, AWS e Google Cloud |
-| Virtualização versus containers |
-| Docker e Kubernetes |
-| Serverless, edge computing e infraestrutura como código |
-| CapEx versus OpEx, SLA, lock-in e residência de dados |
+| useradd/adduser, passwd e grupos |
+| chmod simbólico e octal |
+| chown, chgrp e umask |
+| sudo e menor privilégio |
+| /etc/passwd, /etc/group e /etc/shadow |
+| Permissões de dono, grupo e outros |
 
 ### Ferramentas
 
-Calculadora de nuvem, Docker, navegador
+Ubuntu, useradd, groupadd, chmod, chown, sudo
 
 ---
 
 ## Prática em laboratório
 
-Comparação de custos e demonstração de container ou VM em nuvem.
+Separação de contas e permissões no servidor Linux.
 
-1. Montar uma comparação de TCO entre on-premise e nuvem
-2. Criar uma VM gratuita ou simular um serviço em nuvem
-3. Executar um container simples e comparar com VM
-4. Avaliar riscos de LGPD e dependência de fornecedor
+1. Criar o grupo dev e os usuários devfrontend e devbackend
+2. Ajustar home e permissões de /var/www/html
+3. Testar leitura e escrita com cada usuário
+4. Configurar sudo restrito
+5. Documentar o antes e o depois
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Comparação de custos e demonstração de container ou VM em nuvem.
 
 ## Atividade
 
-- **Entrega:** Recomendação de nuvem para a NexaTech com análise de custo e risco.
+- **Entrega:** Relatório de contas, grupos e permissões, com testes de sudo.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Nem tudo que é possível na nuvem é vantajoso. Qual critério deve pesar mais na decisão?
+- **Pergunta de reflexão:** Por que conceder sudo total a todos os usuários é um risco?
 
 ---
 
 ## Relação com o projeto
 
-Amplia o horizonte do projeto e conecta a infraestrutura local às tendências de mercado.
+Define quem pode fazer o quê no servidor Linux da NexaTech.
 
-**O que fica em aberto:** A escolha tecnológica precisa ser sustentada por governança e conformidade.
+**O que fica em aberto:** Habilitar administração remota segura para operar o servidor.
 
-**Impacto de negócio:** Decisões de nuvem mal fundamentadas geram custo recorrente e dependência de fornecedor.
+**Impacto de negócio:** Reduz o impacto de erros e de contas comprometidas.
 
 
 ## Próxima aula
 
-**Aula 23 - Governança de TI, segurança e certificações.** Tudo precisa ser consolidado e defendido em um projeto final.
+**Aula 23 - SSH e administração remota.** Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 ---
 

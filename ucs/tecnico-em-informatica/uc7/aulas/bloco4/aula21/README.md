@@ -1,20 +1,20 @@
-# Aula 21 - Backup, continuidade e resposta a incidentes
+# Aula 21 - Administração e operação do Linux
 
-**Data sugerida:** 14/12/2026 (segunda-feira)  
-**Bloco:** 4 - Monitoramento, Nuvem, Governança e Projeto  
-**Carga:** 4 horas
+**Data sugerida:** 15/12/2026 (terça-feira)
+**Bloco:** 4 - Linux Server e Segurança
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Definir estratégia de backup, continuidade de negócio e resposta a incidentes para a NexaTech.
+Operar serviços, processos, armazenamento, logs e agendamentos em um servidor Linux.
 
 ---
 
 ## Situação de aprendizagem
 
-Um simulado de ransomware será executado na aula. A empresa precisa saber o que restaurar, em quanto tempo e quem toma cada decisão durante uma crise.
+O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O que éstá rodando, quanto disco resta, o que falhou e como agendar tarefas sem depender de lembretes.
 
 ---
 
@@ -22,37 +22,39 @@ Um simulado de ransomware será executado na aula. A empresa precisa saber o que
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Runbook de operação do Linux Server. |
 | [`apresentacao_aula21.html`](apresentacao_aula21.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| RPO e RTO |
-| Regra 3-2-1 e cópias imutáveis ou offline |
-| Backup completo, incremental e diferencial |
-| Retenção e descarte seguro |
-| Plano de continuidade e recuperação de desastres |
-| Resposta a incidentes: preparar, detectar, conter, erradicar, recuperar e aprender |
-| Comunicação e notificação LGPD |
+| APT: sources.list, update, upgrade e remoção de pacotes |
+| systemd: units, enable, start, status e journalctl |
+| Processos: ps, top, htop e kill |
+| Disco: df, du, lsblk, mount e LVM |
+| Permissões: chmod, chown e umask |
+| Logs em /var/log e logrotate |
+| cron e systemd timers |
+| Chaves SSH e sessões persistentes com tmux/screen |
 
 ### Ferramentas
 
-Backup do Windows Server, rsync, snapshots, playbook
+systemd, journalctl, htop, cron, tmux, rsync
 
 ---
 
 ## Prática em laboratório
 
-Simulado de indisponibilidade com restauração cronometrada.
+Rotinas de operação e um serviço próprio rodando sob systemd.
 
-1. Executar um simulado de falha e restaurar os serviços
-2. Medir o tempo de recuperação
-3. Criar um playbook de resposta a incidentes
-4. Registrar lições aprendidas
+1. Configurar os repositórios e atualizar o sistema com APT
+2. Criar um serviço systemd simples
+3. Agendar um backup com systemd timer
+4. Analisar logs e identificar um erro
+5. Verificar uso de disco e permissões de arquivos
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +62,24 @@ Simulado de indisponibilidade com restauração cronometrada.
 
 ## Atividade
 
-- **Entrega:** Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes.
+- **Entrega:** Runbook de operação do Linux Server.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Se o servidor principal falhar agora, qual serviço deve voltar primeiro e por quê?
+- **Pergunta de reflexão:** Qual a diferença prática entre cron e systemd timer para uma tarefa que precisa de log e reinício automático?
 
 ---
 
 ## Relação com o projeto
 
-Protege tudo o que foi construído nos blocos anteriores.
+Transforma a instalação da Aula 20 em operação repetível e auditável.
 
-**O que fica em aberto:** A empresa precisa decidir o que mantém na própria infraestrutura e o que vai para a nuvem.
+**O que fica em aberto:** Com a operação sob controle, é hora de publicar os serviços de rede no Linux.
 
-**Impacto de negócio:** Continuidade evita perda de receita, reputação e obrigações legais.
+**Impacto de negócio:** Rotinas documentadas reduzem dependência de pessoas e tempo de recuperação.
 
 
 ## Próxima aula
 
-**Aula 22 - Computação em nuvem e tecnologias emergentes.** A escolha tecnológica precisa ser sustentada por governança e conformidade.
+**Aula 22 - Usuários, grupos e permissões no Linux.** Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
 ---
 

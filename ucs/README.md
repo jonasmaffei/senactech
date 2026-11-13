@@ -6,7 +6,7 @@ Cada UC fica em uma pasta própria e é autocontida.
 
 | UC | Curso | Tema | Carga | Status | Material |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo; laboratório em validação | [`tecnico-em-informatica/uc7/README.md`](tecnico-em-informatica/uc7/README.md) |
+| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo (32 aulas de 3 h, serviços espelhados Windows/Linux e pfSense); laboratório VirtualBox em validação | [`tecnico-em-informatica/uc7/README.md`](tecnico-em-informatica/uc7/README.md) |
 | **UC1** | Técnico em Inteligência Artificial | Introdução a Arquitetura de Computadores | 63 h | Migrada do repositório `senac-tecnico-ia`; em validação | [`tecnico-em-inteligencia-artificial/uc1/README.md`](tecnico-em-inteligencia-artificial/uc1/README.md) |
 
 ---
@@ -25,6 +25,7 @@ ucs/<curso>/<ucN>/
     bloco2/ ...
     bloco3/ ...
     bloco4/ ...
+    bloco5/ ...
     projeto-integrador/
   docs/
     00_ementa.md
@@ -35,9 +36,9 @@ ucs/<curso>/<ucN>/
     05_materiais-complementares.md
     06_tutorial-laboratorio-virtual.md
   laboratorio_virtual/
-    Vagrantfile
     README.md
-    provision/
+  extras/
+    README.md
   questionarios/
     README.md
 ```

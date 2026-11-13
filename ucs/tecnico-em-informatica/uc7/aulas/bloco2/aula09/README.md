@@ -1,20 +1,20 @@
-# Aula 09 - DNS e DHCP no Windows Server
+# Aula 09 - Active Directory Domain Services
 
-**Data sugerida:** 25/11/2026 (quarta-feira)  
-**Bloco:** 2 - Windows Server  
-**Carga:** 4 horas
+**Data sugerida:** 26/11/2026 (quinta-feira)
+**Bloco:** 2 - Windows Server
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Configurar DNS e DHCP integrados ao Active Directory para atender os clientes da rede.
+Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
 
 ---
 
 ## Situação de aprendizagem
 
-Os computadores da NexaTech precisam receber IP automaticamente e encontrar os servidores pelo nome. Sem DNS e DHCP bem configurados, o domínio e os compartilhamentos falham de forma intermitente.
+A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
 
 ---
 
@@ -22,37 +22,37 @@ Os computadores da NexaTech precisam receber IP automaticamente e encontrar os s
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Estrutura do Active Directory documentada e teste de login no domínio. |
 | [`apresentacao_aula09.html`](apresentacao_aula09.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Zonas direta e reversa |
-| Registros A, AAAA, CNAME, MX e PTR |
-| Encaminhadores e cache DNS |
-| Lixeira e limpeza de registros antigos |
-| Escopo DHCP, reservas e opções 003, 006 e 015 |
-| Autorização do DHCP no Active Directory |
-| Failover e boas práticas de endereçamento |
+| Conceitos de domínio, floresta, árvore e controlador de domínio |
+| LDAP, Kerberos e dependência do DNS |
+| Promoção do servidor a controlador de domínio |
+| Unidades organizacionais por setor |
+| Usuários, grupos, UPN e políticas de senha |
+| Ingresso de clientes no domínio |
+| Boas práticas de separação de privilégios |
 
 ### Ferramentas
 
-DNS Manager, DHCP Console, ipconfig, nslookup
+Windows Server, Active Directory Users and Computers, RSAT
 
 ---
 
 ## Prática em laboratório
 
-DNS e DHCP funcionais no domínio da NexaTech.
+Domínio nexatech.local ativo com estrutura de OUs e usuários.
 
-1. Criar zona direta e reversa para nexatech.local
-2. Cadastrar registros de servidores e apelidos
-3. Criar escopo DHCP com faixa, gateway e DNS
-4. Reservar IPs para servidores e impressoras e testar em um cliente
+1. Promover o servidor a controlador do domínio nexatech.local
+2. Criar OUs para Administração, Vendas, Suporte e Servidores
+3. Criar usuários e grupos de segurança
+4. Ingressar um cliente Windows no domínio e testar login
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ DNS e DHCP funcionais no domínio da NexaTech.
 
 ## Atividade
 
-- **Entrega:** Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.
+- **Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** O que acontece com os clientes se o DHCP cair, e como reservas e failover reduzem esse impacto?
+- **Pergunta de reflexão:** Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?
 
 ---
 
 ## Relação com o projeto
 
-Dá suporte ao domínio da Aula 08 e prepara o compartilhamento de arquivos.
+Transforma o servidor instalado na Aula 07 em uma autoridade de autenticação.
 
-**O que fica em aberto:** Com nomes e endereços resolvidos, os usuários precisam de pastas e permissões.
+**O que fica em aberto:** O domínio precisa de DNS confiável e de endereçamento automático para os clientes.
 
-**Impacto de negócio:** DNS e DHCP estáveis são a base invisível de quase todos os serviços corporativos.
+**Impacto de negócio:** Autenticação centralizada reduz contas soltas e facilita desligamentos e auditorias.
 
 
 ## Próxima aula
 
-**Aula 10 - Compartilhamento de arquivos e permissões.** As permissões estão corretas, mas precisam ser aplicadas de forma padronizada em todos os computadores.
+**Aula 10 - Controlador de domínio e ingresso de clientes.** Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
 
 ---
 

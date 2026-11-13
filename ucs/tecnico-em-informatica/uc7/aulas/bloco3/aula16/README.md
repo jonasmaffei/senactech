@@ -1,20 +1,20 @@
-# Aula 16 - Serviços de rede no Linux: DNS, DHCP e web
+# Aula 16 - Roteamento e NAT
 
-**Data sugerida:** 04/12/2026 (sexta-feira)  
-**Bloco:** 3 - Linux Server e Segurança  
-**Carga:** 4 horas
+**Data sugerida:** 07/12/2026 (segunda-feira)
+**Bloco:** 3 - Redes, Roteamento e Firewall
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Configurar DNS, DHCP e servidor web em Linux para atender a rede da NexaTech.
+Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT para liberar internet.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech quer um DNS secundário, DHCP para a VLAN de visitantes e uma intranet em Linux. Esses serviços precisam coexistir com o ambiente Windows sem conflitos.
+A rede interna não tem acesso à internet; é preciso configurar o gateway e o NAT antes de instalar o firewall dedicado.
 
 ---
 
@@ -22,37 +22,37 @@ A NexaTech quer um DNS secundário, DHCP para a VLAN de visitantes e uma intrane
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Configurações comentadas e evidências dos testes dos três serviços. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Configuração de NAT aplicada e teste de internet a partir do cliente. |
 | [`apresentacao_aula16.html`](apresentacao_aula16.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| BIND9: zonas, registros e encaminhadores |
-| isc-dhcp-server ou Kea DHCP |
-| Apache e Nginx: virtual hosts e permissões |
-| PHP e conteúdo estático |
-| TLS e certificados |
-| Proxy reverso e cabeçalhos |
-| Testes com dig, nslookup, curl e navegador |
+| Rede interna, rede externa e gateway padrão |
+| Roteamento estático e encaminhamento de pacotes |
+| NAT, PAT e MASQUERADE |
+| ip_forward no Linux e RRAS no Windows |
+| Regras de firewall e NAT |
+| Testes com ping, traceroute e curl |
 
 ### Ferramentas
 
-BIND9, Kea/isc-dhcp-server, Nginx ou Apache, dig, curl
+Ubuntu, Windows Server, iptables, RRAS, ping, curl
 
 ---
 
 ## Prática em laboratório
 
-DNS, DHCP e intranet Linux funcionando na rede interna.
+Encaminhamento de pacotes e NAT de saída.
 
-1. Configurar zona DNS no BIND e testar com dig
-2. Criar escopo DHCP para visitantes
-3. Publicar uma intranet simples no Nginx ou Apache
-4. Testar resolução, endereçamento e acesso web
+1. Habilitar ip_forward no Linux ou RRAS no Windows
+2. Configurar NAT de saída na interface WAN
+3. Ajustar o gateway no cliente
+4. Testar internet e registrar as regras
+5. Tirar snapshot da configuração
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ DNS, DHCP e intranet Linux funcionando na rede interna.
 
 ## Atividade
 
-- **Entrega:** Configurações comentadas e evidências dos testes dos três serviços.
+- **Entrega:** Configuração de NAT aplicada e teste de internet a partir do cliente.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Como evitar que dois servidores DHCP na mesma rede entreguem faixas conflitantes?
+- **Pergunta de reflexão:** Qual a diferença entre dar internet à LAN e expor serviços da LAN para a internet?
 
 ---
 
 ## Relação com o projeto
 
-Coloca o Linux como servidor de serviços, não apenas como máquina de testes.
+Prepara a camada de saída que o pfSense vai assumir.
 
-**O que fica em aberto:** Serviços publicados aumentam a superfície de ataque e exigem hardening.
+**O que fica em aberto:** Centralizar as regras em um firewall dedicado e auditável.
 
-**Impacto de negócio:** Serviços abertos bem configurados reduzem custo e aumentam a resiliência da rede.
+**Impacto de negócio:** Permite que a rede interna use a internet sem endereços públicos.
 
 
 ## Próxima aula
 
-**Aula 17 - Segurança em servidores Linux.** Protegido o servidor, ainda é preciso compartilhar arquivos e garantir recuperação.
+**Aula 17 - pfSense: instalação e configuração inicial.** Instalar o pfSense em uma VM com duas interfaces e configurar o acesso inicial.
 
 ---
 

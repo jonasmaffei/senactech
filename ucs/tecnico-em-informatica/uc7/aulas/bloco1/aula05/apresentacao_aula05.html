@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 05 - Planejamento da instalação e documentação | UC7</title>
+<title>Aula 05 - Hardware de servidor, armazenamento e RAID | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -202,208 +202,49 @@
 <body>
 <div id="progress"></div>
 <header id="topbar">
-  <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 05</div>
-  <div id="counter">1 / 10</div>
+  <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 01</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 1 · Aula 05</span>
-      <h1>Planejamento da instalação e documentação</h1>
-      <p class="lead">Produzir um plano de instalação com requisitos, riscos, backup, licenciamento e cronograma.</p>
-      <div class="meta-row">
-        <span class="pill">18/11/2026 · quarta-feira</span>
-        <span class="pill">Fundamentos e Planejamento</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
-      </div>
+      <h1>Hardware de servidor, armazenamento e RAID</h1>
+      <p class="lead">Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.</p>
+      <div class="meta-row"><span class="pill">19/11/2026 (quinta-feira)</span><span class="pill">Fundamentos e Planejamento</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
-
     <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">A direção só libera a compra e a janela de manutenção depois de ver um plano claro. É preciso mostrar o que será feito, em que ordem, com quais riscos e como voltar atrás se algo falhar.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Produzir um plano de instalação com requisitos, riscos, backup, licenciamento e cronograma.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite.</p>
-          </div>
-        </div>
-      </div>
+      <span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória, discos e RAID antes de comprar.</p></div><div class="grid">
+        <div class="card highlight"><h3>Objetivo da aula</h3><p>Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.</p></div>
+        <div class="card"><h3>Entrega principal</h3><p>Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.</p></div></div></div>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Levantamento e priorização de requisitos</h3></div><div class="card"><span class="card-num">02</span><h3>Escopo, cronograma e marcos de entrega</h3></div><div class="card"><span class="card-num">03</span><h3>Licenciamento Windows Server, CALs e software livre</h3></div><div class="card"><span class="card-num">04</span><h3>Backup 3-2-1 e política de retenção</h3></div>
-      </div>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>BIOS/UEFI, POST e CMOS</h3></div><div class="card"><span class="card-num">02</span><h3>CPU, núcleos, memória ECC e placas de rede</h3></div><div class="card"><span class="card-num">03</span><h3>Discos SAS, SATA e NVMe</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>RAID 0, 1, 5, 6 e 10</h3></div><div class="card"><span class="card-num">05</span><h3>Tolerância a falhas e desempenho</h3></div><div class="card"><span class="card-num">06</span><h3>Fontes redundantes, hot swap e gerenciamento remoto</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Dimensionamento do servidor físico que futuramente dará lugar às VMs.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Comparar duas configurações de servidor com custo e desempenho</li><li>Calcular a capacidade útil de cada arranjo RAID</li><li>Escolher discos, memória e fonte com justificativa</li><li>Montar a planilha de especificação</li><li>Apresentar a proposta e os riscos</li></ol></div>
+      <div class="card"><h3>Ferramentas e ambiente</h3><p>Planilha de orçamento, calculadora de RAID, editor de texto</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Segurança física e lógica</h3></div><div class="card"><span class="card-num">06</span><h3>Gestão de mudanças e plano de reversão</h3></div><div class="card"><span class="card-num">07</span><h3>Documentação: inventário, diagramas, runbooks e critérios de aceite</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Planejamento documental; as VMs da Aula 04 são usadas como referência de capacidade.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar a checklist de pré-instalação</li><li>Montar a matriz de riscos com probabilidade, impacto e resposta</li><li>Definir a ordem de instalação dos serviços</li><li>Escrever os critérios de aceite de cada entrega</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Editor de texto, planilha, modelo de plano de projeto</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
       <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Use as VMs como referência de capacidade. Registre qualquer mudança de configuração no plano de instalação.</p>
+      <p class="note"><strong>Nesta aula:</strong> a decisão é de hardware e armazenamento. As VMs serão criadas na Aula 05.</p>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="grid cols-2" style="margin-top:14px"><div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+      <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div></div>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Qual risco do plano tem maior impacto no negócio e qual medida simples reduz esse risco?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Planejamento reduz paradas não programadas e facilita a aprovação orçamentária.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>O plano está no papel; falta montar o laboratório e validar a rede de ponta a ponta.</p>
-        </div>
-      </div>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Quando o RAID aumenta a disponibilidade e quando apenas dá uma falsa sensação de segurança?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Dimensionamento correto evita gasto excessivo e gargalos previsíveis.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Com o hardware definido, é preciso virtualizar para aproveitar melhor a capacidade.</p></div></div>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Organiza a execução das aulas seguintes e evita improviso na configuração.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Plano de instalação da NexaTech com cronograma, riscos e critérios de aceite.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>O plano está no papel; falta montar o laboratório e validar a rede de ponta a ponta.</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Define a base física que sustenta a infraestrutura da NexaTech.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Com o hardware definido, é preciso virtualizar para aproveitar melhor a capacidade.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Todo serviço implantado deve ter dono, documentação, backup e critério de aceite.</li><li>A matriz de riscos orienta prioridades e planos de contingência.</li><li>Licenciamento e backup são parte do projeto, não detalhes posteriores.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 06 - Laboratório virtual e plano diretor da rede</strong>
-          <p>Com a base pronta, qual sistema operacional será instalado e configurado primeiro?</p>
-        </div>
-        
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>BIOS/UEFI inicializa o hardware e o POST verifica o básico.</li><li>RAID combina discos para ganhar desempenho, segurança ou ambos.</li><li>A escolha do RAID deve considerar capacidade útil, custo e tolerância a falhas.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 06 - Virtualização e criação de VMs no VirtualBox</strong><p>Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

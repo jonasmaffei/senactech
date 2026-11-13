@@ -1,20 +1,20 @@
-# Aula 11 - GPOs e políticas de segurança
+# Aula 11 - Unidades organizacionais, grupos e usuários
 
-**Data sugerida:** 27/11/2026 (sexta-feira)  
-**Bloco:** 2 - Windows Server  
-**Carga:** 4 horas
+**Data sugerida:** 30/11/2026 (segunda-feira)
+**Bloco:** 2 - Windows Server
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.
+Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
 
 ---
 
 ## Situação de aprendizagem
 
-A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades de rede mapeadas manualmente. A equipe precisa padronizar isso sem visitar cada computador.
+A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
 
 ---
 
@@ -22,36 +22,37 @@ A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades d
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Estrutura de OUs, grupos e usuários documentada, com evidência de logins. |
 | [`apresentacao_aula11.html`](apresentacao_aula11.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Objetos de GPO, escopo e herança |
-| Ordem de precedência e filtragem de segurança |
-| Política de senha e bloqueio de conta |
-| Firewall, atualizações e restrições de software |
-| Mapeamento de unidades e impressoras |
-| Auditoria e diagnóstico com gpresult e RSOP |
+| Unidades organizacionais e delegação |
+| Usuários, grupos de segurança e grupos de distribuição |
+| UPN, senha e políticas de conta |
+| Grupos globais, locais de domínio e universais |
+| Modelo AGDLP |
+| Menor privilégio e contas administrativas |
 
 ### Ferramentas
 
-Group Policy Management Console, gpresult, RSOP
+Active Directory Users and Computers, PowerShell
 
 ---
 
 ## Prática em laboratório
 
-GPOs aplicadas em OUs específicas e validadas em clientes.
+Modelagem dos setores e das contas da NexaTech.
 
-1. Criar GPO de política de senha e bloqueio de tela
-2. Mapear unidades de rede e impressoras por setor
-3. Aplicar configurações de firewall e atualizações
-4. Validar com gpresult e testar com usuários de OUs diferentes
+1. Criar as OUs ADM, RH, PROD e TI
+2. Criar grupos de segurança por setor
+3. Criar usuários e adicionar aos grupos
+4. Testar login de um usuário comum
+5. Documentar a estrutura criada
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -59,24 +60,24 @@ GPOs aplicadas em OUs específicas e validadas em clientes.
 
 ## Atividade
 
-- **Entrega:** Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.
+- **Entrega:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Como a herança e a precedência de GPOs podem fazer uma política funcionar em um setor e falhar em outro?
+- **Pergunta de reflexão:** Por que é melhor conceder permissão a grupos do que a usuários individuais?
 
 ---
 
 ## Relação com o projeto
 
-Aplica em escala as permissões e padrões definidos nas aulas anteriores.
+Organiza a identidade e as permissões da NexaTech.
 
-**O que fica em aberto:** O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.
+**O que fica em aberto:** Publicar serviços de rede que dependem do domínio: DNS e DHCP.
 
-**Impacto de negócio:** Políticas centralizadas reduzem falhas humanas e custo de suporte.
+**Impacto de negócio:** Permite aplicar regras por setor e reduz o esforço de administração.
 
 
 ## Próxima aula
 
-**Aula 12 - Serviços web, acesso remoto e administração.** Serviços publicados precisam de rotinas automáticas de verificação e monitoramento.
+**Aula 12 - DNS no Windows Server.** Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
 
 ---
 

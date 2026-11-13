@@ -1,20 +1,20 @@
-# Aula 01 - O servidor na rede local e a UC7
+# Aula 01 - TCP/IP e IPv4
 
-**Data sugerida:** 12/11/2026 (quinta-feira)  
-**Bloco:** 1 - Fundamentos e Planejamento  
-**Carga:** 4 horas
+**Data sugerida:** 13/11/2026 (sexta-feira)
+**Bloco:** 1 - Fundamentos e Planejamento
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
+Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.
 
 ---
 
@@ -22,36 +22,37 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Diagnóstico inicial de uma página com os serviços que precisam ser centralizados. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping. |
 | [`apresentacao_aula01.html`](apresentacao_aula01.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Modelo cliente/servidor e redes peer-to-peer |
-| Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem |
-| Serviços essenciais de uma LAN corporativa |
-| On-premise, nuvem e ambiente híbrido |
-| Ciclo de vida: planejar, instalar, configurar, monitorar e manter |
-| Ética profissional, LGPD e segurança da informação |
+| Modelo TCP/IP e comparação com o modelo OSI |
+| Endereços IPv4: rede, host, máscara e gateway |
+| IPs privados, públicos e NAT |
+| Notação CIDR e identificação da rede |
+| DNS e DHCP no fluxo de configuração |
+| Testes com ping, ipconfig, ip e tracert |
 
 ### Ferramentas
 
-Planilha, editor de texto, draw.io ou diagrams.net
+VirtualBox, Windows 10, ISO e prompt de comando
 
 ---
 
 ## Prática em laboratório
 
-Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
+Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Criar as VMs CLI01 e CLI02 com Windows 10
+2. Adicionar as duas VMs à rede interna rede-nexatech
+3. Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101
+4. Testar ping entre as duas VMs nos dois sentidos
+5. Registrar prints do ipconfig e do ping
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -59,24 +60,24 @@ Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
 
 ## Atividade
 
-- **Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+- **Entrega:** Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
+- **Pergunta de reflexão:** Por que uma máscara ou gateway errado derruba a comunicação mesmo com o cabo conectado?
 
 ---
 
 ## Relação com o projeto
 
-Abre a UC e estabelece o problema de negócio que será resolvido ao longo das 24 aulas.
+Define os conceitos de endereçamento que sustentarão toda a infraestrutura.
 
-**O que fica em aberto:** Quais serviços serão necessários e como eles se conectam fisicamente?
+**O que fica em aberto:** Com os conceitos entendidos, é preciso definir o papel de cada servidor.
 
-**Impacto de negócio:** Evita compras e instalações sem critério, reduzindo custo e retrabalho.
+**Impacto de negócio:** Um plano de IP correto evita conflitos e facilita a instalação dos servidores.
 
 
 ## Próxima aula
 
-**Aula 02 - Arquitetura e topologia de rede local.** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
+**Aula 02 - O servidor na rede local e a UC7.** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
 
 ---
 

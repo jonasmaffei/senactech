@@ -1,20 +1,20 @@
-# Aula 10 - Compartilhamento de arquivos e permissões
+# Aula 10 - Controlador de domínio e ingresso de clientes
 
-**Data sugerida:** 26/11/2026 (quinta-feira)  
-**Bloco:** 2 - Windows Server  
-**Carga:** 4 horas
+**Data sugerida:** 27/11/2026 (sexta-feira)
+**Bloco:** 2 - Windows Server
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.
+Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compartilhada sem controle. A diretoria quer acesso por setor, rastreabilidade e possibilidade de recuperar arquivos apagados.
+O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.
 
 ---
 
@@ -22,37 +22,37 @@ A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compart
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Matriz de permissões e relatório de testes de acesso. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Evidência de promoção do controlador de domínio e login do CLI01 no domínio. |
 | [`apresentacao_aula10.html`](apresentacao_aula10.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| SMB e compartilhamentos de rede |
-| Permissões de compartilhamento versus NTFS |
-| Herança, acesso efetivo e princípio do menor privilégio |
-| Modelo AGDLP: contas, grupos globais, grupos locais de domínio e permissões |
-| Quotas e File Server Resource Manager |
-| Shadow Copies e versões anteriores |
-| Backup, DFS e auditoria de acesso |
+| Domínio, floresta, árvore e controlador de domínio |
+| DNS integrado ao AD e registros SRV |
+| Promoção do servidor e reinício |
+| Ingresso do cliente e credenciais de domínio |
+| Contas de computador e GPO padrão |
+| Diagnóstico com dcdiag e nltest |
 
 ### Ferramentas
 
-Windows Server, Explorador de Arquivos, FSRM, PowerShell
+Server Manager, PowerShell, Active Directory Users and Computers
 
 ---
 
 ## Prática em laboratório
 
-Servidor de arquivos com pastas departamentais e permissões testadas.
+Criação do domínio e ingresso do cliente Windows.
 
-1. Criar pastas por setor e compartilhar via SMB
-2. Aplicar permissões NTFS usando grupos
-3. Configurar quotas e cópias de sombra
-4. Mapear unidades e testar acessos permitidos e negados
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS e promover nexatech.local
+3. Configurar o CLI01 com o DNS do DC01
+4. Ingressar o CLI01 e fazer login com usuário do domínio
+5. Validar com whoami /fqdn e registrar eventos
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Servidor de arquivos com pastas departamentais e permissões testadas.
 
 ## Atividade
 
-- **Entrega:** Matriz de permissões e relatório de testes de acesso.
+- **Entrega:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que a permissão efetiva é a mais restritiva entre compartilhamento e NTFS?
+- **Pergunta de reflexão:** Por que o DNS é pré-requisito do Active Directory?
 
 ---
 
 ## Relação com o projeto
 
-Entrega o serviço que mais afeta o dia a dia dos usuários da NexaTech.
+Entrega o núcleo de identidade da NexaTech.
 
-**O que fica em aberto:** As permissões estão corretas, mas precisam ser aplicadas de forma padronizada em todos os computadores.
+**O que fica em aberto:** Organizar setores, usuários e grupos dentro do domínio recém-criado.
 
-**Impacto de negócio:** Controle de acesso a arquivos reduz vazamentos, perdas e retrabalho jurídico.
+**Impacto de negócio:** Centraliza a autenticação e elimina contas locais espalhadas pela empresa.
 
 
 ## Próxima aula
 
-**Aula 11 - GPOs e políticas de segurança.** O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.
+**Aula 11 - Unidades organizacionais, grupos e usuários.** Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
 
 ---
 

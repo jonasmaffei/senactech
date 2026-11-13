@@ -1,20 +1,20 @@
-# Aula 12 - Serviços web, acesso remoto e administração
+# Aula 12 - DNS no Windows Server
 
-**Data sugerida:** 30/11/2026 (segunda-feira)  
-**Bloco:** 2 - Windows Server  
-**Carga:** 4 horas
+**Data sugerida:** 01/12/2026 (terça-feira)
+**Bloco:** 2 - Windows Server
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Publicar serviços web e configurar administração remota segura no Windows Server.
+Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech precisa de uma intranet simples para comunicados e de uma forma segura de administrar o servidor sem ficar fisicamente na sala. A solução não pode expor RDP ou HTTP sem proteção.
+Os computadores da NexaTech precisam encontrar o controlador de domínio e os serviços pelo nome; sem DNS confiável, o domínio falha de forma intermitente.
 
 ---
 
@@ -22,37 +22,37 @@ A NexaTech precisa de uma intranet simples para comunicados e de uma forma segur
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Catálogo de serviços web e checklist de acesso remoto seguro. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Plano de DNS com zonas direta e reversa, registros e evidências de resolução. |
 | [`apresentacao_aula12.html`](apresentacao_aula12.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| IIS: sites, bindings, permissões e logs |
-| HTTP versus HTTPS e certificados TLS |
-| RDP: riscos, restrições e boas práticas |
-| VPN e acesso remoto seguro |
-| Windows Admin Center e PowerShell Remoting |
-| WinRM, firewall e princípio do menor privilégio |
-| Autenticação multifator e gestão de credenciais |
+| Zonas direta e reversa |
+| Registros A, AAAA, CNAME, MX e PTR |
+| Encaminhadores e cache |
+| Integração com o Active Directory |
+| Limpeza de registros antigos |
+| Testes com nslookup, dig e Resolve-DnsName |
 
 ### Ferramentas
 
-IIS, Windows Admin Center, PowerShell, OpenSSL ou certificado interno
+DNS Manager, PowerShell, nslookup e dig
 
 ---
 
 ## Prática em laboratório
 
-Intranet publicada e administração remota funcional com restrições.
+Configuração e teste do DNS do domínio nexatech.local.
 
-1. Publicar uma intranet simples no IIS
-2. Configurar HTTPS com certificado de teste
-3. Restringir RDP por firewall e testar acesso
-4. Administrar o servidor pelo Windows Admin Center ou PowerShell Remoting
+1. Criar a zona direta nexatech.local
+2. Criar a zona reversa da faixa 192.168.10.0/24
+3. Cadastrar registros de servidores e apelidos
+4. Configurar encaminhadores externos
+5. Testar resolução direta e reversa no cliente
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Intranet publicada e administração remota funcional com restrições.
 
 ## Atividade
 
-- **Entrega:** Catálogo de serviços web e checklist de acesso remoto seguro.
+- **Entrega:** Plano de DNS com zonas direta e reversa, registros e evidências de resolução.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que expor RDP diretamente à internet é uma das práticas mais perigosas em servidores Windows?
+- **Pergunta de reflexão:** Por que uma zona reversa é importante para diagnóstico e auditoria?
 
 ---
 
 ## Relação com o projeto
 
-Amplia o servidor de arquivos e domínio para serviços de comunicação e administração.
+Consolida a camada de nomes da NexaTech.
 
-**O que fica em aberto:** Serviços publicados precisam de rotinas automáticas de verificação e monitoramento.
+**O que fica em aberto:** Entregar endereçamento automático aos clientes com DHCP.
 
-**Impacto de negócio:** Acesso remoto seguro evita sequestro de servidor e vazamento de dados.
+**Impacto de negócio:** Resolução de nomes confiável é pré-requisito para domínio, arquivos e web.
 
 
 ## Próxima aula
 
-**Aula 13 - Automação e monitoramento no Windows Server.** A empresa também precisa de serviços abertos e de baixo custo; entra o Linux.
+**Aula 13 - DHCP no Windows Server.** Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.
 
 ---
 

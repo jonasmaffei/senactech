@@ -1,20 +1,20 @@
-# Aula 23 - Governança de TI, segurança e certificações
+# Aula 23 - SSH e administração remota
 
-**Data sugerida:** 16/12/2026 (quarta-feira)  
-**Bloco:** 4 - Monitoramento, Nuvem, Governança e Projeto  
-**Carga:** 4 horas
+**Data sugerida:** 17/12/2026 (quinta-feira)
+**Bloco:** 4 - Linux Server e Segurança
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Aplicar conceitos de governança e segurança na administração dos servidores e planejar certificações.
+Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech vai passar por uma auditoria de segurança e quer organizar processos. A equipe precisa demonstrar controle sobre ativos, mudanças, incidentes e acessos.
+A equipe precisa administrar o servidor sem ir até o console; acesso remoto seguro é obrigatório.
 
 ---
 
@@ -22,37 +22,37 @@ A NexaTech vai passar por uma auditoria de segurança e quer organizar processos
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Dossiê de governança de TI com catálogo, riscos e roadmap de certificações. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Checklist de SSH seguro com testes de acesso e bloqueio de root. |
 | [`apresentacao_aula23.html`](apresentacao_aula23.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| ITIL 4: catálogo de serviços, incidentes, problemas e mudanças |
-| COBIT e alinhamento com o negócio |
-| ISO/IEC 27001 e gestão de riscos |
-| LGPD e privacidade |
-| Gestão de ativos, acessos, fornecedores e auditoria |
-| Certificações Microsoft, Linux e Cisco |
-| Plano de desenvolvimento profissional |
+| openssh-server e sshd_config |
+| Autenticação por senha e por chave |
+| Porta, PermitRootLogin e AllowUsers |
+| Geração e cópia de chaves |
+| Fail2ban e firewall |
+| scp, sftp e boas práticas |
 
 ### Ferramentas
 
-Modelos de catálogo, matriz de riscos, Microsoft Learn, NetAcad
+Ubuntu, OpenSSH, ssh-keygen, ufw, fail2ban
 
 ---
 
 ## Prática em laboratório
 
-Dossiê de governança e plano de certificação.
+Acesso remoto seguro ao Ubuntu Server.
 
-1. Criar catálogo de serviços e matriz de riscos
-2. Mapear controles de segurança e evidências
-3. Comparar trilhas de certificação
-4. Montar um plano de melhoria para a NexaTech
+1. Instalar o openssh-server
+2. Desabilitar login root e senhas vazias
+3. Criar par de chaves e copiar para o servidor
+4. Testar login e acesso negado
+5. Registrar a configuração final
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Dossiê de governança e plano de certificação.
 
 ## Atividade
 
-- **Entrega:** Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.
+- **Entrega:** Checklist de SSH seguro com testes de acesso e bloqueio de root.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Como uma prática de governança pode evitar um problema técnico que já aconteceu antes?
+- **Pergunta de reflexão:** Por que autenticação por chave é mais segura que senha para administração?
 
 ---
 
 ## Relação com o projeto
 
-Dá sustentação organizacional ao ambiente técnico construído na UC.
+Habilita a operação remota segura do servidor Linux.
 
-**O que fica em aberto:** Tudo precisa ser consolidado e defendido em um projeto final.
+**O que fica em aberto:** Endurecer o restante do servidor e revisar os serviços expostos.
 
-**Impacto de negócio:** Governança reduz risco, melhora auditoria e alinha TI ao negócio.
+**Impacto de negócio:** Permite operação remota sem expor credenciais frágeis.
 
 
 ## Próxima aula
 
-**Aula 24 - Projeto integrador: apresentação e defesa.** Depois da UC, o próximo passo é aprofundar certificações e especializações.
+**Aula 24 - DHCP no Linux.** Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.
 
 ---
 

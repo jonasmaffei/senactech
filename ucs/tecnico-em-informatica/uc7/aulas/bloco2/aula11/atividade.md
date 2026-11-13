@@ -1,6 +1,6 @@
-# Atividade - Aula 11: GPOs e políticas de segurança
+# Atividade - Aula 11: Unidades organizacionais, grupos e usuários
 
-**Entrega:** Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.  
+**Entrega:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.
+Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
 
 ## Contexto
 
-A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades de rede mapeadas manualmente. A equipe precisa padronizar isso sem visitar cada computador.
+A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
 
 ## O que deve ser entregue
 
-Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.
+Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
 
 ## Etapas
 
-1. Criar GPO de política de senha e bloqueio de tela
-2. Mapear unidades de rede e impressoras por setor
-3. Aplicar configurações de firewall e atualizações
-4. Validar com gpresult e testar com usuários de OUs diferentes
+1. Criar as OUs ADM, RH, PROD e TI
+2. Criar grupos de segurança por setor
+3. Criar usuários e adicionar aos grupos
+4. Testar login de um usuário comum
+5. Documentar a estrutura criada
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicaç�
 
 ## Para refletir
 
-Como a herança e a precedência de GPOs podem fazer uma política funcionar em um setor e falhar em outro?
+Por que é melhor conceder permissão a grupos do que a usuários individuais?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Como a herança e a precedência de GPOs podem fazer uma política funcionar em 
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

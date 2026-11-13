@@ -1,6 +1,6 @@
-# Atividade - Aula 04: Hardware de servidor, armazenamento e virtualização
+# Atividade - Aula 04: Protocolos e serviços de rede
 
-**Entrega:** Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.  
+**Entrega:** Matriz de serviços, protocolos, portas e riscos da NexaTech.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Especificar hardware de servidor e projetar um laboratório virtualizado compatível com o projeto.
+Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
 
 ## Contexto
 
-O orçamento permite um servidor físico e alguns computadores de laboratório. A equipe precisa decidir como hospedar Windows Server, Linux e monitoramento sem comprar três máquinas.
+A equipe precisa definir quais serviços rodarão nos servidores e quais portas deverão ser liberadas no firewall. Um erro nessa matriz pode deixar a rede insegura ou quebrar serviços essenciais.
 
 ## O que deve ser entregue
 
-Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.
+Matriz de serviços, protocolos, portas e riscos da NexaTech.
 
 ## Etapas
 
-1. Comparar duas configurações de servidor com custo e desempenho
-2. Criar as VMs de Windows Server e Ubuntu Server no laboratório
-3. Configurar a rede interna do laboratório
-4. Registrar uma linha de base com snapshot antes das próximas aulas
+1. Testar conectividade com ping, tracert e Test-NetConnection
+2. Consultar nomes com nslookup e dig
+3. Observar portas abertas com netstat ou ss
+4. Capturar uma requisição HTTP no Wireshark e identificar as camadas
 
 ## Evidências esperadas
 
@@ -33,7 +33,7 @@ Especificação técnica do servidor e das VMs, com justificativa de custo e cap
 
 ## Para refletir
 
-Quando a virtualização reduz custo de verdade e quando ela apenas concentra risco em uma única máquina?
+Por qué a mesma porta pode ser necessária para o serviço e, ao mesmo tempo, representar um risco de segurança?
 
 ## Critérios de avaliação
 

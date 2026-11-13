@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 12: Serviços web, acesso remoto e administração
+# Laboratório VirtualBox - Aula 12: DNS no Windows Server
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Catálogo de serviços web e checklist de acesso remoto seguro.
+**Entrega da aula:** Plano de DNS com zonas direta e reversa, registros e evidências de resolução.
 
 ---
 
 ## Objetivo
 
-Publicar serviços web e configurar administração remota segura no Windows Server.
+Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
 
 ## VMs desta aula
 
-DC01 e CLI01.
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Publicar uma intranet simples no IIS
-2. Configurar HTTPS com certificado de teste
-3. Restringir RDP por firewall e testar acesso
-4. Administrar o servidor pelo Windows Admin Center ou PowerShell Remoting
+1. Criar a zona direta nexatech.local
+2. Criar a zona reversa da faixa 192.168.10.0/24
+3. Cadastrar registros de servidores e apelidos
+4. Configurar encaminhadores externos
+5. Testar resolução direta e reversa no cliente
 
 ## Testes e evidências
 
@@ -42,25 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 cli01
-vagrant winrm dc01 -c "hostname"
-vagrant winrm cli01 -c "ipconfig /all"
-vagrant rdp dc01
-vagrant snapshot save dc01 antes-ad
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula12"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula12"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Amplia o servidor de arquivos e domínio para serviços de comunicação e administração.
+Consolida a camada de nomes da NexaTech.
 
-**O que fica em aberto:** Serviços publicados precisam de rotinas automáticas de verificação e monitoramento.
+**O que fica em aberto:** Entregar endereçamento automático aos clientes com DHCP.
 
 ---
 

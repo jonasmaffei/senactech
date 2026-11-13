@@ -1,6 +1,6 @@
-# Atividade - Aula 16: Serviços de rede no Linux: DNS, DHCP e web
+# Atividade - Aula 16: Roteamento e NAT
 
-**Entrega:** Configurações comentadas e evidências dos testes dos três serviços.  
+**Entrega:** Configuração de NAT aplicada e teste de internet a partir do cliente.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Configurar DNS, DHCP e servidor web em Linux para atender a rede da NexaTech.
+Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT para liberar internet.
 
 ## Contexto
 
-A NexaTech quer um DNS secundário, DHCP para a VLAN de visitantes e uma intranet em Linux. Esses serviços precisam coexistir com o ambiente Windows sem conflitos.
+A rede interna não tem acesso à internet; é preciso configurar o gateway e o NAT antes de instalar o firewall dedicado.
 
 ## O que deve ser entregue
 
-Configurações comentadas e evidências dos testes dos três serviços.
+Configuração de NAT aplicada e teste de internet a partir do cliente.
 
 ## Etapas
 
-1. Configurar zona DNS no BIND e testar com dig
-2. Criar escopo DHCP para visitantes
-3. Publicar uma intranet simples no Nginx ou Apache
-4. Testar resolução, endereçamento e acesso web
+1. Habilitar ip_forward no Linux ou RRAS no Windows
+2. Configurar NAT de saída na interface WAN
+3. Ajustar o gateway no cliente
+4. Testar internet e registrar as regras
+5. Tirar snapshot da configuração
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Configurações comentadas e evidências dos testes dos três serviços.
 
 ## Para refletir
 
-Como evitar que dois servidores DHCP na mesma rede entreguem faixas conflitantes?
+Qual a diferença entre dar internet à LAN e expor serviços da LAN para a internet?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Como evitar que dois servidores DHCP na mesma rede entreguem faixas conflitantes
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

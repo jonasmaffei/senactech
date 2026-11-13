@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 18: Arquivos, backup e interoperabilidade Linux
+# Laboratório VirtualBox - Aula 18: pfSense: firewall, NAT e liberação de internet
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Plano de backup e interoperabilidade com evidências de restauração.
+**Entrega da aula:** Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.
 
 ---
 
 ## Objetivo
 
-Configurar compartilhamento de arquivos, backup e integração do Linux com clientes Windows.
+Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação da LAN.
 
 ## VMs desta aula
 
-LNX01 e CLI01.
+FW01 (pfSense), APP01 ou CLI01 como cliente da LAN. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Configurar um compartilhamento Samba e acessar pelo Windows
-2. Criar rotina de backup com rsync
-3. Simular exclusão de arquivo e restaurar a versão anterior
-4. Documentar permissões e retenção
+1. Configurar o DHCP da LAN em 192.168.10.100-200
+2. Criar regra na LAN permitindo web e DNS
+3. Conferir o NAT automático de saída
+4. Testar ping, curl e abrir um site no cliente
+5. Conferir os logs e exportar o backup da configuração
 
 ## Testes e evidências
 
@@ -42,24 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up lnx01 cli01
-vagrant ssh lnx01
-vagrant winrm cli01 -c "ping 192.168.10.20"
-vagrant snapshot save lnx01 antes-hardening
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula18"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula18"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Integra o Linux ao dia a dia dos usuários Windows e protege os dados da empresa.
+Prova que a LAN navega com controle e evidências.
 
-**O que fica em aberto:** Windows e Linux já compartilham recursos; falta testar o ambiente integrado e diagnosticar falhas.
+**O que fica em aberto:** Integrar o firewall ao restante do ambiente e documentar o acesso remoto seguro.
 
 ---
 

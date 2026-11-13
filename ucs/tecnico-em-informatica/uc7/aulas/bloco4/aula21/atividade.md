@@ -1,6 +1,6 @@
-# Atividade - Aula 21: Backup, continuidade e resposta a incidentes
+# Atividade - Aula 21: Administração e operação do Linux
 
-**Entrega:** Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes.  
+**Entrega:** Runbook de operação do Linux Server.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Definir estratégia de backup, continuidade de negócio e resposta a incidentes para a NexaTech.
+Operar serviços, processos, armazenamento, logs e agendamentos em um servidor Linux.
 
 ## Contexto
 
-Um simulado de ransomware será executado na aula. A empresa precisa saber o que restaurar, em quanto tempo e quem toma cada decisão durante uma crise.
+O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O que éstá rodando, quanto disco resta, o que falhou e como agendar tarefas sem depender de lembretes.
 
 ## O que deve ser entregue
 
-Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes.
+Runbook de operação do Linux Server.
 
 ## Etapas
 
-1. Executar um simulado de falha e restaurar os serviços
-2. Medir o tempo de recuperação
-3. Criar um playbook de resposta a incidentes
-4. Registrar lições aprendidas
+1. Criar um serviço systemd simples
+2. Agendar um backup com systemd timer
+3. Analisar logs e identificar um erro
+4. Verificar uso de disco e permissões de arquivos
 
 ## Evidências esperadas
 
@@ -33,7 +33,7 @@ Mini plano de continuidade com RPO, RTO, backups e playbook de incidentes.
 
 ## Para refletir
 
-Se o servidor principal falhar agora, qual serviço deve voltar primeiro e por quê?
+Qual a diferença prática entre cron e systemd timer para uma tarefa que precisa de log e reinício automático?
 
 ## Critérios de avaliação
 

@@ -1,37 +1,32 @@
-# Laboratório Virtual - Aula 04: Hardware de servidor, armazenamento e virtualização
+# Laboratório VirtualBox - Aula 04: Protocolos e serviços de rede
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Especificação técnica do servidor e das VMs, com justificativa de custo e capacidade.
+**Entrega da aula:** Matriz de serviços, protocolos, portas e riscos da NexaTech.
 
 ---
 
 ## Objetivo
 
-Especificar hardware de servidor e projetar um laboratório virtualizado compatível com o projeto.
+Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
 
 ## VMs desta aula
 
-DC01 e LNX01 (criação das VMs e da rede interna).
+Nenhuma VM é obrigatória nesta aula. O foco é planejamento e documentação no host.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Comparar duas configurações de servidor com custo e desempenho
-2. Criar as VMs de Windows Server e Ubuntu Server no laboratório
-3. Configurar a rede interna do laboratório
-4. Registrar uma linha de base com snapshot antes das próximas aulas
+1. Testar conectividade com ping, tracert e Test-NetConnection
+2. Consultar nomes com nslookup e dig
+3. Observar portas abertas com netstat ou ss
+4. Capturar uma requisição HTTP no Wireshark e identificar as camadas
 
 ## Testes e evidências
 
@@ -42,25 +37,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 lnx01
-vagrant winrm dc01 -c "ipconfig"
-vagrant ssh lnx01 -c "ip -4 addr"
-vagrant snapshot save dc01 baseline-dc01
-vagrant snapshot save lnx01 baseline-lnx01
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula04"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula04"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Escolhe a plataforma física e virtual que sustentará todas as instalações seguintes.
+Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.
 
-**O que fica em aberto:** Com o laboratório pronto, é preciso um plano de implantação para não configurar tudo de forma desordenada.
+**O que fica em aberto:** Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.
 
 ---
 

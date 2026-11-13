@@ -1,6 +1,6 @@
-# Atividade - Aula 12: Serviços web, acesso remoto e administração
+# Atividade - Aula 12: DNS no Windows Server
 
-**Entrega:** Catálogo de serviços web e checklist de acesso remoto seguro.  
+**Entrega:** Plano de DNS com zonas direta e reversa, registros e evidências de resolução.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Publicar serviços web e configurar administração remota segura no Windows Server.
+Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
 
 ## Contexto
 
-A NexaTech precisa de uma intranet simples para comunicados e de uma forma segura de administrar o servidor sem ficar fisicamente na sala. A solução não pode expor RDP ou HTTP sem proteção.
+Os computadores da NexaTech precisam encontrar o controlador de domínio e os serviços pelo nome; sem DNS confiável, o domínio falha de forma intermitente.
 
 ## O que deve ser entregue
 
-Catálogo de serviços web e checklist de acesso remoto seguro.
+Plano de DNS com zonas direta e reversa, registros e evidências de resolução.
 
 ## Etapas
 
-1. Publicar uma intranet simples no IIS
-2. Configurar HTTPS com certificado de teste
-3. Restringir RDP por firewall e testar acesso
-4. Administrar o servidor pelo Windows Admin Center ou PowerShell Remoting
+1. Criar a zona direta nexatech.local
+2. Criar a zona reversa da faixa 192.168.10.0/24
+3. Cadastrar registros de servidores e apelidos
+4. Configurar encaminhadores externos
+5. Testar resolução direta e reversa no cliente
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Catálogo de serviços web e checklist de acesso remoto seguro.
 
 ## Para refletir
 
-Por que expor RDP diretamente à internet é uma das práticas mais perigosas em servidores Windows?
+Por que uma zona reversa é importante para diagnóstico e auditoria?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Por que expor RDP diretamente à internet é uma das práticas mais perigosas em
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

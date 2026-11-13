@@ -35,11 +35,8 @@
 ### Linux
 
 - Ubuntu Server: https://ubuntu.com/server/docs
-- Debian Administrator's Handbook: https://debian-handbook.info/
-- Rocky Linux: https://docs.rockylinux.org/
 - systemd: https://systemd.io/
 - BIND 9: https://bind9.readthedocs.io/
-- Samba: https://www.samba.org/samba/docs/
 - Nginx: https://nginx.org/en/docs/
 - Apache HTTP Server: https://httpd.apache.org/docs/
 - Linux Foundation Training: https://training.linuxfoundation.org/
@@ -57,7 +54,19 @@
 - COBIT: https://www.isaca.org/resources/cobit
 - ANPD/LGPD: https://www.gov.br/anpd/
 - VirtualBox: https://www.virtualbox.org/manual/
+- pfSense: https://docs.netgate.com/pfsense/en/latest/
 - Hyper-V: https://learn.microsoft.com/virtualization/hyper-v-on-windows/
+
+---
+
+## Material de referência do professor
+
+A reorganização da UC usou como referência os PDFs de Linux e Windows do professor que já ministrou a UC:
+
+- **Linux:** instalação do servidor Linux (referência), APT, SSH, usuários/grupos/permissões, NAT com iptables, DHCP, DNS (BIND9), Apache/MariaDB/PHP e atividade final. O laboratório da UC usa **Ubuntu Server 24.04 LTS**.
+- **Windows:** Active Directory, configuração básica, BIOS/RAID, controlador de domínio, DNS, DHCP, UOs/grupos/usuários, GPOs, roteamento e acesso remoto, quotas/FSRM e serviços do Windows Server.
+
+Esses materiais orientaram o bloco de **redes/roteamento/pfSense**, as aulas de **RAID/UOs/quotas** e os laboratórios de **DNS, DHCP e web**. O laboratório da UC foi consolidado em **Ubuntu Server 24.04 LTS** para a aplicação Apache/PHP e o banco de dados.
 
 ---
 
@@ -65,10 +74,10 @@
 
 | Área | Certificação | Uso na UC |
 | :--- | :--- | :--- |
-| Windows Server | Microsoft AZ-800 / AZ-801 | Aulas 07-13 |
-| Linux | LPIC-1 ou RHCSA | Aulas 14-19 |
-| Redes | Cisco CCNA | Aulas 02, 03, 19 |
-| Nuvem | Microsoft AZ-900 ou AWS Cloud Practitioner | Aula 22 |
-| Segurança | CompTIA Security+ (opcional) | Aulas 17, 21, 23 |
+| Windows Server | Microsoft AZ-800 / AZ-801 | Aulas 08-15 |
+| Linux | LPIC-1 ou RHCSA | Aulas 20-29 |
+| Redes | Cisco CCNA | Aulas 01-04, 16-19 |
+| Firewall | pfSense (Netgate) | Aulas 16-19 |
+| Segurança | CompTIA Security+ (opcional) | Aulas 28, 29, 31 |
 
 > Certificação não substitui prática: use o laboratório da UC como portfolio.

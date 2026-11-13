@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 09 - DNS e DHCP no Windows Server | UC7</title>
+<title>Aula 09 - Active Directory Domain Services | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -209,13 +209,13 @@
 
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 2 · Aula 09</span>
-      <h1>DNS e DHCP no Windows Server</h1>
-      <p class="lead">Configurar DNS e DHCP integrados ao Active Directory para atender os clientes da rede.</p>
+      <h1>Active Directory Domain Services</h1>
+      <p class="lead">Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.</p>
       <div class="meta-row">
-        <span class="pill">25/11/2026 · quarta-feira</span>
+        <span class="pill">26/11/2026 (quinta-feira)</span>
         <span class="pill">Windows Server</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
@@ -226,16 +226,16 @@
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
         <div>
-          <p class="lead">Os computadores da NexaTech precisam receber IP automaticamente e encontrar os servidores pelo nome. Sem DNS e DHCP bem configurados, o domínio e os compartilhamentos falham de forma intermitente.</p>
+          <p class="lead">A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.</p>
         </div>
         <div class="grid">
           <div class="card highlight">
             <h3>Objetivo da aula</h3>
-            <p>Configurar DNS e DHCP integrados ao Active Directory para atender os clientes da rede.</p>
+            <p>Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.</p>
           </div>
           <div class="card">
             <h3>Entrega principal</h3>
-            <p>Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.</p>
+            <p>Estrutura do Active Directory documentada e teste de login no domínio.</p>
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Zonas direta e reversa</h3></div><div class="card"><span class="card-num">02</span><h3>Registros A, AAAA, CNAME, MX e PTR</h3></div><div class="card"><span class="card-num">03</span><h3>Encaminhadores e cache DNS</h3></div><div class="card"><span class="card-num">04</span><h3>Lixeira e limpeza de registros antigos</h3></div>
+        <div class="card"><span class="card-num">01</span><h3>Conceitos de domínio, floresta, árvore e controlador de domínio</h3></div><div class="card"><span class="card-num">02</span><h3>LDAP, Kerberos e dependência do DNS</h3></div><div class="card"><span class="card-num">03</span><h3>Promoção do servidor a controlador de domínio</h3></div><div class="card"><span class="card-num">04</span><h3>Unidades organizacionais por setor</h3></div>
       </div>
     </section>
     
@@ -255,7 +255,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Escopo DHCP, reservas e opções 003, 006 e 015</h3></div><div class="card"><span class="card-num">06</span><h3>Autorização do DHCP no Active Directory</h3></div><div class="card"><span class="card-num">07</span><h3>Failover e boas práticas de endereçamento</h3></div>
+        <div class="card"><span class="card-num">05</span><h3>Usuários, grupos, UPN e políticas de senha</h3></div><div class="card"><span class="card-num">06</span><h3>Ingresso de clientes no domínio</h3></div><div class="card"><span class="card-num">07</span><h3>Boas práticas de separação de privilégios</h3></div>
       </div>
     </section>
     
@@ -263,15 +263,15 @@
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">DNS e DHCP funcionais no domínio da NexaTech.</p>
+      <p class="lead">Domínio nexatech.local ativo com estrutura de OUs e usuários.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar zona direta e reversa para nexatech.local</li><li>Cadastrar registros de servidores e apelidos</li><li>Criar escopo DHCP com faixa, gateway e DNS</li><li>Reservar IPs para servidores e impressoras e testar em um cliente</li></ol>
+          <ol class="steps"><li>Promover o servidor a controlador do domínio nexatech.local</li><li>Criar OUs para Administração, Vendas, Suporte e Servidores</li><li>Criar usuários e grupos de segurança</li><li>Ingressar um cliente Windows no domínio e testar login</li></ol>
         </div>
         <div class="card">
           <h3>Ferramentas e ambiente</h3>
-          <p>DNS Manager, DHCP Console, ipconfig, nslookup</p>
+          <p>Windows Server, Active Directory Users and Computers, RSAT</p>
           <div class="note">
             Trabalhe sempre com snapshots antes de mudanças arriscadas.
             Registre prints, saídas de comando e testes no portfólio do grupo.
@@ -282,14 +282,14 @@
     
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
       <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
+      <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
       
     <div class="topology" aria-label="Topologia do laboratório">
       <div class="top-node client">
-        <strong>CLI01</strong>
+        <strong>CLI01 / CLI02</strong>
         <span>cliente Windows</span>
         <small>IP via DHCP</small>
       </div>
@@ -301,12 +301,12 @@
           <small>192.168.10.10</small>
         </div>
         <div class="top-node lnx">
-          <strong>LNX01</strong>
+          <strong>APP01</strong>
           <span>Ubuntu Server</span>
           <small>192.168.10.20</small>
         </div>
         <div class="top-node mon">
-          <strong>MON01</strong>
+          <strong>DB01</strong>
           <span>Ubuntu Server</span>
           <small>192.168.10.30</small>
         </div>
@@ -315,8 +315,8 @@
     
       <div class="grid cols-3">
         <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
+        <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
+        <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
       </div>
       <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM DC01 (Windows Server). Use a VM CLI01 como cliente para testar login, DNS, DHCP, arquivos e políticas.</p>
     </section>
@@ -326,7 +326,7 @@
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
       <div class="card highlight">
-        <h3>Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.</h3>
+        <h3>Estrutura do Active Directory documentada e teste de login no domínio.</h3>
         <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
       </div>
       <div class="grid cols-2" style="margin-top:14px">
@@ -353,15 +353,15 @@
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>O que acontece com os clientes se o DHCP cair, e como reservas e failover reduzem esse impacto?</blockquote>
+      <blockquote>Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?</blockquote>
       <div class="grid cols-2">
         <div class="card">
           <h3>Impacto no negócio</h3>
-          <p>DNS e DHCP estáveis são a base invisível de quase todos os serviços corporativos.</p>
+          <p>Autenticação centralizada reduz contas soltas e facilita desligamentos e auditorias.</p>
         </div>
         <div class="card">
           <h3>O que fica em aberto</h3>
-          <p>Com nomes e endereços resolvidos, os usuários precisam de pastas e permissões.</p>
+          <p>O domínio precisa de DNS confiável e de endereçamento automático para os clientes.</p>
         </div>
       </div>
     </section>
@@ -370,15 +370,15 @@
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Dá suporte ao domínio da Aula 08 e prepara o compartilhamento de arquivos.</p>
+      <p class="lead">Transforma o servidor instalado na Aula 07 em uma autoridade de autenticação.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Entrega que sustenta o projeto</h3>
-          <p>Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.</p>
+          <p>Estrutura do Active Directory documentada e teste de login no domínio.</p>
         </div>
         <div class="card">
           <h3>Próximo gargalo</h3>
-          <p>Com nomes e endereços resolvidos, os usuários precisam de pastas e permissões.</p>
+          <p>O domínio precisa de DNS confiável e de endereçamento automático para os clientes.</p>
         </div>
       </div>
       <div class="note">
@@ -392,14 +392,10 @@
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
       <ul class="check">
-        <li>O DNS do AD é integrado e recebe registros dinâmicos dos clientes.</li><li>O DHCP entrega IP, máscara, gateway e DNS; reservas garantem estabilidade para servidores.</li><li>Zonas reversas ajudam no diagnóstico e em auditorias.</li>
+        <li>O AD DS centraliza autenticação e autorização em um domínio.</li><li>O DNS é pré-requisito: o domínio não funciona sem resolução de nomes correta.</li><li>OUs organizam delegação e políticas; grupos aplicam permissões de forma escalável.</li>
       </ul>
       
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 10 - Compartilhamento de arquivos e permissões</strong>
-          <p>As permissões estão corretas, mas precisam ser aplicadas de forma padronizada em todos os computadores.</p>
-        </div>
+        <div class="next"><span>Próxima aula</span><strong>Aula 10 - Controlador de domínio e ingresso de clientes</strong><p>Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.</p></div>
         
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>

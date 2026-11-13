@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 22 - Computação em nuvem e tecnologias emergentes | UC7</title>
+<title>Aula 22 - Usuários, grupos e permissões no Linux | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,113 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 22</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 4 · Aula 22</span>
-      <h1>Computação em nuvem e tecnologias emergentes</h1>
-      <p class="lead">Comparar on-premise e nuvem e avaliar tecnologias emergentes para a infraestrutura da NexaTech.</p>
+      <h1>Usuários, grupos e permissões no Linux</h1>
+      <p class="lead">Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.</p>
       <div class="meta-row">
-        <span class="pill">15/12/2026 · terça-feira</span>
-        <span class="pill">Monitoramento, Nuvem, Governança e Projeto</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">16/12/2026 (quarta-feira)</span>
+        <span class="pill">Linux Server e Segurança</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div>
-          <p class="lead">A direção pergunta se vale migrar arquivos, intranet e backup para a nuvem. A resposta precisa considerar custo, segurança, latência, LGPD e equipe disponível.</p>
-        </div>
+        <div><p class="lead">O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.</p></div>
         <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Comparar on-premise e nuvem e avaliar tecnologias emergentes para a infraestrutura da NexaTech.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Recomendação de nuvem para a NexaTech com análise de custo e risco.</p>
-          </div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.</p></div>
+          <div class="card"><h3>Entrega principal</h3><p>Relatório de contas, grupos e permissões, com testes de sudo.</p></div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>IaaS, PaaS e SaaS</h3></div><div class="card"><span class="card-num">02</span><h3>Nuvem pública, privada e híbrida</h3></div><div class="card"><span class="card-num">03</span><h3>Azure, AWS e Google Cloud</h3></div><div class="card"><span class="card-num">04</span><h3>Virtualização versus containers</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>useradd/adduser, passwd e grupos</h3></div><div class="card"><span class="card-num">02</span><h3>chmod simbólico e octal</h3></div><div class="card"><span class="card-num">03</span><h3>chown, chgrp e umask</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Docker e Kubernetes</h3></div><div class="card"><span class="card-num">06</span><h3>Serverless, edge computing e infraestrutura como código</h3></div><div class="card"><span class="card-num">07</span><h3>CapEx versus OpEx, SLA, lock-in e residência de dados</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>sudo e menor privilégio</h3></div><div class="card"><span class="card-num">05</span><h3>/etc/passwd, /etc/group e /etc/shadow</h3></div><div class="card"><span class="card-num">06</span><h3>Permissões de dono, grupo e outros</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Comparação de custos e demonstração de container ou VM em nuvem.</p>
+      <p class="lead">Separação de contas e permissões no servidor Linux.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Montar uma comparação de TCO entre on-premise e nuvem</li><li>Criar uma VM gratuita ou simular um serviço em nuvem</li><li>Executar um container simples e comparar com VM</li><li>Avaliar riscos de LGPD e dependência de fornecedor</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Calculadora de nuvem, Docker, navegador</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar o grupo dev e os usuários devfrontend e devbackend</li><li>Ajustar home e permissões de /var/www/html</li><li>Testar leitura e escrita com cada usuário</li><li>Configurar sudo restrito</li><li>Documentar o antes e o depois</li></ol></div>
+        <div class="card"><h3>Ferramentas e ambiente</h3><p>Ubuntu, useradd, groupadd, chmod, chown, sudo</p>
+          <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <div class="topology" aria-label="Topologia do laboratório">
+      <div class="top-node client"><strong>CLI01 / CLI02</strong><span>cliente Windows</span><small>IP via DHCP</small></div>
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
+        <div class="top-node dc"><strong>DC01</strong><span>Windows Server</span><small>192.168.10.10</small></div>
+        <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
+        <div class="top-node mon"><strong>DB01</strong><span>Ubuntu Server</span><small>192.168.10.30</small></div>
       </div>
     </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Use a VM MON01 para monitoramento e o ambiente integrado DC01 + LNX01 + CLI01 para a demonstração final.</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Recomendação de nuvem para a NexaTech com análise de custo e risco.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
+      <div class="card highlight"><h3>Relatório de contas, grupos e permissões, com testes de sudo.</h3>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
       <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+        <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Nem tudo que é possível na nuvem é vantajoso. Qual critério deve pesar mais na decisão?</blockquote>
+      <blockquote>Por que conceder sudo total a todos os usuários é um risco?</blockquote>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Decisões de nuvem mal fundamentadas geram custo recorrente e dependência de fornecedor.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>A escolha tecnológica precisa ser sustentada por governança e conformidade.</p>
-        </div>
+        <div class="card"><h3>Impacto no negócio</h3><p>Reduz o impacto de erros e de contas comprometidas.</p></div>
+        <div class="card"><h3>O que fica em aberto</h3><p>Habilitar administração remota segura para operar o servidor.</p></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Amplia o horizonte do projeto e conecta a infraestrutura local às tendências de mercado.</p>
+      <p class="lead">Define quem pode fazer o quê no servidor Linux da NexaTech.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Recomendação de nuvem para a NexaTech com análise de custo e risco.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>A escolha tecnológica precisa ser sustentada por governança e conformidade.</p>
-        </div>
+        <div class="card"><h3>Entrega que sustenta o projeto</h3><p>Relatório de contas, grupos e permissões, com testes de sudo.</p></div>
+        <div class="card"><h3>Próximo gargalo</h3><p>Habilitar administração remota segura para operar o servidor.</p></div>
       </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Nuvem troca investimento inicial por custo recorrente e exige gestão de consumo.</li><li>Containers empacotam aplicações; máquinas virtuais empacotam sistemas completos.</li><li>LGPD, latência e lock-in são tão importantes quanto preço.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 23 - Governança de TI, segurança e certificações</strong>
-          <p>Tudo precisa ser consolidado e defendido em um projeto final.</p>
-        </div>
-        
+      <ul class="check"><li>Permissões no Linux combinam dono, grupo e outros.</li><li>Grupos e sudo aplicam o menor privilégio.</li><li>umask define as permissões padrão de novos arquivos.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 23 - SSH e administração remota</strong><p>Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

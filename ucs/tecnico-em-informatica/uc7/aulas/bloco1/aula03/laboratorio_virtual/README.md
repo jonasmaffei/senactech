@@ -1,14 +1,14 @@
-# Laboratório Virtual - Aula 03: Protocolos e serviços de rede
+# Laboratório VirtualBox - Aula 03: Arquitetura e topologia de rede local
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Matriz de serviços, protocolos, portas e riscos da NexaTech.
+**Entrega da aula:** Diagrama de rede e planilha de endereçamento IP da NexaTech.
 
 ---
 
 ## Objetivo
 
-Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
+Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
 
 ## VMs desta aula
 
@@ -16,22 +16,17 @@ Nenhuma VM é obrigatória nesta aula. O foco é planejamento e documentação n
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se o computador está conectado à rede local.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Testar conectividade com ping, tracert e Test-NetConnection
-2. Consultar nomes com nslookup e dig
-3. Observar portas abertas com netstat ou ss
-4. Capturar uma requisição HTTP no Wireshark e identificar as camadas
+1. Desenhar a topologia física e lógica da NexaTech
+2. Definir a distribuição de IPs por setor
+3. Montar a planilha de endereços e reservas
+4. Revisar o diagrama com a turma e corrigir inconsistências
 
 ## Testes e evidências
 
@@ -42,21 +37,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-# As VMs desta aula ainda nao sao necessarias.
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula03"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula03"
 ```
+
 
 ## Observações
 
-- As VMs ainda não são necessárias. Produza o artefato da aula e guarde-o na pasta do projeto integrador.
+- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.
+Transforma o diagnóstico da Aula 01 em uma planta de rede concreta.
 
-**O que fica em aberto:** Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.
+**O que fica em aberto:** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 24 - Projeto integrador: apresentação e defesa | UC7</title>
+<title>Aula 24 - DHCP no Linux | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,236 +203,32 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 24</div>
-  <div id="counter">1 / 11</div>
+  <div id="counter">1 / 10</div>
 </header>
 <main id="deck">
-
-    <section class="slide active">
-      <span class="kicker">UC7 · Bloco 4 · Aula 24</span>
-      <h1>Projeto integrador: apresentação e defesa</h1>
-      <p class="lead">Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.</p>
-      <div class="meta-row">
-        <span class="pill">17/12/2026 · quinta-feira</span>
-        <span class="pill">Monitoramento, Nuvem, Governança e Projeto</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
-      </div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Projeto integrador completo e defesa oral.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Síntese dos quatro blocos</h3></div><div class="card"><span class="card-num">02</span><h3>Pacote de documentação do projeto</h3></div><div class="card"><span class="card-num">03</span><h3>Demonstração do ambiente e das evidências</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>Métricas de funcionamento e monitoramento</h3></div><div class="card"><span class="card-num">05</span><h3>Lições aprendidas e próximos passos</h3></div><div class="card"><span class="card-num">06</span><h3>Comunicação técnica e arguição</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Demonstração final do ambiente integrado.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Apresentar o projeto em 10 a 15 minutos</li><li>Demonstrar login, DNS/DHCP, arquivos, web e monitoramento</li><li>Responder à arguição da banca</li><li>Entregar a documentação final e a autoavaliação</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Ambiente virtual, documentação, dashboard, apresentação</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Use a VM MON01 para monitoramento e o ambiente integrado DC01 + LNX01 + CLI01 para a demonstração final.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Projeto integrador completo e defesa oral.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Qual foi a decisão técnica mais difícil do projeto e o que você faria diferente hoje?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Um projeto bem documentado e demonstrável reduz risco e facilita a continuidade.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Depois da UC, o próximo passo é aprofundar certificações e especializações.</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Fecha a UC provando que o aluno consegue planejar, instalar, configurar e monitorar uma rede cliente/servidor.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Projeto integrador completo e defesa oral.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Depois da UC, o próximo passo é aprofundar certificações e especializações.</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>O projeto final integra planejamento, instalação, configuração, segurança e monitoramento.</li><li>A defesa oral verifica domínio técnico e capacidade de justificar decisões.</li><li>Documentação e evidências são tão importantes quanto o ambiente funcionando.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Encerramento</span>
-          <strong>Fechamento da UC7</strong>
-          <p>Recuperação, reelaboração de entregas, defesa final e registro entre 25/01/2027 e 18/02/2027.</p>
-        </div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Banca final</span>
-      <h2>Checklist da apresentação</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Demonstração</h3>
-          <ul class="check">
-            <li>Login no domínio e permissões por setor.</li>
-            <li>DNS e DHCP respondendo aos clientes.</li>
-            <li>Pastas compartilhadas e políticas aplicadas.</li>
-            <li>Intranet e acesso remoto seguro.</li>
-            <li>Serviços Linux e integração com Windows.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Documentação e operação</h3>
-          <ul class="check">
-            <li>Topologia, plano de IPs e inventário.</li>
-            <li>Backup testado e plano de continuidade.</li>
-            <li>Dashboard de monitoramento e alertas.</li>
-            <li>Análise de nuvem, riscos e governança.</li>
-            <li>Lições aprendidas e próximos passos.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="note">A defesa deve mostrar evidências reais do ambiente VirtualBox, não apenas slides.</div>
-    </section>
-    
+    <section class="slide active"><span class="kicker">UC7 · Bloco 4 · Aula 24</span><h1>DHCP no Linux</h1><p class="lead">Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.</p>
+      <div class="meta-row"><span class="pill">25/01/2027 (segunda-feira)</span><span class="pill">Linux Server e Segurança</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
+      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
+    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">A NexaTech já usa DHCP no Windows; a equipe precisa saber operar o mesmo serviço no Linux e entender as diferenças.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.</p></div><div class="card"><h3>Entrega principal</h3><p>Configuração do DHCP Linux comentada e evidência de concessão para o cliente.</p></div></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>isc-dhcp-server e Kea DHCP</h3></div><div class="card"><span class="card-num">02</span><h3>/etc/dhcp/dhcpd.conf</h3></div><div class="card"><span class="card-num">03</span><h3>Faixa, gateway e DNS</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Reservas e concessões</h3></div><div class="card"><span class="card-num">05</span><h3>Logs e diagnóstico</h3></div><div class="card"><span class="card-num">06</span><h3>Convivência com o DHCP do Windows</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Configuração do DHCP no Ubuntu Server.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Instalar o isc-dhcp-server no APP01</li><li>Configurar a rede 192.168.10.0/24</li><li>Definir faixa, gateway e DNS</li><li>Iniciar e habilitar o serviço</li><li>Testar a concessão em CLI01/CLI02 e registrar logs</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>Ubuntu Server, isc-dhcp-server, journalctl e ip</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway pelo FW01</p>
+      <p class="note"><strong>Nesta aula:</strong> use DC01, CLI01, CLI02, APP01, DB01 e FW01 conforme a necessidade.</p></section>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Configuração do DHCP Linux comentada e evidência de concessão para o cliente.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="grid cols-2" style="margin-top:14px"><div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div><div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div></div></section>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Por que dois servidores DHCP na mesma rede podem causar conflitos?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Dá autonomia para operar o mesmo serviço em Windows e Linux.</p></div><div class="card"><h3>O que fica em aberto</h3><p>O próximo serviço espelhado é o DNS.</p></div></div></section>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Amplia o domínio de serviços de rede em Linux.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Configuração do DHCP Linux comentada e evidência de concessão para o cliente.</p></div><div class="card"><h3>Próximo gargalo</h3><p>O próximo serviço espelhado é o DNS.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>O DHCP Linux entrega IP, gateway e DNS.</li><li>A configuração fica em /etc/dhcp/dhcpd.conf.</li><li>Dois DHCP na mesma rede exigem coordenação para evitar conflitos.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 25 - DNS no Linux</strong><p>Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.</p></div>
+      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p></section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

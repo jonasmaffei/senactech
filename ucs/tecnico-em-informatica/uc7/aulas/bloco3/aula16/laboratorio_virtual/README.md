@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 16: Serviços de rede no Linux: DNS, DHCP e web
+# Laboratório VirtualBox - Aula 16: Roteamento e NAT
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Configurações comentadas e evidências dos testes dos três serviços.
+**Entrega da aula:** Configuração de NAT aplicada e teste de internet a partir do cliente.
 
 ---
 
 ## Objetivo
 
-Configurar DNS, DHCP e servidor web em Linux para atender a rede da NexaTech.
+Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT para liberar internet.
 
 ## VMs desta aula
 
-LNX01 e CLI01.
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Configurar zona DNS no BIND e testar com dig
-2. Criar escopo DHCP para visitantes
-3. Publicar uma intranet simples no Nginx ou Apache
-4. Testar resolução, endereçamento e acesso web
+1. Habilitar ip_forward no Linux ou RRAS no Windows
+2. Configurar NAT de saída na interface WAN
+3. Ajustar o gateway no cliente
+4. Testar internet e registrar as regras
+5. Tirar snapshot da configuração
 
 ## Testes e evidências
 
@@ -42,24 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up lnx01 cli01
-vagrant ssh lnx01
-vagrant winrm cli01 -c "ping 192.168.10.20"
-vagrant snapshot save lnx01 antes-hardening
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula16"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula16"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Coloca o Linux como servidor de serviços, não apenas como máquina de testes.
+Prepara a camada de saída que o pfSense vai assumir.
 
-**O que fica em aberto:** Serviços publicados aumentam a superfície de ataque e exigem hardening.
+**O que fica em aberto:** Centralizar as regras em um firewall dedicado e auditável.
 
 ---
 

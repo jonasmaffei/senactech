@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 06 - Laboratório virtual e plano diretor da rede | UC7</title>
+<title>Aula 06 - Virtualização e criação de VMs no VirtualBox | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,113 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 06</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 1 · Aula 06</span>
-      <h1>Laboratório virtual e plano diretor da rede</h1>
-      <p class="lead">Montar o laboratório virtual e consolidar o plano diretor da rede da NexaTech.</p>
+      <h1>Virtualização e criação de VMs no VirtualBox</h1>
+      <p class="lead">Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.</p>
       <div class="meta-row">
-        <span class="pill">19/11/2026 · quinta-feira</span>
+        <span class="pill">23/11/2026 (segunda-feira)</span>
         <span class="pill">Fundamentos e Planejamento</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div>
-          <p class="lead">Chegou o momento de provar que o plano funciona. A equipe precisa deixar as VMs prontas, a rede interna respondendo e o documento consolidado para a primeira entrega à direção.</p>
-        </div>
+        <div><p class="lead">A NexaTech não pode comprar quatro servidores. A equipe vai usar um único computador com VirtualBox para simular a rede cliente/servidor, começando pela primeira máquina virtual.</p></div>
         <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Montar o laboratório virtual e consolidar o plano diretor da rede da NexaTech.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.</p>
-          </div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.</p></div>
+          <div class="card"><h3>Entrega principal</h3><p>Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.</p></div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Revisão dos blocos anteriores</h3></div><div class="card"><span class="card-num">02</span><h3>Configuração de rede interna e host-only</h3></div><div class="card"><span class="card-num">03</span><h3>Endereçamento estático do laboratório</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Virtualização: vários sistemas isolados em um único computador</h3></div><div class="card"><span class="card-num">02</span><h3>Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado)</h3></div><div class="card"><span class="card-num">03</span><h3>VirtualBox como hypervisor tipo 2</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>Snapshots e linha de base</h3></div><div class="card"><span class="card-num">05</span><h3>Organização de pastas e versionamento da documentação</h3></div><div class="card"><span class="card-num">06</span><h3>Apresentação do plano diretor</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Recursos do host: núcleos, RAM, disco e VT-x/AMD-V</h3></div><div class="card"><span class="card-num">05</span><h3>Redes virtuais: NAT, bridge (ponte) e rede interna</h3></div><div class="card"><span class="card-num">06</span><h3>Snapshots, clones e alocação de disco</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Laboratório virtual funcional com Windows Server e Ubuntu Server.</p>
+      <p class="lead">Criação da primeira VM e configuração dos recursos do host.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar a rede interna rede-nexatech em 192.168.10.0/24</li><li>Configurar IP estático nas VMs e testar conectividade</li><li>Tirar snapshot limpo de cada VM</li><li>Consolidar o plano diretor em um único documento</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>VirtualBox ou Hyper-V, Git, editor de texto</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar a VM e nomear conforme o padrão da UC</li><li>Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)</li><li>Criar disco virtual de 40 GB e revisar o tipo</li><li>Adicionar adaptador NAT e adaptador de rede interna</li><li>Iniciar a VM, testar a rede e tirar o snapshot baseline</li></ol></div>
+        <div class="card"><h3>Ferramentas e ambiente</h3><p>VirtualBox 7+, ISO do sistema e prompt do host</p>
+          <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <div class="topology" aria-label="Topologia do laboratório">
+      <div class="top-node client"><strong>CLI01 / CLI02</strong><span>cliente Windows</span><small>IP via DHCP</small></div>
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
+        <div class="top-node dc"><strong>DC01</strong><span>Windows Server</span><small>192.168.10.10</small></div>
+        <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
+        <div class="top-node mon"><strong>DB01</strong><span>Ubuntu Server</span><small>192.168.10.30</small></div>
       </div>
     </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Valide IPs, ping entre as VMs e conectividade da rede interna. Tire o snapshot final do bloco.</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
+      <div class="card highlight"><h3>Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.</h3>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
       <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+        <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>O que precisa estar documentado para que outra pessoa consiga continuar o projeto sem perguntar nada?</blockquote>
+      <blockquote>Quando vale a pena virtualizar e quando o recurso do host vira o gargalo?</blockquote>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Um plano diretor permite que a empresa cresça sem refazer a rede a cada novo serviço.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Com a base pronta, qual sistema operacional será instalado e configurado primeiro?</p>
-        </div>
+        <div class="card"><h3>Impacto no negócio</h3><p>Reduz custo de hardware e permite errar sem comprometer o computador real.</p></div>
+        <div class="card"><h3>O que fica em aberto</h3><p>Definir quantas VMs o host suporta e como a rede interna será montada.</p></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Fecha o Bloco 1 com o laboratório pronto e o plano aprovado para a instalação dos serviços.</p>
+      <p class="lead">Cria a plataforma que hospedará todos os servidores da NexaTech.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Plano Diretor da Rede NexaTech, com topologia, IPs, serviços, cronograma e riscos.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Com a base pronta, qual sistema operacional será instalado e configurado primeiro?</p>
-        </div>
+        <div class="card"><h3>Entrega que sustenta o projeto</h3><p>Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.</p></div>
+        <div class="card"><h3>Próximo gargalo</h3><p>Definir quantas VMs o host suporta e como a rede interna será montada.</p></div>
       </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>O laboratório virtual replica a rede planejada sem depender de hardware dedicado.</li><li>Snapshots criam pontos de retorno antes de mudanças arriscadas.</li><li>O plano diretor é o contrato técnico que guia a execução e a validação do projeto.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 07 - Instalação e configuração inicial do Windows Server</strong>
-          <p>Um servidor isolado não autentica ninguém; é preciso criar o domínio.</p>
-        </div>
-        
+      <ul class="check"><li>O hypervisor distribui CPU, memória, disco e rede entre as VMs.</li><li>NAT dá acesso à internet; bridge conecta à rede física; rede interna isola o laboratório.</li><li>Dimensionar recursos evita lentidão e concentração de risco no host.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 07 - Planejamento, laboratório e plano diretor da rede</strong><p>Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

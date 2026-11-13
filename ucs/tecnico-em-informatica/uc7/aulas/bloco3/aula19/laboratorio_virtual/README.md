@@ -1,37 +1,32 @@
-# Laboratório Virtual - Aula 19: Laboratório integrado e troubleshooting
+# Laboratório VirtualBox - Aula 19: Serviços web (IIS), acesso remoto e administração
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Registro de troubleshooting e relatório do ambiente integrado.
+**Entrega da aula:** Catálogo de serviços web no IIS + checklist de acesso remoto seguro.
 
 ---
 
 ## Objetivo
 
-Integrar serviços Windows e Linux e diagnosticar falhas comuns em um ambiente misto.
+Publicar serviços web no Windows Server e configurar administração remota segura.
 
 ## VMs desta aula
 
-DC01, LNX01 e CLI01.
+Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
-
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
 ## Roteiro
 
-1. Resolver cenários de falha preparados pelo docente
-2. Registrar sintoma, hipótese, teste e solução
-3. Validar o ambiente integrado de ponta a ponta
-4. Atualizar a documentação com as correções
+1. Publicar uma intranet simples no IIS
+2. Configurar HTTPS com certificado de teste
+3. Restringir o RDP por firewall
+4. Administrar por Windows Admin Center ou WinRM
+5. Documentar portas e acessos
 
 ## Testes e evidências
 
@@ -43,23 +38,23 @@ vagrant status
 ## Comandos úteis
 
 ```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 lnx01 cli01
-vagrant ssh lnx01
-vagrant winrm dc01 -c "Get-Service"
-vagrant winrm cli01 -c "ipconfig /all"
+# Ubuntu
+sudo systemctl status apache2
+sudo systemctl status mariadb
+sudo systemctl status isc-dhcp-server
+sudo systemctl status bind9
 ```
 
 ## Observações
 
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+- O Windows Server mantém o DNS e o DHCP oficiais do domínio; os serviços Linux são usados para comparação e prática.
 
 ## Relação com o projeto
 
-Fecha o Bloco 3 provando que os dois sistemas operacionais funcionam juntos.
+Completa o espelhamento dos serviços web entre Windows e Linux.
 
-**O que fica em aberto:** O ambiente funciona, mas ainda não está sendo observado de forma contínua.
+**O que fica em aberto:** Com os serviços web e o acesso remoto entendidos, começa o servidor Linux da aplicação.
 
 ---
 

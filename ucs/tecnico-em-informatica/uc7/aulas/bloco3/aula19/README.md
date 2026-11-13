@@ -1,20 +1,20 @@
-# Aula 19 - Laboratório integrado e troubleshooting
+# Aula 19 - Serviços web (IIS), acesso remoto e administração
 
-**Data sugerida:** 10/12/2026 (quinta-feira)  
-**Bloco:** 3 - Linux Server e Segurança  
-**Carga:** 4 horas
+**Data sugerida:** 11/12/2026 (sexta-feira)
+**Bloco:** 3 - Redes, Roteamento e Firewall
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Integrar serviços Windows e Linux e diagnosticar falhas comuns em um ambiente misto.
+Publicar serviços web no Windows Server e configurar administração remota segura.
 
 ---
 
 ## Situação de aprendizagem
 
-Depois da implantação, os usuários começam a relatar problemas intermitentes: login lento, nomes que não resolvem, pastas inacessíveis e intranet fora do ar. A equipe precisa de método, não de chute.
+Além do servidor Linux, a NexaTech quer comparar a publicação web no Windows e precisa administrar o servidor sem expor RDP ou HTTP sem proteção.
 
 ---
 
@@ -22,36 +22,37 @@ Depois da implantação, os usuários começam a relatar problemas intermitentes
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Registro de troubleshooting e relatório do ambiente integrado. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Catálogo de serviços web no IIS + checklist de acesso remoto seguro. |
 | [`apresentacao_aula19.html`](apresentacao_aula19.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Fluxo DHCP -> DNS -> autenticação -> arquivos/web |
-| Metodologia de troubleshooting e registro de hipóteses |
-| Ferramentas: ping, traceroute, dig, nslookup, ss, tcpdump, Wireshark |
-| Event Viewer, journalctl e logs de firewall |
-| Problemas comuns: DNS, horário, firewall, permissões e certificados |
-| Documentação da solução e gestão de mudanças |
+| IIS: sites, bindings, permissões e logs |
+| HTTP, HTTPS e certificados TLS |
+| RDP: riscos e boas práticas |
+| VPN e acesso remoto seguro |
+| Windows Admin Center e PowerShell Remoting |
+| WinRM, firewall e menor privilégio |
 
 ### Ferramentas
 
-Ferramentas de rede, logs do Windows e Linux, Wireshark
+IIS, Windows Admin Center, PowerShell e pfSense
 
 ---
 
 ## Prática em laboratório
 
-Diagnóstico de cenários quebrados e validação do ambiente integrado.
+Publicação web e administração remota no Windows Server.
 
-1. Resolver cenários de falha preparados pelo docente
-2. Registrar sintoma, hipótese, teste e solução
-3. Validar o ambiente integrado de ponta a ponta
-4. Atualizar a documentação com as correções
+1. Publicar uma intranet simples no IIS
+2. Configurar HTTPS com certificado de teste
+3. Restringir o RDP por firewall
+4. Administrar por Windows Admin Center ou WinRM
+5. Documentar portas e acessos
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -59,24 +60,24 @@ Diagnóstico de cenários quebrados e validação do ambiente integrado.
 
 ## Atividade
 
-- **Entrega:** Registro de troubleshooting e relatório do ambiente integrado.
+- **Entrega:** Catálogo de serviços web no IIS + checklist de acesso remoto seguro.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Como o registro do diagnóstico ajuda a equipe a não repetir o mesmo erro no futuro?
+- **Pergunta de reflexão:** Quais diferenças de operação e segurança existem entre publicar no IIS e no Apache?
 
 ---
 
 ## Relação com o projeto
 
-Fecha o Bloco 3 provando que os dois sistemas operacionais funcionam juntos.
+Completa o espelhamento dos serviços web entre Windows e Linux.
 
-**O que fica em aberto:** O ambiente funciona, mas ainda não está sendo observado de forma contínua.
+**O que fica em aberto:** Com os serviços web e o acesso remoto entendidos, começa o servidor Linux da aplicação.
 
-**Impacto de negócio:** Diagnóstico estruturado reduz tempo de parada e melhora a confiança dos usuários.
+**Impacto de negócio:** Permite comparar as duas plataformas e escolher com critério.
 
 
 ## Próxima aula
 
-**Aula 20 - Monitoramento de servidores e serviços.** Monitorar detecta falhas; é preciso também recuperar dados e continuar operando.
+**Aula 20 - Instalação e configuração inicial do Ubuntu Server.** Instalar o Ubuntu Server sem interface gráfica, particionar o disco e configurar rede, SSH e atualizações.
 
 ---
 

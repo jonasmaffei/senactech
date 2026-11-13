@@ -1,6 +1,6 @@
-# Atividade - Aula 22: Computação em nuvem e tecnologias emergentes
+# Atividade - Aula 22: Usuários, grupos e permissões no Linux
 
-**Entrega:** Recomendação de nuvem para a NexaTech com análise de custo e risco.  
+**Entrega:** Relatório de contas, grupos e permissões, com testes de sudo.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Comparar on-premise e nuvem e avaliar tecnologias emergentes para a infraestrutura da NexaTech.
+Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
 ## Contexto
 
-A direção pergunta se vale migrar arquivos, intranet e backup para a nuvem. A resposta precisa considerar custo, segurança, latência, LGPD e equipe disponível.
+O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.
 
 ## O que deve ser entregue
 
-Recomendação de nuvem para a NexaTech com análise de custo e risco.
+Relatório de contas, grupos e permissões, com testes de sudo.
 
 ## Etapas
 
-1. Montar uma comparação de TCO entre on-premise e nuvem
-2. Criar uma VM gratuita ou simular um serviço em nuvem
-3. Executar um container simples e comparar com VM
-4. Avaliar riscos de LGPD e dependência de fornecedor
+1. Criar o grupo dev e os usuários devfrontend e devbackend
+2. Ajustar home e permissões de /var/www/html
+3. Testar leitura e escrita com cada usuário
+4. Configurar sudo restrito
+5. Documentar o antes e o depois
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Recomendação de nuvem para a NexaTech com análise de custo e risco.
 
 ## Para refletir
 
-Nem tudo que é possível na nuvem é vantajoso. Qual critério deve pesar mais na decisão?
+Por que conceder sudo total a todos os usuários é um risco?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Nem tudo que é possível na nuvem é vantajoso. Qual critério deve pesar mais 
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 

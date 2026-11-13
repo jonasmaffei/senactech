@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 23 - Governança de TI, segurança e certificações | UC7</title>
+<title>Aula 23 - SSH e administração remota | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,113 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 23</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 4 · Aula 23</span>
-      <h1>Governança de TI, segurança e certificações</h1>
-      <p class="lead">Aplicar conceitos de governança e segurança na administração dos servidores e planejar certificações.</p>
+      <h1>SSH e administração remota</h1>
+      <p class="lead">Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.</p>
       <div class="meta-row">
-        <span class="pill">16/12/2026 · quarta-feira</span>
-        <span class="pill">Monitoramento, Nuvem, Governança e Projeto</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">17/12/2026 (quinta-feira)</span>
+        <span class="pill">Linux Server e Segurança</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech vai passar por uma auditoria de segurança e quer organizar processos. A equipe precisa demonstrar controle sobre ativos, mudanças, incidentes e acessos.</p>
-        </div>
+        <div><p class="lead">A equipe precisa administrar o servidor sem ir até o console; acesso remoto seguro é obrigatório.</p></div>
         <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Aplicar conceitos de governança e segurança na administração dos servidores e planejar certificações.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.</p>
-          </div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.</p></div>
+          <div class="card"><h3>Entrega principal</h3><p>Checklist de SSH seguro com testes de acesso e bloqueio de root.</p></div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>ITIL 4: catálogo de serviços, incidentes, problemas e mudanças</h3></div><div class="card"><span class="card-num">02</span><h3>COBIT e alinhamento com o negócio</h3></div><div class="card"><span class="card-num">03</span><h3>ISO/IEC 27001 e gestão de riscos</h3></div><div class="card"><span class="card-num">04</span><h3>LGPD e privacidade</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>openssh-server e sshd_config</h3></div><div class="card"><span class="card-num">02</span><h3>Autenticação por senha e por chave</h3></div><div class="card"><span class="card-num">03</span><h3>Porta, PermitRootLogin e AllowUsers</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Gestão de ativos, acessos, fornecedores e auditoria</h3></div><div class="card"><span class="card-num">06</span><h3>Certificações Microsoft, Linux e Cisco</h3></div><div class="card"><span class="card-num">07</span><h3>Plano de desenvolvimento profissional</h3></div>
-      </div>
+      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Geração e cópia de chaves</h3></div><div class="card"><span class="card-num">05</span><h3>Fail2ban e firewall</h3></div><div class="card"><span class="card-num">06</span><h3>scp, sftp e boas práticas</h3></div></div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Dossiê de governança e plano de certificação.</p>
+      <p class="lead">Acesso remoto seguro ao Ubuntu Server.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar catálogo de serviços e matriz de riscos</li><li>Mapear controles de segurança e evidências</li><li>Comparar trilhas de certificação</li><li>Montar um plano de melhoria para a NexaTech</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Modelos de catálogo, matriz de riscos, Microsoft Learn, NetAcad</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Instalar o openssh-server</li><li>Desabilitar login root e senhas vazias</li><li>Criar par de chaves e copiar para o servidor</li><li>Testar login e acesso negado</li><li>Registrar a configuração final</li></ol></div>
+        <div class="card"><h3>Ferramentas e ambiente</h3><p>Ubuntu, OpenSSH, ssh-keygen, ufw, fail2ban</p>
+          <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
       </div>
     </section>
-    
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <div class="topology" aria-label="Topologia do laboratório">
+      <div class="top-node client"><strong>CLI01 / CLI02</strong><span>cliente Windows</span><small>IP via DHCP</small></div>
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
+        <div class="top-node dc"><strong>DC01</strong><span>Windows Server</span><small>192.168.10.10</small></div>
+        <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
+        <div class="top-node mon"><strong>DB01</strong><span>Ubuntu Server</span><small>192.168.10.30</small></div>
       </div>
     </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Use a VM MON01 para monitoramento e o ambiente integrado DC01 + LNX01 + CLI01 para a demonstração final.</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
+      <div class="card highlight"><h3>Checklist de SSH seguro com testes de acesso e bloqueio de root.</h3>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
       <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+        <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Como uma prática de governança pode evitar um problema técnico que já aconteceu antes?</blockquote>
+      <blockquote>Por que autenticação por chave é mais segura que senha para administração?</blockquote>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Governança reduz risco, melhora auditoria e alinha TI ao negócio.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Tudo precisa ser consolidado e defendido em um projeto final.</p>
-        </div>
+        <div class="card"><h3>Impacto no negócio</h3><p>Permite operação remota sem expor credenciais frágeis.</p></div>
+        <div class="card"><h3>O que fica em aberto</h3><p>Endurecer o restante do servidor e revisar os serviços expostos.</p></div>
       </div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Dá sustentação organizacional ao ambiente técnico construído na UC.</p>
+      <p class="lead">Habilita a operação remota segura do servidor Linux.</p>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Tudo precisa ser consolidado e defendido em um projeto final.</p>
-        </div>
+        <div class="card"><h3>Entrega que sustenta o projeto</h3><p>Checklist de SSH seguro com testes de acesso e bloqueio de root.</p></div>
+        <div class="card"><h3>Próximo gargalo</h3><p>Endurecer o restante do servidor e revisar os serviços expostos.</p></div>
       </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div>
     </section>
-    
 
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Governança é o conjunto de processos que mantém a TI previsível e auditável.</li><li>ITIL, COBIT, ISO 27001 e LGPD se complementam em níveis diferentes.</li><li>Certificações devem seguir um plano de carreira, não serem acumuladas sem propósito.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 24 - Projeto integrador: apresentação e defesa</strong>
-          <p>Depois da UC, o próximo passo é aprofundar certificações e especializações.</p>
-        </div>
-        
+      <ul class="check"><li>O sshd_config controla como o servidor aceita conexões.</li><li>Chaves eliminam o envio de senhas pela rede.</li><li>Fail2ban e firewall reduzem tentativas de acesso indevido.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 24 - DHCP no Linux</strong><p>Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>
-    
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

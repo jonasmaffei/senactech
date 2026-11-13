@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 13 - Automação e monitoramento no Windows Server | UC7</title>
+<title>Aula 13 - DHCP no Windows Server | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -203,207 +203,40 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 13</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 2 · Aula 13</span>
-      <h1>Automação e monitoramento no Windows Server</h1>
-      <p class="lead">Automatizar tarefas rotineiras e monitorar a saúde do Windows Server com ferramentas nativas.</p>
-      <div class="meta-row">
-        <span class="pill">01/12/2026 · terça-feira</span>
-        <span class="pill">Windows Server</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
-      </div>
+      <h1>DHCP no Windows Server</h1>
+      <p class="lead">Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.</p>
+      <div class="meta-row"><span class="pill">02/12/2026 (quarta-feira)</span><span class="pill">Windows Server</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">A equipe percebeu que verifica espaço em disco, serviços e backups manualmente todos os dias. Isso consome tempo e ainda deixa falhas passarem. É hora de automatizar e registrar evidências.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Automatizar tarefas rotineiras e monitorar a saúde do Windows Server com ferramentas nativas.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Script de automação e plano de monitoramento do Windows Server.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>PowerShell: cmdlets, pipeline, variáveis e scripts</h3></div><div class="card"><span class="card-num">02</span><h3>Agendador de Tarefas</h3></div><div class="card"><span class="card-num">03</span><h3>Visualizador de Eventos e logs</h3></div><div class="card"><span class="card-num">04</span><h3>Monitor de Desempenho e conjuntos de coletores</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Windows Update e WSUS</h3></div><div class="card"><span class="card-num">06</span><h3>Relatórios de backup e alertas</h3></div><div class="card"><span class="card-num">07</span><h3>PowerShell Remoting e boas práticas de script</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Rotina automatizada de verificação e coleta de métricas no Windows Server.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Criar script que verifica disco, serviços e eventos críticos</li><li>Agendar o script no Task Scheduler</li><li>Criar um data collector set no Performance Monitor</li><li>Gerar um relatório simples e analisar os resultados</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>PowerShell, Task Scheduler, Event Viewer, Performance Monitor</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM DC01 (Windows Server). Use a VM CLI01 como cliente para testar login, DNS, DHCP, arquivos e políticas.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Script de automação e plano de monitoramento do Windows Server.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>O que deve ser monitorado para prever uma falha antes que o usuário perceba?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Automação reduz tempo de reação e libera a equipe para tarefas de maior valor.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>A empresa também precisa de serviços abertos e de baixo custo; entra o Linux.</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Fecha o Bloco 2 com o ambiente Windows operável e observável.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Script de automação e plano de monitoramento do Windows Server.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>A empresa também precisa de serviços abertos e de baixo custo; entra o Linux.</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>PowerShell permite automatizar verificações e padronizar respostas.</li><li>O Agendador executa rotinas sem intervenção humana.</li><li>Logs e contadores são a matéria-prima do monitoramento e da investigação de incidentes.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 14 - Instalação e configuração inicial do Linux Server</strong>
-          <p>Instalado o sistema, é preciso aprender a operá-lo no dia a dia.</p>
-        </div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
-    </section>
-    
+    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.</p></div><div class="grid">
+      <div class="card highlight"><h3>Objetivo da aula</h3><p>Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.</p></div>
+      <div class="card"><h3>Entrega principal</h3><p>Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.</p></div></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Escopo, faixa e exclusões</h3></div><div class="card"><span class="card-num">02</span><h3>Opções 003, 006 e 015</h3></div><div class="card"><span class="card-num">03</span><h3>Reservas e tempo de concessão</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Autorização do DHCP no AD</h3></div><div class="card"><span class="card-num">05</span><h3>Failover e boas práticas</h3></div><div class="card"><span class="card-num">06</span><h3>Testes com ipconfig e logs</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Criação do escopo DHCP da LAN da NexaTech.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar o escopo 192.168.10.100-200</li><li>Definir gateway e DNS nas opções</li><li>Reservar IPs para servidores e impressoras</li><li>Autorizar e ativar o escopo</li><li>Testar a concessão em um cliente</li></ol></div>
+      <div class="card"><h3>Ferramentas e ambiente</h3><p>DHCP Console, PowerShell, ipconfig</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway definido pelo DC01 ou pelo FW01</p>
+      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p></section>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="grid cols-2" style="margin-top:14px"><div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div>
+      <div class="card"><h3>Critérios de avaliação</h3><ul class="clean"><li>Correção técnica e funcionamento.</li><li>Clareza da documentação.</li><li>Evidências e justificativa das escolhas.</li></ul></div></div></section>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Quais riscos existem ao entregar um gateway ou DNS errado via DHCP?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Reduz trabalho manual e evita erros de configuração nos clientes.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Controlar o acesso aos dados compartilhados com permissões adequadas.</p></div></div></section>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Completa o serviço de endereçamento da NexaTech.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Controlar o acesso aos dados compartilhados com permissões adequadas.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>Escopo define a faixa e as opções entregues aos clientes.</li><li>Reservas garantem IP fixo para servidores e impressoras.</li><li>O DHCP precisa ser autorizado no Active Directory.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 14 - Compartilhamento de arquivos, permissões e quotas</strong><p>Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.</p></div>
+      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p></section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

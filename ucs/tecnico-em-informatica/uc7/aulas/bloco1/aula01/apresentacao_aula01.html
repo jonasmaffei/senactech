@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 01 - O servidor na rede local e a UC7 | UC7</title>
+<title>Aula 01 - TCP/IP e IPv4 | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -206,217 +206,30 @@
   <div id="counter">1 / 11</div>
 </header>
 <main id="deck">
-
-    <section class="slide active">
-      <span class="kicker">UC7 · Bloco 1 · Aula 01</span>
-      <h1>O servidor na rede local e a UC7</h1>
-      <p class="lead">Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.</p>
-      <div class="meta-row">
-        <span class="pill">12/11/2026 · quinta-feira</span>
-        <span class="pill">Fundamentos e Planejamento</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
-      </div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Mapa da UC</span>
-      <h2>O caminho das 24 aulas</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>Bloco 1 - Fundamentos e Planejamento</h3><ul class="clean"><li><strong>Aula 01</strong> O servidor na rede local e a UC7</li><li><strong>Aula 02</strong> Arquitetura e topologia de rede local</li><li><strong>Aula 03</strong> Protocolos e serviços de rede</li><li><strong>Aula 04</strong> Hardware de servidor, armazenamento e virtualização</li><li><strong>Aula 05</strong> Planejamento da instalação e documentação</li><li><strong>Aula 06</strong> Laboratório virtual e plano diretor da rede</li></ul></div><div class="card"><h3>Bloco 2 - Windows Server</h3><ul class="clean"><li><strong>Aula 07</strong> Instalação e configuração inicial do Windows Server</li><li><strong>Aula 08</strong> Active Directory Domain Services</li><li><strong>Aula 09</strong> DNS e DHCP no Windows Server</li><li><strong>Aula 10</strong> Compartilhamento de arquivos e permissões</li><li><strong>Aula 11</strong> GPOs e políticas de segurança</li><li><strong>Aula 12</strong> Serviços web, acesso remoto e administração</li><li><strong>Aula 13</strong> Automação e monitoramento no Windows Server</li></ul></div><div class="card"><h3>Bloco 3 - Linux Server e Segurança</h3><ul class="clean"><li><strong>Aula 14</strong> Instalação e configuração inicial do Linux Server</li><li><strong>Aula 15</strong> Administração e operação do Linux</li><li><strong>Aula 16</strong> Serviços de rede no Linux: DNS, DHCP e web</li><li><strong>Aula 17</strong> Segurança em servidores Linux</li><li><strong>Aula 18</strong> Arquivos, backup e interoperabilidade Linux</li><li><strong>Aula 19</strong> Laboratório integrado e troubleshooting</li></ul></div><div class="card"><h3>Bloco 4 - Monitoramento, Nuvem, Governança e Projeto</h3><ul class="clean"><li><strong>Aula 20</strong> Monitoramento de servidores e serviços</li><li><strong>Aula 21</strong> Backup, continuidade e resposta a incidentes</li><li><strong>Aula 22</strong> Computação em nuvem e tecnologias emergentes</li><li><strong>Aula 23</strong> Governança de TI, segurança e certificações</li><li><strong>Aula 24</strong> Projeto integrador: apresentação e defesa</li></ul></div>
-      </div>
-      <div class="note">
-        O fio condutor é o ciclo de vida do servidor: planejar, instalar, configurar,
-        proteger, monitorar e melhorar. Cada bloco entrega uma parte da infraestrutura da NexaTech.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Modelo cliente/servidor e redes peer-to-peer</h3></div><div class="card"><span class="card-num">02</span><h3>Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem</h3></div><div class="card"><span class="card-num">03</span><h3>Serviços essenciais de uma LAN corporativa</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>On-premise, nuvem e ambiente híbrido</h3></div><div class="card"><span class="card-num">05</span><h3>Ciclo de vida: planejar, instalar, configurar, monitorar e manter</h3></div><div class="card"><span class="card-num">06</span><h3>Ética profissional, LGPD e segurança da informação</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Inventariar os recursos e as dores da NexaTech</li><li>Classificar os serviços entre essenciais, importantes e opcionais</li><li>Montar um mapa inicial de serviços e responsáveis</li><li>Definir os papéis da equipe e o fluxo de documentação</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Planilha, editor de texto, draw.io ou diagrams.net</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>LNX01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>MON01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> As VMs ainda não são necessárias. Produza o artefato desta aula e guarde-o na pasta do projeto integrador.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Evita compras e instalações sem critério, reduzindo custo e retrabalho.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Quais serviços serão necessários e como eles se conectam fisicamente?</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Abre a UC e estabelece o problema de negócio que será resolvido ao longo das 24 aulas.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Quais serviços serão necessários e como eles se conectam fisicamente?</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Servidor é um computador ou serviço dedicado a atender clientes com funções especializadas.</li><li>Uma LAN corporativa típica combina autenticação, arquivos, DNS, DHCP, web, backup e monitoramento.</li><li>O ciclo de vida da infraestrutura vai do planejamento ao descomissionamento, passando por operação e melhoria contínua.</li>
-      </ul>
-      
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 02 - Arquitetura e topologia de rede local</strong>
-          <p>Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.</p>
-        </div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
-    </section>
-    
+    <section class="slide active"><span class="kicker">UC7 · Bloco 1 · Aula 01</span><h1>TCP/IP e IPv4</h1><p class="lead">Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.</p>
+      <div class="meta-row"><span class="pill">13/11/2026 (sexta-feira)</span><span class="pill">Fundamentos e Planejamento</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
+      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
+    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.</p></div><div class="card"><h3>Entrega principal</h3><p>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</p></div></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Modelo TCP/IP e comparação com o modelo OSI</h3></div><div class="card"><span class="card-num">02</span><h3>Endereços IPv4: rede, host, máscara e gateway</h3></div><div class="card"><span class="card-num">03</span><h3>IPs privados, públicos e NAT</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Notação CIDR e identificação da rede</h3></div><div class="card"><span class="card-num">05</span><h3>DNS e DHCP no fluxo de configuração</h3></div><div class="card"><span class="card-num">06</span><h3>Testes com ping, ipconfig, ip e tracert</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar as VMs CLI01 e CLI02 com Windows 10</li><li>Adicionar as duas VMs à rede interna rede-nexatech</li><li>Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101</li><li>Testar ping entre as duas VMs nos dois sentidos</li><li>Registrar prints do ipconfig e do ping</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>VirtualBox, Windows 10, ISO e prompt de comando</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code></p>
+      <table><thead><tr><th>VM</th><th>IP</th><th>Máscara</th></tr></thead><tbody><tr><td>CLI01</td><td>192.168.10.100</td><td>255.255.255.0</td></tr><tr><td>CLI02</td><td>192.168.10.101</td><td>255.255.255.0</td></tr></tbody></table>
+      <p class="note"><strong>Nesta aula:</strong> as duas VMs devem usar o mesmo nome de rede interna e IPs diferentes na mesma faixa.</p></section>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="card" style="margin-top:14px"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div></section>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Por que uma máscara ou gateway errado derruba a comunicação mesmo com o cabo conectado?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Um plano de IP correto evita conflitos e facilita a instalação dos servidores.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Com os conceitos entendidos, é preciso definir o papel de cada servidor.</p></div></div></section>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Define os conceitos de endereçamento que sustentarão toda a infraestrutura.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Com os conceitos entendidos, é preciso definir o papel de cada servidor.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>TCP/IP organiza a comunicação em camadas.</li><li>IPv4 combina endereço, máscara e gateway.</li><li>Duas VMs na mesma rede se comunicam quando IP e máscara são compatíveis.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 02 - O servidor na rede local e a UC7</strong><p>Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.</p></div>
+      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p></section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 23: Governança de TI, segurança e certificações
+# Laboratório VirtualBox - Aula 23: SSH e administração remota
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.
+**Entrega da aula:** Checklist de SSH seguro com testes de acesso e bloqueio de root.
 
 ---
 
 ## Objetivo
 
-Aplicar conceitos de governança e segurança na administração dos servidores e planejar certificações.
+Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 ## VMs desta aula
 
-Não é obrigatório subir VMs; use a documentação do projeto. Se quiser demonstrar, use DC01 e LNX01.
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Criar catálogo de serviços e matriz de riscos
-2. Mapear controles de segurança e evidências
-3. Comparar trilhas de certificação
-4. Montar um plano de melhoria para a NexaTech
+1. Instalar o openssh-server
+2. Desabilitar login root e senhas vazias
+3. Criar par de chaves e copiar para o servidor
+4. Testar login e acesso negado
+5. Registrar a configuração final
 
 ## Testes e evidências
 
@@ -42,22 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-# Aula de governanca: use a documentacao do projeto.
-# Se quiser demonstrar, suba DC01 e LNX01.
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula23"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula23"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Dá sustentação organizacional ao ambiente técnico construído na UC.
+Habilita a operação remota segura do servidor Linux.
 
-**O que fica em aberto:** Tudo precisa ser consolidado e defendido em um projeto final.
+**O que fica em aberto:** Endurecer o restante do servidor e revisar os serviços expostos.
 
 ---
 

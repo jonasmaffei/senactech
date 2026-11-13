@@ -1,20 +1,20 @@
-# Aula 18 - Arquivos, backup e interoperabilidade Linux
+# Aula 18 - pfSense: firewall, NAT e liberação de internet
 
-**Data sugerida:** 09/12/2026 (quarta-feira)  
-**Bloco:** 3 - Linux Server e Segurança  
-**Carga:** 4 horas
+**Data sugerida:** 10/12/2026 (quinta-feira)
+**Bloco:** 3 - Redes, Roteamento e Firewall
+**Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Configurar compartilhamento de arquivos, backup e integração do Linux com clientes Windows.
+Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação da LAN.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech precisa que o servidor Linux também compartilhe arquivos com os clientes Windows e que os dados sejam recuperáveis após exclusão acidental ou falha.
+Com o pfSense no lugar, os clientes da rede interna precisam navegar sem expor a LAN.
 
 ---
 
@@ -22,37 +22,37 @@ A NexaTech precisa que o servidor Linux também compartilhe arquivos com os clie
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Plano de backup e interoperabilidade com evidências de restauração. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense. |
 | [`apresentacao_aula18.html`](apresentacao_aula18.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com Vagrant + VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Samba: compartilhamentos, usuários e permissões |
-| NFS para clientes Linux |
-| rsync, tar e backup incremental |
-| Regra 3-2-1 e política de retenção |
-| Testes de restauração |
-| Integração com AD via winbind ou sssd |
-| Quotas e monitoramento de espaço |
+| Regras na interface LAN e política padrão |
+| NAT de saída e aliases |
+| DHCP e DNS no pfSense |
+| Logs e diagnóstico |
+| Bloqueio de tráfego indesejado |
+| Backup da configuração |
 
 ### Ferramentas
 
-Samba, rsync, tar, systemd timer, Windows Explorer
+pfSense, cliente Windows/Ubuntu, navegador, curl
 
 ---
 
 ## Prática em laboratório
 
-Compartilhamento Samba e rotina de backup com restauração testada.
+Laboratório de liberação de internet através do pfSense.
 
-1. Configurar um compartilhamento Samba e acessar pelo Windows
-2. Criar rotina de backup com rsync
-3. Simular exclusão de arquivo e restaurar a versão anterior
-4. Documentar permissões e retenção
+1. Configurar o DHCP da LAN em 192.168.10.100-200
+2. Criar regra na LAN permitindo web e DNS
+3. Conferir o NAT automático de saída
+4. Testar ping, curl e abrir um site no cliente
+5. Conferir os logs e exportar o backup da configuração
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Compartilhamento Samba e rotina de backup com restauração testada.
 
 ## Atividade
 
-- **Entrega:** Plano de backup e interoperabilidade com evidências de restauração.
+- **Entrega:** Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que um backup que nunca foi restaurado não pode ser considerado confiável?
+- **Pergunta de reflexão:** Se a regra padrão da LAN fosse liberar tudo, quais riscos apareceriam?
 
 ---
 
 ## Relação com o projeto
 
-Integra o Linux ao dia a dia dos usuários Windows e protege os dados da empresa.
+Prova que a LAN navega com controle e evidências.
 
-**O que fica em aberto:** Windows e Linux já compartilham recursos; falta testar o ambiente integrado e diagnosticar falhas.
+**O que fica em aberto:** Integrar o firewall ao restante do ambiente e documentar o acesso remoto seguro.
 
-**Impacto de negócio:** Backup testado é a diferença entre uma falha e um desastre.
+**Impacto de negócio:** Libera a navegação com regras explícitas, logs e possibilidade de auditoria.
 
 
 ## Próxima aula
 
-**Aula 19 - Laboratório integrado e troubleshooting.** O ambiente funciona, mas ainda não está sendo observado de forma contínua.
+**Aula 19 - Serviços web (IIS), acesso remoto e administração.** Publicar serviços web no Windows Server e configurar administração remota segura.
 
 ---
 

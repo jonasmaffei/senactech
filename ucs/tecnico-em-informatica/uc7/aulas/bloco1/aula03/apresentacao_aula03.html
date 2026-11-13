@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 03 - Protocolos e serviços de rede | UC7</title>
+<title>Aula 03 - Arquitetura e topologia de rede local | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -209,13 +209,13 @@
 
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 1 · Aula 03</span>
-      <h1>Protocolos e serviços de rede</h1>
-      <p class="lead">Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.</p>
+      <h1>Arquitetura e topologia de rede local</h1>
+      <p class="lead">Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.</p>
       <div class="meta-row">
-        <span class="pill">16/11/2026 · segunda-feira</span>
+        <span class="pill">17/11/2026 (terça-feira)</span>
         <span class="pill">Fundamentos e Planejamento</span>
-        <span class="pill">4 horas</span>
-        <span class="pill">Laboratório Vagrant + VirtualBox · cliente/servidor</span>
+        <span class="pill">3 horas</span>
+        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
@@ -226,16 +226,16 @@
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
         <div>
-          <p class="lead">A equipe precisa definir quais serviços rodarão nos servidores e quais portas deverão ser liberadas no firewall. Um erro nessa matriz pode deixar a rede insegura ou quebrar serviços essenciais.</p>
+          <p class="lead">A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para visitantes e vai receber servidores. Antes de comprar equipamentos, é preciso desenhar a topologia e definir o plano de endereços.</p>
         </div>
         <div class="grid">
           <div class="card highlight">
             <h3>Objetivo da aula</h3>
-            <p>Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.</p>
+            <p>Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.</p>
           </div>
           <div class="card">
             <h3>Entrega principal</h3>
-            <p>Matriz de serviços, protocolos, portas e riscos da NexaTech.</p>
+            <p>Diagrama de rede e planilha de endereçamento IP da NexaTech.</p>
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Modelo OSI e pilha TCP/IP</h3></div><div class="card"><span class="card-num">02</span><h3>TCP versus UDP</h3></div><div class="card"><span class="card-num">03</span><h3>Portas essenciais: DNS 53, DHCP 67/68, HTTP 80, HTTPS 443, SMB 445, SSH 22, RDP 3389, LDAP 389/636</h3></div><div class="card"><span class="card-num">04</span><h3>DNS: hierarquia, tipos de registro e resolução</h3></div>
+        <div class="card"><span class="card-num">01</span><h3>Topologias estrela, barramento, anel e malha</h3></div><div class="card"><span class="card-num">02</span><h3>Cabeamento Cat5e/Cat6, fibra óptica e patch panel</h3></div><div class="card"><span class="card-num">03</span><h3>Rack, switch, roteador, firewall e access point</h3></div><div class="card"><span class="card-num">04</span><h3>VLANs e segmentação por setor</h3></div>
       </div>
     </section>
     
@@ -255,7 +255,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>DHCP: descoberta, oferta, requisição e confirmação</h3></div><div class="card"><span class="card-num">06</span><h3>HTTP/HTTPS, SMB, SSH, NTP e SNMP</h3></div><div class="card"><span class="card-num">07</span><h3>Ferramentas de diagnóstico e captura de pacotes</h3></div>
+        <div class="card"><span class="card-num">05</span><h3>IPv4: endereço, máscara e notação CIDR</h3></div><div class="card"><span class="card-num">06</span><h3>IPv6 e endereçamento dual stack</h3></div><div class="card"><span class="card-num">07</span><h3>Documentação de rede e plano de IPs</h3></div>
       </div>
     </section>
     
@@ -263,15 +263,15 @@
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Diagnóstico de rede no host e captura de tráfego local.</p>
+      <p class="lead">Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 06.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Testar conectividade com ping, tracert e Test-NetConnection</li><li>Consultar nomes com nslookup e dig</li><li>Observar portas abertas com netstat ou ss</li><li>Capturar uma requisição HTTP no Wireshark e identificar as camadas</li></ol>
+          <ol class="steps"><li>Desenhar a topologia física e lógica da NexaTech</li><li>Definir a distribuição de IPs por setor</li><li>Montar a planilha de endereços e reservas</li><li>Revisar o diagrama com a turma e corrigir inconsistências</li></ol>
         </div>
         <div class="card">
           <h3>Ferramentas e ambiente</h3>
-          <p>Prompt de comando, PowerShell, Wireshark, nslookup, dig, netstat/ss</p>
+          <p>draw.io ou diagrams.net, planilha</p>
           <div class="note">
             Trabalhe sempre com snapshots antes de mudanças arriscadas.
             Registre prints, saídas de comando e testes no portfólio do grupo.
@@ -282,14 +282,14 @@
     
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · Vagrant + VirtualBox</span>
+      <span class="kicker">Infraestrutura · VirtualBox</span>
       <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">A base é criada pelo <strong>Vagrant</strong> e executada no <strong>VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
+      <p>A rede e as faixas de IPs serão definidas no plano de endereçamento da NexaTech.</p>
+      <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
       
     <div class="topology" aria-label="Topologia do laboratório">
       <div class="top-node client">
-        <strong>CLI01</strong>
+        <strong>CLI01 / CLI02</strong>
         <span>cliente Windows</span>
         <small>IP via DHCP</small>
       </div>
@@ -298,25 +298,25 @@
         <div class="top-node dc">
           <strong>DC01</strong>
           <span>Windows Server</span>
-          <small>192.168.10.10</small>
+          <small>IP fixo</small>
         </div>
         <div class="top-node lnx">
-          <strong>LNX01</strong>
+          <strong>APP01</strong>
           <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
+          <small>IP fixo</small>
         </div>
         <div class="top-node mon">
-          <strong>MON01</strong>
+          <strong>DB01</strong>
           <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
+          <small>IP fixo</small>
         </div>
       </div>
     </div>
     
       <div class="grid cols-3">
         <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>LNX01</h3><p>Ubuntu Server. DNS, DHCP, web, Samba e hardening.</p></div>
-        <div class="card"><h3>MON01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
+        <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
+        <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
       </div>
       <p class="note"><strong>Nesta aula:</strong> As VMs ainda não são necessárias. Produza o artefato desta aula e guarde-o na pasta do projeto integrador.</p>
     </section>
@@ -326,7 +326,7 @@
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
       <div class="card highlight">
-        <h3>Matriz de serviços, protocolos, portas e riscos da NexaTech.</h3>
+        <h3>Diagrama de rede e planilha de endereçamento IP da NexaTech.</h3>
         <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
       </div>
       <div class="grid cols-2" style="margin-top:14px">
@@ -337,31 +337,22 @@
             <li>Prints ou saídas de comando dos testes.</li>
             <li>Dificuldades encontradas e como foram resolvidas.</li>
           </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
+        </div></div>
     </section>
     
 
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Por que a mesma porta pode ser necessária para o serviço e, ao mesmo tempo, representar um risco de segurança?</blockquote>
+      <blockquote>Qual decisão de topologia ou segmentação reduz mais o risco de um problema em um setor afetar toda a empresa?</blockquote>
       <div class="grid cols-2">
         <div class="card">
           <h3>Impacto no negócio</h3>
-          <p>Uma matriz de portas correta reduz indisponibilidade e exposição desnecessária.</p>
+          <p>Um plano de IP e VLAN bem feito evita conflitos, lentidão e falhas de segurança.</p>
         </div>
         <div class="card">
           <h3>O que fica em aberto</h3>
-          <p>Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.</p>
+          <p>Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.</p>
         </div>
       </div>
     </section>
@@ -370,15 +361,15 @@
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
       <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.</p>
+      <p class="lead">Transforma o diagnóstico da Aula 01 em uma planta de rede concreta.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Entrega que sustenta o projeto</h3>
-          <p>Matriz de serviços, protocolos, portas e riscos da NexaTech.</p>
+          <p>Diagrama de rede e planilha de endereçamento IP da NexaTech.</p>
         </div>
         <div class="card">
           <h3>Próximo gargalo</h3>
-          <p>Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.</p>
+          <p>Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.</p>
         </div>
       </div>
       <div class="note">
@@ -392,14 +383,10 @@
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
       <ul class="check">
-        <li>TCP garante entrega e ordem; UDP prioriza velocidade e é usado em consultas e telemetria.</li><li>DNS traduz nomes em endereços; DHCP entrega configuração de rede automaticamente.</li><li>Portas abertas devem seguir o princípio do menor privilégio e ser documentadas.</li>
+        <li>A topologia em estrela domina as LANs atuais por simplicidade e facilidade de manutenção.</li><li>VLANs separam setores e reduzem o domínio de broadcast, mas exigem planejamento de endereços.</li><li>O plano de IP é um documento vivo: precisa ser atualizado a cada mudança.</li>
       </ul>
       
-        <div class="next">
-          <span>Próxima aula</span>
-          <strong>Aula 04 - Hardware de servidor, armazenamento e virtualização</strong>
-          <p>Com o laboratório pronto, é preciso um plano de implantação para não configurar tudo de forma desordenada.</p>
-        </div>
+        <div class="next"><span>Próxima aula</span><strong>Aula 04 - Protocolos e serviços de rede</strong><p>Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.</p></div>
         
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>

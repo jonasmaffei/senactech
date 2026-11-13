@@ -1,10 +1,10 @@
-# Laboratório Virtual - Vagrant + VirtualBox
+# Laboratório Virtual - VirtualBox
 
-Este diretório concentra a infraestrutura **cliente/servidor** da UC7. As práticas são executadas em máquinas virtuais criadas pelo **Vagrant** com o provider **VirtualBox**.
+Este diretório concentra a infraestrutura **cliente/servidor** da UC7. As práticas são executadas em máquinas virtuais criadas **manualmente no VirtualBox**, sem Vagrant.
 
-A ideia é que o aluno não perca tempo criando quatro VMs manualmente em cada aula. O Vagrant sobe a base, e o aluno configura os serviços (AD, DNS, DHCP, arquivos, web, segurança, backup e monitoramento) durante as aulas.
+A montagem é cumulativa: cada bloco adiciona serviços à mesma rede interna. O aluno cria as VMs, configura os adaptadores, instala os sistemas e documenta as evidências.
 
-> **Atenção:** o laboratório foi escrito para ser validado no computador do professor. Ele não foi executado neste ambiente de desenvolvimento porque Vagrant, VirtualBox e Ruby não estão instalados aqui.
+> **Atenção:** o laboratório deve ser validado no computador do professor antes de ser aplicado em sala. Ajuste memória, disco e número de VMs à capacidade do host.
 
 ---
 
@@ -13,20 +13,23 @@ A ideia é que o aluno não perca tempo criando quatro VMs manualmente em cada a
 | Item | Versão sugerida |
 | :--- | :--- |
 | VirtualBox | 7.0 ou superior |
-| Vagrant | 2.4 ou superior |
 | RAM do host | 16 GB recomendado (8 GB mínimo) |
-| Disco livre | 80 GB ou mais |
-| Virtualização | habilitada na BIOS/UEFI |
+| Disco livre | 120 GB ou mais |
+| CPU | 4 núcleos (8 recomendado) |
+| Virtualização | VT-x/AMD-V habilitada na BIOS/UEFI |
+| ISOs | Windows Server (avaliação), Ubuntu Server 24.04 LTS, pfSense e Windows 10 |
 
-Instalação:
+Downloads oficiais:
 
 - VirtualBox: https://www.virtualbox.org/wiki/Downloads
-- Vagrant: https://developer.hashicorp.com/vagrant/install
+- Windows Server (avaliação): https://www.microsoft.com/evalcenter/
+- Ubuntu Server: https://ubuntu.com/download/server
+- pfSense: https://www.pfsense.org/download/
+- Windows 10 (avaliação): https://www.microsoft.com/evalcenter/
 
-No Windows, reinicie após instalar e confirme:
+Confirme a instalação no prompt do Windows:
 
 ```powershell
-vagrant --version
 VBoxManage --version
 ```
 
@@ -34,145 +37,92 @@ VBoxManage --version
 
 ## Máquinas virtuais
 
-| VM | Box padrão | Sistema | RAM | vCPU | IP interno |
-| :--- | :--- | :--- | :---: | :---: | :--- |
-| DC01 | `gusztavvargadr/windows-server-2022-standard` | Windows Server 2022 | 4 GB | 2 | 192.168.10.10 |
-| LNX01 | `bento/ubuntu-24.04` | Ubuntu Server 24.04 LTS | 2 GB | 2 | 192.168.10.20 |
-| MON01 | `bento/ubuntu-24.04` | Ubuntu Server 24.04 LTS | 2 GB | 2 | 192.168.10.30 |
-| CLI01 | `gusztavvargadr/windows-11` | Windows 11 | 4 GB | 2 | 192.168.10.100 |
+| VM | Sistema | RAM | vCPU | Disco | IP interno |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| DC01 | Windows Server 2022/2025 | 4 GB | 2 | 60 GB | 192.168.10.10 |
+| APP01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 50 GB | 192.168.10.20 |
+| DB01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 20 GB | 192.168.10.30 |
+| CLI01 | Windows 10 | 4 GB | 2 | 40 GB | 192.168.10.100 (ou DHCP) |
+| CLI02 | Windows 10 | 4 GB | 2 | 40 GB | 192.168.10.101 (ou DHCP) |
+| FW01 | pfSense | 2 GB | 2 | 20 GB | 192.168.10.1 (LAN) |
 
-A rede interna do laboratório chama-se `rede-nexatech` e usa `192.168.10.0/24`.
+A rede interna chama-se `rede-nexatech` e usa `192.168.10.0/24`.
 
-Cada VM tem dois adaptadores:
+> **Serviços espelhados:** o DC01 mantém o DNS e o DHCP oficiais do domínio. O APP01/DB01 são usados para instalar e comparar as versões Linux de DNS, DHCP e web, que devem ser desativadas ao final da prática para não conflitar com o DC01.
 
-1. **NAT** - usado pelo Vagrant para SSH/WinRM e, quando necessário, para acesso à internet.
-2. **Rede Interna `rede-nexatech`** - usado para o tráfego cliente/servidor da UC.
+### Adaptadores de rede
 
-> O **IP 192.168.10.100** da CLI01 é um endereço fixo de laboratório. Na Aula 09, o aluno pode mudar o adaptador interno para DHCP e testar o escopo do DC01.
+Cada VM de servidor/cliente usa dois adaptadores:
 
-### Acesso pelo host (portas encaminhadas)
+1. **NAT** - acesso à internet e atualizações.
+2. **Rede Interna `rede-nexatech`** - tráfego cliente/servidor da UC.
 
-Para abrir os serviços web no navegador do computador físico:
+O **FW01 (pfSense)** usa:
 
-| VM | Serviço | URL no host | Quando |
-| :--- | :--- | :--- | :--- |
-| DC01 | IIS / intranet HTTP | http://localhost:8080 | A partir da Aula 12 |
-| DC01 | IIS / intranet HTTPS | https://localhost:8443 | A partir da Aula 12 |
-| LNX01 | Nginx/Apache HTTP | http://localhost:8081 | A partir da Aula 16 |
-| LNX01 | Nginx/Apache HTTPS | https://localhost:8444 | A partir da Aula 16 |
-| MON01 | Zabbix ou painel HTTP | http://localhost:8082 | A partir da Aula 20 |
-| MON01 | Grafana | http://localhost:3000 | A partir da Aula 20 |
+1. **NAT** como WAN (lado da internet).
+2. **Rede Interna `rede-nexatech`** como LAN (lado da empresa).
 
-> As portas estão limitadas a `127.0.0.1` por segurança. Se precisar acessar de outro computador da mesma rede, ajuste `host_ip` no `Vagrantfile`.
+> A rede interna, sozinha, não dá internet. Para navegar, use NAT/bridge ou configure o pfSense como gateway e NAT de saída.
 
----
+### Endereçamento
 
-## Boxes do Windows
-
-As boxes do Windows são imagens de avaliação mantidas por terceiros. Verifique o licenciamento antes de usar em produção ou em larga escala.
-
-Para trocar a versão:
-
-```powershell
-$env:UC7_WIN_SERVER_BOX="gusztavvargadr/windows-server-2025-standard"
-$env:UC7_WIN_CLIENT_BOX="gusztavvargadr/windows-11"
-vagrant up
-```
-
-Também é possível usar as boxes `StefanScherer/windows_2022` e `StefanScherer/windows_11`, desde que a instituição valide a licença e o funcionamento.
-
-> **Tamanho do download:** as boxes do Windows são grandes (várias gigabytes). Baixe uma vez e reutilize.
-
-> **Atenção didática:** as boxes `gusztavvargadr` vêm com Windows Update, Defender e UAC desabilitados para agilizar o laboratório. Isso **não** é uma configuração de produção. Use essa diferença como discussão nas aulas de segurança, GPO e governança.
+- `192.168.10.1` - FW01 (gateway/LAN)
+- `192.168.10.10` - DC01 (AD, DNS, DHCP)
+- `192.168.10.20` - APP01 (web Apache/PHP; práticas de DNS/DHCP; monitoramento)
+- `192.168.10.30` - DB01 (banco de dados e práticas de serviços)
+- `192.168.10.100` - CLI01
+- `192.168.10.101` - CLI02
+- `192.168.10.110` a `192.168.10.200` - faixa DHCP
+- `192.168.10.254` - reserva/broadcast de laboratório
 
 ---
 
-## Como usar
+## Como criar as VMs manualmente
 
-Todos os comandos são executados **dentro desta pasta** (`laboratorio_virtual/`).
+1. Abra o **VirtualBox** e clique em **Novo**.
+2. Informe o nome da VM (ex.: `DC01`), o tipo e a versão do sistema.
+3. Defina **memória** e **vCPU** conforme a tabela.
+4. Crie um **disco virtual** do tipo VDI, alocação dinâmica, com o tamanho indicado.
+5. Em **Configurações > Rede**, adicione:
+   - Adaptador 1: **NAT**;
+   - Adaptador 2: **Rede Interna** com nome `rede-nexatech`.
+6. Anexe a ISO em **Configurações > Armazenamento** e inicie a VM.
+7. Instale o sistema operacional.
+8. Configure IP, hostname e DNS.
+9. Desligue a VM e tire um **snapshot baseline**.
 
-### Subir todas as VMs
+> Repita o processo para cada VM. O nome da rede interna deve ser **exatamente** `rede-nexatech` em todas elas.
 
-```bash
-vagrant up
-```
+### Criando a rede interna
 
-Para forçar o provider VirtualBox:
+No VirtualBox, a rede interna não precisa ser criada antes: ao selecionar **Rede Interna** e digitar `rede-nexatech` no adaptador de cada VM, todas passam a compartilhar o mesmo segmento.
 
-```bash
-vagrant up --provider=virtualbox
-```
+### Acesso pelo host
 
-Na primeira execução, o Vagrant baixa as boxes, cria as VMs, configura a rede interna e executa os provisionamentos básicos.
+Se precisar abrir serviços no navegador do computador físico, use **redirecionamento de portas** no adaptador NAT ou um adaptador **Host-only**:
 
-### Subir apenas uma VM
+| VM | Serviço | Porta sugerida no host |
+| :--- | :--- | :--- |
+| DC01 | IIS / intranet | `http://localhost:8080` |
+| APP01 | Apache/PHP | `http://localhost:8081` |
+| APP01 | Zabbix/Grafana | `http://localhost:8082` |
+| FW01 | Interface web do pfSense | `https://localhost:8443` |
 
-```bash
-vagrant up dc01
-vagrant up lnx01
-vagrant up mon01
-vagrant up cli01
-```
-
-### Ver o estado
-
-```bash
-vagrant status
-```
-
-### Acessar as VMs
-
-```bash
-# Linux
-vagrant ssh lnx01
-vagrant ssh mon01
-
-# Windows
-vagrant winrm dc01 -c "hostname"
-vagrant winrm cli01 -c "hostname"
-vagrant rdp dc01
-vagrant rdp cli01
-```
-
-No Windows, o comando `vagrant winrm <vm> -c "<comando>"` executa PowerShell na VM.
-
-### Provisionar novamente
-
-```bash
-vagrant provision dc01
-vagrant provision lnx01
-```
-
-### Desligar, religar e destruir
-
-```bash
-vagrant halt
-vagrant reload dc01
-vagrant destroy -f
-```
-
-> `vagrant destroy -f` apaga as VMs e todo o trabalho feito nelas. Use com cuidado.
+> Mantenha o redirecionamento limitado a `127.0.0.1` por segurança.
 
 ---
 
 ## Snapshots
 
-O provider VirtualBox suporta snapshots pelo Vagrant. Tire um snapshot antes de cada mudança arriscada:
+Tire um snapshot antes de cada mudança arriscada. Pela interface: **Máquina > Tirar snapshot**. Pelo terminal:
 
-```bash
-vagrant snapshot save dc01 baseline-dc01
-vagrant snapshot save lnx01 baseline-lnx01
-vagrant snapshot save cli01 baseline-cli01
+```powershell
+VBoxManage snapshot "DC01" take "baseline-aula08"
+VBoxManage snapshot "DC01" list
+VBoxManage snapshot "DC01" restore "baseline-aula08"
 ```
 
-Listar e restaurar:
-
-```bash
-vagrant snapshot list
-vagrant snapshot restore dc01 baseline-dc01
-```
-
-> O nome do snapshot é livre. Sugestão: `baseline-uc7`, `antes-ad`, `antes-gpo`, `antes-hardening`.
+Sugestões de nomes: `baseline-uc7`, `antes-ad`, `antes-dns`, `antes-pfsense`, `antes-hardening`.
 
 ---
 
@@ -180,12 +130,7 @@ vagrant snapshot restore dc01 baseline-dc01
 
 ```text
 laboratorio_virtual/
-  Vagrantfile
   README.md
-  provision/
-    dc01/01-baseline.ps1
-    cli01/01-baseline.ps1
-    linux/01-baseline.sh
 ```
 
 Os roteiros específicos de cada aula ficam em:
@@ -194,7 +139,7 @@ Os roteiros específicos de cada aula ficam em:
 aulas/blocoN/aulaNN/laboratorio_virtual/README.md
 ```
 
-Cada roteiro assume que a base do Vagrant já está no ar e indica:
+Cada roteiro indica:
 
 - quais VMs usar;
 - o que configurar naquela aula;
@@ -203,48 +148,16 @@ Cada roteiro assume que a base do Vagrant já está no ar e indica:
 
 ---
 
-## O que o provisionamento faz
+## Sequência de montagem
 
-### DC01
-
-- identifica o adaptador da rede interna;
-- aplica o IP `192.168.10.10/24`;
-- configura o DNS para `192.168.10.10`;
-- renomeia o computador para `DC01`;
-- ajusta o fuso horário e libera ICMP.
-
-Ele **não** promove o servidor a controlador de domínio. A promoção do AD DS é feita pelo aluno na Aula 08.
-
-### LNX01 e MON01
-
-- definem o hostname;
-- ajustam o fuso horário;
-- configuram o DNS do domínio no adaptador interno;
-- instalam pacotes básicos (`curl`, `dnsutils`, `tcpdump`, `ufw`, `fail2ban`, `rsync`, etc.);
-- habilitam o SSH.
-
-Os serviços de rede são configurados nas aulas correspondentes.
-
-### CLI01
-
-- aplica o IP `192.168.10.100/24`;
-- configura o DNS para `192.168.10.10`;
-- renomeia o computador para `CLI01`;
-- libera ICMP.
-
-O ingresso no domínio é feito pelo aluno na Aula 08.
-
----
-
-## Sobre as aulas de instalação (A07 e A14)
-
-As boxes do Vagrant já vêm com o sistema operacional instalado. Isso significa que:
-
-- a **Aula 07** pode ser conduzida como **configuração inicial pós-instalação** do Windows Server;
-- a **Aula 14** pode ser conduzida como **configuração inicial pós-instalação** do Ubuntu Server;
-- se o professor quiser manter a instalação do zero, pode criar uma VM separada no VirtualBox usando a ISO oficial e deixar o Vagrant para as aulas seguintes.
-
-O importante é que o aluno saiba explicar as etapas de instalação, mesmo que a box já esteja pronta.
+| Etapa | Aulas | O que fazer |
+| :--- | :---: | :--- |
+| 1 | 05-06 | Especificar o hardware e criar a primeira VM no VirtualBox. |
+| 2 | 07 | Consolidar as VMs base, a rede interna e o plano diretor. |
+| 3 | 08-15 | Instalar Windows Server; AD, controlador, UOs, DNS, DHCP, arquivos, quotas e GPOs. |
+| 4 | 16-19 | Configurar roteamento/NAT, pfSense, IIS e acesso remoto. |
+| 5 | 20-29 | Instalar Ubuntu (APP01/DB01); usuários, SSH, DHCP, DNS, Apache/PHP, banco, hardening e backup. |
+| 6 | 30-32 | Monitoramento, automação, troubleshooting, governança e projeto. |
 
 ---
 
@@ -252,39 +165,30 @@ O importante é que o aluno saiba explicar as etapas de instalação, mesmo que 
 
 | Sintoma | Causa provável | Solução |
 | :--- | :--- | :--- |
-| `vagrant up` falha ao conectar no Windows | Box ainda inicializando ou WinRM indisponível | Aumentar `boot_timeout` ou rodar `vagrant reload dc01` |
-| VMs não se enxergam | Adaptadores em redes diferentes | Conferir se todas usam `rede-nexatech` |
-| Linux sem internet | NAT ausente ou DNS quebrado | Conferir o primeiro adaptador (NAT) e o DNS |
-| Windows muito lento | RAM insuficiente | Fechar programas ou aumentar `vb.memory` |
-| Erro de licença no Windows | Box de avaliação expirada | Atualizar a box ou usar imagem licenciada |
-| Snapshot não restaura | VirtualBox com snapshot filho | Apagar snapshots na ordem inversa ou recriar a VM |
+| VM não inicia | Virtualização desabilitada | Habilitar VT-x/AMD-V na BIOS/UEFI |
+| VMs não se enxergam | Redes internas com nomes diferentes | Conferir se todas usam `rede-nexatech` |
+| Linux sem internet | NAT ausente ou DNS quebrado | Conferir o Adaptador 1 (NAT) e o DNS |
+| Windows muito lento | RAM insuficiente | Fechar programas ou reduzir VMs ligadas |
+| Cliente não recebe IP | DHCP não autorizado ou escopo incorreto | Revisar escopo e autorização no AD |
+| Nome não resolve | DNS apontando para servidor errado | Conferir o DNS do cliente e as zonas |
+| pfSense não navega | Regra/NAT ausente na LAN | Conferir regra da LAN e NAT de saída |
+| Snapshot não restaura | Snapshot filho ou VM ligada | Desligar a VM e restaurar na ordem correta |
 
 ---
 
-## Validação recomendada
+## Boas práticas
 
-Antes de aplicar em sala, o professor deve rodar:
-
-```bash
-vagrant validate
-vagrant up
-vagrant status
-vagrant winrm dc01 -c "hostname"
-vagrant ssh lnx01 -c "hostname && ip -4 addr"
-```
-
-E testar:
-
-1. `ping 192.168.10.10` a partir da LNX01;
-2. `ping 192.168.10.20` a partir do DC01;
-3. `ping 192.168.10.100` a partir do DC01;
-4. resolução de nomes após configurar o DNS;
-5. snapshot e restauração de uma VM.
+- Snapshots antes de cada mudança relevante.
+- Nomes padronizados: `DC01`, `APP01`, `DB01`, `CLI01`, `CLI02` e `FW01`.
+- Documentar IPs, versões e senhas de laboratório em caderno local (nunca no Git).
+- Exportar as VMs ao final de cada bloco como backup (OVA).
+- Manter a rede interna isolada; usar NAT apenas quando precisar de internet.
+- Registrar as evidências no portfólio do projeto integrador.
 
 ---
 
 ## Relação com o projeto integrador
 
-O laboratório é a base técnica do projeto da NexaTech. As evidências geradas nas VMs (prints, comandos, configurações e testes) devem ser guardadas no portfólio do grupo e usadas na defesa final da Aula 24.
+O laboratório é a base técnica do projeto da NexaTech. As evidências geradas nas VMs (prints, comandos, configurações e testes) devem ser guardadas no portfólio do grupo e usadas na defesa final da Aula 32.
 
 > Voltar para o [README do repositório](../README.md).

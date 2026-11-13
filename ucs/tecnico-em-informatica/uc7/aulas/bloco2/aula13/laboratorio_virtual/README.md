@@ -1,37 +1,33 @@
-# Laboratório Virtual - Aula 13: Automação e monitoramento no Windows Server
+# Laboratório VirtualBox - Aula 13: DHCP no Windows Server
 
-**Ambiente:** Vagrant + VirtualBox  
+**Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Script de automação e plano de monitoramento do Windows Server.
+**Entrega da aula:** Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.
 
 ---
 
 ## Objetivo
 
-Automatizar tarefas rotineiras e monitorar a saúde do Windows Server com ferramentas nativas.
+Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.
 
 ## VMs desta aula
 
-DC01 e CLI01.
+Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
-Se ainda não subiu o laboratório, execute na raiz do repositório:
+1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
+2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+3. Registre o estado atual antes de alterar qualquer configuração.
 
-```bash
-cd laboratorio_virtual
-vagrant up
-vagrant status
-```
-
-> O primeiro `vagrant up` baixa as boxes e pode demorar bastante. As boxes do Windows são grandes.
 
 ## Roteiro
 
-1. Criar script que verifica disco, serviços e eventos críticos
-2. Agendar o script no Task Scheduler
-3. Criar um data collector set no Performance Monitor
-4. Gerar um relatório simples e analisar os resultados
+1. Criar o escopo 192.168.10.100-200
+2. Definir gateway e DNS nas opções
+3. Reservar IPs para servidores e impressoras
+4. Autorizar e ativar o escopo
+5. Testar a concessão em um cliente
 
 ## Testes e evidências
 
@@ -42,25 +38,25 @@ vagrant status
 
 ## Comandos úteis
 
-```bash
-cd laboratorio_virtual
-vagrant status
-vagrant up dc01 cli01
-vagrant winrm dc01 -c "hostname"
-vagrant winrm cli01 -c "ipconfig /all"
-vagrant rdp dc01
-vagrant snapshot save dc01 antes-ad
+```powershell
+VBoxManage list vms
+VBoxManage list runningvms
+VBoxManage snapshot "NOME_DA_VM" take "baseline-aula13"
+VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula13"
 ```
+
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+
 
 ## Relação com o projeto
 
-Fecha o Bloco 2 com o ambiente Windows operável e observável.
+Completa o serviço de endereçamento da NexaTech.
 
-**O que fica em aberto:** A empresa também precisa de serviços abertos e de baixo custo; entra o Linux.
+**O que fica em aberto:** Controlar o acesso aos dados compartilhados com permissões adequadas.
 
 ---
 

@@ -1,6 +1,6 @@
-# Atividade - Aula 01: O servidor na rede local e a UC7
+# Atividade - Aula 01: TCP/IP e IPv4
 
-**Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.  
+**Entrega:** Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.
 
 ## Contexto
 
-A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
+Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.
 
 ## O que deve ser entregue
 
-Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.
 
 ## Etapas
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Criar as VMs CLI01 e CLI02 com Windows 10
+2. Adicionar as duas VMs à rede interna rede-nexatech
+3. Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101
+4. Testar ping entre as duas VMs nos dois sentidos
+5. Registrar prints do ipconfig e do ping
 
 ## Evidências esperadas
 
@@ -33,16 +34,7 @@ Diagnóstico inicial de uma página com os serviços que precisam ser centraliza
 
 ## Para refletir
 
-Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+Por que uma máscara ou gateway errado derruba a comunicação mesmo com o cabo conectado?
 
 ---
 

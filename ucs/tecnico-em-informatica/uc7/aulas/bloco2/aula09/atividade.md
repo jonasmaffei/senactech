@@ -1,6 +1,6 @@
-# Atividade - Aula 09: DNS e DHCP no Windows Server
+# Atividade - Aula 09: Active Directory Domain Services
 
-**Entrega:** Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.  
+**Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Configurar DNS e DHCP integrados ao Active Directory para atender os clientes da rede.
+Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
 
 ## Contexto
 
-Os computadores da NexaTech precisam receber IP automaticamente e encontrar os servidores pelo nome. Sem DNS e DHCP bem configurados, o domínio e os compartilhamentos falham de forma intermitente.
+A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
 
 ## O que deve ser entregue
 
-Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.
+Estrutura do Active Directory documentada e teste de login no domínio.
 
 ## Etapas
 
-1. Criar zona direta e reversa para nexatech.local
-2. Cadastrar registros de servidores e apelidos
-3. Criar escopo DHCP com faixa, gateway e DNS
-4. Reservar IPs para servidores e impressoras e testar em um cliente
+1. Promover o servidor a controlador do domínio nexatech.local
+2. Criar OUs para Administração, Vendas, Suporte e Servidores
+3. Criar usuários e grupos de segurança
+4. Ingressar um cliente Windows no domínio e testar login
 
 ## Evidências esperadas
 
@@ -33,7 +33,7 @@ Plano de DNS/DHCP com zonas, escopos, reservas e evidências de teste.
 
 ## Para refletir
 
-O que acontece com os clientes se o DHCP cair, e como reservas e failover reduzem esse impacto?
+Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?
 
 ## Critérios de avaliação
 

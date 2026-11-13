@@ -1,6 +1,6 @@
-# Atividade - Aula 17: Segurança em servidores Linux
+# Atividade - Aula 17: pfSense: instalação e configuração inicial
 
-**Entrega:** Relatório de auditoria de segurança com antes, depois e justificativas.  
+**Entrega:** pfSense instalado e acesso à interface web documentado.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Aplicar hardening e controles de segurança em servidores Linux e seus serviços de rede.
+Instalar o pfSense em uma VM com duas interfaces e configurar o acesso inicial.
 
 ## Contexto
 
-A NexaTech sofreu tentativas de acesso SSH e precisa provar à diretoria que o servidor Linux está protegido. A auditoria vai verificar usuários, firewall, atualizações e logs.
+A NexaTech quer um firewall dedicado entre a LAN e a internet, com regras claras e administração centralizada.
 
 ## O que deve ser entregue
 
-Relatório de auditoria de segurança com antes, depois e justificativas.
+pfSense instalado e acesso à interface web documentado.
 
 ## Etapas
 
-1. Endurecer a configuração do SSH
-2. Configurar firewall e fail2ban
-3. Auditar usuários, permissões e serviços ativos
-4. Comparar o antes e o depois com evidências
+1. Baixar a ISO e criar a VM FW01
+2. Adaptador 1 em NAT (WAN) e adaptador 2 na rede interna (LAN)
+3. Instalar e definir as interfaces
+4. Configurar o IP da LAN e acessar a interface web
+5. Atualizar o pfSense e tirar snapshot
 
 ## Evidências esperadas
 
@@ -33,7 +34,7 @@ Relatório de auditoria de segurança com antes, depois e justificativas.
 
 ## Para refletir
 
-Qual controle de segurança teve maior impacto e como ele poderia ser contornado por erro de configuração?
+Por que o firewall precisa de duas interfaces e de uma política padrão explícita?
 
 ## Critérios de avaliação
 
@@ -41,8 +42,8 @@ Qual controle de segurança teve maior impacto e como ele poderia ser contornado
 | :--- | :---: |
 | Correção técnica | 40% |
 | Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+| Evidências de execução e testes | 30% |
+| Justificativa das decisões e reflexão | 5% |
 
 ---
 
