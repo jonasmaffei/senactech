@@ -2,6 +2,7 @@
 
 **Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
+**Aplicação de teste:** [`aplicacao-teste/`](../../../../laboratorio_virtual/aplicacao-teste/README.md)  
 **Entrega da aula:** Aplicação integrada ao banco funcionando nos clientes, com evidências do fluxo completo.
 
 ---
@@ -12,7 +13,7 @@ Configurar o servidor de banco de dados e integrar a aplicação PHP ao DB01.
 
 ## VMs desta aula
 
-Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
+APP01 (aplicação), DB01 (banco) e CLI01/CLI02 (teste do fluxo). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
@@ -22,10 +23,10 @@ Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
 
 ## Roteiro
 
-1. Instalar MariaDB no DB01
-2. Criar banco, usuário e tabelas
-3. Configurar a conexão da aplicação com o DB01
-4. Testar o fluxo no CLI01 e no CLI02
+1. Executar install-db.sh no DB01
+2. Validar banco, usuário e permissões com check-db.sh
+3. Copiar a senha para o APP01 e executar deploy-app.sh
+4. Executar test-connection.sh e testar o fluxo nos clientes
 5. Registrar backup inicial e documentar a arquitetura
 
 ## Testes e evidências

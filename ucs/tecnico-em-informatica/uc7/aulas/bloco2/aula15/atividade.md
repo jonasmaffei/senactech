@@ -35,15 +35,6 @@ Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicaç�
 
 Como a herança e a precedência de GPOs podem fazer uma política funcionar em um setor e falhar em outro?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

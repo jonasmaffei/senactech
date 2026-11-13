@@ -20,10 +20,10 @@ Aplicação integrada ao banco funcionando nos clientes, com evidências do flux
 
 ## Etapas
 
-1. Instalar MariaDB no DB01
-2. Criar banco, usuário e tabelas
-3. Configurar a conexão da aplicação com o DB01
-4. Testar o fluxo no CLI01 e no CLI02
+1. Executar install-db.sh no DB01
+2. Validar banco, usuário e permissões com check-db.sh
+3. Copiar a senha para o APP01 e executar deploy-app.sh
+4. Executar test-connection.sh e testar o fluxo nos clientes
 5. Registrar backup inicial e documentar a arquitetura
 
 ## Evidências esperadas
@@ -35,15 +35,6 @@ Aplicação integrada ao banco funcionando nos clientes, com evidências do flux
 ## Para refletir
 
 O que verificar primeiro quando a aplicação abre, mas não mostra os dados?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
 
 ---
 

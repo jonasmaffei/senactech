@@ -1,6 +1,6 @@
 # Atividade - Aula 10: Controlador de domínio e ingresso de clientes
 
-**Entrega:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.  
+**Entrega:** Evidência de login dos clientes CLI01 e CLI02 no domínio.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
+Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio nexatech.local.
 
 ## Contexto
 
-O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.
+O domínio existe; agora os clientes CLI01 e CLI02 precisam autenticar nele.
 
 ## O que deve ser entregue
 
-Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
+Evidência de login dos clientes CLI01 e CLI02 no domínio.
 
 ## Etapas
 
 1. Verificar IP e DNS do DC01
-2. Instalar a função AD DS e promover nexatech.local
-3. Configurar o CLI01 com o DNS do DC01
-4. Ingressar o CLI01 e fazer login com usuário do domínio
+2. Configurar o CLI01 e o CLI02 com o DNS do DC01
+3. Ingressar as duas VMs no domínio nexatech.local
+4. Fazer login com usuário do domínio
 5. Validar com whoami /fqdn e registrar eventos
 
 ## Evidências esperadas
@@ -34,16 +34,7 @@ Evidência de promoção do controlador de domínio e login do CLI01 no domínio
 
 ## Para refletir
 
-Por que o DNS é pré-requisito do Active Directory?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
+O que acontece se o cliente não apontar para o DNS do controlador de domínio?
 
 ---
 

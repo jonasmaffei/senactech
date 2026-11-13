@@ -35,15 +35,6 @@ Checklist de instalação preenchida com evidências e configurações do servid
 
 Por que Server Core é preferível em muitos servidores de produção, mesmo sendo menos visual?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

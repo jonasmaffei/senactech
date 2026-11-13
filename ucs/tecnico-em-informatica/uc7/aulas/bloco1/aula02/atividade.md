@@ -35,15 +35,6 @@ Diagnóstico inicial de uma página com os serviços que precisam ser centraliza
 
 Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

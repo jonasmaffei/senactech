@@ -120,11 +120,11 @@ As datas consideram 32 encontros de 3 h em dias úteis, com 20/11/2026 (feriado 
 | **03** | 17/11/2026 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
 | **04** | 18/11/2026 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
 | **05** | 19/11/2026 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
-| **06** | 23/11/2026 | Virtualização e criação de VMs no VirtualBox | **Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
+| **06** | 23/11/2026 | Virtualização e criação de VMs no VirtualBox | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
 | **07** | 24/11/2026 | Planejamento, laboratório e plano diretor da rede | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
 | **08** | 25/11/2026 | Instalação e configuração inicial do Windows Server | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
-| **09** | 26/11/2026 | Active Directory Domain Services | **Estrutura do Active Directory documentada e teste de login no domínio.** |
-| **10** | 27/11/2026 | Controlador de domínio e ingresso de clientes | **Evidência de promoção do controlador de domínio e login do CLI01 no domínio.** |
+| **09** | 26/11/2026 | Active Directory Domain Services | **Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.** |
+| **10** | 27/11/2026 | Controlador de domínio e ingresso de clientes | **Evidência de login dos clientes CLI01 e CLI02 no domínio.** |
 | **11** | 30/11/2026 | Unidades organizacionais, grupos e usuários | **Estrutura de OUs, grupos e usuários documentada, com evidência de logins.** |
 | **12** | 01/12/2026 | DNS no Windows Server | **Plano de DNS com zonas direta e reversa, registros e evidências de resolução.** |
 | **13** | 02/12/2026 | DHCP no Windows Server | **Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.** |
@@ -306,6 +306,8 @@ A base comum fica em [`laboratorio_virtual/`](laboratorio_virtual/README.md) e a
 > A rede interna é `rede-nexatech` (`192.168.10.0/24`). Cada VM usa NAT (internet) + rede interna (LAN). O FW01 usa NAT como WAN e a rede interna como LAN.
 
 Cada aula tem um roteiro próprio em `aulas/blocoN/aulaNN/laboratorio_virtual/README.md`.
+
+> Aplicação de teste (PHP + MariaDB) e scripts de deploy: [`laboratorio_virtual/aplicacao-teste/`](laboratorio_virtual/aplicacao-teste/README.md).
 
 ---
 

@@ -2,17 +2,17 @@
 
 **Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
+**Entrega da aula:** Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
 
 ---
 
 ## Objetivo
 
-Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
+Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
+DC01, APP01 e DB01 (as VMs clientes CLI01/CLI02 foram criadas na Aula 01). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
@@ -23,11 +23,11 @@ Consulte a base comum e use apenas as VMs necessárias para esta prática. Mante
 
 ## Roteiro
 
-1. Criar a VM e nomear conforme o padrão da UC
-2. Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)
-3. Criar disco virtual de 40 GB e revisar o tipo
-4. Adicionar adaptador NAT e adaptador de rede interna
-5. Iniciar a VM, testar a rede e tirar o snapshot baseline
+1. Criar as VMs DC01, APP01 e DB01
+2. Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)
+3. Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)
+4. Adicionar adaptador NAT e adaptador de rede interna em cada VM
+5. Iniciar as VMs, testar a rede e tirar o snapshot baseline
 
 ## Testes e evidências
 

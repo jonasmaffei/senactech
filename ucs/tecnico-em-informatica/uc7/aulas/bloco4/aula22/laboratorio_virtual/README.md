@@ -12,7 +12,7 @@ Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
+APP01. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

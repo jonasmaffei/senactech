@@ -206,200 +206,29 @@
   <div id="counter">1 / 10</div>
 </header>
 <main id="deck">
-
-    <section class="slide active">
-      <span class="kicker">UC7 · Bloco 2 · Aula 09</span>
-      <h1>Active Directory Domain Services</h1>
-      <p class="lead">Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.</p>
-      <div class="meta-row">
-        <span class="pill">26/11/2026 (quinta-feira)</span>
-        <span class="pill">Windows Server</span>
-        <span class="pill">3 horas</span>
-        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
-      </div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Estrutura do Active Directory documentada e teste de login no domínio.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Conceitos de domínio, floresta, árvore e controlador de domínio</h3></div><div class="card"><span class="card-num">02</span><h3>LDAP, Kerberos e dependência do DNS</h3></div><div class="card"><span class="card-num">03</span><h3>Promoção do servidor a controlador de domínio</h3></div><div class="card"><span class="card-num">04</span><h3>Unidades organizacionais por setor</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>Usuários, grupos, UPN e políticas de senha</h3></div><div class="card"><span class="card-num">06</span><h3>Ingresso de clientes no domínio</h3></div><div class="card"><span class="card-num">07</span><h3>Boas práticas de separação de privilégios</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Domínio nexatech.local ativo com estrutura de OUs e usuários.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Promover o servidor a controlador do domínio nexatech.local</li><li>Criar OUs para Administração, Vendas, Suporte e Servidores</li><li>Criar usuários e grupos de segurança</li><li>Ingressar um cliente Windows no domínio e testar login</li></ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Windows Server, Active Directory Users and Computers, RSAT</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01 / CLI02</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>APP01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>DB01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
-        <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> Trabalhe na VM DC01 (Windows Server). Use a VM CLI01 como cliente para testar login, DNS, DHCP, arquivos e políticas.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Estrutura do Active Directory documentada e teste de login no domínio.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Critérios de avaliação</h3>
-          <ul class="clean">
-            <li>Correção técnica e funcionamento.</li>
-            <li>Clareza da documentação.</li>
-            <li>Evidências e justificativa das escolhas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Autenticação centralizada reduz contas soltas e facilita desligamentos e auditorias.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>O domínio precisa de DNS confiável e de endereçamento automático para os clientes.</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Transforma o servidor instalado na Aula 07 em uma autoridade de autenticação.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Estrutura do Active Directory documentada e teste de login no domínio.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>O domínio precisa de DNS confiável e de endereçamento automático para os clientes.</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>O AD DS centraliza autenticação e autorização em um domínio.</li><li>O DNS é pré-requisito: o domínio não funciona sem resolução de nomes correta.</li><li>OUs organizam delegação e políticas; grupos aplicam permissões de forma escalável.</li>
-      </ul>
-      
-        <div class="next"><span>Próxima aula</span><strong>Aula 10 - Controlador de domínio e ingresso de clientes</strong><p>Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.</p></div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
-    </section>
-    
+    <section class="slide active"><span class="kicker">UC7 · Bloco 2 · Aula 09</span><h1>Active Directory Domain Services</h1><p class="lead">Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.</p>
+      <div class="meta-row"><span class="pill">26/11/2026 (quinta-feira)</span><span class="pill">Windows Server</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
+      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
+    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
+      <div class="two-col"><div><p class="lead">A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.</p></div><div class="card"><h3>Entrega principal</h3><p>Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.</p></div></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Domínio, floresta, árvore e controlador de domínio</h3></div><div class="card"><span class="card-num">02</span><h3>LDAP, Kerberos e dependência do DNS</h3></div><div class="card"><span class="card-num">03</span><h3>Instalação da função AD DS</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Promoção do servidor a controlador</h3></div><div class="card"><span class="card-num">05</span><h3>Verificação com dcdiag e Get-ADDomain</h3></div><div class="card"><span class="card-num">06</span><h3>Boas práticas de DNS no domínio</h3></div></div></section>
+    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Criação do domínio nexatech.local no DC01.</p>
+      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Verificar IP e DNS do DC01</li><li>Instalar a função AD DS</li><li>Promover o servidor a controlador do domínio nexatech.local</li><li>Reiniciar e validar com dcdiag</li><li>Registrar evidências da promoção</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>Windows Server, Server Manager, PowerShell e dcdiag</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
+    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
+      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway pelo FW01</p>
+      <p class="note"><strong>Nesta aula:</strong> use DC01 e CLI01/CLI02 conforme o roteiro.</p></section>
+    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
+      <div class="card highlight"><h3>Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
+      <div class="card" style="margin-top:14px"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div></section>
+    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Por que o DNS é pré-requisito para o Active Directory funcionar?</blockquote>
+      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Centraliza a autenticação e cria a base para usuários, grupos e políticas.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Com o domínio criado, os clientes Windows 10 precisam ingressar nele.</p></div></div></section>
+    <section class="slide"><span class="kicker">Projeto integrador</span><h2>Conexão com a NexaTech</h2><p class="lead">Entrega o domínio que sustentará a identidade da NexaTech.</p>
+      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Com o domínio criado, os clientes Windows 10 precisam ingressar nele.</p></div></div>
+      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
+    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>O AD DS depende de DNS confiável.</li><li>A promoção cria o domínio e o controlador.</li><li>dcdiag e Get-ADDomain ajudam a validar o ambiente.</li></ul>
+      <div class="next"><span>Próxima aula</span><strong>Aula 10 - Controlador de domínio e ingresso de clientes</strong><p>Com o domínio no ar, é hora de ingressar os clientes Windows 10.</p></div>
+      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p></section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>

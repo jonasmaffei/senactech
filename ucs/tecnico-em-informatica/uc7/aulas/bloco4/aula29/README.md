@@ -50,9 +50,10 @@ Rotina de backup e restauração no ambiente misto.
 
 1. Definir o que será copiado (pastas compartilhadas no Windows e dados do Linux)
 2. Criar uma rotina de backup com rsync
-3. Agendar a rotina com systemd timer
-4. Simular exclusão de arquivo e restaurar a versão anterior
-5. Definir RPO/RTO e documentar a retenção
+3. Incluir o banco de dados do DB01 na rotina de backup
+4. Agendar a rotina com systemd timer
+5. Simular exclusão de arquivo e restaurar a versão anterior
+6. Definir RPO/RTO e documentar a retenção
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 

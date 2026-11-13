@@ -2,17 +2,17 @@
 
 **Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Estrutura do Active Directory documentada e teste de login no domínio.
+**Entrega da aula:** Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.
 
 ---
 
 ## Objetivo
 
-Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.
 
 ## VMs desta aula
 
-DC01 e CLI01.
+DC01. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
@@ -20,13 +20,13 @@ DC01 e CLI01.
 2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
 3. Registre o estado atual antes de alterar qualquer configuração.
 
-
 ## Roteiro
 
-1. Promover o servidor a controlador do domínio nexatech.local
-2. Criar OUs para Administração, Vendas, Suporte e Servidores
-3. Criar usuários e grupos de segurança
-4. Ingressar um cliente Windows no domínio e testar login
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS
+3. Promover o servidor a controlador do domínio nexatech.local
+4. Reiniciar e validar com dcdiag
+5. Registrar evidências da promoção
 
 ## Testes e evidências
 
@@ -38,24 +38,21 @@ DC01 e CLI01.
 ## Comandos úteis
 
 ```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula09"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula09"
+dcdiag
+nltest /dsgetdc:nexatech.local
+whoami /fqdn
 ```
-
 
 ## Observações
 
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- O cliente precisa usar o DNS do DC01 para ingressar no domínio.
 - A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
 
 ## Relação com o projeto
 
-Transforma o servidor instalado na Aula 07 em uma autoridade de autenticação.
+Entrega o domínio que sustentará a identidade da NexaTech.
 
-**O que fica em aberto:** O domínio precisa de DNS confiável e de endereçamento automático para os clientes.
+**O que fica em aberto:** Com o domínio criado, os clientes Windows 10 precisam ingressar nele.
 
 ---
 

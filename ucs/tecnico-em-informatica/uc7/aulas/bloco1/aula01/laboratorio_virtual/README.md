@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação entre elas.
+Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.
 
 ## VMs desta aula
 
@@ -23,15 +23,11 @@ Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10
 
 ## Roteiro
 
-1. Criar duas VMs Windows 10: **CLI01** e **CLI02** (4 GB de RAM e 2 vCPUs cada).
-2. Em cada VM, adicionar um adaptador de rede em **Rede Interna** com o nome `rede-nexatech`.
-3. Iniciar as duas VMs e configurar:
-   - **CLI01:** IP `192.168.10.100`, máscara `255.255.255.0`;
-   - **CLI02:** IP `192.168.10.101`, máscara `255.255.255.0`.
-4. Confirmar que as duas estão na mesma rede `192.168.10.0/24`.
-5. Testar a comunicação nos dois sentidos:
-   - na CLI01: `ping 192.168.10.101`;
-   - na CLI02: `ping 192.168.10.100`.
+1. Criar as VMs CLI01 e CLI02 com Windows 10
+2. Adicionar as duas VMs à rede interna rede-nexatech
+3. Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101
+4. Testar ping entre as duas VMs nos dois sentidos
+5. Registrar prints do ipconfig e do ping
 
 > Não é necessário configurar gateway nesta prática: o objetivo é apenas testar a comunicação na rede interna.
 
@@ -64,7 +60,7 @@ ping 192.168.10.100
 
 - As duas VMs precisam usar **exatamente o mesmo nome de rede interna** (`rede-nexatech`).
 - Se o ping falhar, confira o adaptador de rede, o IP/máscara e o firewall do Windows.
-- A rede interna não dá acesso à internet por si só.
+- A rede interna não dá acesso à internet por si só. Para atualizações, adicione um segundo adaptador NAT; o teste de comunicação deve ser feito pela rede interna.
 
 ## Relação com o projeto
 

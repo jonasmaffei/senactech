@@ -35,15 +35,6 @@ Dossiê de governança de TI com catálogo, riscos e roadmap de certificações.
 
 Como uma prática de governança pode evitar um problema técnico que já aconteceu antes?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

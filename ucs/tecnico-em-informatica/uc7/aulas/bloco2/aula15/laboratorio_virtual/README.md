@@ -12,7 +12,7 @@ Aplicar políticas de grupo para padronizar segurança e configurações nos cli
 
 ## VMs desta aula
 
-DC01 e CLI01.
+DC01 e CLI01/CLI02.
 
 ## Antes de começar
 

@@ -12,7 +12,7 @@ Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, c
 
 ## VMs desta aula
 
-DB01, DC01, APP01 e CLI01.
+DC01, CLI01, CLI02, APP01, DB01 e FW01.
 
 ## Antes de começar
 
@@ -24,7 +24,7 @@ DB01, DC01, APP01 e CLI01.
 ## Roteiro
 
 1. Apresentar o projeto em 10 a 15 minutos
-2. Demonstrar login, DNS/DHCP, arquivos, web e monitoramento
+2. Demonstrar login, DNS/DHCP, arquivos, web, pfSense e monitoramento
 3. Responder à arguição da banca
 4. Entregar a documentação final e a autoavaliação
 

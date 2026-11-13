@@ -22,9 +22,10 @@ Plano de backup e continuidade com evidências de restauração e RPO/RTO.
 
 1. Definir o que será copiado (pastas compartilhadas no Windows e dados do Linux)
 2. Criar uma rotina de backup com rsync
-3. Agendar a rotina com systemd timer
-4. Simular exclusão de arquivo e restaurar a versão anterior
-5. Definir RPO/RTO e documentar a retenção
+3. Incluir o banco de dados do DB01 na rotina de backup
+4. Agendar a rotina com systemd timer
+5. Simular exclusão de arquivo e restaurar a versão anterior
+6. Definir RPO/RTO e documentar a retenção
 
 ## Evidências esperadas
 
@@ -35,15 +36,6 @@ Plano de backup e continuidade com evidências de restauração e RPO/RTO.
 ## Para refletir
 
 Se o backup nunca foi testado, ele realmente existe?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
 
 ---
 

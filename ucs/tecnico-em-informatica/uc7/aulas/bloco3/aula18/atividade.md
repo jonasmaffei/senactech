@@ -36,15 +36,6 @@ Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.
 
 Se a regra padrão da LAN fosse liberar tudo, quais riscos apareceriam?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

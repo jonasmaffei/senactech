@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 00 - Quem sou eu e a UC7 | UC7</title>
+<title>Aula 00 - Quem sou eu, a UC7 e o VirtualBox | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -209,15 +209,15 @@
 
   <!-- 01 - Titulo -->
   <section class="slide title-slide active">
-    <div class="kicker">Aula 00 - Boas-vindas</div>
-    <h1>Quem sou eu e a UC7</h1>
-    <p class="lead">Uma conversa de abertura: minha trajetória na TI, o que vamos estudar em
-      <strong>Sistemas Operacionais de Redes Locais (Servidores)</strong> e como será o nosso
-      laboratório com <strong>VirtualBox</strong>.</p>
+    <div class="kicker">Aula 00 - Boas-vindas e VirtualBox</div>
+    <h1>Quem sou eu, a UC7 e o VirtualBox</h1>
+    <p class="lead">Uma conversa de abertura e uma aula prática de <strong>VirtualBox</strong>: hypervisor,
+      criação de VMs, discos, snapshots e os modos de rede <strong>NAT</strong>, <strong>bridge</strong>
+      e <strong>rede interna (local)</strong>.</p>
     <div class="meta-row">
       <div class="meta"><div class="k">Professor</div><div class="v">Jonas Maffei</div></div>
       <div class="meta"><div class="k">UC</div><div class="v">UC7 - 96 h - 32 aulas · 3 h por noite</div></div>
-      <div class="meta"><div class="k">Formato</div><div class="v">Apresentação + conversa</div></div>
+      <div class="meta"><div class="k">Formato</div><div class="v">Apresentação + aula prática</div></div>
     </div>
     <div class="grid cols-2" style="margin-top:26px">
       <div class="card" style="border-top:3px solid var(--accent)">
@@ -457,53 +457,108 @@
     </div>
   </section>
 
-  <!-- 10 - VirtualBox e laboratório -->
+  <!-- 10 - VirtualBox: o que e por que usar -->
   <section class="slide">
     <div class="kicker">Virtualização - VirtualBox</div>
-    <h2>VirtualBox e o laboratório da UC</h2>
-    <p>Em vez de comprar quatro computadores, criamos <strong>máquinas virtuais</strong> no mesmo
-      computador. O <strong>VirtualBox</strong> é o software que hospeda essas VMs.</p>
+    <h2>VirtualBox: o que é e por que usar</h2>
+    <p>O <strong>VirtualBox</strong> é um hypervisor de <strong>tipo 2</strong>: um programa
+      instalado no computador físico que cria e executa <strong>máquinas virtuais</strong> completas.</p>
     <div class="grid cols-2">
-      <div>
-        <h3 style="margin-bottom:10px">O que já fizemos</h3>
+      <div class="card">
+        <h3>O que é</h3>
         <ul class="clean">
-          <li>Criamos a <strong>primeira VM</strong> da turma.</li>
-          <li>Escolhemos <strong>CPU, memória e disco</strong> da VM.</li>
-          <li>Configuramos os <strong>adaptadores de rede</strong>.</li>
-          <li>Iniciamos a VM e vimos o hypervisor usar os recursos do host.</li>
+          <li>Software de virtualização gratuito e multiplataforma.</li>
+          <li>Cria VMs com CPU, memória, disco e rede virtuais.</li>
+          <li>Cada VM tem sistema operacional e IP próprios.</li>
+          <li>Permite snapshots, clones e redes virtuais.</li>
         </ul>
-        <div class="note" style="margin-top:12px">
-          <span class="ico">Por quê</span>
-          <span>Custo, segurança e liberdade para errar e refazer sem estragar o computador real.</span>
-        </div>
       </div>
-      <div>
-        <h3 style="margin-bottom:10px">Vocabulário</h3>
-        <div class="grid">
-          <div class="card"><h3><span class="ico">VM</span> Máquina virtual</h3><p>Um computador inteiro rodando dentro de outro, com sistema operacional próprio.</p></div>
-          <div class="card"><h3><span class="ico">HOST</span> Computador físico</h3><p>É quem oferece CPU, memória, disco e rede para as VMs.</p></div>
-          <div class="card"><h3><span class="ico">GUEST</span> Sistema convidado</h3><p>É o sistema operacional que roda dentro da VM.</p></div>
-        </div>
+      <div class="card">
+        <h3>Por que usar na UC</h3>
+        <ul class="clean">
+          <li>Simular vários servidores em um único computador.</li>
+          <li>Reduzir custo de hardware.</li>
+          <li>Permitir errar e refazer sem estragar o host.</li>
+          <li>Isolar a rede do laboratório da rede real.</li>
+        </ul>
       </div>
+    </div>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Atenção</span>
+      <span>O VirtualBox não é o sistema operacional da VM: ele apenas hospeda e gerencia as VMs.</span>
     </div>
   </section>
 
-  <!-- 11 - Hypervisor -->
+  <!-- 11 - Instalacao e requisitos -->
+  <section class="slide">
+    <div class="kicker">VirtualBox - Instalação</div>
+    <h2>Instalação e requisitos</h2>
+    <p>Antes de criar as VMs, prepare o computador físico. A virtualização precisa estar
+      habilitada e o host precisa ter recursos livres.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Checklist de instalação</h3>
+        <ul class="clean">
+          <li>Baixar o VirtualBox no site oficial.</li>
+          <li>Instalar o Extension Pack (opcional, para USB).</li>
+          <li>Habilitar <strong>VT-x/AMD-V</strong> na BIOS/UEFI.</li>
+          <li>Reiniciar o host após a instalação.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Cuidados</h3>
+        <ul class="clean">
+          <li>Hyper-V e WSL2 podem conflitar com o VirtualBox.</li>
+          <li>Antivírus e atualizações podem deixar a VM lenta.</li>
+          <li>Reserve espaço em disco para os arquivos VDI.</li>
+          <li>Não exceda a RAM e as vCPUs do host.</li>
+        </ul>
+      </div>
+    </div>
+    <table style="margin-top:16px">
+      <thead><tr><th>Recurso do host</th><th>Mínimo</th><th>Recomendado</th></tr></thead>
+      <tbody>
+        <tr><td>RAM</td><td>8 GB</td><td>16 GB</td></tr>
+        <tr><td>Disco livre</td><td>120 GB</td><td>180 GB</td></tr>
+        <tr><td>CPU</td><td>4 núcleos</td><td>8 núcleos</td></tr>
+        <tr><td>Virtualização</td><td>VT-x/AMD-V</td><td>habilitada na BIOS/UEFI</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 12 - Conhecendo a interface -->
+  <section class="slide">
+    <div class="kicker">VirtualBox - Interface</div>
+    <h2>Conhecendo a interface</h2>
+    <p>O gerenciador do VirtualBox concentra a criação e a configuração das VMs.</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>Gerenciador</h3><p>Lista as VMs, mostra o estado e permite criar, iniciar e remover.</p></div>
+      <div class="card"><h3>Configurações</h3><p>CPU, memória, vídeo, rede, pastas compartilhadas e USB.</p></div>
+      <div class="card"><h3>Armazenamento</h3><p>Controladora, disco virtual e ISO de instalação.</p></div>
+      <div class="card"><h3>Rede</h3><p>Modo (NAT, bridge, interna, host-only) e nome da rede.</p></div>
+      <div class="card"><h3>Snapshots</h3><p>Linha do tempo do estado da VM para voltar atrás.</p></div>
+      <div class="card"><h3>Logs</h3><p>Diagnóstico de erros de inicialização e de rede.</p></div>
+    </div>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Boa prática</span>
+      <span>Revise as Configurações antes de iniciar a VM e tire um snapshot após a instalação.</span>
+    </div>
+  </section>
+
+  <!-- 13 - Hypervisor e recursos do host -->
   <section class="slide">
     <div class="kicker">Virtualização - Hypervisor</div>
     <h2>Hypervisor: quem controla o quê</h2>
-    <p>O <strong>hypervisor</strong> é a camada que fica entre o hardware e as VMs. Ele divide os
-      recursos do host e impede que uma VM acesse diretamente o hardware da outra.</p>
+    <p>O <strong>hypervisor</strong> é a camada entre o hardware e as VMs. Ele divide os recursos
+      do host e impede que uma VM acesse diretamente o hardware da outra.</p>
     <div class="grid cols-2">
       <div class="card" style="border-top:3px solid var(--accent)">
         <h3><span class="ico">Tipo 1</span> Bare-metal</h3>
-        <p>Roda direto sobre o hardware. Ex.: <strong>Hyper-V</strong>, VMware ESXi e Proxmox.
-          É o padrão em servidores e datacenters.</p>
+        <p>Roda direto sobre o hardware. Ex.: <strong>Hyper-V</strong>, VMware ESXi e Proxmox.</p>
       </div>
       <div class="card" style="border-top:3px solid var(--accent-2)">
         <h3><span class="ico">Tipo 2</span> Hospedado</h3>
-        <p>Roda como um programa dentro do sistema operacional. Ex.: <strong>VirtualBox</strong> e
-          VMware Workstation. É o nosso caso no laboratório.</p>
+        <p>Roda como programa no sistema operacional. Ex.: <strong>VirtualBox</strong> e VMware Workstation.</p>
       </div>
     </div>
     <table style="margin-top:16px">
@@ -521,12 +576,12 @@
     </div>
   </section>
 
-  <!-- 12 - Criando a primeira VM -->
+  <!-- 14 - Criando a primeira VM -->
   <section class="slide">
     <div class="kicker">Virtualização - Prática</div>
     <h2>Criando a primeira VM</h2>
-    <p>O roteiro que usamos na abertura será repetido nas próximas aulas, sempre com um
-      <strong>snapshot</strong> antes de mudanças arriscadas.</p>
+    <p>O roteiro abaixo será repetido nas próximas aulas, sempre com um <strong>snapshot</strong>
+      antes de mudanças arriscadas.</p>
     <div class="grid cols-2">
       <div class="card">
         <h3>Passo a passo</h3>
@@ -544,7 +599,7 @@
           <tbody>
             <tr><td>vCPU</td><td>2</td></tr>
             <tr><td>Memória</td><td>4 GB (2 GB para Linux sem interface)</td></tr>
-            <tr><td>Disco</td><td>40 GB (Windows) / 20 GB (Linux)</td></tr>
+            <tr><td>Disco</td><td>60 GB (Windows Server) / 50 GB (Ubuntu)</td></tr>
             <tr><td>Rede</td><td>NAT + rede interna</td></tr>
           </tbody>
         </table>
@@ -556,28 +611,201 @@
     </div>
   </section>
 
-  <!-- 13 - Redes virtuais -->
+  <!-- 15 - Discos, snapshots e clones -->
   <section class="slide">
-    <div class="kicker">Virtualização - Redes</div>
-    <h2>Redes NAT, bridge e interna</h2>
-    <p>O modo de rede define quem consegue falar com a VM. Essa escolha aparece em quase todas as
-      aulas e é decisiva no laboratório de pfSense.</p>
-    <table>
-      <thead><tr><th>Modo</th><th>Como funciona</th><th>Quando usar</th><th>Exemplo na UC</th></tr></thead>
+    <div class="kicker">VirtualBox - Armazenamento</div>
+    <h2>Discos, snapshots e clones</h2>
+    <p>O disco da VM é um arquivo no host. Snapshots e clones ajudam a testar mudanças sem perder
+      o estado anterior.</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>Disco virtual</h3><p>VDI ou VMDK. Pode ser de alocação dinâmica ou fixa.</p></div>
+      <div class="card"><h3>Snapshot</h3><p>Foto do estado da VM. Permite voltar atrás após uma mudança.</p></div>
+      <div class="card"><h3>Clone</h3><p>Cópia completa ou vinculada da VM, útil para criar laboratórios iguais.</p></div>
+    </div>
+    <table style="margin-top:16px">
+      <thead><tr><th>Formato</th><th>Vantagem</th><th>Cuidado</th></tr></thead>
       <tbody>
-        <tr><td><strong>NAT</strong></td><td>A VM sai pela internet usando o IP do host, mas não recebe conexões de fora.</td><td>Atualizar pacotes e baixar arquivos.</td><td><code>apt update</code> no Ubuntu e Windows Update.</td></tr>
-        <tr><td><strong>Bridge</strong></td><td>A VM entra na rede física como se fosse um computador real.</td><td>Acessar a VM de outro computador da mesma rede.</td><td>Administrar o servidor a partir do notebook do professor.</td></tr>
-        <tr><td><strong>Interna</strong></td><td>Só as VMs da mesma rede interna se enxergam; não há internet direta.</td><td>Simular a LAN isolada da empresa.</td><td>Rede <code>rede-nexatech</code> em <code>192.168.10.0/24</code>.</td></tr>
+        <tr><td>Alocação dinâmica</td><td>Ocupa espaço conforme o uso</td><td>Pode fragmentar o disco do host</td></tr>
+        <tr><td>Alocação fixa</td><td>Desempenho mais previsível</td><td>Reserva todo o espaço de uma vez</td></tr>
+        <tr><td>Snapshot</td><td>Volta rápida no tempo</td><td>Muitos snapshots consomem disco</td></tr>
+        <tr><td>Clone completo</td><td>VM independente</td><td>Ocupa mais espaço</td></tr>
       </tbody>
     </table>
+  </section>
+
+  <!-- 16 - NAT -->
+  <section class="slide">
+    <div class="kicker">Redes - NAT</div>
+    <h2>NAT: acesso à internet</h2>
+    <p>No modo <strong>NAT</strong>, a VM usa o IP do host para sair à internet. O VirtualBox
+      fornece DHCP e tradução de endereços para a VM.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Como funciona</h3>
+        <ul class="clean">
+          <li>A VM recebe um IP privado do VirtualBox.</li>
+          <li>O host traduz o endereço para acessar a internet.</li>
+          <li>A VM inicia conexões de saída normalmente.</li>
+          <li>Para receber conexões, use <strong>port forwarding</strong>.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quando usar</h3>
+        <ul class="clean">
+          <li>Atualizações do sistema e downloads.</li>
+          <li>Instalação de pacotes e softwares.</li>
+          <li>Acesso à internet sem expor a VM.</li>
+          <li>Quando não é preciso acessar a VM de fora.</li>
+        </ul>
+      </div>
+    </div>
     <div class="note" style="margin-top:14px">
-      <span class="ico">Nosso padrão</span>
-      <span>Cada VM usa <strong>NAT</strong> para internet e <strong>rede interna</strong> para a LAN.
-        O <strong>pfSense</strong> faz a ponte entre as duas.</span>
+      <span class="ico">Limitação</span>
+      <span>Por padrão, a VM em NAT não é visível para outros computadores e não se comunica
+        diretamente com outras VMs.</span>
+    </div>
+    <div class="note" style="margin-top:8px">
+      <span class="ico">Na UC</span>
+      <span>Usamos NAT para atualizações e instalação de pacotes no laboratório.</span>
     </div>
   </section>
 
-  <!-- 14 - Laboratório da UC -->
+  <!-- 17 - Bridge -->
+  <section class="slide">
+    <div class="kicker">Redes - Bridge</div>
+    <h2>Bridge: a VM na rede física</h2>
+    <p>No modo <strong>bridge (ponte)</strong>, a VM se conecta à placa de rede física do host e
+      passa a fazer parte da rede real, como um computador comum.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Como funciona</h3>
+        <ul class="clean">
+          <li>A VM usa a interface física do host.</li>
+          <li>Recebe IP do DHCP da rede física ou um IP fixo.</li>
+          <li>Fica visível para outros computadores da LAN.</li>
+          <li>Pode ser acessada por IP, se o firewall permitir.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quando usar</h3>
+        <ul class="clean">
+          <li>Acessar a VM a partir de outro computador.</li>
+          <li>Simular um servidor na rede física.</li>
+          <li>Testar serviços com clientes reais.</li>
+          <li>Quando a VM precisa ser descoberta na LAN.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Atenção</span>
+      <span>A VM fica exposta à rede física. Cuide de firewall, senhas e conflitos de IP.</span>
+    </div>
+    <div class="note" style="margin-top:8px">
+      <span class="ico">Na UC</span>
+      <span>Bridge é usado quando precisamos acessar uma VM a partir de outro computador.</span>
+    </div>
+  </section>
+
+  <!-- 18 - Rede interna (local) -->
+  <section class="slide">
+    <div class="kicker">Redes - Rede interna (local)</div>
+    <h2>Rede interna (local): laboratório isolado</h2>
+    <p>No modo <strong>rede interna</strong> (ou rede local), apenas as VMs conectadas ao mesmo
+      nome de rede se enxergam. Não há acesso ao host nem à internet diretamente.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Como funciona</h3>
+        <ul class="clean">
+          <li>Todas as VMs usam o mesmo nome de rede interna.</li>
+          <li>Os IPs são definidos manualmente (ou por um DHCP interno).</li>
+          <li>O host não participa da rede interna.</li>
+          <li>Não há saída para a internet sem um gateway/NAT.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quando usar</h3>
+        <ul class="clean">
+          <li>Simular a LAN isolada da empresa.</li>
+          <li>Testar comunicação entre VMs.</li>
+          <li>Montar o lado LAN do pfSense.</li>
+          <li>Evitar que o laboratório acesse a rede real.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Na UC</span>
+      <span>A rede <code>rede-nexatech</code> (<code>192.168.10.0/24</code>) usa o modo interno.
+        O pfSense faz a ponte entre a rede interna (LAN) e o NAT (WAN).</span>
+    </div>
+  </section>
+
+  <!-- 19 - Host-only e comparativo -->
+  <section class="slide">
+    <div class="kicker">Redes - Comparativo</div>
+    <h2>Host-only e comparativo dos modos</h2>
+    <p>O modo <strong>host-only</strong> conecta o host e as VMs, sem internet. É útil para
+      administrar a VM pelo próprio computador físico.</p>
+    <table>
+      <thead><tr><th>Modo</th><th>Internet</th><th>Host acessa a VM</th><th>VMs se enxergam</th><th>Outros PCs da rede</th><th>IP</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NAT</strong></td><td>Sim</td><td>Com port forwarding</td><td>Não (por padrão)</td><td>Não</td><td>DHCP do VirtualBox</td></tr>
+        <tr><td><strong>Bridge</strong></td><td>Sim</td><td>Sim</td><td>Sim</td><td>Sim</td><td>DHCP/IP da rede física</td></tr>
+        <tr><td><strong>Interna (local)</strong></td><td>Não</td><td>Não</td><td>Sim</td><td>Não</td><td>Manual</td></tr>
+        <tr><td><strong>Host-only</strong></td><td>Não</td><td>Sim</td><td>Sim</td><td>Não</td><td>Manual/DHCP do host</td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Resumo</span>
+      <span>NAT para internet; bridge para a rede física; interna para isolar a LAN;
+        host-only para acessar a VM pelo host.</span>
+    </div>
+  </section>
+
+  <!-- 20 - Aplicando na UC7 -->
+  <section class="slide">
+    <div class="kicker">VirtualBox - Aplicação</div>
+    <h2>Aplicando na UC7</h2>
+    <p>Uma VM pode ter mais de um adaptador. No laboratório, combinamos NAT e rede interna para
+      ter internet e LAN isolada ao mesmo tempo.</p>
+    <table>
+      <thead><tr><th>Necessidade</th><th>Modo indicado</th></tr></thead>
+      <tbody>
+        <tr><td>Atualizar pacotes e instalar softwares</td><td><strong>NAT</strong></td></tr>
+        <tr><td>Simular a LAN da NexaTech</td><td><strong>Rede interna <code>rede-nexatech</code></strong></td></tr>
+        <tr><td>Acessar a VM de outro computador</td><td><strong>Bridge</strong></td></tr>
+        <tr><td>Administrar a VM pelo host</td><td><strong>Host-only</strong></td></tr>
+        <tr><td>pfSense como roteador/firewall</td><td><strong>NAT na WAN + rede interna na LAN</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:14px">
+      <span class="ico">Padrão da UC</span>
+      <span>Cada servidor/cliente usa NAT (Adaptador 1) + rede interna (Adaptador 2).
+        O FW01 usa NAT como WAN e a rede interna como LAN.</span>
+    </div>
+  </section>
+
+  <!-- 21 - Problemas comuns e boas praticas -->
+  <section class="slide">
+    <div class="kicker">VirtualBox - Diagnóstico</div>
+    <h2>Problemas comuns e boas práticas</h2>
+    <table>
+      <thead><tr><th>Sintoma</th><th>Causa provável</th><th>Solução</th></tr></thead>
+      <tbody>
+        <tr><td>VM não inicia</td><td>Virtualização desabilitada</td><td>Habilitar VT-x/AMD-V na BIOS/UEFI</td></tr>
+        <tr><td>VM lenta</td><td>RAM/vCPU acima do host</td><td>Reduzir recursos ou fechar programas</td></tr>
+        <tr><td>Sem internet</td><td>Adaptador NAT ausente</td><td>Adicionar NAT ou configurar gateway</td></tr>
+        <tr><td>VMs não se enxergam</td><td>Redes internas diferentes</td><td>Usar o mesmo nome de rede interna</td></tr>
+        <tr><td>IP em conflito</td><td>IP repetido na mesma rede</td><td>Revisar o plano de IPs</td></tr>
+        <tr><td>Snapshot não restaura</td><td>VM ligada ou snapshot filho</td><td>Desligar e restaurar na ordem correta</td></tr>
+      </tbody>
+    </table>
+    <div class="grid cols-2" style="margin-top:14px">
+      <div class="card"><h3>Boas práticas</h3><ul class="clean"><li>Snapshot antes de mudanças.</li><li>Nomes padronizados.</li><li>Não exceder os recursos do host.</li><li>Documentar IPs e redes.</li></ul></div>
+      <div class="card"><h3>Antes de encerrar</h3><ul class="clean"><li>Desligar as VMs corretamente.</li><li>Guardar prints e configurações.</li><li>Exportar OVA ao final do bloco.</li><li>Manter o host atualizado.</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 22 - Laboratorio da UC -->
   <section class="slide">
     <div class="kicker">Nosso laboratório</div>
     <h2>As VMs da UC7</h2>
@@ -587,7 +815,7 @@
       <thead><tr><th>VM</th><th>Papel</th><th>IP</th></tr></thead>
       <tbody>
         <tr><td>DC01</td><td>Windows Server: AD, DNS, DHCP e arquivos</td><td>192.168.10.10</td></tr>
-        <tr><td>APP01</td><td>Ubuntu Server: DNS, DHCP, web e hardening</td><td>192.168.10.20</td></tr>
+        <tr><td>APP01</td><td>Ubuntu Server: Apache + PHP e práticas de DNS/DHCP</td><td>192.168.10.20</td></tr>
         <tr><td>DB01</td><td>Ubuntu Server: banco de dados e práticas de serviços</td><td>192.168.10.30</td></tr>
         <tr><td>CLI01</td><td>Windows 10: cliente para testes</td><td>192.168.10.100</td></tr>
         <tr><td>CLI02</td><td>Windows 10: segundo cliente para testes</td><td>192.168.10.101</td></tr>
@@ -595,9 +823,14 @@
       </tbody>
     </table>
     <p style="margin-top:10px">Rede interna <code>rede-nexatech</code> - <code>192.168.10.0/24</code>.</p>
+    <div class="note" style="margin-top:12px">
+      <span class="ico">Sequência</span>
+      <span>A Aula 01 cria os clientes CLI01/CLI02; a Aula 06 cria DC01, APP01 e DB01;
+        a Aula 17 cria o FW01.</span>
+    </div>
   </section>
 
-  <!-- 11 - Como vamos trabalhar -->
+  <!-- 23 - Como vamos trabalhar -->
   <section class="slide">
     <div class="kicker">Método</div>
     <h2>Como vamos trabalhar</h2>
@@ -626,7 +859,7 @@
     </div>
   </section>
 
-  <!-- 12 - Combinados e próximos passos -->
+  <!-- 24 - Combinados e próximos passos -->
   <section class="slide">
     <div class="kicker">Combinados</div>
     <h2>O que eu espero de vocês</h2>
@@ -637,7 +870,7 @@
     <div class="grid cols-2" style="margin-top:16px">
       <div class="card" style="border-top:3px solid var(--accent-2)">
         <h3><span class="ico">Próxima</span> Aula 01</h3>
-        <p>TCP/IP e IPv4: endereçamento, sub-redes, máscaras e testes de conectividade.</p>
+        <p>TCP/IP e IPv4: endereçamento, rede interna e testes de ping.</p>
       </div>
       <div class="card" style="border-top:3px solid var(--accent)">
         <h3><span class="ico">Resumo</span> A ideia desta aula</h3>

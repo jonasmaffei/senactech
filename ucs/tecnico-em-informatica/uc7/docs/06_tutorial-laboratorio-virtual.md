@@ -75,7 +75,7 @@ VBoxManage --version
 | :--- | :--- | :---: | :---: | :---: | :--- |
 | DC01 | Windows Server 2022/2025 | 4 GB | 2 | 60 GB | 192.168.10.10 |
 | APP01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 50 GB | 192.168.10.20 |
-| DB01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 20 GB | 192.168.10.30 |
+| DB01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 50 GB | 192.168.10.30 |
 | CLI01 | Windows 10 | 4 GB | 2 | 40 GB | 192.168.10.100 (ou DHCP) |
 | CLI02 | Windows 10 | 4 GB | 2 | 40 GB | 192.168.10.101 (ou DHCP) |
 | FW01 | pfSense | 2 GB | 2 | 20 GB | 192.168.10.1 |
@@ -99,28 +99,32 @@ Rede interna: `rede-nexatech` (`192.168.10.0/24`).
 7. Inicie a VM e conclua a instalação.
 8. Desligue a VM e tire um **snapshot**.
 
-### Particionamento do Ubuntu (APP01)
+### Particionamento do Ubuntu (APP01 e DB01)
 
-Siga o material do professor:
+Siga o padrão do laboratório:
 
 - **EFI:** 200 MB
-- **/:** 20 GB, sistema de arquivos **XFS**
-- **/home:** 25 GB, sistema de arquivos **XFS**
+- **/:** 20 GB, sistema de arquivos **ext4**
+- **/home:** 25 GB, sistema de arquivos **ext4**
 - **swap:** restante do disco
 - **Sem ambiente gráfico**
 
-Rede estática no Ubuntu (exemplo em `/etc/network/interfaces`):
+Rede estática no Ubuntu com **netplan** (exemplo em `/etc/netplan/50-cloud-init.yaml`):
 
-```text
-auto enp0s8
-iface enp0s8 inet static
-    address 192.168.10.20
-    netmask 255.255.255.0
-    gateway 192.168.10.1
-    dns-nameservers 192.168.10.10
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp0s8:
+      addresses: [192.168.10.20/24]
+      routes:
+        - to: default
+          via: 192.168.10.1
+      nameservers:
+        addresses: [192.168.10.10]
 ```
 
-> O nome da interface pode variar (`enp0s8`, `enp0s9`). Confira com `ip -br addr`.
+> Use `192.168.10.20` no APP01 e `192.168.10.30` no DB01. O nome da interface pode variar (`enp0s8`, `enp0s9`). Confira com `ip -br addr`. Aplique com `sudo netplan apply`.
 
 ---
 
@@ -196,5 +200,9 @@ iface enp0s8 inet static
 - Registrar evidências no portfólio do projeto integrador.
 
 ---
+
+## 12. Aplicação de teste
+
+A aplicação **PHP + MariaDB** usada nas Aulas 26 e 27, com scripts de instalação do banco, deploy, configuração do PHP e testes de conexão, está em [`../laboratorio_virtual/aplicacao-teste/README.md`](../laboratorio_virtual/aplicacao-teste/README.md).
 
 > Voltar para o [README do repositório](../README.md).

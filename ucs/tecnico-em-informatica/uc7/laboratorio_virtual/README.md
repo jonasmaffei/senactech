@@ -4,7 +4,7 @@ Este diretório concentra a infraestrutura **cliente/servidor** da UC7. As prát
 
 A montagem é cumulativa: cada bloco adiciona serviços à mesma rede interna. O aluno cria as VMs, configura os adaptadores, instala os sistemas e documenta as evidências.
 
-> **Atenção:** o laboratório deve ser validado no computador do professor antes de ser aplicado em sala. Ajuste memória, disco e número de VMs à capacidade do host.
+> **Atenção:** ajuste memória, disco e número de VMs à capacidade do host. A aplicação de teste e os scripts de deploy estão em [`aplicacao-teste/`](aplicacao-teste/README.md).
 
 ---
 
@@ -41,7 +41,7 @@ VBoxManage --version
 | :--- | :--- | :---: | :---: | :---: | :--- |
 | DC01 | Windows Server 2022/2025 | 4 GB | 2 | 60 GB | 192.168.10.10 |
 | APP01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 50 GB | 192.168.10.20 |
-| DB01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 20 GB | 192.168.10.30 |
+| DB01 | Ubuntu Server 24.04 LTS | 2 GB | 2 | 50 GB | 192.168.10.30 |
 | CLI01 | Windows 10 | 4 GB | 2 | 40 GB | 192.168.10.100 (ou DHCP) |
 | CLI02 | Windows 10 | 4 GB | 2 | 40 GB | 192.168.10.101 (ou DHCP) |
 | FW01 | pfSense | 2 GB | 2 | 20 GB | 192.168.10.1 (LAN) |

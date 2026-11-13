@@ -56,13 +56,13 @@ A30 Monitoramento, automação e troubleshooting -> A31 Governança de TI, segur
 
 ### Aula 06 - Virtualização e criação de VMs no VirtualBox
 * **Conceito/fundamento:** Virtualização: vários sistemas isolados em um único computador; Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado); VirtualBox como hypervisor tipo 2; Recursos do host: núcleos, RAM, disco e VT-x/AMD-V.
-* **O que se aprende:** Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
-* **Problema em aberto:** Definir quantas VMs o host suporta e como a rede interna será montada.
+* **O que se aprende:** Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
+* **Problema em aberto:** Validar a comunicação entre as VMs e consolidar o plano diretor da rede.
 * **Impacto de negócio:** Reduz custo de hardware e permite errar sem comprometer o computador real.
 
 ### Aula 07 - Planejamento, laboratório e plano diretor da rede
 * **Conceito/fundamento:** Requisitos, escopo, cronograma e marcos; Licenciamento Windows Server, CALs e software livre; Riscos, plano de reversão e critérios de aceite; Rede interna rede-nexatech e IPs estáticos.
-* **O que se aprende:** Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.
+* **O que se aprende:** Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
 * **Problema em aberto:** Com a rede planejada e o laboratório pronto, o próximo passo é instalar o Windows Server.
 * **Impacto de negócio:** Planejamento reduz paradas, retrabalho e gastos não previstos.
 
@@ -75,16 +75,16 @@ A30 Monitoramento, automação e troubleshooting -> A31 Governança de TI, segur
 * **Impacto de negócio:** Uma instalação padronizada reduz falhas e facilita suporte e auditoria.
 
 ### Aula 09 - Active Directory Domain Services
-* **Conceito/fundamento:** Conceitos de domínio, floresta, árvore e controlador de domínio; LDAP, Kerberos e dependência do DNS; Promoção do servidor a controlador de domínio; Unidades organizacionais por setor.
-* **O que se aprende:** Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
-* **Problema em aberto:** O domínio precisa de DNS confiável e de endereçamento automático para os clientes.
-* **Impacto de negócio:** Autenticação centralizada reduz contas soltas e facilita desligamentos e auditorias.
+* **Conceito/fundamento:** Domínio, floresta, árvore e controlador de domínio; LDAP, Kerberos e dependência do DNS; Instalação da função AD DS; Promoção do servidor a controlador.
+* **O que se aprende:** Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.
+* **Problema em aberto:** Com o domínio criado, os clientes Windows 10 precisam ingressar nele.
+* **Impacto de negócio:** Centraliza a autenticação e cria a base para usuários, grupos e políticas.
 
 ### Aula 10 - Controlador de domínio e ingresso de clientes
-* **Conceito/fundamento:** Domínio, floresta, árvore e controlador de domínio; DNS integrado ao AD e registros SRV; Promoção do servidor e reinício; Ingresso do cliente e credenciais de domínio.
-* **O que se aprende:** Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
-* **Problema em aberto:** Organizar setores, usuários e grupos dentro do domínio recém-criado.
-* **Impacto de negócio:** Centraliza a autenticação e elimina contas locais espalhadas pela empresa.
+* **Conceito/fundamento:** Cliente com DNS apontando para o DC01; Ingresso no domínio e conta de computador; Login com usuário do domínio; GPO padrão do domínio.
+* **O que se aprende:** Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio nexatech.local.
+* **Problema em aberto:** Com os clientes no domínio, é preciso organizar setores, grupos, usuários e permissões.
+* **Impacto de negócio:** Permite login centralizado e prepara os clientes para receber políticas.
 
 ### Aula 11 - Unidades organizacionais, grupos e usuários
 * **Conceito/fundamento:** Unidades organizacionais e delegação; Usuários, grupos de segurança e grupos de distribuição; UPN, senha e políticas de conta; Grupos globais, locais de domínio e universais.

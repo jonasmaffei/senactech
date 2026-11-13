@@ -47,7 +47,7 @@ draw.io ou diagrams.net, planilha
 
 ## Prática em laboratório
 
-Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 06.
+Projeto de topologia em paper/diagrama; a implementação em VMs ocorre nas Aulas 01 e 06.
 
 1. Desenhar a topologia física e lógica da NexaTech
 2. Definir a distribuição de IPs por setor
@@ -68,7 +68,7 @@ Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 
 
 ## Relação com o projeto
 
-Transforma o diagnóstico da Aula 01 em uma planta de rede concreta.
+Transforma o diagnóstico da Aula 02 em uma planta de rede concreta.
 
 **O que fica em aberto:** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
 

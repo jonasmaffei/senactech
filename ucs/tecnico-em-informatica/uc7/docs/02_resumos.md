@@ -54,17 +54,17 @@ O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória
 
 ## Aula 06 - Virtualização e criação de VMs no VirtualBox
 
-Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
+Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
 
-A NexaTech não pode comprar quatro servidores. A equipe vai usar um único computador com VirtualBox para simular a rede cliente/servidor, começando pela primeira máquina virtual.
+A NexaTech não pode comprar vários servidores. A equipe usa um único computador com VirtualBox para simular a rede cliente/servidor; as VMs de servidor serão criadas nesta aula.
 
 **Conceitos principais:** Virtualização: vários sistemas isolados em um único computador; Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado); VirtualBox como hypervisor tipo 2; Recursos do host: núcleos, RAM, disco e VT-x/AMD-V; Redes virtuais: NAT, bridge (ponte) e rede interna.
 
-**Entrega:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
+**Entrega:** Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
 
 ## Aula 07 - Planejamento, laboratório e plano diretor da rede
 
-Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.
+Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
 
 A direção quer previsibilidade: cronograma, riscos, critérios de aceite e um laboratório que reproduza a rede antes da implantação real.
 
@@ -84,23 +84,23 @@ O primeiro servidor da NexaTech será o controlador de domínio e servidor de ar
 
 ## Aula 09 - Active Directory Domain Services
 
-Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.
 
-A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
+A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.
 
-**Conceitos principais:** Conceitos de domínio, floresta, árvore e controlador de domínio; LDAP, Kerberos e dependência do DNS; Promoção do servidor a controlador de domínio; Unidades organizacionais por setor; Usuários, grupos, UPN e políticas de senha.
+**Conceitos principais:** Domínio, floresta, árvore e controlador de domínio; LDAP, Kerberos e dependência do DNS; Instalação da função AD DS; Promoção do servidor a controlador; Verificação com dcdiag e Get-ADDomain.
 
-**Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.
+**Entrega:** Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.
 
 ## Aula 10 - Controlador de domínio e ingresso de clientes
 
-Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
+Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio nexatech.local.
 
-O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.
+O domínio existe; agora os clientes CLI01 e CLI02 precisam autenticar nele.
 
-**Conceitos principais:** Domínio, floresta, árvore e controlador de domínio; DNS integrado ao AD e registros SRV; Promoção do servidor e reinício; Ingresso do cliente e credenciais de domínio; Contas de computador e GPO padrão.
+**Conceitos principais:** Cliente com DNS apontando para o DC01; Ingresso no domínio e conta de computador; Login com usuário do domínio; GPO padrão do domínio; Diagnóstico com nltest e whoami /fqdn.
 
-**Entrega:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
+**Entrega:** Evidência de login dos clientes CLI01 e CLI02 no domínio.
 
 ## Aula 11 - Unidades organizacionais, grupos e usuários
 

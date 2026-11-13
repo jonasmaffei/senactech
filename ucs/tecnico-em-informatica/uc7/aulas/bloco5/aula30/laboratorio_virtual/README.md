@@ -12,7 +12,7 @@ Monitorar servidores, automatizar rotinas e diagnosticar falhas no ambiente inte
 
 ## VMs desta aula
 
-Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
+APP01 (monitoramento), DC01 e DB01 (hosts monitorados). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
@@ -41,6 +41,9 @@ Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
 # Ubuntu
 sudo systemctl status apache2
 sudo systemctl status mariadb
+
+# Health check da aplicacao
+curl -H "Host: app.nexatech.local" http://192.168.10.20/health.php
 sudo systemctl status isc-dhcp-server
 sudo systemctl status bind9
 ```

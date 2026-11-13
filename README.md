@@ -10,7 +10,7 @@ Cada UC é autocontida em uma pasta dentro de `ucs/`, com o seu próprio README,
 
 | UC | Curso | Tema | Carga | Status | Material |
 | :---: | :--- | :--- | :---: | :--- | :--- |
-| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo (32 aulas de 3 h, serviços espelhados Windows/Linux e pfSense); laboratório VirtualBox em validação | [Abrir UC7](ucs/tecnico-em-informatica/uc7/README.md) |
+| **UC7** | Técnico em Informática | Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais (servidores) | 96 h | Material completo (32 aulas de 3 h, serviços espelhados Windows/Linux e pfSense); laboratório VirtualBox e aplicação de teste | [Abrir UC7](ucs/tecnico-em-informatica/uc7/README.md) |
 | **UC1** | Técnico em Inteligência Artificial | Introdução a Arquitetura de Computadores | 63 h | Migrada do repositório `senac-tecnico-ia`; em validação | [Abrir UC1](ucs/tecnico-em-inteligencia-artificial/uc1/README.md) |
 
 > Novas UCs serão adicionadas em `ucs/<curso>/<ucN>/` e registradas em [`ucs/README.md`](ucs/README.md).
@@ -141,7 +141,7 @@ Material migrado do repositório `senac-tecnico-ia`: **24 aulas**, notebooks Col
 
 ## Status geral
 
-- **UC7:** do Técnico em Informática, material completo, com 32 aulas de 3 h, 32 apresentações HTML, 32 atividades, 32 roteiros de laboratório, serviços espelhados (DNS/DHCP/web em Windows e Linux), aplicação Apache/PHP com banco, pfSense e laboratório VirtualBox manual. Conteúdo de nuvem em `extras/`. Falta validar o laboratório no computador do professor.
+- **UC7:** do Técnico em Informática, material completo, com 32 aulas de 3 h, 32 apresentações HTML, 32 atividades, 32 roteiros de laboratório, serviços espelhados (DNS/DHCP/web em Windows e Linux), aplicação Apache/PHP com banco, pfSense e laboratório VirtualBox manual. Conteúdo de nuvem em `extras/`. Aplicação de teste e scripts de deploy disponíveis.
 - **UC1:** conteúdo migrado do repositório `senac-tecnico-ia`, com 24 aulas, notebooks Colab, laboratórios e projeto integrador. É a UC1 do curso Técnico em Inteligência Artificial, com carga horária de 63 h. Falta revisar a integração ao monorepo.
 - **Próximas UCs:** a estrutura do monorepo já está pronta para recebê-las.
 

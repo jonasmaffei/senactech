@@ -53,7 +53,7 @@ VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula02"
 
 ## Relação com o projeto
 
-Abre a UC e estabelece o problema de negócio que será resolvido ao longo das 32 aulas.
+Apresenta o cenário da NexaTech e o problema de negócio que conduzirá a UC.
 
 **O que fica em aberto:** Quais serviços serão necessários e como eles se conectam fisicamente?
 

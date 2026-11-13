@@ -53,7 +53,7 @@ VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula03"
 
 ## Relação com o projeto
 
-Transforma o diagnóstico da Aula 01 em uma planta de rede concreta.
+Transforma o diagnóstico da Aula 02 em uma planta de rede concreta.
 
 **O que fica em aberto:** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
 

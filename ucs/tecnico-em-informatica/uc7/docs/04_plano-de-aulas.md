@@ -17,11 +17,11 @@
 | **03** | 17/11/2026 (terça-feira) | 1 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
 | **04** | 18/11/2026 (quarta-feira) | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
 | **05** | 19/11/2026 (quinta-feira) | 1 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
-| **06** | 23/11/2026 (segunda-feira) | 1 | Virtualização e criação de VMs no VirtualBox | **Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
+| **06** | 23/11/2026 (segunda-feira) | 1 | Virtualização e criação de VMs no VirtualBox | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
 | **07** | 24/11/2026 (terça-feira) | 1 | Planejamento, laboratório e plano diretor da rede | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
 | **08** | 25/11/2026 (quarta-feira) | 2 | Instalação e configuração inicial do Windows Server | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
-| **09** | 26/11/2026 (quinta-feira) | 2 | Active Directory Domain Services | **Estrutura do Active Directory documentada e teste de login no domínio.** |
-| **10** | 27/11/2026 (sexta-feira) | 2 | Controlador de domínio e ingresso de clientes | **Evidência de promoção do controlador de domínio e login do CLI01 no domínio.** |
+| **09** | 26/11/2026 (quinta-feira) | 2 | Active Directory Domain Services | **Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.** |
+| **10** | 27/11/2026 (sexta-feira) | 2 | Controlador de domínio e ingresso de clientes | **Evidência de login dos clientes CLI01 e CLI02 no domínio.** |
 | **11** | 30/11/2026 (segunda-feira) | 2 | Unidades organizacionais, grupos e usuários | **Estrutura de OUs, grupos e usuários documentada, com evidência de logins.** |
 | **12** | 01/12/2026 (terça-feira) | 2 | DNS no Windows Server | **Plano de DNS com zonas direta e reversa, registros e evidências de resolução.** |
 | **13** | 02/12/2026 (quarta-feira) | 2 | DHCP no Windows Server | **Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.** |
@@ -118,7 +118,7 @@ Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
 - Documentação de rede e plano de IPs
 
 **Prática:**
-Projeto de topologia em paper/diagrama; a implementação em VMs ocorre na Aula 06.
+Projeto de topologia em paper/diagrama; a implementação em VMs ocorre nas Aulas 01 e 06.
 
 1. Desenhar a topologia física e lógica da NexaTech
 2. Definir a distribuição de IPs por setor
@@ -185,9 +185,9 @@ Dimensionamento do servidor físico que futuramente dará lugar às VMs.
 
 ### Aula 06 - Virtualização e criação de VMs no VirtualBox (23/11/2026 (segunda-feira))
 
-**Objetivo:** Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
+**Objetivo:** Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
 
-**Situação de aprendizagem:** A NexaTech não pode comprar quatro servidores. A equipe vai usar um único computador com VirtualBox para simular a rede cliente/servidor, começando pela primeira máquina virtual.
+**Situação de aprendizagem:** A NexaTech não pode comprar vários servidores. A equipe usa um único computador com VirtualBox para simular a rede cliente/servidor; as VMs de servidor serão criadas nesta aula.
 
 **Tópicos:**
 - Virtualização: vários sistemas isolados em um único computador
@@ -198,21 +198,21 @@ Dimensionamento do servidor físico que futuramente dará lugar às VMs.
 - Snapshots, clones e alocação de disco
 
 **Prática:**
-Criação da primeira VM e configuração dos recursos do host.
+Criação das VMs de servidor e configuração dos recursos do host.
 
-1. Criar a VM e nomear conforme o padrão da UC
-2. Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)
-3. Criar disco virtual de 40 GB e revisar o tipo
-4. Adicionar adaptador NAT e adaptador de rede interna
-5. Iniciar a VM, testar a rede e tirar o snapshot baseline
+1. Criar as VMs DC01, APP01 e DB01
+2. Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)
+3. Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)
+4. Adicionar adaptador NAT e adaptador de rede interna em cada VM
+5. Iniciar as VMs, testar a rede e tirar o snapshot baseline
 
-**Entrega:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
+**Entrega:** Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
 
 **Ferramentas:** 
 
 ### Aula 07 - Planejamento, laboratório e plano diretor da rede (24/11/2026 (terça-feira))
 
-**Objetivo:** Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.
+**Objetivo:** Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
 
 **Situação de aprendizagem:** A direção quer previsibilidade: cronograma, riscos, critérios de aceite e um laboratório que reproduza a rede antes da implantação real.
 
@@ -229,8 +229,8 @@ Consolidação do plano e validação do laboratório.
 
 1. Criar a checklist de pré-instalação
 2. Montar a matriz de riscos
-3. Configurar a rede interna e os IPs estáticos
-4. Testar conectividade e tirar snapshot baseline
+3. Documentar a rede interna e o plano de IPs
+4. Testar a comunicação entre CLI01 e CLI02 e tirar snapshot
 5. Consolidar o plano diretor em um único documento
 
 **Entrega:** Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.
@@ -269,55 +269,55 @@ Instalação completa do Windows Server no laboratório virtual.
 
 ### Aula 09 - Active Directory Domain Services (26/11/2026 (quinta-feira))
 
-**Objetivo:** Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+**Objetivo:** Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.
 
-**Situação de aprendizagem:** A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
+**Situação de aprendizagem:** A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.
 
 **Tópicos:**
-- Conceitos de domínio, floresta, árvore e controlador de domínio
+- Domínio, floresta, árvore e controlador de domínio
 - LDAP, Kerberos e dependência do DNS
-- Promoção do servidor a controlador de domínio
-- Unidades organizacionais por setor
-- Usuários, grupos, UPN e políticas de senha
-- Ingresso de clientes no domínio
-- Boas práticas de separação de privilégios
+- Instalação da função AD DS
+- Promoção do servidor a controlador
+- Verificação com dcdiag e Get-ADDomain
+- Boas práticas de DNS no domínio
 
 **Prática:**
-Domínio nexatech.local ativo com estrutura de OUs e usuários.
+Criação do domínio nexatech.local no DC01.
 
-1. Promover o servidor a controlador do domínio nexatech.local
-2. Criar OUs para Administração, Vendas, Suporte e Servidores
-3. Criar usuários e grupos de segurança
-4. Ingressar um cliente Windows no domínio e testar login
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS
+3. Promover o servidor a controlador do domínio nexatech.local
+4. Reiniciar e validar com dcdiag
+5. Registrar evidências da promoção
 
-**Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.
+**Entrega:** Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.
 
 **Ferramentas:** 
 
 ### Aula 10 - Controlador de domínio e ingresso de clientes (27/11/2026 (sexta-feira))
 
-**Objetivo:** Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
+**Objetivo:** Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio nexatech.local.
 
-**Situação de aprendizagem:** O Active Directory foi instalado; agora é preciso criar o domínio e provar que um cliente consegue autenticar.
+**Situação de aprendizagem:** O domínio existe; agora os clientes CLI01 e CLI02 precisam autenticar nele.
 
 **Tópicos:**
-- Domínio, floresta, árvore e controlador de domínio
-- DNS integrado ao AD e registros SRV
-- Promoção do servidor e reinício
-- Ingresso do cliente e credenciais de domínio
-- Contas de computador e GPO padrão
-- Diagnóstico com dcdiag e nltest
+- Cliente com DNS apontando para o DC01
+- Ingresso no domínio e conta de computador
+- Login com usuário do domínio
+- GPO padrão do domínio
+- Diagnóstico com nltest e whoami /fqdn
+- Boas práticas de contas de computador
 
 **Prática:**
-Criação do domínio e ingresso do cliente Windows.
+Ingresso dos clientes Windows 10 no domínio.
 
 1. Verificar IP e DNS do DC01
-2. Instalar a função AD DS e promover nexatech.local
-3. Configurar o CLI01 com o DNS do DC01
-4. Ingressar o CLI01 e fazer login com usuário do domínio
+2. Configurar o CLI01 e o CLI02 com o DNS do DC01
+3. Ingressar as duas VMs no domínio nexatech.local
+4. Fazer login com usuário do domínio
 5. Validar com whoami /fqdn e registrar eventos
 
-**Entrega:** Evidência de promoção do controlador de domínio e login do CLI01 no domínio.
+**Entrega:** Evidência de login dos clientes CLI01 e CLI02 no domínio.
 
 **Ferramentas:** 
 
@@ -584,10 +584,10 @@ Publicação web e administração remota no Windows Server.
 **Prática:**
 Instalação do Ubuntu Server nas VMs APP01 e DB01.
 
-1. Criar a VM com dois adaptadores (NAT e rede interna)
+1. Criar as VMs com dois adaptadores (NAT e rede interna)
 2. Particionar: EFI 200 MB, / 20 GB ext4, /home 25 GB ext4 e swap
 3. Instalar sem ambiente gráfico
-4. Configurar IP estático 192.168.10.20 e hostname
+4. Configurar IP estático 192.168.10.20 no APP01 e 192.168.10.30 no DB01, com hostname
 5. Instalar SSH, atualizar o sistema e configurar o ufw
 
 **Entrega:** Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SSH e evidências.
@@ -748,11 +748,11 @@ Configuração do DNS Linux com BIND9.
 **Prática:**
 Publicação da aplicação web no APP01.
 
-1. Instalar Apache e PHP no APP01
-2. Criar o virtual host da aplicação
-3. Publicar a página inicial em PHP
-4. Testar pelo navegador do CLI01 e do CLI02
-5. Registrar a configuração e as permissões
+1. Copiar a aplicação de teste para o APP01
+2. Executar o deploy-app.sh (instala Apache/PHP e publica a aplicação)
+3. Conferir o VirtualHost e as permissões em /var/www/nexatech
+4. Testar http://app.nexatech.local e health.php nos clientes
+5. Registrar configuração, logs e evidências
 
 **Entrega:** Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.
 
@@ -775,10 +775,10 @@ Publicação da aplicação web no APP01.
 **Prática:**
 Configuração do banco e integração ponta a ponta.
 
-1. Instalar MariaDB no DB01
-2. Criar banco, usuário e tabelas
-3. Configurar a conexão da aplicação com o DB01
-4. Testar o fluxo no CLI01 e no CLI02
+1. Executar install-db.sh no DB01
+2. Validar banco, usuário e permissões com check-db.sh
+3. Copiar a senha para o APP01 e executar deploy-app.sh
+4. Executar test-connection.sh e testar o fluxo nos clientes
 5. Registrar backup inicial e documentar a arquitetura
 
 **Entrega:** Aplicação integrada ao banco funcionando nos clientes, com evidências do fluxo completo.
@@ -804,7 +804,7 @@ Configuração do banco e integração ponta a ponta.
 **Prática:**
 Servidor Linux endurecido e com tentativas de acesso bloqueadas.
 
-1. Endurecer a configuração do SSH
+1. Endurecer a configuração do SSH no APP01 e no DB01
 2. Configurar firewall e fail2ban
 3. Auditar usuários, permissões e serviços ativos
 4. Comparar o antes e o depois com evidências
@@ -832,9 +832,10 @@ Rotina de backup e restauração no ambiente misto.
 
 1. Definir o que será copiado (pastas compartilhadas no Windows e dados do Linux)
 2. Criar uma rotina de backup com rsync
-3. Agendar a rotina com systemd timer
-4. Simular exclusão de arquivo e restaurar a versão anterior
-5. Definir RPO/RTO e documentar a retenção
+3. Incluir o banco de dados do DB01 na rotina de backup
+4. Agendar a rotina com systemd timer
+5. Simular exclusão de arquivo e restaurar a versão anterior
+6. Definir RPO/RTO e documentar a retenção
 
 **Entrega:** Plano de backup e continuidade com evidências de restauração e RPO/RTO.
 

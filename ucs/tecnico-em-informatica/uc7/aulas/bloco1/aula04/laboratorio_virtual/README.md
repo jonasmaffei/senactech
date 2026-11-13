@@ -12,7 +12,7 @@ Relacionar protocolos, portas e serviços necessários ao funcionamento dos serv
 
 ## VMs desta aula
 
-Nenhuma VM é obrigatória nesta aula. O foco é planejamento e documentação no host.
+CLI01 e CLI02 (testes de conectividade, portas e captura de tráfego).
 
 ## Antes de começar
 
@@ -47,13 +47,16 @@ VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula04"
 
 ## Observações
 
+- Se as VMs estiverem apenas na rede interna, faça os testes de conectividade e portas entre CLI01 e CLI02.
+- Para consultas DNS externas e captura de HTTP, adicione um adaptador NAT às VMs.
+
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
 - A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
 
 
 ## Relação com o projeto
 
-Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.
+Dá nome e número aos serviços que a topologia da Aula 03 precisará transportar.
 
 **O que fica em aberto:** Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.
 

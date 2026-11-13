@@ -12,7 +12,7 @@ Publicar serviços web no Windows Server e configurar administração remota seg
 
 ## VMs desta aula
 
-Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
+DC01 e CLI01/CLI02. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

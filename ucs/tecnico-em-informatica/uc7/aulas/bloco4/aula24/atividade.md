@@ -36,15 +36,6 @@ Configuração do DHCP Linux comentada e evidência de concessão para o cliente
 
 Por que dois servidores DHCP na mesma rede podem causar conflitos?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

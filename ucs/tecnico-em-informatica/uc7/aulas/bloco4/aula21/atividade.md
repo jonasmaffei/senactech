@@ -20,10 +20,11 @@ Runbook de operação do Linux Server.
 
 ## Etapas
 
-1. Criar um serviço systemd simples
-2. Agendar um backup com systemd timer
-3. Analisar logs e identificar um erro
-4. Verificar uso de disco e permissões de arquivos
+1. Configurar os repositórios e atualizar o sistema com APT
+2. Criar um serviço systemd simples
+3. Agendar um backup com systemd timer
+4. Analisar logs e identificar um erro
+5. Verificar uso de disco e permissões de arquivos
 
 ## Evidências esperadas
 
@@ -34,15 +35,6 @@ Runbook de operação do Linux Server.
 ## Para refletir
 
 Qual a diferença prática entre cron e systemd timer para uma tarefa que precisa de log e reinício automático?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
 
 ---
 

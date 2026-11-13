@@ -50,7 +50,7 @@ SSH, ufw/nftables, fail2ban, auditd, Lynis
 
 Servidor Linux endurecido e com tentativas de acesso bloqueadas.
 
-1. Endurecer a configuração do SSH
+1. Endurecer a configuração do SSH no APP01 e no DB01
 2. Configurar firewall e fail2ban
 3. Auditar usuários, permissões e serviços ativos
 4. Comparar o antes e o depois com evidências

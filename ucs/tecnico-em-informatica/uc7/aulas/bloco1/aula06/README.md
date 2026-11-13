@@ -8,13 +8,13 @@
 
 ## Objetivo
 
-Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
+Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech não pode comprar quatro servidores. A equipe vai usar um único computador com VirtualBox para simular a rede cliente/servidor, começando pela primeira máquina virtual.
+A NexaTech não pode comprar vários servidores. A equipe usa um único computador com VirtualBox para simular a rede cliente/servidor; as VMs de servidor serão criadas nesta aula.
 
 ---
 
@@ -22,7 +22,7 @@ A NexaTech não pode comprar quatro servidores. A equipe vai usar um único comp
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade. |
 | [`apresentacao_aula06.html`](apresentacao_aula06.html) | Slides de conceito (abra no navegador) |
 | [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
@@ -46,13 +46,13 @@ VirtualBox 7+, ISO do sistema e prompt do host
 
 ## Prática em laboratório
 
-Criação da primeira VM e configuração dos recursos do host.
+Criação das VMs de servidor e configuração dos recursos do host.
 
-1. Criar a VM e nomear conforme o padrão da UC
-2. Destinar 2 vCPUs e 4 GB de RAM (ajustando ao host)
-3. Criar disco virtual de 40 GB e revisar o tipo
-4. Adicionar adaptador NAT e adaptador de rede interna
-5. Iniciar a VM, testar a rede e tirar o snapshot baseline
+1. Criar as VMs DC01, APP01 e DB01
+2. Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)
+3. Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)
+4. Adicionar adaptador NAT e adaptador de rede interna em cada VM
+5. Iniciar as VMs, testar a rede e tirar o snapshot baseline
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,7 +60,7 @@ Criação da primeira VM e configuração dos recursos do host.
 
 ## Atividade
 
-- **Entrega:** Ficha de configuração da VM (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
+- **Entrega:** Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
 - **Enunciado:** [`atividade.md`](atividade.md)
 - **Pergunta de reflexão:** Quando vale a pena virtualizar e quando o recurso do host vira o gargalo?
 
@@ -70,7 +70,7 @@ Criação da primeira VM e configuração dos recursos do host.
 
 Cria a plataforma que hospedará todos os servidores da NexaTech.
 
-**O que fica em aberto:** Definir quantas VMs o host suporta e como a rede interna será montada.
+**O que fica em aberto:** Validar a comunicação entre as VMs e consolidar o plano diretor da rede.
 
 **Impacto de negócio:** Reduz custo de hardware e permite errar sem comprometer o computador real.
 

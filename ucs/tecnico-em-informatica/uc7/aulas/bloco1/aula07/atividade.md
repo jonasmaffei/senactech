@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.
+Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
 
 ## Contexto
 
@@ -22,8 +22,8 @@ Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do la
 
 1. Criar a checklist de pré-instalação
 2. Montar a matriz de riscos
-3. Configurar a rede interna e os IPs estáticos
-4. Testar conectividade e tirar snapshot baseline
+3. Documentar a rede interna e o plano de IPs
+4. Testar a comunicação entre CLI01 e CLI02 e tirar snapshot
 5. Consolidar o plano diretor em um único documento
 
 ## Evidências esperadas
@@ -35,15 +35,6 @@ Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do la
 ## Para refletir
 
 Qual risco de implantação é mais grave: falta de backup, falta de documentação ou falta de testes?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
 
 ---
 

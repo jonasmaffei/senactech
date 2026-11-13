@@ -12,7 +12,7 @@ Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.
 
 ## VMs desta aula
 
-Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
+APP01 (BIND9) e CLI01/CLI02 (teste de resolução). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

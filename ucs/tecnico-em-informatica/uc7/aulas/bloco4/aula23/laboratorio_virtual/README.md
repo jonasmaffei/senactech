@@ -12,7 +12,7 @@ Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
+APP01 e DB01. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

@@ -26,6 +26,7 @@ A aplicação está publicada, mas ainda não armazena dados; a NexaTech precisa
 | [`apresentacao_aula27.html`](apresentacao_aula27.html) | Slides de conceito (abra no navegador) |
 | [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
+| [Aplicação de teste](../../../laboratorio_virtual/aplicacao-teste/README.md) | Código PHP, banco, scripts de deploy e testes |
 
 ### Tópicos
 
@@ -48,10 +49,10 @@ DB01, APP01, CLI01, CLI02, MariaDB e PHP
 
 Configuração do banco e integração ponta a ponta.
 
-1. Instalar MariaDB no DB01
-2. Criar banco, usuário e tabelas
-3. Configurar a conexão da aplicação com o DB01
-4. Testar o fluxo no CLI01 e no CLI02
+1. Executar install-db.sh no DB01
+2. Validar banco, usuário e permissões com check-db.sh
+3. Copiar a senha para o APP01 e executar deploy-app.sh
+4. Executar test-connection.sh e testar o fluxo nos clientes
 5. Registrar backup inicial e documentar a arquitetura
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.

@@ -20,11 +20,11 @@ Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.
 
 ## Etapas
 
-1. Instalar Apache e PHP no APP01
-2. Criar o virtual host da aplicação
-3. Publicar a página inicial em PHP
-4. Testar pelo navegador do CLI01 e do CLI02
-5. Registrar a configuração e as permissões
+1. Copiar a aplicação de teste para o APP01
+2. Executar o deploy-app.sh (instala Apache/PHP e publica a aplicação)
+3. Conferir o VirtualHost e as permissões em /var/www/nexatech
+4. Testar http://app.nexatech.local e health.php nos clientes
+5. Registrar configuração, logs e evidências
 
 ## Evidências esperadas
 
@@ -35,15 +35,6 @@ Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.
 ## Para refletir
 
 Por que separar o servidor web do banco de dados?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
 
 ---
 

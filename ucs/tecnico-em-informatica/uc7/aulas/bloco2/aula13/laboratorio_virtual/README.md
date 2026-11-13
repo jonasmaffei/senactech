@@ -12,7 +12,7 @@ Configurar escopos, reservas e opções DHCP no Windows Server para entregar end
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
+DC01 e CLI01/CLI02 (teste de concessão DHCP). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

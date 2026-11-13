@@ -8,11 +8,11 @@
 
 ## Objetivo
 
-Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.
+Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias. Mantenha o snapshot da aula anterior.
+CLI01 e CLI02 (já criadas na Aula 01); DC01, APP01 e DB01 serão instaladas nas aulas seguintes.
 
 ## Antes de começar
 
@@ -24,8 +24,8 @@ Consulte a base comum e use apenas as VMs necessárias. Mantenha o snapshot da a
 
 1. Criar a checklist de pré-instalação
 2. Montar a matriz de riscos
-3. Configurar a rede interna e os IPs estáticos
-4. Testar conectividade e tirar snapshot baseline
+3. Documentar a rede interna e o plano de IPs
+4. Testar a comunicação entre CLI01 e CLI02 e tirar snapshot
 5. Consolidar o plano diretor em um único documento
 
 ## Testes e evidências

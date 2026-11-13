@@ -4,6 +4,7 @@
 
 | Aula | Tema | Apresentação | Guia | Atividade |
 | :---: | :--- | :---: | :---: | :---: |
+| **00** | Quem sou eu, a UC7 e o VirtualBox (abertura, não conta nas 32 aulas) | [Slides](aula00/apresentacao_aula00.html) | [Guia](aula00/README.md) | - |
 | **01** | TCP/IP e IPv4 | [Slides](aula01/apresentacao_aula01.html) | [Guia](aula01/README.md) | [Atividade](aula01/atividade.md) |
 | **02** | O servidor na rede local e a UC7 | [Slides](aula02/apresentacao_aula02.html) | [Guia](aula02/README.md) | [Atividade](aula02/atividade.md) |
 | **03** | Arquitetura e topologia de rede local | [Slides](aula03/apresentacao_aula03.html) | [Guia](aula03/README.md) | [Atividade](aula03/atividade.md) |

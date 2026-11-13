@@ -12,7 +12,7 @@ Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
+APP01 (ou DC01) como gateway/NAT e CLI01/CLI02 como clientes. Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

@@ -1,20 +1,20 @@
 # Aula 09 - Active Directory Domain Services
 
-**Data sugerida:** 26/11/2026 (quinta-feira)
-**Bloco:** 2 - Windows Server
+**Data sugerida:** 26/11/2026 (quinta-feira)  
+**Bloco:** 2 - Windows Server  
 **Carga:** 3 horas
 
 ---
 
 ## Objetivo
 
-Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
+A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.
 
 ---
 
@@ -22,7 +22,7 @@ A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem c
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Estrutura do Active Directory documentada e teste de login no domínio. |
+| [`atividade.md`](atividade.md) | Entrega da aula: Domínio nexatech.local criado, com evidência de promoção e verificação do controlador. |
 | [`apresentacao_aula09.html`](apresentacao_aula09.html) | Slides de conceito (abra no navegador) |
 | [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
@@ -31,28 +31,28 @@ A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem c
 
 | Tópico |
 | :--- |
-| Conceitos de domínio, floresta, árvore e controlador de domínio |
+| Domínio, floresta, árvore e controlador de domínio |
 | LDAP, Kerberos e dependência do DNS |
-| Promoção do servidor a controlador de domínio |
-| Unidades organizacionais por setor |
-| Usuários, grupos, UPN e políticas de senha |
-| Ingresso de clientes no domínio |
-| Boas práticas de separação de privilégios |
+| Instalação da função AD DS |
+| Promoção do servidor a controlador |
+| Verificação com dcdiag e Get-ADDomain |
+| Boas práticas de DNS no domínio |
 
 ### Ferramentas
 
-Windows Server, Active Directory Users and Computers, RSAT
+Windows Server, Server Manager, PowerShell e dcdiag
 
 ---
 
 ## Prática em laboratório
 
-Domínio nexatech.local ativo com estrutura de OUs e usuários.
+Criação do domínio nexatech.local no DC01.
 
-1. Promover o servidor a controlador do domínio nexatech.local
-2. Criar OUs para Administração, Vendas, Suporte e Servidores
-3. Criar usuários e grupos de segurança
-4. Ingressar um cliente Windows no domínio e testar login
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS
+3. Promover o servidor a controlador do domínio nexatech.local
+4. Reiniciar e validar com dcdiag
+5. Registrar evidências da promoção
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 
@@ -60,24 +60,24 @@ Domínio nexatech.local ativo com estrutura de OUs e usuários.
 
 ## Atividade
 
-- **Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.
+- **Entrega:** Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?
+- **Pergunta de reflexão:** Por que o DNS é pré-requisito para o Active Directory funcionar?
 
 ---
 
 ## Relação com o projeto
 
-Transforma o servidor instalado na Aula 07 em uma autoridade de autenticação.
+Entrega o domínio que sustentará a identidade da NexaTech.
 
-**O que fica em aberto:** O domínio precisa de DNS confiável e de endereçamento automático para os clientes.
+**O que fica em aberto:** Com o domínio criado, os clientes Windows 10 precisam ingressar nele.
 
-**Impacto de negócio:** Autenticação centralizada reduz contas soltas e facilita desligamentos e auditorias.
+**Impacto de negócio:** Centraliza a autenticação e cria a base para usuários, grupos e políticas.
 
 
 ## Próxima aula
 
-**Aula 10 - Controlador de domínio e ingresso de clientes.** Promover o Windows Server a controlador de domínio e ingressar o cliente no domínio nexatech.local.
+**Aula 10 - Controlador de domínio e ingresso de clientes.** Com o domínio no ar, é hora de ingressar os clientes Windows 10.
 
 ---
 

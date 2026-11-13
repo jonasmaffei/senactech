@@ -2,6 +2,7 @@
 
 **Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
+**Aplicação de teste:** [`aplicacao-teste/`](../../../../laboratorio_virtual/aplicacao-teste/README.md)  
 **Entrega da aula:** Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.
 
 ---
@@ -12,7 +13,7 @@ Publicar a aplicação web em Apache e PHP no Ubuntu Server.
 
 ## VMs desta aula
 
-Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
+APP01 (Apache/PHP) e CLI01/CLI02 (acesso ao site). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
@@ -22,11 +23,11 @@ Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
 
 ## Roteiro
 
-1. Instalar Apache e PHP no APP01
-2. Criar o virtual host da aplicação
-3. Publicar a página inicial em PHP
-4. Testar pelo navegador do CLI01 e do CLI02
-5. Registrar a configuração e as permissões
+1. Copiar a aplicação de teste para o APP01
+2. Executar o deploy-app.sh (instala Apache/PHP e publica a aplicação)
+3. Conferir o VirtualHost e as permissões em /var/www/nexatech
+4. Testar http://app.nexatech.local e health.php nos clientes
+5. Registrar configuração, logs e evidências
 
 ## Testes e evidências
 

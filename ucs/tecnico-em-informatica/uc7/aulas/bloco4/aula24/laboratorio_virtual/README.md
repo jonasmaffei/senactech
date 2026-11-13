@@ -12,7 +12,7 @@ Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório
 
 ## VMs desta aula
 
-Use as VMs indicadas no roteiro e mantenha o snapshot da aula anterior.
+APP01 (serviço DHCP) e CLI01/CLI02 (clientes). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

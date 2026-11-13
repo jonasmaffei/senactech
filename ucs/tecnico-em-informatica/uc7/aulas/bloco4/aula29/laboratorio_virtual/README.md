@@ -12,7 +12,7 @@ Definir e testar a rotina de backup, restauração e continuidade dos dados do a
 
 ## VMs desta aula
 
-DC01 (arquivos compartilhados) e APP01 (rotina de backup e restauração). Mantenha o snapshot da aula anterior.
+DC01 (arquivos compartilhados), APP01 (rotina de backup) e DB01 (banco de dados). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 
@@ -24,9 +24,10 @@ DC01 (arquivos compartilhados) e APP01 (rotina de backup e restauração). Mante
 
 1. Definir o que será copiado (pastas compartilhadas no Windows e dados do Linux)
 2. Criar uma rotina de backup com rsync
-3. Agendar a rotina com systemd timer
-4. Simular exclusão de arquivo e restaurar a versão anterior
-5. Definir RPO/RTO e documentar a retenção
+3. Incluir o banco de dados do DB01 na rotina de backup
+4. Agendar a rotina com systemd timer
+5. Simular exclusão de arquivo e restaurar a versão anterior
+6. Definir RPO/RTO e documentar a retenção
 
 ## Testes e evidências
 
@@ -40,6 +41,9 @@ DC01 (arquivos compartilhados) e APP01 (rotina de backup e restauração). Mante
 ```bash
 # Exemplo de cópia com rsync
 rsync -av /origem/ /destino/
+
+# Exemplo de dump do banco da aplicacao (executar no DB01)
+mysqldump -u root nexatech_app > /root/backups/nexatech_app_$(date +%F).sql
 
 # Exemplo de agendamento com systemd timer
 systemctl list-timers

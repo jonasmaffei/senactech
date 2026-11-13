@@ -12,7 +12,7 @@ Aplicar hardening e controles de segurança em servidores Linux e seus serviços
 
 ## VMs desta aula
 
-APP01.
+APP01 e DB01.
 
 ## Antes de começar
 
@@ -23,7 +23,7 @@ APP01.
 
 ## Roteiro
 
-1. Endurecer a configuração do SSH
+1. Endurecer a configuração do SSH no APP01 e no DB01
 2. Configurar firewall e fail2ban
 3. Auditar usuários, permissões e serviços ativos
 4. Comparar o antes e o depois com evidências

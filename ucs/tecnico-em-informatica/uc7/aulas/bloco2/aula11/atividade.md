@@ -36,15 +36,6 @@ Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
 
 Por que é melhor conceder permissão a grupos do que a usuários individuais?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
-
 ---
 
 > Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).

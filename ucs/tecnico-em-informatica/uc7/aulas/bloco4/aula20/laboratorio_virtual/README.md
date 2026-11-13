@@ -23,10 +23,10 @@ APP01 e DB01 (instalação do Ubuntu Server). Mantenha o snapshot da aula anteri
 
 ## Roteiro
 
-1. Criar a VM com dois adaptadores (NAT e rede interna)
+1. Criar as VMs com dois adaptadores (NAT e rede interna)
 2. Particionar: EFI 200 MB, / 20 GB ext4, /home 25 GB ext4 e swap
 3. Instalar sem ambiente gráfico
-4. Configurar IP estático 192.168.10.20 e hostname
+4. Configurar IP estático 192.168.10.20 no APP01 e 192.168.10.30 no DB01, com hostname
 5. Instalar SSH, atualizar o sistema e configurar o ufw
 
 ## Testes e evidências

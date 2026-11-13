@@ -68,7 +68,7 @@ Diagnóstico de rede no host e captura de tráfego local.
 
 ## Relação com o projeto
 
-Dá nome e número aos serviços que a topologia da Aula 02 precisará transportar.
+Dá nome e número aos serviços que a topologia da Aula 03 precisará transportar.
 
 **O que fica em aberto:** Os protocolos definem o quê; falta decidir em qual hardware e com qual grau de virtualização isso rodará.
 

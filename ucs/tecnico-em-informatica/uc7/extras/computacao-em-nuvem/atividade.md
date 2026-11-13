@@ -35,15 +35,6 @@ Recomendação de nuvem para a NexaTech com análise de custo e risco.
 
 Nem tudo que é possível na nuvem é vantajoso. Qual critério deve pesar mais na decisão?
 
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
-
 ---
 
 > Consulte o [guia do extra](README.md).

@@ -21,7 +21,7 @@ Projeto integrador completo e defesa oral.
 ## Etapas
 
 1. Apresentar o projeto em 10 a 15 minutos
-2. Demonstrar login, DNS/DHCP, arquivos, web e monitoramento
+2. Demonstrar login, DNS/DHCP, arquivos, web, pfSense e monitoramento
 3. Responder à arguição da banca
 4. Entregar a documentação final e a autoavaliação
 
@@ -34,15 +34,6 @@ Projeto integrador completo e defesa oral.
 ## Para refletir
 
 Qual foi a decisão técnica mais difícil do projeto e o que você faria diferente hoje?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
 
 ---
 

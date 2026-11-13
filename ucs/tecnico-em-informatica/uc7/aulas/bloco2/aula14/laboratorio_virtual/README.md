@@ -12,7 +12,7 @@ Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup
 
 ## VMs desta aula
 
-DC01 e CLI01.
+DC01 e CLI01/CLI02.
 
 ## Antes de começar
 

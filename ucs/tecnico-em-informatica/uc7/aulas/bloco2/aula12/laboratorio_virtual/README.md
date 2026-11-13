@@ -12,7 +12,7 @@ Configurar zonas DNS integradas ao Active Directory para resolver nomes dos serv
 
 ## VMs desta aula
 
-Consulte a base comum e use apenas as VMs necessárias para esta prática. Mantenha o snapshot da aula anterior.
+DC01 e CLI01/CLI02 (teste de resolução). Mantenha o snapshot da aula anterior.
 
 ## Antes de começar
 

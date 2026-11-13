@@ -26,6 +26,7 @@ A NexaTech quer uma aplicação simples para a intranet no servidor Linux.
 | [`apresentacao_aula26.html`](apresentacao_aula26.html) | Slides de conceito (abra no navegador) |
 | [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
+| [Aplicação de teste](../../../laboratorio_virtual/aplicacao-teste/README.md) | Código PHP, banco, scripts de deploy e testes |
 
 ### Tópicos
 
@@ -48,11 +49,11 @@ Ubuntu Server, Apache, PHP, curl e navegador
 
 Publicação da aplicação web no APP01.
 
-1. Instalar Apache e PHP no APP01
-2. Criar o virtual host da aplicação
-3. Publicar a página inicial em PHP
-4. Testar pelo navegador do CLI01 e do CLI02
-5. Registrar a configuração e as permissões
+1. Copiar a aplicação de teste para o APP01
+2. Executar o deploy-app.sh (instala Apache/PHP e publica a aplicação)
+3. Conferir o VirtualHost e as permissões em /var/www/nexatech
+4. Testar http://app.nexatech.local e health.php nos clientes
+5. Registrar configuração, logs e evidências
 
 > Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
 

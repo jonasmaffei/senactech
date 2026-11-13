@@ -20,10 +20,10 @@ Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SS
 
 ## Etapas
 
-1. Criar a VM com dois adaptadores (NAT e rede interna)
+1. Criar as VMs com dois adaptadores (NAT e rede interna)
 2. Particionar: EFI 200 MB, / 20 GB ext4, /home 25 GB ext4 e swap
 3. Instalar sem ambiente gráfico
-4. Configurar IP estático 192.168.10.20 e hostname
+4. Configurar IP estático 192.168.10.20 no APP01 e 192.168.10.30 no DB01, com hostname
 5. Instalar SSH, atualizar o sistema e configurar o ufw
 
 ## Evidências esperadas
@@ -35,15 +35,6 @@ Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SS
 ## Para refletir
 
 Por que separar /home e usar ext4 pode facilitar a operação do servidor?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 30% |
-| Justificativa das decisões e reflexão | 5% |
 
 ---
 

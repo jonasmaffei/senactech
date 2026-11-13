@@ -20,7 +20,7 @@ Relatório de auditoria de segurança com antes, depois e justificativas.
 
 ## Etapas
 
-1. Endurecer a configuração do SSH
+1. Endurecer a configuração do SSH no APP01 e no DB01
 2. Configurar firewall e fail2ban
 3. Auditar usuários, permissões e serviços ativos
 4. Comparar o antes e o depois com evidências
@@ -34,15 +34,6 @@ Relatório de auditoria de segurança com antes, depois e justificativas.
 ## Para refletir
 
 Qual controle de segurança teve maior impacto e como ele poderia ser contornado por erro de configuração?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
 
 ---
 

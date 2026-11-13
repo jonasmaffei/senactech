@@ -1,6 +1,6 @@
 # Atividade - Aula 09: Active Directory Domain Services
 
-**Entrega:** Estrutura do Active Directory documentada e teste de login no domínio.  
+**Entrega:** Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,22 +8,23 @@
 
 ## Objetivo
 
-Configurar o Active Directory, criar a estrutura organizacional e gerenciar usuários e grupos.
+Instalar a função AD DS e promover o Windows Server a controlador do domínio nexatech.local.
 
 ## Contexto
 
-A NexaTech quer centralizar o login e as permissões. Hoje cada computador tem contas locais e ninguém sabe quem acessou o quê. O domínio precisa refletir os setores e as regras da empresa.
+A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.
 
 ## O que deve ser entregue
 
-Estrutura do Active Directory documentada e teste de login no domínio.
+Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.
 
 ## Etapas
 
-1. Promover o servidor a controlador do domínio nexatech.local
-2. Criar OUs para Administração, Vendas, Suporte e Servidores
-3. Criar usuários e grupos de segurança
-4. Ingressar um cliente Windows no domínio e testar login
+1. Verificar IP e DNS do DC01
+2. Instalar a função AD DS
+3. Promover o servidor a controlador do domínio nexatech.local
+4. Reiniciar e validar com dcdiag
+5. Registrar evidências da promoção
 
 ## Evidências esperadas
 
@@ -33,16 +34,7 @@ Estrutura do Active Directory documentada e teste de login no domínio.
 
 ## Para refletir
 
-Por que criar grupos de segurança em vez de dar permissão diretamente a cada usuário?
-
-## Critérios de avaliação
-
-| Critério | Peso |
-| :--- | :---: |
-| Correção técnica | 40% |
-| Clareza e organização da documentação | 25% |
-| Evidências de execução e testes | 20% |
-| Justificativa das decisões e reflexão | 15% |
+Por que o DNS é pré-requisito para o Active Directory funcionar?
 
 ---
 
