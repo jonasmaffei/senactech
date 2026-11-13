@@ -42,7 +42,6 @@ senactech/
           README.md
           computacao-em-nuvem/
         docs/
-          00_ementa.md
           01_timeline-engenharia.md
           02_resumos.md
           03_git.md
@@ -83,7 +82,6 @@ senactech/
 | Recurso | Link |
 | :--- | :--- |
 | Guia da UC | [`ucs/tecnico-em-informatica/uc7/README.md`](ucs/tecnico-em-informatica/uc7/README.md) |
-| Ementa | [`ucs/tecnico-em-informatica/uc7/docs/00_ementa.md`](ucs/tecnico-em-informatica/uc7/docs/00_ementa.md) |
 | Plano de aulas | [`ucs/tecnico-em-informatica/uc7/docs/04_plano-de-aulas.md`](ucs/tecnico-em-informatica/uc7/docs/04_plano-de-aulas.md) |
 | Projeto integrador | [`ucs/tecnico-em-informatica/uc7/aulas/projeto-integrador/README.md`](ucs/tecnico-em-informatica/uc7/aulas/projeto-integrador/README.md) |
 | Laboratório VirtualBox | [`ucs/tecnico-em-informatica/uc7/laboratorio_virtual/README.md`](ucs/tecnico-em-informatica/uc7/laboratorio_virtual/README.md) |
@@ -129,8 +127,8 @@ Material migrado do repositório `senac-tecnico-ia`: **24 aulas**, notebooks Col
 ## Como adicionar uma nova UC
 
 1. Criar `ucs/<curso>/<ucN>/`.
-2. Criar o `README.md` da UC com identificação, carga horária, ementa, organização e links.
-3. Criar `docs/` com a ementa, o plano de aulas e os materiais complementares.
+2. Criar o `README.md` da UC com identificação, carga horária, organização e links.
+3. Criar `docs/` com o plano de aulas e os materiais complementares.
 4. Criar `aulas/` com a estrutura por blocos e aulas.
 5. Criar `laboratorio_virtual/` com as instruções do laboratório (VirtualBox manual, quando aplicável).
 6. Criar `questionarios/` e `projeto-integrador/`, se aplicável.

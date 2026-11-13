@@ -28,7 +28,6 @@ ucs/<curso>/<ucN>/
     bloco5/ ...
     projeto-integrador/
   docs/
-    00_ementa.md
     01_timeline-engenharia.md
     02_resumos.md
     03_git.md
@@ -66,7 +65,7 @@ Sugestão de fluxo:
 
 1. Criar a pasta da UC.
 2. Copiar a estrutura de uma UC existente, se fizer sentido.
-3. Adaptar ementa, plano de aulas, apresentações, atividades e laboratório.
+3. Adaptar plano de aulas, apresentações, atividades e laboratório.
 4. Validar os links e as tabelas.
 5. Atualizar os índices.
 

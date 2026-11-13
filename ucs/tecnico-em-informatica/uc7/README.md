@@ -230,7 +230,6 @@ As datas consideram 32 encontros de 3 h em dias úteis, com 20/11/2026 (feriado 
 
 | Documento | Descrição |
 | :--- | :--- |
-| [`docs/00_ementa.md`](docs/00_ementa.md) | Ementa oficial, perfil do docente, metodologia e bibliografia |
 | [`docs/01_timeline-engenharia.md`](docs/01_timeline-engenharia.md) | Cadeia causal da UC: por que cada aula existe e como se conectam |
 | [`docs/02_resumos.md`](docs/02_resumos.md) | Resumos teóricos consolidados das 32 aulas |
 | [`docs/03_git.md`](docs/03_git.md) | Guia rápido de Git e GitHub para clonar, atualizar e versionar |
@@ -268,7 +267,6 @@ senactech/
       questionarios/
         README.md
       docs/
-        00_ementa.md
         01_timeline-engenharia.md
         02_resumos.md
         03_git.md
