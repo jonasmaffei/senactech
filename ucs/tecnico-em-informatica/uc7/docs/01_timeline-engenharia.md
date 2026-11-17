@@ -32,7 +32,7 @@ A30 Monitoramento, automação e troubleshooting -> A31 Governança de TI, segur
 
 ### Aula 02 - O servidor na rede local e a UC7
 * **Conceito/fundamento:** Modelo cliente/servidor e redes peer-to-peer; Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem; Serviços essenciais de uma LAN corporativa; On-premise, nuvem e ambiente híbrido.
-* **O que se aprende:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+* **O que se aprende:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.
 * **Problema em aberto:** Quais serviços serão necessários e como eles se conectam fisicamente?
 * **Impacto de negócio:** Evita compras e instalações sem critério, reduzindo custo e retrabalho.
 

@@ -133,6 +133,11 @@
     border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
     padding: 1px 6px; border-radius: 6px;
   }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: .92rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
+  td { color: var(--muted); }
+  tbody tr:last-child td { border-bottom: none; }
   .note {
     margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
     border-radius: 10px; background: rgba(99,102,241,.06);
@@ -203,14 +208,14 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 02</div>
-  <div id="counter">1 / 11</div>
+  <div id="counter">1 / 15</div>
 </header>
 <main id="deck">
 
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 1 · Aula 02</span>
       <h1>O servidor na rede local e a UC7</h1>
-      <p class="lead">Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.</p>
+      <p class="lead">Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.</p>
       <div class="meta-row">
         <span class="pill">16/11/2026 (segunda-feira)</span>
         <span class="pill">Fundamentos e Planejamento</span>
@@ -231,11 +236,11 @@
         <div class="grid">
           <div class="card highlight">
             <h3>Objetivo da aula</h3>
-            <p>Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.</p>
+            <p>Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.</p>
           </div>
           <div class="card">
             <h3>Entrega principal</h3>
-            <p>Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.</p>
+            <p>Servidor de arquivos básico no CLI01 acessível pelo CLI02, com ficha de configuração e evidências.</p>
           </div>
         </div>
       </div>
@@ -257,37 +262,117 @@
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Modelo cliente/servidor e redes peer-to-peer</h3></div><div class="card"><span class="card-num">02</span><h3>Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem</h3></div><div class="card"><span class="card-num">03</span><h3>Serviços essenciais de uma LAN corporativa</h3></div>
+      <h2>O que é um servidor?</h2>
+      <div class="two-col">
+        <div>
+          <p class="lead">Servidor é o computador ou serviço dedicado a atender solicitações de outros computadores, os clientes. Ele centraliza dados, serviços ou recursos que não devem ficar espalhados pelas estações.</p>
+          <p>Um servidor pode ser um equipamento físico dedicado, uma máquina virtual ou até um serviço na nuvem. O que o define é o papel que exerce na rede, não o tamanho da máquina.</p>
+          <p class="note"><strong>Características esperadas:</strong> disponibilidade, centralização, controle de acesso, backup e capacidade de crescer com a empresa.</p>
+        </div>
+        <div class="card">
+          <h3>Peer-to-peer x cliente/servidor</h3>
+          <table><thead><tr><th>Aspecto</th><th>Peer-to-peer</th><th>Cliente/servidor</th></tr></thead><tbody>
+            <tr><td>Arquivos</td><td>Em cada estação</td><td>No servidor</td></tr>
+            <tr><td>Login</td><td>Local e sem padrão</td><td>Centralizado</td></tr>
+            <tr><td>Backup</td><td>Manual e disperso</td><td>Concentrado</td></tr>
+            <tr><td>Escala</td><td>Poucos computadores</td><td>Dezenas ou centenas</td></tr>
+            <tr><td>Exemplo</td><td>Pasta compartilhada entre dois PCs</td><td>DC01 com AD e arquivos</td></tr>
+          </tbody></table>
+        </div>
       </div>
     </section>
     
 
     <section class="slide">
       <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>On-premise, nuvem e ambiente híbrido</h3></div><div class="card"><span class="card-num">05</span><h3>Ciclo de vida: planejar, instalar, configurar, monitorar e manter</h3></div><div class="card"><span class="card-num">06</span><h3>Ética profissional, LGPD e segurança da informação</h3></div>
+      <h2>Tipos de servidor <span class="muted">(1/2)</span></h2>
+      <div class="grid cols-2">
+        <div class="card"><span class="card-num">01</span><h3>Servidor de arquivos</h3><p>Centraliza documentos em pastas compartilhadas via SMB ou NFS. Facilita backup, permissões e acesso de qualquer estação autorizada.</p></div>
+        <div class="card"><span class="card-num">02</span><h3>Servidor de autenticação e diretório</h3><p>Guarda usuários e senhas e permite login único na rede. No Windows, é o Active Directory; no Linux, o LDAP ou o Samba como controlador de domínio.</p></div>
+        <div class="card"><span class="card-num">03</span><h3>Servidor DNS</h3><p>Traduz nomes em endereços IP. Sem ele, os clientes não encontram servidores e serviços pelo nome, apenas pelo número.</p></div>
+        <div class="card"><span class="card-num">04</span><h3>Servidor DHCP</h3><p>Distribui IP, máscara, gateway e DNS automaticamente, evitando configuração manual e conflitos de endereço.</p></div>
       </div>
     </section>
     
 
     <section class="slide">
+      <span class="kicker">Conceitos</span>
+      <h2>Tipos de servidor <span class="muted">(2/2)</span></h2>
+      <div class="grid cols-2">
+        <div class="card"><span class="card-num">05</span><h3>Servidor web</h3><p>Publica sites e aplicações para a rede interna ou para a internet. Exemplos: IIS no Windows, Apache e Nginx no Linux.</p></div>
+        <div class="card"><span class="card-num">06</span><h3>Servidor de banco de dados</h3><p>Armazena e organiza os dados usados pelas aplicações. Exemplos: MySQL, PostgreSQL e SQL Server.</p></div>
+        <div class="card"><span class="card-num">07</span><h3>Servidor de virtualização</h3><p>Hospeda várias máquinas virtuais em um único hardware, economizando energia e facilitando a criação de laboratórios e réplicas.</p></div>
+        <div class="card"><span class="card-num">08</span><h3>Servidor de nuvem e backup</h3><p>Oferece armazenamento, cópias de segurança e serviços externos. Pode complementar a estrutura local em um modelo híbrido.</p></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Conceitos</span>
+      <h2>Serviços essenciais de uma LAN corporativa</h2>
+      <p class="lead">Uma rede de empresa não depende de um único servidor, mas da combinação de serviços que se apoiam uns nos outros.</p>
+      <table><thead><tr><th>Serviço</th><th>Para que serve</th><th>Exemplo na NexaTech</th></tr></thead><tbody>
+        <tr><td>Autenticação</td><td>Garantir quem pode entrar e o que pode acessar</td><td>Login único no domínio</td></tr>
+        <tr><td>Arquivos</td><td>Centralizar documentos e evitar cópias espalhadas</td><td>Pastas por setor com backup</td></tr>
+        <tr><td>DNS</td><td>Encontrar servidores e serviços pelo nome</td><td><code>dc01.nexatech.local</code></td></tr>
+        <tr><td>DHCP</td><td>Entregar configuração de rede automaticamente</td><td>Faixa <code>192.168.10.100-200</code></td></tr>
+        <tr><td>Impressão</td><td>Compartilhar impressoras e controlar filas</td><td>Impressora do financeiro</td></tr>
+        <tr><td>Backup</td><td>Recuperar dados após falha, erro ou ataque</td><td>Cópia diária das pastas</td></tr>
+        <tr><td>Monitoramento</td><td>Detectar falhas antes que os usuários reclamem</td><td>Alertas de disco e disponibilidade</td></tr>
+      </tbody></table>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Conceitos</span>
+      <h2>Onde a infraestrutura roda</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>On-premise</h3><p>Servidores instalados na própria empresa. Dão controle total e independem da internet, mas exigem espaço, energia, refrigeração e equipe.</p></div>
+        <div class="card"><h3>Nuvem</h3><p>Serviços contratados de um provedor externo. Reduzem investimento inicial e facilitam a escala, mas dependem da internet e do contrato.</p></div>
+        <div class="card"><h3>Híbrido</h3><p>Combina estrutura local com serviços em nuvem. É o modelo mais comum: autenticação e arquivos locais, backup e aplicações na nuvem.</p></div>
+      </div>
+      <p class="note"><strong>Decisão de projeto:</strong> a escolha não é técnica apenas. Envolve custo, prazo, disponibilidade, segurança e a realidade da empresa.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Conceitos</span>
+      <h2>Ciclo de vida do servidor</h2>
+      <ol class="steps">
+        <li><strong>Planejar:</strong> levantar necessidades, dimensionar hardware e definir o papel de cada servidor.</li>
+        <li><strong>Instalar:</strong> preparar o sistema operacional, a rede, o armazenamento e as atualizações.</li>
+        <li><strong>Configurar:</strong> criar usuários, serviços, permissões e políticas de segurança.</li>
+        <li><strong>Testar:</strong> validar acesso, desempenho, backup e recuperação antes de entregar.</li>
+        <li><strong>Monitorar:</strong> acompanhar disponibilidade, disco, logs e alertas.</li>
+        <li><strong>Manter e melhorar:</strong> aplicar atualizações, revisar permissões e planejar a substituição.</li>
+      </ol>
+      <p class="note">Toda entrega da UC7 será avaliada pela consistência entre o que foi planejado, instalado, testado e monitorado.</p>
+    </section>
+    
+
+    <section class="slide">
       <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.</p>
+      <h2>Servidor de arquivos básico</h2>
+      <p class="lead">Transformar o CLI01 em um servidor de arquivos simples, compartilhando uma pasta via SMB e acessando-a pelo CLI02.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Inventariar os recursos e as dores da NexaTech</li><li>Classificar os serviços entre essenciais, importantes e opcionais</li><li>Montar um mapa inicial de serviços e responsáveis</li><li>Definir os papéis da equipe e o fluxo de documentação</li></ol>
+          <ol class="steps">
+            <li>Inventariar rapidamente as dores da NexaTech e os serviços a centralizar</li>
+            <li>Ligar CLI01 e CLI02 e confirmar os IPs <code>192.168.10.100</code> e <code>192.168.10.101</code></li>
+            <li>No CLI01, criar a pasta <code>C:\Compartilhado</code> com um arquivo de teste</li>
+            <li>Compartilhar a pasta via SMB com o nome <code>nexatech</code></li>
+            <li>Definir permissões de leitura e alteração para os usuários do laboratório</li>
+            <li>No CLI02, acessar <code>\\192.168.10.100\nexatech</code> e testar leitura e gravação</li>
+            <li>Mapear a unidade <code>Z:</code> e registrar prints e saídas de <code>net share</code> e <code>net use</code></li>
+          </ol>
         </div>
         <div class="card">
           <h3>Ferramentas e ambiente</h3>
-          <p>Planilha, editor de texto, draw.io ou diagrams.net</p>
+          <p>VirtualBox, Windows 10 (CLI01 e CLI02), Explorador de Arquivos e prompt de comando</p>
           <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
+            Este é um compartilhamento introdutório. Permissões NTFS, quotas, versionamento e backup
+            serão aprofundados na Aula 14, já no Windows Server.
           </div>
         </div>
       </div>
@@ -301,10 +386,17 @@
       <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
       
     <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01 / CLI02</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
+      <div class="top-group">
+        <div class="top-node dc">
+          <strong>CLI01</strong>
+          <span>servidor de arquivos básico</span>
+          <small>192.168.10.100</small>
+        </div>
+        <div class="top-node client">
+          <strong>CLI02</strong>
+          <span>cliente Windows</span>
+          <small>192.168.10.101</small>
+        </div>
       </div>
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
@@ -331,7 +423,7 @@
         <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
         <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
       </div>
-      <p class="note"><strong>Nesta aula:</strong> As VMs ainda não são necessárias. Produza o artefato desta aula e guarde-o na pasta do projeto integrador.</p>
+      <p class="note"><strong>Nesta aula:</strong> o CLI01 faz o papel de servidor de arquivos básico. DC01, APP01 e DB01 entram nas próximas aulas, quando os serviços forem realmente instalados e configurados.</p>
     </section>
     
 
@@ -339,15 +431,16 @@
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
       <div class="card highlight">
-        <h3>Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
+        <h3>Servidor de arquivos básico em funcionamento: pasta compartilhada no CLI01 acessada pelo CLI02, com ficha de configuração e evidências.</h3>
+        <p>Inclua também o diagnóstico inicial dos serviços que precisam ser centralizados. O enunciado completo está em <code>atividade.md</code>.</p>
       </div>
       <div class="grid cols-2" style="margin-top:14px">
         <div class="card">
           <h3>Evidências esperadas</h3>
           <ul class="check">
-            <li>Configurações e decisões documentadas.</li>
-            <li>Prints ou saídas de comando dos testes.</li>
+            <li>Print da pasta compartilhada e das permissões no CLI01.</li>
+            <li>Print do acesso e da gravação de arquivo pelo CLI02.</li>
+            <li>Saídas de <code>net share</code> e <code>net use</code>.</li>
             <li>Dificuldades encontradas e como foram resolvidas.</li>
           </ul>
         </div>
@@ -359,15 +452,15 @@
     <section class="slide">
       <span class="kicker">Discussão</span>
       <h2>Para pensar e discutir</h2>
-      <blockquote>Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?</blockquote>
+      <blockquote>Por que um simples compartilhamento de pasta já melhora o trabalho da equipe, mas ainda não é uma infraestrutura corporativa?</blockquote>
       <div class="grid cols-2">
         <div class="card">
           <h3>Impacto no negócio</h3>
-          <p>Evita compras e instalações sem critério, reduzindo custo e retrabalho.</p>
+          <p>Centralizar arquivos reduz cópias espalhadas e retrabalho, além de facilitar o backup.</p>
         </div>
         <div class="card">
           <h3>O que fica em aberto</h3>
-          <p>Quais serviços serão necessários e como eles se conectam fisicamente?</p>
+          <p>Sem autenticação central, permissões finas e backup, o compartilhamento ainda é frágil.</p>
         </div>
       </div>
     </section>
@@ -380,7 +473,7 @@
       <div class="grid cols-2">
         <div class="card">
           <h3>Entrega que sustenta o projeto</h3>
-          <p>Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.</p>
+          <p>Servidor de arquivos básico no CLI01 e diagnóstico dos serviços a centralizar.</p>
         </div>
         <div class="card">
           <h3>Próximo gargalo</h3>
@@ -398,7 +491,7 @@
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
       <ul class="check">
-        <li>Servidor é um computador ou serviço dedicado a atender clientes com funções especializadas.</li><li>Uma LAN corporativa típica combina autenticação, arquivos, DNS, DHCP, web, backup e monitoramento.</li><li>O ciclo de vida da infraestrutura vai do planejamento ao descomissionamento, passando por operação e melhoria contínua.</li>
+        <li>Servidor é um computador ou serviço dedicado a atender clientes com funções especializadas.</li><li>Os tipos mais comuns são arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem.</li><li>Um compartilhamento SMB básico já centraliza arquivos, mas ainda precisa de autenticação, permissões e backup.</li>
       </ul>
       
         <div class="next"><span>Próxima aula</span><strong>Aula 03 - Arquitetura e topologia de rede local</strong><p>Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.</p></div>

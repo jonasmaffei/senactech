@@ -133,6 +133,11 @@
     border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
     padding: 1px 6px; border-radius: 6px;
   }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: .92rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
+  td { color: var(--muted); }
+  tbody tr:last-child td { border-bottom: none; }
   .note {
     margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
     border-radius: 10px; background: rgba(99,102,241,.06);
@@ -203,7 +208,7 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 01</div>
-  <div id="counter">1 / 11</div>
+  <div id="counter">1 / 15</div>
 </header>
 <main id="deck">
     <section class="slide active"><span class="kicker">UC7 · Bloco 1 · Aula 01</span><h1>TCP/IP e IPv4</h1><p class="lead">Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.</p>
@@ -211,8 +216,94 @@
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
     <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
       <div class="two-col"><div><p class="lead">Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.</p></div><div class="card"><h3>Entrega principal</h3><p>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</p></div></div></div></section>
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Modelo TCP/IP e comparação com o modelo OSI</h3></div><div class="card"><span class="card-num">02</span><h3>Endereços IPv4: rede, host, máscara e gateway</h3></div><div class="card"><span class="card-num">03</span><h3>IPs privados, públicos e NAT</h3></div></div></section>
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Notação CIDR e identificação da rede</h3></div><div class="card"><span class="card-num">05</span><h3>DNS e DHCP no fluxo de configuração</h3></div><div class="card"><span class="card-num">06</span><h3>Testes com ping, ipconfig, ip e tracert</h3></div></div></section>
+    <section class="slide"><span class="kicker">Conceitos</span><h2>O modelo TCP/IP em 4 camadas</h2>
+      <p class="lead">O TCP/IP é o conjunto de protocolos que faz a comunicação entre computadores. Ele divide essa tarefa em camadas, cada uma com uma responsabilidade.</p>
+      <table><thead><tr><th>Camada TCP/IP</th><th>Função</th><th>Exemplos</th><th>Equivalente no OSI</th></tr></thead><tbody>
+        <tr><td>Aplicação</td><td>Oferece o serviço ao usuário e define o formato dos dados</td><td>HTTP, HTTPS, DNS, DHCP, SMB, SSH</td><td>Aplicação, apresentação e sessão</td></tr>
+        <tr><td>Transporte</td><td>Entrega os dados ponta a ponta, com controle de erro ou não</td><td>TCP, UDP</td><td>Transporte</td></tr>
+        <tr><td>Internet</td><td>Endereça e roteia os pacotes entre redes diferentes</td><td>IP, ICMP, ARP</td><td>Rede</td></tr>
+        <tr><td>Acesso à rede</td><td>Coloca os quadros no meio físico e usa o endereço MAC</td><td>Ethernet, Wi-Fi</td><td>Enlace e física</td></tr>
+      </tbody></table>
+      <p class="note"><strong>Comparação:</strong> o modelo OSI tem 7 camadas e serve de referência didática. O modelo TCP/IP tem 4 camadas e é o que realmente roda nos sistemas operacionais.</p>
+    </section>
+
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Encapsulamento e a escolha entre TCP e UDP</h2>
+      <div class="two-col">
+        <div class="card"><h3>Como o dado desce as camadas</h3>
+          <ol class="steps">
+            <li>A aplicação gera os dados (por exemplo, uma página HTTP)</li>
+            <li>O transporte segmenta e adiciona as portas de origem e destino</li>
+            <li>A camada internet acrescenta os IPs de origem e destino e forma o pacote</li>
+            <li>O acesso à rede monta o quadro com os endereços MAC e envia os bits</li>
+          </ol>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>TCP</h3><p>Orientado a conexão, confirma o recebimento e retransmite o que se perde. Usado em web, arquivos e e-mail, onde a integridade importa.</p></div>
+          <div class="card"><h3>UDP</h3><p>Sem conexão e sem confirmação. É mais rápido e leve. Usado em DNS, DHCP e streaming, onde a velocidade importa mais que a garantia.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide"><span class="kicker">Conceitos</span><h2>O endereço IPv4: rede, host, máscara e gateway</h2>
+      <p class="lead">Um IPv4 tem 32 bits, escritos como quatro octetos separados por ponto. Cada octeto vai de 0 a 255.</p>
+      <table><thead><tr><th>Elemento</th><th>Exemplo</th><th>O que significa</th></tr></thead><tbody>
+        <tr><td>Endereço IP</td><td><code>192.168.10.100</code></td><td>Identifica a estação na rede</td></tr>
+        <tr><td>Máscara</td><td><code>255.255.255.0</code></td><td>Separa a parte de rede da parte de host</td></tr>
+        <tr><td>Rede</td><td><code>192.168.10.0</code></td><td>Endereço que representa o grupo de máquinas</td></tr>
+        <tr><td>Host</td><td><code>100</code></td><td>Identifica a máquina dentro daquela rede</td></tr>
+        <tr><td>Gateway</td><td><code>192.168.10.1</code></td><td>Porta de saída para outras redes</td></tr>
+      </tbody></table>
+      <p class="note"><strong>Regra prática:</strong> duas máquinas só se comunicam diretamente quando a parte de rede dos IPs, calculada com a máscara, é a mesma.</p>
+    </section>
+
+    <section class="slide"><span class="kicker">Conceitos</span><h2>IPs privados, públicos e NAT</h2>
+      <div class="grid cols-2">
+        <div class="card highlight"><h3>Faixas privadas (RFC 1918)</h3>
+          <table><tbody>
+            <tr><td><code>10.0.0.0/8</code></td><td>Redes grandes</td></tr>
+            <tr><td><code>172.16.0.0/12</code></td><td>Redes médias</td></tr>
+            <tr><td><code>192.168.0.0/16</code></td><td>Redes domésticas e locais</td></tr>
+          </tbody></table>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>IP público</h3><p>É único no mundo e fornecido pelo provedor de internet. É o endereço pelo qual a empresa é vista na rede mundial.</p></div>
+          <div class="card"><h3>NAT</h3><p>Traduz vários IPs privados para um ou poucos IPs públicos. Permite que dezenas de máquinas internas naveguem usando um único endereço externo.</p></div>
+        </div>
+      </div>
+      <p class="note"><strong>No laboratório:</strong> a rede <code>192.168.10.0/24</code> é privada. Ela não acessa a internet sozinha; isso dependerá do pfSense e do NAT, no Bloco 3.</p>
+    </section>
+
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Notação CIDR e identificação da rede</h2>
+      <p class="lead">O CIDR indica quantos bits da máscara pertencem à rede. Quanto maior o número depois da barra, menor o número de hosts disponíveis.</p>
+      <table><thead><tr><th>CIDR</th><th>Máscara</th><th>Hosts úteis</th><th>Faixa de exemplo</th></tr></thead><tbody>
+        <tr><td><code>/24</code></td><td><code>255.255.255.0</code></td><td>254</td><td><code>192.168.10.0</code> a <code>192.168.10.255</code></td></tr>
+        <tr><td><code>/25</code></td><td><code>255.255.255.128</code></td><td>126</td><td><code>192.168.10.0</code> ou <code>192.168.10.128</code></td></tr>
+        <tr><td><code>/30</code></td><td><code>255.255.255.252</code></td><td>2</td><td>Links ponto a ponto entre roteadores</td></tr>
+      </tbody></table>
+      <div class="grid cols-2">
+        <div class="card"><h3>Mesma rede</h3><p><code>192.168.10.100/24</code> e <code>192.168.10.101/24</code> compartilham a rede <code>192.168.10.0</code> e se comunicam diretamente.</p></div>
+        <div class="card"><h3>Redes diferentes</h3><p><code>192.168.10.100/24</code> e <code>192.168.20.100/24</code> não se falam sem um roteador ou gateway entre elas.</p></div>
+      </div>
+    </section>
+
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Gateway, DNS e DHCP no fluxo de configuração</h2>
+      <div class="grid cols-3">
+        <div class="card"><span class="card-num">01</span><h3>Gateway</h3><p>É o endereço da saída para outras redes, normalmente o roteador ou firewall. Precisa estar na mesma rede da máquina.</p></div>
+        <div class="card"><span class="card-num">02</span><h3>DNS</h3><p>Traduz nomes em IPs, como <code>nexatech.local</code> para <code>192.168.10.10</code>. Sem DNS, o usuário teria de decorar endereços.</p></div>
+        <div class="card"><span class="card-num">03</span><h3>DHCP</h3><p>Entrega IP, máscara, gateway e DNS automaticamente. O cliente descobre, recebe a oferta, solicita e confirma o endereço.</p></div>
+      </div>
+      <p class="note"><strong>Nesta aula:</strong> a configuração é manual e sem gateway, para isolar o teste de comunicação. O DHCP será configurado no Bloco 2, quando o DC01 existir.</p>
+    </section>
+
+    <section class="slide"><span class="kicker">Conceitos</span><h2>Diagnóstico no prompt de comando</h2>
+      <table><thead><tr><th>Comando</th><th>O que mostra</th><th>Quando usar</th></tr></thead><tbody>
+        <tr><td><code>ipconfig /all</code></td><td>IP, máscara, gateway, DNS e endereço MAC</td><td>Conferir a configuração da estação</td></tr>
+        <tr><td><code>ping</code></td><td>Se o destino responde e em quanto tempo</td><td>Testar conectividade entre duas máquinas</td></tr>
+        <tr><td><code>tracert</code></td><td>O caminho percorrido até o destino</td><td>Descobrir onde o tráfego para ou demora</td></tr>
+        <tr><td><code>nslookup</code></td><td>A resolução de nomes pelo DNS</td><td>Verificar se o nome aponta para o IP correto</td></tr>
+      </tbody></table>
+      <p class="note">Um teste de rede começa pelo mais simples: o IP está correto? A máscara é compatível? O ping responde? Só depois se investiga DNS, gateway e firewall.</p>
+    </section>
     <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.</p>
       <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar as VMs CLI01 e CLI02 com Windows 10</li><li>Adicionar as duas VMs à rede interna rede-nexatech</li><li>Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101</li><li>Testar ping entre as duas VMs nos dois sentidos</li><li>Registrar prints do ipconfig e do ping</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>VirtualBox, Windows 10, ISO e prompt de comando</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
     <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>

@@ -1,6 +1,6 @@
 # Atividade - Aula 02: O servidor na rede local e a UC7
 
-**Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.  
+**Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada no CLI01 acessível pelo CLI02), com ficha de configuração e evidências.  
 **Formato:** individual ou em dupla, conforme orientação do docente  
 **Peso sugerido:** atividade do bloco
 
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico.
 
 ## Contexto
 
@@ -16,24 +16,30 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 
 ## O que deve ser entregue
 
-Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+Servidor de arquivos básico em funcionamento: pasta compartilhada no CLI01 (via SMB) acessível pelo CLI02, com ficha de configuração e evidências. A ficha deve incluir também o diagnóstico inicial dos serviços que precisam ser centralizados.
 
 ## Etapas
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Inventariar as dores da NexaTech e classificar os serviços entre essenciais, importantes e opcionais
+2. Ligar CLI01 e CLI02 e confirmar os IPs `192.168.10.100` e `192.168.10.101`
+3. No CLI01, criar a pasta `C:\Compartilhado` com um arquivo de teste
+4. Compartilhar a pasta via SMB com o nome `nexatech`
+5. Definir permissões de leitura e alteração para os usuários do laboratório
+6. No CLI02, acessar `\\192.168.10.100\nexatech`, abrir o arquivo e gravar um novo arquivo
+7. Mapear a unidade `Z:` para o compartilhamento
+8. Registrar prints e as saídas de `net share` e `net use`
 
 ## Evidências esperadas
 
-- Documento ou planilha com as decisões e justificativas.
-- Capturas de tela ou saídas de comando que comprovem a execução.
+- Ficha com o diagnóstico dos serviços e as decisões de configuração.
+- Print da pasta compartilhada e das permissões no CLI01.
+- Print do acesso e da gravação de arquivo pelo CLI02.
+- Saídas de comando de `net share` e `net use`.
 - Registro das dificuldades encontradas e como foram resolvidas.
 
 ## Para refletir
 
-Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
+Por que um simples compartilhamento de pasta já melhora o trabalho da equipe, mas ainda não é uma infraestrutura corporativa?
 
 ---
 

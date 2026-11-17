@@ -13,7 +13,7 @@
 | Aula | Data | Bloco | Tema | Entrega principal |
 | :---: | :---: | :---: | :--- | :--- |
 | **01** | 13/11/2026 (sexta-feira) | 1 | TCP/IP e IPv4 | **Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.** |
-| **02** | 16/11/2026 (segunda-feira) | 1 | O servidor na rede local e a UC7 | **Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.** |
+| **02** | 16/11/2026 (segunda-feira) | 1 | O servidor na rede local e a UC7 | **Servidor de arquivos básico no CLI01 acessível pelo CLI02, com ficha de configuração e evidências.** |
 | **03** | 17/11/2026 (terça-feira) | 1 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
 | **04** | 18/11/2026 (quarta-feira) | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
 | **05** | 19/11/2026 (quinta-feira) | 1 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
@@ -78,7 +78,7 @@ Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
 
 ### Aula 02 - O servidor na rede local e a UC7 (16/11/2026 (segunda-feira))
 
-**Objetivo:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+**Objetivo:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.
 
 **Situação de aprendizagem:** A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
 
@@ -88,19 +88,21 @@ Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
 - Serviços essenciais de uma LAN corporativa
 - On-premise, nuvem e ambiente híbrido
 - Ciclo de vida: planejar, instalar, configurar, monitorar e manter
-- Ética profissional, LGPD e segurança da informação
+- Servidor de arquivos básico: compartilhamento SMB no Windows
 
 **Prática:**
-Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
+Criação de um servidor de arquivos básico: pasta compartilhada no CLI01 via SMB e acesso pelo CLI02.
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Inventariar as dores da NexaTech e os serviços a centralizar
+2. Ligar CLI01 e CLI02 e confirmar os IPs da aula anterior
+3. No CLI01, criar a pasta `C:\Compartilhado` e compartilhá-la como `nexatech`
+4. Definir permissões de leitura e alteração para os usuários do laboratório
+5. No CLI02, acessar `\\192.168.10.100\nexatech` e testar leitura e gravação
+6. Mapear a unidade `Z:` e registrar as evidências
 
-**Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+**Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada no CLI01 acessível pelo CLI02) com ficha de configuração e evidências.
 
-**Ferramentas:** 
+**Ferramentas:** VirtualBox, Windows 10 (CLI01 e CLI02), Explorador de Arquivos e prompt de comando
 
 ### Aula 03 - Arquitetura e topologia de rede local (17/11/2026 (terça-feira))
 

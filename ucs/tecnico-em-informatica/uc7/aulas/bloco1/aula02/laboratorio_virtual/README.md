@@ -2,52 +2,71 @@
 
 **Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+**Entrega da aula:** Servidor de arquivos básico no CLI01 acessado pelo CLI02, com ficha de configuração e evidências.
 
 ---
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.
 
 ## VMs desta aula
 
-Nenhuma VM é obrigatória nesta aula. O foco é planejamento e documentação no host.
+- **CLI01** — Windows 10, com a pasta compartilhada (servidor de arquivos básico)
+- **CLI02** — Windows 10, cliente que acessa o compartilhamento
 
 ## Antes de começar
 
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
+1. Abra o VirtualBox e confirme que as VMs CLI01 e CLI02 da Aula 01 estão disponíveis.
+2. Verifique se as duas VMs usam a rede interna `rede-nexatech`.
 3. Registre o estado atual antes de alterar qualquer configuração.
 
 
 ## Roteiro
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Inventariar as dores da NexaTech e os serviços a centralizar
+2. Ligar CLI01 e CLI02 e confirmar os IPs `192.168.10.100` e `192.168.10.101`
+3. No CLI01, criar a pasta `C:\Compartilhado` com um arquivo de teste
+4. Compartilhar a pasta via SMB com o nome `nexatech`
+5. Definir permissões de leitura e alteração para os usuários do laboratório
+6. No CLI02, acessar `\\192.168.10.100\nexatech`, abrir o arquivo e gravar um novo arquivo
+7. Mapear a unidade `Z:` para o compartilhamento
+8. Registrar prints e as saídas de `net share` e `net use`
+
+## Configuração de exemplo
+
+| VM | Papel | IP | Compartilhamento |
+| :--- | :--- | :--- | :--- |
+| CLI01 | Servidor de arquivos básico | 192.168.10.100 | `\\192.168.10.100\nexatech` |
+| CLI02 | Cliente | 192.168.10.101 | unidade `Z:` |
 
 ## Testes e evidências
 
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
+- Print da pasta `C:\Compartilhado` e das permissões de compartilhamento no CLI01.
+- Print do acesso ao compartilhamento e da gravação de arquivo pelo CLI02.
+- Saída de `net share` no CLI01 e de `net use` no CLI02.
+- Registro do que acontece ao tentar gravar sem permissão de alteração.
+- Atualize o documento do projeto integrador com a ficha do compartilhamento.
 
 ## Comandos úteis
 
 ```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula02"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula02"
-```
+# Conferir IP e conectividade
+ipconfig /all
+ping 192.168.10.100
 
+# No CLI01: listar compartilhamentos
+net share
+
+# No CLI02: acessar e mapear a unidade
+net use Z: \\192.168.10.100\nexatech
+```
 
 ## Observações
 
 - Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
+- Se o acesso falhar, confira o firewall do Windows, o nome do compartilhamento e as permissões.
+- Este compartilhamento é introdutório. Permissões NTFS, quotas, versionamento e backup serão aprofundados na Aula 14, no Windows Server.
 - A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
 
 

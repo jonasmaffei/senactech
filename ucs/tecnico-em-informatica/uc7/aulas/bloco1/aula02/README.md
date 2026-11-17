@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.
+Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.
 
 ---
 
@@ -22,7 +22,7 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Diagnóstico inicial de uma página com os serviços que precisam ser centralizados. |
+| [`atividade.md`](atividade.md) | Entrega da aula: servidor de arquivos básico no CLI01 acessado pelo CLI02, com ficha de configuração e evidências. |
 | [`apresentacao_aula02.html`](apresentacao_aula02.html) | Slides de conceito (abra no navegador) |
 | [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
@@ -36,32 +36,34 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 | Serviços essenciais de uma LAN corporativa |
 | On-premise, nuvem e ambiente híbrido |
 | Ciclo de vida: planejar, instalar, configurar, monitorar e manter |
-| Ética profissional, LGPD e segurança da informação |
+| Servidor de arquivos básico: compartilhamento SMB no Windows |
 
 ### Ferramentas
 
-Planilha, editor de texto, draw.io ou diagrams.net
+VirtualBox, Windows 10 (CLI01 e CLI02), Explorador de Arquivos e prompt de comando
 
 ---
 
 ## Prática em laboratório
 
-Análise do cenário e linha do tempo da UC, ainda sem máquinas virtuais.
+Criação de um servidor de arquivos básico: pasta compartilhada no CLI01 via SMB e acesso pelo CLI02.
 
-1. Inventariar os recursos e as dores da NexaTech
-2. Classificar os serviços entre essenciais, importantes e opcionais
-3. Montar um mapa inicial de serviços e responsáveis
-4. Definir os papéis da equipe e o fluxo de documentação
+1. Inventariar as dores da NexaTech e os serviços a centralizar
+2. Ligar CLI01 e CLI02 e confirmar os IPs da aula anterior
+3. No CLI01, criar a pasta `C:\Compartilhado` e compartilhá-la como `nexatech`
+4. Definir permissões de leitura e alteração para os usuários do laboratório
+5. No CLI02, acessar `\\192.168.10.100\nexatech` e testar leitura e gravação
+6. Mapear a unidade `Z:` e registrar as evidências
 
-> Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
+> Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador. As permissões NTFS, quotas e backup serão aprofundados na Aula 14.
 
 ---
 
 ## Atividade
 
-- **Entrega:** Diagnóstico inicial de uma página com os serviços que precisam ser centralizados.
+- **Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada no CLI01 acessível pelo CLI02) com ficha de configuração e evidências.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que centralizar autenticação, arquivos e DNS muda a forma como a empresa trabalha e se protege?
+- **Pergunta de reflexão:** Por que um simples compartilhamento de pasta já melhora o trabalho da equipe, mas ainda não é uma infraestrutura corporativa?
 
 ---
 
