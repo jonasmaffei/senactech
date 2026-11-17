@@ -13,7 +13,7 @@
 | Aula | Data | Bloco | Tema | Entrega principal |
 | :---: | :---: | :---: | :--- | :--- |
 | **01** | 13/11/2026 (sexta-feira) | 1 | TCP/IP e IPv4 | **Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.** |
-| **02** | 16/11/2026 (segunda-feira) | 1 | O servidor na rede local e a UC7 | **Servidor de arquivos básico no CLI01 acessível pelo CLI02, com ficha de configuração e evidências.** |
+| **02** | 16/11/2026 (segunda-feira) | 1 | O servidor na rede local e a UC7 | **Servidor de arquivos básico na FS01 acessível pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.** |
 | **03** | 17/11/2026 (terça-feira) | 1 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
 | **04** | 18/11/2026 (quarta-feira) | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
 | **05** | 19/11/2026 (quinta-feira) | 1 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
@@ -82,7 +82,16 @@ Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
 
 **Situação de aprendizagem:** A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
 
+**Dores da NexaTech:**
+- Arquivos espalhados em um PC comum, com cópias duplicadas, versões perdidas e backup manual. Solução: servidor de arquivos com permissões e rotina de backup.
+- Falta de autenticação central, com contas locais em cada estação e senhas repetidas. Solução: Active Directory com usuários e grupos únicos.
+- Falhas de rede resolvidas no improviso, sem padrão nem registro. Solução: topologia documentada, plano de IPs e DNS/DHCP padronizados.
+- Ausência de monitoramento, com falhas descobertas apenas pela reclamação do usuário. Solução: monitoramento de disponibilidade, disco e logs com alertas.
+
+**Classificação dos serviços:** essenciais (autenticação, arquivos, DNS e DHCP); importantes (backup, impressão e monitoramento); opcionais (web interna, banco da aplicação e nuvem).
+
 **Tópicos:**
+- Diagnóstico de dores e priorização de serviços
 - Modelo cliente/servidor e redes peer-to-peer
 - Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem
 - Serviços essenciais de uma LAN corporativa
@@ -91,18 +100,20 @@ Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
 - Servidor de arquivos básico: compartilhamento SMB no Windows
 
 **Prática:**
-Criação de um servidor de arquivos básico: pasta compartilhada no CLI01 via SMB e acesso pelo CLI02.
+Criação de um servidor de arquivos básico em uma terceira VM Windows 10 (FS01), com pasta compartilhada via SMB e acesso pelo CLI01 e pelo CLI02.
 
-1. Inventariar as dores da NexaTech e os serviços a centralizar
-2. Ligar CLI01 e CLI02 e confirmar os IPs da aula anterior
-3. No CLI01, criar a pasta `C:\Compartilhado` e compartilhá-la como `nexatech`
-4. Definir permissões de leitura e alteração para os usuários do laboratório
-5. No CLI02, acessar `\\192.168.10.100\nexatech` e testar leitura e gravação
-6. Mapear a unidade `Z:` e registrar as evidências
+1. Preencher a ficha com as quatro dores da NexaTech, o impacto e a solução proposta para cada uma
+2. Classificar os serviços em essenciais, importantes e opcionais, justificando cada escolha
+3. Criar a VM FS01 com Windows 10 e adicioná-la à rede interna `rede-nexatech`
+4. Configurar na FS01 o IP `192.168.10.102`
+5. Na FS01, criar a pasta `C:\Compartilhado` e compartilhá-la como `nexatech`
+6. Definir permissões de leitura e alteração para os usuários do laboratório
+7. No CLI01 e no CLI02, acessar `\\192.168.10.102\nexatech` e testar leitura e gravação
+8. Mapear a unidade `Z:` e registrar as evidências
 
-**Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada no CLI01 acessível pelo CLI02) com ficha de configuração e evidências.
+**Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada na FS01 acessível pelo CLI01 e pelo CLI02) com ficha de configuração e evidências.
 
-**Ferramentas:** VirtualBox, Windows 10 (CLI01 e CLI02), Explorador de Arquivos e prompt de comando
+**Ferramentas:** VirtualBox, Windows 10 (FS01, CLI01 e CLI02), Explorador de Arquivos e prompt de comando
 
 ### Aula 03 - Arquitetura e topologia de rede local (17/11/2026 (terça-feira))
 

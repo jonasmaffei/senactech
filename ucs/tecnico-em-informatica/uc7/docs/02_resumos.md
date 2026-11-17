@@ -18,9 +18,13 @@ Reconhecer o papel dos servidores em uma rede local, os principais tipos de serv
 
 A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.
 
+**Dores e soluções:** arquivos espalhados → servidor de arquivos com permissões e backup; falta de autenticação central → Active Directory; falhas no improviso → topologia documentada, plano de IPs e DNS/DHCP padronizados; ausência de monitoramento → alertas de disponibilidade, disco e logs.
+
+**Classificação dos serviços:** essenciais (autenticação, arquivos, DNS e DHCP), importantes (backup, impressão e monitoramento) e opcionais (web interna, banco da aplicação e nuvem).
+
 **Conceitos principais:** Modelo cliente/servidor e redes peer-to-peer; Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem; Serviços essenciais de uma LAN corporativa; On-premise, nuvem e ambiente híbrido; Ciclo de vida: planejar, instalar, configurar, monitorar e manter.
 
-**Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada no CLI01 acessível pelo CLI02), com ficha de configuração e evidências.
+**Entrega:** Servidor de arquivos básico em funcionamento (pasta compartilhada na FS01 acessível pelo CLI01 e pelo CLI02), com ficha de configuração e evidências.
 
 ## Aula 03 - Arquitetura e topologia de rede local
 

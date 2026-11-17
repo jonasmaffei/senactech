@@ -31,8 +31,9 @@ A30 Monitoramento, automação e troubleshooting -> A31 Governança de TI, segur
 * **Impacto de negócio:** Um plano de IP correto evita conflitos e facilita a instalação dos servidores.
 
 ### Aula 02 - O servidor na rede local e a UC7
+* **Dores da NexaTech:** Arquivos espalhados em um PC comum (solução: servidor de arquivos com backup); falta de autenticação central (solução: Active Directory); falhas no improviso (solução: topologia, IPs e DNS/DHCP padronizados); ausência de monitoramento (solução: alertas de disponibilidade, disco e logs).
 * **Conceito/fundamento:** Modelo cliente/servidor e redes peer-to-peer; Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem; Serviços essenciais de uma LAN corporativa; On-premise, nuvem e ambiente híbrido.
-* **O que se aprende:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.
+* **O que se aprende:** Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico em uma terceira VM Windows 10 (FS01) com compartilhamento SMB.
 * **Problema em aberto:** Quais serviços serão necessários e como eles se conectam fisicamente?
 * **Impacto de negócio:** Evita compras e instalações sem critério, reduzindo custo e retrabalho.
 

@@ -208,7 +208,7 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 02</div>
-  <div id="counter">1 / 15</div>
+  <div id="counter">1 / 16</div>
 </header>
 <main id="deck">
 
@@ -240,7 +240,7 @@
           </div>
           <div class="card">
             <h3>Entrega principal</h3>
-            <p>Servidor de arquivos básico no CLI01 acessível pelo CLI02, com ficha de configuração e evidências.</p>
+            <p>Servidor de arquivos básico na FS01 (Windows 10) acessível pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.</p>
           </div>
         </div>
       </div>
@@ -248,10 +248,28 @@
     
 
     <section class="slide">
+      <span class="kicker">Diagnóstico</span>
+      <h2>As dores da NexaTech e como resolvê-las</h2>
+      <table><thead><tr><th>Dor</th><th>Como aparece hoje</th><th>Exemplo de solução</th></tr></thead><tbody>
+        <tr><td>Arquivos espalhados</td><td>Todos usam um PC comum. Há cópias duplicadas, versões perdidas e backup manual.</td><td>Servidor de arquivos com pasta compartilhada, permissões e rotina de backup.</td></tr>
+        <tr><td>Sem autenticação central</td><td>Cada estação tem conta local. As senhas se repetem e ninguém sabe quem acessou o quê.</td><td>Active Directory com usuários e grupos únicos para toda a empresa.</td></tr>
+        <tr><td>Rede resolvida no improviso</td><td>As falhas são corrigidas sem padrão e sem registro, então o problema volta.</td><td>Topologia documentada, plano de IPs e DNS/DHCP padronizados.</td></tr>
+        <tr><td>Sem monitoramento</td><td>A equipe só descobre a queda quando o usuário reclama.</td><td>Monitoramento de disponibilidade, disco e logs, com alertas.</td></tr>
+      </tbody></table>
+      <div class="grid cols-3">
+        <div class="card highlight"><h3>Essenciais</h3><p>Sem eles a empresa para: autenticação, arquivos, DNS e DHCP.</p></div>
+        <div class="card"><h3>Importantes</h3><p>Afetam produtividade e continuidade: backup, impressão e monitoramento.</p></div>
+        <div class="card"><h3>Opcionais</h3><p>Agregam valor, mas podem esperar: web interna, banco da aplicação e nuvem.</p></div>
+      </div>
+      <p class="note"><strong>Na prática:</strong> use essas quatro dores como ponto de partida. A classificação pode mudar conforme o setor e o impacto no negócio.</p>
+    </section>
+    
+
+    <section class="slide">
       <span class="kicker">Mapa da UC</span>
       <h2>O caminho das 32 aulas</h2>
       <div class="grid cols-2">
-        <div class="card"><h3>Bloco 1 - Fundamentos e Planejamento</h3><ul class="clean"><li><strong>Aula 01</strong> TCP/IP e IPv4</li><li><strong>Aula 02</strong> O servidor na rede local e a UC7</li><li><strong>Aula 03</strong> Arquitetura e topologia de rede local</li><li><strong>Aula 04</strong> Protocolos e serviços de rede</li><li><strong>Aula 05</strong> Hardware de servidor, armazenamento e RAID</li><li><strong>Aula 06</strong> Virtualização e criação de VMs no VirtualBox</li><li><strong>Aula 07</strong> Planejamento, laboratório e plano diretor da rede</li></ul></div><div class="card"><h3>Bloco 2 - Windows Server</h3><ul class="clean"><li><strong>Aula 08</strong> Instalação e configuração inicial do Windows Server</li><li><strong>Aula 09</strong> Active Directory Domain Services</li><li><strong>Aula 10</strong> Controlador de domínio e ingresso de clientes</li><li><strong>Aula 11</strong> Unidades organizacionais, grupos e usuários</li><li><strong>Aula 12</strong> DNS no Windows Server</li><li><strong>Aula 13</strong> DHCP no Windows Server</li><li><strong>Aula 14</strong> Compartilhamento de arquivos, permissões e quotas</li><li><strong>Aula 15</strong> GPOs e políticas de segurança</li></ul></div><div class="card"><h3>Bloco 3 - Redes, Roteamento e Firewall</h3><ul class="clean"><li><strong>Aula 16</strong> Roteamento e NAT</li><li><strong>Aula 17</strong> pfSense: instalação e configuração inicial</li><li><strong>Aula 18</strong> pfSense: firewall, NAT e liberação de internet</li><li><strong>Aula 19</strong> Serviços web (IIS), acesso remoto e administração</li></ul></div><div class="card"><h3>Bloco 4 - Linux Server e Segurança</h3><ul class="clean"><li><strong>Aula 20</strong> Instalação e configuração inicial do Ubuntu Server</li><li><strong>Aula 21</strong> Administração e operação do Linux</li><li><strong>Aula 22</strong> Usuários, grupos e permissões no Linux</li><li><strong>Aula 23</strong> SSH e administração remota</li><li><strong>Aula 24</strong> DHCP no Linux</li><li><strong>Aula 25</strong> DNS no Linux</li><li><strong>Aula 26</strong> Servidor web Apache + PHP</li><li><strong>Aula 27</strong> Banco de dados e integração da aplicação</li><li><strong>Aula 28</strong> Segurança em servidores Linux</li><li><strong>Aula 29</strong> Backup, continuidade e recuperação de dados</li></ul></div><div class="card"><h3>Bloco 5 - Operação, Monitoramento e Projeto</h3><ul class="clean"><li><strong>Aula 30</strong> Monitoramento, automação e troubleshooting</li><li><strong>Aula 31</strong> Governança de TI, segurança e certificações</li><li><strong>Aula 32</strong> Projeto integrador: apresentação e defesa</li></ul></div>
+        <div class="card"><h3>Bloco 1 - Fundamentos e Planejamento</h3><ul class="clean"><li><strong>Aula 01</strong> TCP/IP e IPv4</li><li><strong>Aula 02</strong> O servidor na rede local e a UC7</li><li><strong>Aula 03</strong> Arquitetura e topologia de rede local</li><li><strong>Aula 04</strong> Protocolos e serviços de rede</li><li><strong>Aula 05</strong> Hardware de servidor, armazenamento e RAID</li><li><strong>Aula 06</strong> Virtualização e criação de VMs no VirtualBox</li><li><strong>Aula 07</strong> Planejamento, laboratório e plano diretor da rede</li></ul></div><div class="card"><h3>Bloco 2 - Windows Server</h3><ul class="clean"><li><strong>Aula 08</strong> Instalação e configuração inicial do Windows Server</li><li><strong>Aula 09</strong> Active Directory Domain Services</li><li><strong>Aula 10</strong> Controlador de domínio e ingresso de clientes</li><li><strong>Aula 11</strong> Unidades organizacionais, grupos e usuários</li><li><strong>Aula 12</strong> DNS no Windows Server</li><li><strong>Aula 13</strong> DHCP no Windows Server</li><li><strong>Aula 14</strong> Compartilhamento de arquivos, permissões e quotas</li><li><strong>Aula 15</strong> GPOs e políticas de segurança</li></ul></div><div class="card"><h3>Bloco 3 - Redes, Roteamento e Firewall</h3><ul class="clean"><li><strong>Aula 16</strong> Roteamento e NAT</li><li><strong>Aula 17</strong> pfSense: instalação e configuração inicial</li><li><strong>Aula 18</strong> pfSense: firewall, NAT e liberação de internet</li><li><strong>Aula 19</strong> Serviços web (IIS), acesso remoto e administração</li></ul></div><div class="card"><h3>Bloco 4 - Servidores e Segurança</h3><ul class="clean"><li><strong>Aula 20</strong> Instalação e configuração inicial de servidores</li><li><strong>Aula 21</strong> Administração e operação de servidores</li><li><strong>Aula 22</strong> Usuários, grupos e permissões em servidores</li><li><strong>Aula 23</strong> SSH e administração remota</li><li><strong>Aula 24</strong> DHCP em servidores</li><li><strong>Aula 25</strong> DNS em servidores</li><li><strong>Aula 26</strong> Servidor web</li><li><strong>Aula 27</strong> Banco de dados e integração da aplicação</li><li><strong>Aula 28</strong> Segurança em servidores</li><li><strong>Aula 29</strong> Backup, continuidade e recuperação de dados</li></ul></div><div class="card"><h3>Bloco 5 - Operação, Monitoramento e Projeto</h3><ul class="clean"><li><strong>Aula 30</strong> Monitoramento, automação e troubleshooting</li><li><strong>Aula 31</strong> Governança de TI, segurança e certificações</li><li><strong>Aula 32</strong> Projeto integrador: apresentação e defesa</li></ul></div>
       </div>
       <div class="note">
         O fio condutor é o ciclo de vida do servidor: planejar, instalar, configurar,
@@ -288,7 +306,7 @@
       <h2>Tipos de servidor <span class="muted">(1/2)</span></h2>
       <div class="grid cols-2">
         <div class="card"><span class="card-num">01</span><h3>Servidor de arquivos</h3><p>Centraliza documentos em pastas compartilhadas via SMB ou NFS. Facilita backup, permissões e acesso de qualquer estação autorizada.</p></div>
-        <div class="card"><span class="card-num">02</span><h3>Servidor de autenticação e diretório</h3><p>Guarda usuários e senhas e permite login único na rede. No Windows, é o Active Directory; no Linux, o LDAP ou o Samba como controlador de domínio.</p></div>
+        <div class="card"><span class="card-num">02</span><h3>Servidor de autenticação e diretório</h3><p>Guarda usuários e senhas e permite login único na rede. No ambiente Windows, esse papel é exercido pelo Active Directory.</p></div>
         <div class="card"><span class="card-num">03</span><h3>Servidor DNS</h3><p>Traduz nomes em endereços IP. Sem ele, os clientes não encontram servidores e serviços pelo nome, apenas pelo número.</p></div>
         <div class="card"><span class="card-num">04</span><h3>Servidor DHCP</h3><p>Distribui IP, máscara, gateway e DNS automaticamente, evitando configuração manual e conflitos de endereço.</p></div>
       </div>
@@ -299,7 +317,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Tipos de servidor <span class="muted">(2/2)</span></h2>
       <div class="grid cols-2">
-        <div class="card"><span class="card-num">05</span><h3>Servidor web</h3><p>Publica sites e aplicações para a rede interna ou para a internet. Exemplos: IIS no Windows, Apache e Nginx no Linux.</p></div>
+        <div class="card"><span class="card-num">05</span><h3>Servidor web</h3><p>Publica sites e aplicações para a rede interna ou para a internet. No ambiente Windows, o papel é exercido pelo IIS.</p></div>
         <div class="card"><span class="card-num">06</span><h3>Servidor de banco de dados</h3><p>Armazena e organiza os dados usados pelas aplicações. Exemplos: MySQL, PostgreSQL e SQL Server.</p></div>
         <div class="card"><span class="card-num">07</span><h3>Servidor de virtualização</h3><p>Hospeda várias máquinas virtuais em um único hardware, economizando energia e facilitando a criação de laboratórios e réplicas.</p></div>
         <div class="card"><span class="card-num">08</span><h3>Servidor de nuvem e backup</h3><p>Oferece armazenamento, cópias de segurança e serviços externos. Pode complementar a estrutura local em um modelo híbrido.</p></div>
@@ -353,23 +371,25 @@
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>Servidor de arquivos básico</h2>
-      <p class="lead">Transformar o CLI01 em um servidor de arquivos simples, compartilhando uma pasta via SMB e acessando-a pelo CLI02.</p>
+      <p class="lead">Criar uma terceira VM Windows 10, a FS01, e usá-la como servidor de arquivos simples, compartilhando uma pasta via SMB com o CLI01 e o CLI02.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Roteiro da aula</h3>
           <ol class="steps">
-            <li>Inventariar rapidamente as dores da NexaTech e os serviços a centralizar</li>
-            <li>Ligar CLI01 e CLI02 e confirmar os IPs <code>192.168.10.100</code> e <code>192.168.10.101</code></li>
-            <li>No CLI01, criar a pasta <code>C:\Compartilhado</code> com um arquivo de teste</li>
+            <li>Preencher a ficha de dores com as quatro situações da NexaTech: arquivos no PC comum, falta de autenticação central, falhas resolvidas no improviso e ausência de monitoramento</li>
+            <li>Classificar os serviços em essenciais, importantes e opcionais, justificando cada escolha</li>
+            <li>Criar a VM <code>FS01</code> com Windows 10 e adicioná-la à rede interna <code>rede-nexatech</code></li>
+            <li>Configurar na FS01 o IP <code>192.168.10.102</code> e confirmar os IPs do CLI01 e do CLI02</li>
+            <li>Na FS01, criar a pasta <code>C:\Compartilhado</code> com um arquivo de teste</li>
             <li>Compartilhar a pasta via SMB com o nome <code>nexatech</code></li>
             <li>Definir permissões de leitura e alteração para os usuários do laboratório</li>
-            <li>No CLI02, acessar <code>\\192.168.10.100\nexatech</code> e testar leitura e gravação</li>
+            <li>No CLI01 e no CLI02, acessar <code>\\192.168.10.102\nexatech</code> e testar leitura e gravação</li>
             <li>Mapear a unidade <code>Z:</code> e registrar prints e saídas de <code>net share</code> e <code>net use</code></li>
           </ol>
         </div>
         <div class="card">
           <h3>Ferramentas e ambiente</h3>
-          <p>VirtualBox, Windows 10 (CLI01 e CLI02), Explorador de Arquivos e prompt de comando</p>
+          <p>VirtualBox, Windows 10 (FS01, CLI01 e CLI02), Explorador de Arquivos e prompt de comando</p>
           <div class="note">
             Este é um compartilhamento introdutório. Permissões NTFS, quotas, versionamento e backup
             serão aprofundados na Aula 14, já no Windows Server.
@@ -387,9 +407,9 @@
       
     <div class="topology" aria-label="Topologia do laboratório">
       <div class="top-group">
-        <div class="top-node dc">
+        <div class="top-node client">
           <strong>CLI01</strong>
-          <span>servidor de arquivos básico</span>
+          <span>cliente Windows</span>
           <small>192.168.10.100</small>
         </div>
         <div class="top-node client">
@@ -401,29 +421,18 @@
       <div class="top-link"><span>switch interno</span></div>
       <div class="top-group">
         <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>APP01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>DB01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
+          <strong>FS01</strong>
+          <span>servidor de arquivos básico</span>
+          <small>192.168.10.102</small>
         </div>
       </div>
     </div>
     
-      <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
-        <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
+      <div class="grid cols-2">
+        <div class="card"><h3>FS01</h3><p>Windows 10. Hospeda a pasta compartilhada <code>nexatech</code> via SMB e concentra os arquivos da prática.</p></div>
+        <div class="card"><h3>CLI01 e CLI02</h3><p>Windows 10. Clientes que acessam o compartilhamento da FS01 pela rede interna.</p></div>
       </div>
-      <p class="note"><strong>Nesta aula:</strong> o CLI01 faz o papel de servidor de arquivos básico. DC01, APP01 e DB01 entram nas próximas aulas, quando os serviços forem realmente instalados e configurados.</p>
+      <p class="note"><strong>Nesta aula:</strong> a FS01 é a terceira VM Windows 10 do laboratório e faz o papel de servidor de arquivos básico. O DC01 e os demais servidores entram nas próximas aulas.</p>
     </section>
     
 
@@ -431,15 +440,15 @@
       <span class="kicker">Entrega</span>
       <h2>O que deve ser entregue</h2>
       <div class="card highlight">
-        <h3>Servidor de arquivos básico em funcionamento: pasta compartilhada no CLI01 acessada pelo CLI02, com ficha de configuração e evidências.</h3>
+        <h3>Servidor de arquivos básico em funcionamento: pasta compartilhada na FS01 acessada pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.</h3>
         <p>Inclua também o diagnóstico inicial dos serviços que precisam ser centralizados. O enunciado completo está em <code>atividade.md</code>.</p>
       </div>
       <div class="grid cols-2" style="margin-top:14px">
         <div class="card">
           <h3>Evidências esperadas</h3>
           <ul class="check">
-            <li>Print da pasta compartilhada e das permissões no CLI01.</li>
-            <li>Print do acesso e da gravação de arquivo pelo CLI02.</li>
+            <li>Print da pasta compartilhada e das permissões na FS01.</li>
+            <li>Print do acesso e da gravação de arquivo pelo CLI01 e pelo CLI02.</li>
             <li>Saídas de <code>net share</code> e <code>net use</code>.</li>
             <li>Dificuldades encontradas e como foram resolvidas.</li>
           </ul>
@@ -473,7 +482,7 @@
       <div class="grid cols-2">
         <div class="card">
           <h3>Entrega que sustenta o projeto</h3>
-          <p>Servidor de arquivos básico no CLI01 e diagnóstico dos serviços a centralizar.</p>
+          <p>Servidor de arquivos básico na FS01 e diagnóstico dos serviços a centralizar.</p>
         </div>
         <div class="card">
           <h3>Próximo gargalo</h3>
