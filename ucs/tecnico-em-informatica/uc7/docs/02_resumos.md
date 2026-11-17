@@ -36,7 +36,7 @@ A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para
 
 **Dor e solução:** A empresa tem 45 estações, impressoras e Wi-Fi, mas não tem desenho de rede nem plano de IPs. Impacto: Compras sem critério e endereços desorganizados causam retrabalho e pontos sem conectividade. Solução: Desenhar a topologia física e lógica e montar a planilha de endereçamento por setor. Prioridade: Essencial.
 
-**Conceitos principais:** Topologias estrela, barramento, anel e malha; Cabeamento Cat5e/Cat6, fibra óptica e patch panel; Rack, switch, roteador, firewall e access point; VLANs e segmentação por setor; IPv4: endereço, máscara e notação CIDR.
+**Conceitos principais:** Topologias estrela, barramento, anel e malha; Cabeamento Cat5e/Cat6, fibra óptica e patch panel; Rack, switch, roteador, firewall e access point; VLANs e segmentação por setor; IPv4: endereço, máscara e notação CIDR; Gateway padrão e roteamento na LAN; IPv6 e dual stack; Documentação de rede e plano de IPs.
 
 **Entrega:** Diagrama de rede e planilha de endereçamento IP da NexaTech.
 

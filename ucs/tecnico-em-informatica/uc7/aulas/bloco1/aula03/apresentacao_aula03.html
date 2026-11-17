@@ -133,6 +133,11 @@
     border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
     padding: 1px 6px; border-radius: 6px;
   }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: .92rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
+  td { color: var(--muted); }
+  tbody tr:last-child td { border-bottom: none; }
   .note {
     margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
     border-radius: 10px; background: rgba(99,102,241,.06);
@@ -203,7 +208,7 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 03</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 18</div>
 </header>
 <main id="deck">
 
@@ -243,41 +248,178 @@
     
 
     <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Topologias estrela, barramento, anel e malha</h3></div><div class="card"><span class="card-num">02</span><h3>Cabeamento Cat5e/Cat6, fibra óptica e patch panel</h3></div><div class="card"><span class="card-num">03</span><h3>Rack, switch, roteador, firewall e access point</h3></div><div class="card"><span class="card-num">04</span><h3>VLANs e segmentação por setor</h3></div>
-      </div>
+      <span class="kicker">Teoria</span>
+      <h2>Topologias de rede local</h2>
+      <p class="lead">A topologia define como as estações e os equipamentos se conectam. Ela influencia custo, desempenho e o impacto de uma falha.</p>
+      <table><thead><tr><th>Topologia</th><th>Como funciona</th><th>Vantagem</th><th>Limitação</th><th>Uso na NexaTech</th></tr></thead><tbody>
+        <tr><td>Estrela</td><td>Todas as estações ligam a um switch central.</td><td>Falha em um cabo não derruba os demais.</td><td>Depende do switch central.</td><td>Padrão da LAN, com switch por andar.</td></tr>
+        <tr><td>Barramento</td><td>Todos compartilham o mesmo cabo.</td><td>Simples e barata.</td><td>Uma falha no cabo derruba o segmento e há colisões.</td><td>Não recomendada para a empresa.</td></tr>
+        <tr><td>Anel</td><td>Cada estação conecta à seguinte, formando um ciclo.</td><td>Tráfego organizado em anel.</td><td>Uma falha pode interromper o anel.</td><td>Legado; não será usada.</td></tr>
+        <tr><td>Malha</td><td>Vários caminhos entre os nós.</td><td>Alta disponibilidade.</td><td>Custo e complexidade altos.</td><td>Somente em backbone ou links críticos.</td></tr>
+      </tbody></table>
+      <p class="note"><strong>Na prática:</strong> a NexaTech usa estrela hierárquica — switch de acesso em cada andar e um switch central no rack.</p>
     </section>
     
 
     <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">05</span><h3>IPv4: endereço, máscara e notação CIDR</h3></div><div class="card"><span class="card-num">06</span><h3>IPv6 e endereçamento dual stack</h3></div><div class="card"><span class="card-num">07</span><h3>Documentação de rede e plano de IPs</h3></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Projeto de topologia em paper/diagrama; a implementação em VMs ocorre nas Aulas 01 e 06.</p>
+      <span class="kicker">Teoria</span>
+      <h2>Meios físicos e cabeamento</h2>
+      <table><thead><tr><th>Meio</th><th>Uso típico</th><th>Distância</th><th>Observação</th></tr></thead><tbody>
+        <tr><td>Cat5e</td><td>Estações e impressoras</td><td>Até 100 m</td><td>Até 1 Gbps; comum em instalações antigas.</td></tr>
+        <tr><td>Cat6</td><td>Novas instalações</td><td>Até 100 m</td><td>Suporta 10 Gbps em distâncias menores; menos interferência.</td></tr>
+        <tr><td>Fibra óptica</td><td>Backbone entre andares e rack</td><td>Centenas de metros a km</td><td>Imune a interferência eletromagnética.</td></tr>
+        <tr><td>Patch panel</td><td>Organização no rack</td><td>—</td><td>Concentra a terminação dos cabos e facilita a manutenção.</td></tr>
+      </tbody></table>
       <div class="grid cols-2">
+        <div class="card"><h3>Boas práticas</h3><p>Respeite o limite de 100 m no cobre, evite passar cabo junto à energia elétrica e identifique cada porta e ponto.</p></div>
+        <div class="card"><h3>Teste e documentação</h3><p>Certifique o cabo, registre o ponto no diagrama e mantenha sobra técnica para novas estações.</p></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>Equipamentos da LAN</h2>
+      <table><thead><tr><th>Equipamento</th><th>Função</th><th>Onde entra na topologia</th></tr></thead><tbody>
+        <tr><td>Switch</td><td>Conecta estações da mesma rede ou VLAN e comuta os quadros pelo endereço MAC.</td><td>Switch de acesso por andar e switch central no rack.</td></tr>
+        <tr><td>Roteador</td><td>Liga redes diferentes e encaminha pacotes entre elas.</td><td>Na saída da LAN para outras redes ou VLANs.</td></tr>
+        <tr><td>Firewall</td><td>Filtra o tráfego e aplica regras de segurança.</td><td>Entre a LAN e a internet, ou entre segmentos.</td></tr>
+        <tr><td>Access point</td><td>Oferece acesso Wi-Fi à rede.</td><td>Nos andares, conectado ao switch.</td></tr>
+        <tr><td>Rack</td><td>Organiza, protege e identifica os equipamentos.</td><td>Sala técnica ou ponto central da rede.</td></tr>
+      </tbody></table>
+      <p class="note"><strong>Atenção:</strong> o switch não é o gateway. Ele conecta máquinas da mesma rede; o gateway é o roteador ou firewall que leva o tráfego para outra rede.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>VLANs e segmentação por setor</h2>
+      <p class="lead">Uma VLAN divide logicamente o switch, como se cada setor estivesse em uma rede separada. Isso melhora segurança, organização e controle do tráfego de broadcast.</p>
+      <table><thead><tr><th>VLAN</th><th>Setor</th><th>Rede de exemplo</th><th>Gateway</th></tr></thead><tbody>
+        <tr><td>10</td><td>Administração</td><td><code>192.168.10.0/24</code></td><td><code>192.168.10.1</code></td></tr>
+        <tr><td>20</td><td>Vendas</td><td><code>192.168.20.0/24</code></td><td><code>192.168.20.1</code></td></tr>
+        <tr><td>30</td><td>TI e servidores</td><td><code>192.168.30.0/24</code></td><td><code>192.168.30.1</code></td></tr>
+        <tr><td>40</td><td>Visitantes</td><td><code>192.168.40.0/24</code></td><td><code>192.168.40.1</code></td></tr>
+      </tbody></table>
+      <div class="grid cols-2">
+        <div class="card"><h3>Portas de acesso e trunk</h3><p>A porta de acesso pertence a uma VLAN e conecta uma estação. A porta trunk transporta várias VLANs entre switches.</p></div>
+        <div class="card"><h3>Comunicação entre VLANs</h3><p>VLANs diferentes não se falam sozinhas: é preciso um roteador ou firewall fazendo o roteamento entre elas.</p></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>IPv4: como o endereço é formado</h2>
+      <p class="lead">Um endereço IPv4 tem 32 bits, escritos como quatro octetos separados por ponto. Cada octeto vai de 0 a 255.</p>
+      <div class="two-col">
         <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Desenhar a topologia física e lógica da NexaTech</li><li>Definir a distribuição de IPs por setor</li><li>Montar a planilha de endereços e reservas</li><li>Revisar o diagrama com a turma e corrigir inconsistências</li></ol>
+          <h3>Exemplo: <code>192.168.10.100</code></h3>
+          <table><tbody>
+            <tr><td>1º octeto</td><td>192</td></tr>
+            <tr><td>2º octeto</td><td>168</td></tr>
+            <tr><td>3º octeto</td><td>10</td></tr>
+            <tr><td>4º octeto</td><td>100</td></tr>
+          </tbody></table>
         </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>draw.io ou diagrams.net, planilha</p>
-          <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
-          </div>
+        <div class="grid">
+          <div class="card"><h3>Parte de rede</h3><p>Identifica o grupo de máquinas. Com a máscara <code>255.255.255.0</code>, a rede é <code>192.168.10.0</code>.</p></div>
+          <div class="card"><h3>Parte de host</h3><p>Identifica a máquina dentro da rede. No exemplo, o host é <code>100</code>.</p></div>
         </div>
       </div>
+      <p class="note"><strong>Regra:</strong> o IP precisa ser único na rede e a máscara define onde termina a parte de rede e começa a parte de host.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>Máscara de rede: separando rede e host</h2>
+      <p class="lead">A máscara é uma sequência de bits 1 seguida de bits 0. Os 1s indicam a parte de rede; os 0s indicam a parte de host.</p>
+      <table><thead><tr><th>CIDR</th><th>Máscara</th><th>Bits de rede</th><th>Bits de host</th><th>Hosts úteis</th></tr></thead><tbody>
+        <tr><td><code>/24</code></td><td><code>255.255.255.0</code></td><td>24</td><td>8</td><td>254</td></tr>
+        <tr><td><code>/25</code></td><td><code>255.255.255.128</code></td><td>25</td><td>7</td><td>126</td></tr>
+        <tr><td><code>/30</code></td><td><code>255.255.255.252</code></td><td>30</td><td>2</td><td>2</td></tr>
+      </tbody></table>
+      <div class="grid cols-2">
+        <div class="card highlight"><h3>Mesma rede</h3><p><code>192.168.10.100/24</code> e <code>192.168.10.101/24</code> têm a mesma rede <code>192.168.10.0</code> e se comunicam pelo switch.</p></div>
+        <div class="card"><h3>Redes diferentes</h3><p><code>192.168.10.100/24</code> e <code>192.168.20.100/24</code> não se comunicam sem um roteador ou gateway.</p></div>
+      </div>
+      <p class="note"><strong>Endereços especiais:</strong> em uma rede <code>/24</code>, o primeiro endereço (<code>.0</code>) identifica a rede e o último (<code>.255</code>) é o broadcast. Os hosts válidos vão de <code>.1</code> a <code>.254</code>.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>Gateway: a saída para outras redes</h2>
+      <p class="lead">O gateway padrão é o endereço de um roteador ou firewall que encaminha pacotes para fora da rede local. Ele precisa estar na mesma rede da máquina.</p>
+      <table><thead><tr><th>Destino do pacote</th><th>Para onde vai</th><th>Exemplo</th></tr></thead><tbody>
+        <tr><td>Mesma rede</td><td>Direto pelo switch, usando o endereço MAC do destino.</td><td><code>192.168.10.100</code> para <code>192.168.10.101</code></td></tr>
+        <tr><td>Outra rede</td><td>Para o gateway padrão, que decide a rota.</td><td><code>192.168.10.100</code> para <code>8.8.8.8</code> via <code>192.168.10.1</code></td></tr>
+      </tbody></table>
+      <div class="grid cols-2">
+        <div class="card"><h3>Gateway correto</h3><p>No exemplo, host <code>192.168.10.100/24</code> e gateway <code>192.168.10.1</code>. O gateway está na mesma rede do host.</p></div>
+        <div class="card"><h3>Gateway errado</h3><p>Se o gateway estiver em outra rede ou não existir, a máquina fala com a LAN, mas não alcança a internet nem outras redes.</p></div>
+      </div>
+      <p class="note"><strong>No laboratório:</strong> a rede interna começa sem gateway. Ele será definido quando o pfSense ou o DC01 assumir a saída para outras redes.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>CIDR e plano de endereçamento</h2>
+      <p class="lead">O CIDR indica quantos bits da máscara pertencem à rede. O plano de endereçamento organiza as faixas por setor, servidor e tipo de uso.</p>
+      <table><thead><tr><th>Setor</th><th>VLAN</th><th>Rede</th><th>Gateway</th><th>Faixa de hosts</th></tr></thead><tbody>
+        <tr><td>Administração</td><td>10</td><td><code>192.168.10.0/24</code></td><td><code>192.168.10.1</code></td><td><code>.10</code> a <code>.99</code></td></tr>
+        <tr><td>Vendas</td><td>20</td><td><code>192.168.20.0/24</code></td><td><code>192.168.20.1</code></td><td><code>.10</code> a <code>.99</code></td></tr>
+        <tr><td>TI e servidores</td><td>30</td><td><code>192.168.30.0/24</code></td><td><code>192.168.30.1</code></td><td><code>.10</code> a <code>.49</code></td></tr>
+        <tr><td>Visitantes</td><td>40</td><td><code>192.168.40.0/24</code></td><td><code>192.168.40.1</code></td><td><code>.100</code> a <code>.200</code></td></tr>
+      </tbody></table>
+      <p class="note"><strong>Plano do laboratório:</strong> para simplificar, as VMs usam a rede plana <code>192.168.10.0/24</code>. As VLANs acima representam o desenho recomendado para a rede real da NexaTech.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>IPv6 e dual stack</h2>
+      <p class="lead">O IPv6 usa 128 bits, escritos em oito grupos de quatro dígitos hexadecimais. Ele resolve o esgotamento dos endereços IPv4 e simplifica a configuração.</p>
+      <div class="grid cols-2">
+        <div class="card"><h3>Como ler um endereço</h3><p><code>2001:db8:acad:1::10/64</code> — os grupos podem ser abreviados com <code>::</code> para representar sequências de zeros.</p></div>
+        <div class="card"><h3>Dual stack</h3><p>IPv4 e IPv6 funcionam ao mesmo tempo no mesmo equipamento. A migração é gradual, não uma troca imediata.</p></div>
+        <div class="card"><h3>Por que importa</h3><p>O IPv4 tem cerca de 4,3 bilhões de endereços; o IPv6 tem 2<sup>128</sup>, praticamente inesgotável.</p></div>
+        <div class="card"><h3>No laboratório</h3><p>O foco da UC7 é IPv4. O IPv6 entra como planejamento e comparação para a rede real.</p></div>
+      </div>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>Documentação da rede e plano de IPs</h2>
+      <p class="lead">A documentação transforma o desenho em algo verificável. Ela deve mostrar a topologia física, a topologia lógica e a finalidade de cada endereço.</p>
+      <div class="grid cols-2">
+        <div class="card"><h3>Diagrama</h3><p>Mostre andares, rack, switches, roteador, firewall, access points, servidores e links entre os pontos.</p></div>
+        <div class="card"><h3>Planilha de IPs</h3><p>Registre setor, VLAN, faixa, gateway, IPs fixos de servidores e impressoras e faixas reservadas para DHCP.</p></div>
+      </div>
+      <table><thead><tr><th>Item</th><th>O que registrar</th></tr></thead><tbody>
+        <tr><td>Servidores</td><td>Nome, IP fixo, função e VLAN.</td></tr>
+        <tr><td>Clientes</td><td>Faixa DHCP, reservas e gateway.</td></tr>
+        <tr><td>Rede</td><td>Rede, máscara, broadcast e gateway de cada VLAN.</td></tr>
+        <tr><td>Físico</td><td>Ponto, patch panel, porta do switch e equipamento conectado.</td></tr>
+      </tbody></table>
+      <p class="note">Atualize o diagrama e a planilha a cada mudança. Eles serão exigidos no projeto integrador.</p>
+    </section>
+    
+
+    <section class="slide">
+      <span class="kicker">Teoria</span>
+      <h2>Critérios para projetar a LAN</h2>
+      <p class="lead">Antes de desenhar, o projetista precisa responder a perguntas de dimensionamento e de crescimento da rede.</p>
+      <div class="grid cols-2">
+        <div class="card"><h3>Quantidade e distribuição</h3><p>Conte as estações por andar e por setor. Defina quantas portas cada switch precisa e onde ficam os pontos de rede.</p></div>
+        <div class="card"><h3>Segmentação</h3><p>Decida quais setores ficam em VLANs separadas e como será o roteamento entre elas.</p></div>
+        <div class="card"><h3>Endereçamento</h3><p>Reserve faixas por VLAN, IPs fixos para servidores e impressoras e faixas DHCP para os clientes.</p></div>
+        <div class="card"><h3>Crescimento e documentação</h3><p>Deixe margem para novas estações, registre o diagrama e mantenha o plano de IPs atualizado.</p></div>
+      </div>
+      <p class="note"><strong>Critério de aceite:</strong> qualquer pessoa deve conseguir identificar no diagrama onde está cada equipamento e qual faixa de IP pertence a cada setor.</p>
     </section>
     
 

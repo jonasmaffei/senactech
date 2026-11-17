@@ -40,8 +40,8 @@ A30 Monitoramento, automação e troubleshooting -> A31 Governança de TI, segur
 
 ### Aula 03 - Arquitetura e topologia de rede local
 * **Dor e solução:** A empresa tem 45 estações, impressoras e Wi-Fi, mas não tem desenho de rede nem plano de IPs. Impacto: Compras sem critério e endereços desorganizados causam retrabalho e pontos sem conectividade. Solução: Desenhar a topologia física e lógica e montar a planilha de endereçamento por setor. Prioridade: Essencial.
-* **Conceito/fundamento:** Topologias estrela, barramento, anel e malha; Cabeamento Cat5e/Cat6, fibra óptica e patch panel; Rack, switch, roteador, firewall e access point; VLANs e segmentação por setor.
-* **O que se aprende:** Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
+* **Conceito/fundamento:** Topologias estrela, barramento, anel e malha; Cabeamento Cat5e/Cat6, fibra óptica e patch panel; Rack, switch, roteador, firewall e access point; VLANs e segmentação por setor; IPv4: endereço, máscara e notação CIDR; Gateway padrão e roteamento na LAN; IPv6 e dual stack; Documentação de rede e plano de IPs.
+* **O que se aprende:** Interpretar topologias, meios físicos, rack, IPv4, máscara, gateway e endereçamento para projetar a LAN da NexaTech.
 * **Problema em aberto:** Uma rede desenhada ainda precisa de protocolos e serviços definidos para funcionar.
 * **Impacto de negócio:** Um plano de IP e VLAN bem feito evita conflitos, lentidão e falhas de segurança.
 

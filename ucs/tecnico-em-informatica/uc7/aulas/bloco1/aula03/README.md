@@ -42,6 +42,7 @@ A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para
 | Rack, switch, roteador, firewall e access point |
 | VLANs e segmentação por setor |
 | IPv4: endereço, máscara e notação CIDR |
+| Gateway padrão e roteamento na LAN |
 | IPv6 e endereçamento dual stack |
 | Documentação de rede e plano de IPs |
 

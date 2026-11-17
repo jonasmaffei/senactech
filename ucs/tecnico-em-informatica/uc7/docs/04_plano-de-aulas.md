@@ -132,6 +132,7 @@ Criação de um servidor de arquivos básico em uma terceira VM Windows 10 (FS01
 - Rack, switch, roteador, firewall e access point
 - VLANs e segmentação por setor
 - IPv4: endereço, máscara e notação CIDR
+- Gateway padrão e roteamento na LAN
 - IPv6 e endereçamento dual stack
 - Documentação de rede e plano de IPs
 
