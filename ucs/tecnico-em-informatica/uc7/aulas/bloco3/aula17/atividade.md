@@ -14,6 +14,13 @@ Instalar o pfSense em uma VM com duas interfaces e configurar o acesso inicial.
 
 A NexaTech quer um firewall dedicado entre a LAN e a internet, com regras claras e administração centralizada.
 
+## Dor e solução
+
+**Dor:** A NexaTech não tem um firewall dedicado entre a LAN e a internet.  
+**Impacto:** A rede interna fica exposta e sem regras centralizadas de proteção.  
+**Exemplo de solução:** Instalar o pfSense com WAN/NAT e LAN na rede interna e definir a administração.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 pfSense instalado e acesso à interface web documentado.

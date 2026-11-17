@@ -120,7 +120,7 @@ As datas consideram 32 encontros de 3 h em dias úteis, com 20/11/2026 (feriado 
 | **03** | 17/11/2026 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
 | **04** | 18/11/2026 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
 | **05** | 19/11/2026 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
-| **06** | 23/11/2026 | Virtualização e criação de VMs no VirtualBox | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
+| **06** | 23/11/2026 | Laboratório de servidores: dimensionamento e criação das VMs | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
 | **07** | 24/11/2026 | Planejamento, laboratório e plano diretor da rede | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
 | **08** | 25/11/2026 | Instalação e configuração inicial do Windows Server | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
 | **09** | 26/11/2026 | Active Directory Domain Services | **Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.** |
@@ -167,7 +167,7 @@ As datas consideram 32 encontros de 3 h em dias úteis, com 20/11/2026 (feriado 
 | **03** | Arquitetura e topologia de rede local | [Slides](aulas/bloco1/aula03/apresentacao_aula03.html) | [Guia](aulas/bloco1/aula03/README.md) | [Atividade](aulas/bloco1/aula03/atividade.md) |
 | **04** | Protocolos e serviços de rede | [Slides](aulas/bloco1/aula04/apresentacao_aula04.html) | [Guia](aulas/bloco1/aula04/README.md) | [Atividade](aulas/bloco1/aula04/atividade.md) |
 | **05** | Hardware de servidor, armazenamento e RAID | [Slides](aulas/bloco1/aula05/apresentacao_aula05.html) | [Guia](aulas/bloco1/aula05/README.md) | [Atividade](aulas/bloco1/aula05/atividade.md) |
-| **06** | Virtualização e criação de VMs no VirtualBox | [Slides](aulas/bloco1/aula06/apresentacao_aula06.html) | [Guia](aulas/bloco1/aula06/README.md) | [Atividade](aulas/bloco1/aula06/atividade.md) |
+| **06** | Laboratório de servidores: dimensionamento e criação das VMs | [Slides](aulas/bloco1/aula06/apresentacao_aula06.html) | [Guia](aulas/bloco1/aula06/README.md) | [Atividade](aulas/bloco1/aula06/atividade.md) |
 | **07** | Planejamento, laboratório e plano diretor da rede | [Slides](aulas/bloco1/aula07/apresentacao_aula07.html) | [Guia](aulas/bloco1/aula07/README.md) | [Atividade](aulas/bloco1/aula07/atividade.md) |
 
 ### Bloco 2 - Windows Server (Aulas 08 a 15)
@@ -236,6 +236,8 @@ As datas consideram 32 encontros de 3 h em dias úteis, com 20/11/2026 (feriado 
 | [`docs/04_plano-de-aulas.md`](docs/04_plano-de-aulas.md) | Plano detalhado com datas, objetivos, práticas e entregas |
 | [`docs/05_materiais-complementares.md`](docs/05_materiais-complementares.md) | Bibliografia, documentação oficial e trilhas de certificação |
 | [`docs/06_tutorial-laboratorio-virtual.md`](docs/06_tutorial-laboratorio-virtual.md) | Como montar o laboratório de VMs no VirtualBox |
+| [`docs/07_planilha-diagnostico.md`](docs/07_planilha-diagnostico.md) | Guia de preenchimento do diagnóstico de dores, soluções e evidências |
+| [`docs/07_planilha-diagnostico-nexatech.xlsx`](docs/07_planilha-diagnostico-nexatech.xlsx) | Planilha-modelo preenchida com as dores e soluções das 32 aulas |
 
 ---
 
@@ -273,6 +275,8 @@ senactech/
         04_plano-de-aulas.md
         05_materiais-complementares.md
         06_tutorial-laboratorio-virtual.md
+        07_planilha-diagnostico.md
+        07_planilha-diagnostico-nexatech.xlsx
 ```
 
 Cada pasta `aulaNN/` segue a estrutura:

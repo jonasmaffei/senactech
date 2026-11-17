@@ -14,6 +14,13 @@ Instalar a função AD DS e promover o Windows Server a controlador do domínio 
 
 A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.
 
+## Dor e solução
+
+**Dor:** A autenticação está espalhada em contas locais e a empresa quer centralizá-la.  
+**Impacto:** Sem um domínio, não há login único nem controle central de usuários.  
+**Exemplo de solução:** Criar o domínio nexatech.local e promover o DC01 a controlador de domínio.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.

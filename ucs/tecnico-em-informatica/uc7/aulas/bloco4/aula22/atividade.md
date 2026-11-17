@@ -14,6 +14,13 @@ Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
 O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.
 
+## Dor e solução
+
+**Dor:** O servidor Linux terá vários serviços e as contas não estão separadas.  
+**Impacto:** Usuários com privilégios demais ampliam o impacto de erros e invasões.  
+**Exemplo de solução:** Criar usuários e grupos, aplicar permissões e usar sudo com o menor privilégio.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Relatório de contas, grupos e permissões, com testes de sudo.

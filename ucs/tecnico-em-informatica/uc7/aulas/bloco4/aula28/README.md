@@ -16,6 +16,12 @@ Aplicar hardening e controles de segurança em servidores Linux e seus serviços
 
 A NexaTech sofreu tentativas de acesso SSH e precisa provar à diretoria que o servidor Linux está protegido. A auditoria vai verificar usuários, firewall, atualizações e logs.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A NexaTech sofreu tentativas de acesso SSH e precisa provar que o servidor Linux está protegido. | Uma auditoria reprovada expõe a empresa a riscos e perda de credibilidade. | Aplicar hardening: usuários, firewall, atualizações, SSH e revisão de logs. | Essencial |
+
 ---
 
 ## Conteúdo

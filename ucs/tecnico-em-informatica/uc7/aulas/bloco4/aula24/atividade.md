@@ -14,6 +14,13 @@ Instalar e configurar o DHCP no Ubuntu Server para atender a LAN de laboratório
 
 A NexaTech já usa DHCP no Windows; a equipe precisa saber operar o mesmo serviço no Linux e entender as diferenças.
 
+## Dor e solução
+
+**Dor:** A NexaTech já usa DHCP no Windows e quer operar o mesmo serviço no Linux.  
+**Impacto:** Sem entender as diferenças, a equipe pode criar escopos conflitantes na mesma rede.  
+**Exemplo de solução:** Configurar o DHCP no Ubuntu Server com escopo, reservas e testes de concessão.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Configuração do DHCP Linux comentada e evidência de concessão para o cliente.

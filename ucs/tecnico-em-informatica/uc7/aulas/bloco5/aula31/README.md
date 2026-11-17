@@ -16,6 +16,12 @@ Aplicar conceitos de governança e segurança na administração dos servidores 
 
 A NexaTech vai passar por uma auditoria de segurança e quer organizar processos. A equipe precisa demonstrar controle sobre ativos, mudanças, incidentes e acessos.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A NexaTech vai passar por uma auditoria de segurança e precisa demonstrar controle sobre ativos, mudanças, incidentes e acessos. | Sem processos e evidências, a auditoria aponta falhas de governança e conformidade. | Organizar catálogo de serviços, gestão de mudanças e incidentes, riscos e LGPD. | Importante |
+
 ---
 
 ## Conteúdo

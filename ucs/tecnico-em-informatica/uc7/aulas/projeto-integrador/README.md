@@ -51,7 +51,7 @@ Hoje não há servidores dedicados. Os arquivos ficam em um PC compartilhado, ca
 
 | # | Entregável | Bloco | Evidências |
 | :---: | :--- | :---: | :--- |
-| 1 | Diagnóstico e requisitos | 1 | Documento com dores, serviços e prioridades |
+| 1 | Diagnóstico e requisitos | 1 | Planilha de diagnóstico preenchida com dores, impacto, solução, prioridades e evidências ([modelo](../../docs/07_planilha-diagnostico-nexatech.xlsx)) |
 | 2 | Duas VMs na mesma rede | 1 | IPs, máscara, rede e evidências de ping |
 | 3 | Topologia e plano diretor | 1 | Diagrama, cronograma, riscos e critérios de aceite |
 | 4 | Laboratório virtual | 1 | VMs criadas no VirtualBox, rede interna e snapshots |
@@ -145,6 +145,8 @@ projeto-nexatech/
   21_evidencias/ (prints, logs, saídas)
   README.md
 ```
+
+Use a [`planilha de diagnóstico`](../../docs/07_planilha-diagnostico-nexatech.xlsx) como base para o `01_diagnostico.md`: cada linha de dor, impacto, solução e evidência deve aparecer no documento final.
 
 ---
 

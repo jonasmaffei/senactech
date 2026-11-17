@@ -16,6 +16,12 @@ Aplicar políticas de grupo para padronizar segurança e configurações nos cli
 
 A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades de rede mapeadas manualmente. A equipe precisa padronizar isso sem visitar cada computador.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades mapeadas manualmente. | O ambiente fica vulnerável e as configurações se perdem a cada troca de máquina. | Aplicar GPOs de senha, bloqueio de tela e mapeamento de unidades por política. | Essencial |
+
 ---
 
 ## Conteúdo

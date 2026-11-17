@@ -14,6 +14,13 @@ Instalar o Ubuntu Server sem interface gráfica nas VMs APP01 e DB01, particiona
 
 A NexaTech vai usar um servidor Linux de baixo custo para DNS, web e monitoramento; a instalação precisa nascer documentada e segura.
 
+## Dor e solução
+
+**Dor:** A NexaTech vai usar um servidor Linux de baixo custo para DNS, web e monitoramento.  
+**Impacto:** Uma instalação sem documentação e sem rede configurada compromete todos os serviços.  
+**Exemplo de solução:** Instalar o Ubuntu Server sem interface gráfica, com particionamento, IP fixo, SSH e atualizações.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SSH e evidências.

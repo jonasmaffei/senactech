@@ -14,6 +14,13 @@ Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 A equipe precisa administrar o servidor sem ir até o console; acesso remoto seguro é obrigatório.
 
+## Dor e solução
+
+**Dor:** A equipe precisa administrar o servidor sem ir até o console.  
+**Impacto:** Sem acesso remoto seguro, a manutenção depende de deslocamento e senhas expostas.  
+**Exemplo de solução:** Habilitar SSH com chaves, restringir usuários e testar o acesso remoto.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Checklist de SSH seguro com testes de acesso e bloqueio de root.

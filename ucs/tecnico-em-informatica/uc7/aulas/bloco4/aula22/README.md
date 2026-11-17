@@ -16,6 +16,12 @@ Gerenciar usuários, grupos, permissões e sudo no Ubuntu Server.
 
 O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| O servidor Linux terá vários serviços e as contas não estão separadas. | Usuários com privilégios demais ampliam o impacto de erros e invasões. | Criar usuários e grupos, aplicar permissões e usar sudo com o menor privilégio. | Essencial |
+
 ---
 
 ## Conteúdo

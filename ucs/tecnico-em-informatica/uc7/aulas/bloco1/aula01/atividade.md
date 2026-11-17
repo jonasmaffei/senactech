@@ -14,6 +14,13 @@ Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10
 
 Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.
 
+## Dor e solução
+
+**Dor:** A equipe não entende como os pacotes circulam nem como distribuir os endereços IP.  
+**Impacto:** Sem um plano de endereçamento, surgem conflitos de IP e as máquinas não se comunicam.  
+**Exemplo de solução:** Explicar TCP/IP e IPv4, definir a rede 192.168.10.0/24 e testar a comunicação entre CLI01 e CLI02.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.

@@ -14,6 +14,13 @@ Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio
 
 O domínio existe; agora os clientes CLI01 e CLI02 precisam autenticar nele.
 
+## Dor e solução
+
+**Dor:** O domínio existe, mas os clientes ainda não autenticam nele.  
+**Impacto:** Os usuários continuam usando contas locais e o controle central não funciona.  
+**Exemplo de solução:** Ingressar CLI01 e CLI02 no domínio e validar o login com contas do domínio.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Evidência de login dos clientes CLI01 e CLI02 no domínio.

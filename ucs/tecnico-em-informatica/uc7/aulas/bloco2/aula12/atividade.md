@@ -14,6 +14,13 @@ Configurar zonas DNS integradas ao Active Directory para resolver nomes dos serv
 
 Os computadores da NexaTech precisam encontrar o controlador de domínio e os serviços pelo nome; sem DNS confiável, o domínio falha de forma intermitente.
 
+## Dor e solução
+
+**Dor:** Os clientes não encontram o controlador de domínio e os serviços pelo nome.  
+**Impacto:** O domínio falha de forma intermitente e os serviços ficam inacessíveis pelo nome.  
+**Exemplo de solução:** Configurar zonas DNS direta e reversa integradas ao Active Directory e testar a resolução.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Plano de DNS com zonas direta e reversa, registros e evidências de resolução.

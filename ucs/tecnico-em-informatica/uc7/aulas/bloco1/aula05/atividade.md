@@ -14,6 +14,13 @@ Especificar hardware de servidor e escolher o arranjo de armazenamento adequado,
 
 O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória, discos e RAID antes de comprar.
 
+## Dor e solução
+
+**Dor:** O orçamento permite apenas um servidor físico e a equipe precisa escolher CPU, memória, discos e RAID.  
+**Impacto:** Uma compra mal dimensionada limita o desempenho e coloca os dados em risco.  
+**Exemplo de solução:** Especificar o servidor com justificativa de CPU, memória, discos e RAID 1 ou 5.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.

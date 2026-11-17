@@ -16,6 +16,12 @@ Operar serviços, processos, armazenamento, logs e agendamentos em um servidor L
 
 O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O que éstá rodando, quanto disco resta, o que falhou e como agendar tarefas sem depender de lembretes.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| O servidor Linux está no ar, mas não há rotinas de operação. | A equipe não sabe o que está rodando, quanto disco resta ou o que falhou. | Criar rotinas de processos, armazenamento, logs e agendamento de tarefas. | Importante |
+
 ---
 
 ## Conteúdo

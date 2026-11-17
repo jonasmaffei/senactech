@@ -16,6 +16,12 @@ Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.
 
 O DNS do Windows atende o domínio; a NexaTech quer uma alternativa Linux para entender e comparar a configuração.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| O DNS do Windows atende o domínio e a empresa quer comparar com uma alternativa Linux. | Sem uma configuração correta, a resolução de nomes falha e os serviços ficam inacessíveis. | Configurar o BIND9 com zonas direta e reversa e testar a resolução. | Importante |
+
 ---
 
 ## Conteúdo

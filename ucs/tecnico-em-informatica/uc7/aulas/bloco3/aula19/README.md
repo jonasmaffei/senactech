@@ -16,6 +16,12 @@ Publicar serviços web no Windows Server e configurar administração remota seg
 
 Além do servidor Linux, a NexaTech quer comparar a publicação web no Windows e precisa administrar o servidor sem expor RDP ou HTTP sem proteção.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A empresa quer publicar serviços web no Windows e administrar o servidor sem expor RDP ou HTTP. | Serviços publicados sem proteção e acesso remoto aberto aumentam o risco de invasão. | Publicar o IIS e habilitar acesso remoto com regras restritas e HTTPS. | Importante |
+
 ---
 
 ## Conteúdo

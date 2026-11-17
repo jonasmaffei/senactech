@@ -10,7 +10,7 @@
 | **03** | Arquitetura e topologia de rede local | [Slides](aula03/apresentacao_aula03.html) | [Guia](aula03/README.md) | [Atividade](aula03/atividade.md) |
 | **04** | Protocolos e serviços de rede | [Slides](aula04/apresentacao_aula04.html) | [Guia](aula04/README.md) | [Atividade](aula04/atividade.md) |
 | **05** | Hardware de servidor, armazenamento e RAID | [Slides](aula05/apresentacao_aula05.html) | [Guia](aula05/README.md) | [Atividade](aula05/atividade.md) |
-| **06** | Virtualização e criação de VMs no VirtualBox | [Slides](aula06/apresentacao_aula06.html) | [Guia](aula06/README.md) | [Atividade](aula06/atividade.md) |
+| **06** | Laboratório de servidores: dimensionamento e criação das VMs | [Slides](aula06/apresentacao_aula06.html) | [Guia](aula06/README.md) | [Atividade](aula06/atividade.md) |
 | **07** | Planejamento, laboratório e plano diretor da rede | [Slides](aula07/apresentacao_aula07.html) | [Guia](aula07/README.md) | [Atividade](aula07/atividade.md) |
 
 ---

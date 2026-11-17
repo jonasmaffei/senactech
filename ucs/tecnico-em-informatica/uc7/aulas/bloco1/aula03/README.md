@@ -16,6 +16,12 @@ Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a
 
 A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para visitantes e vai receber servidores. Antes de comprar equipamentos, é preciso desenhar a topologia e definir o plano de endereços.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A empresa tem 45 estações, impressoras e Wi-Fi, mas não tem desenho de rede nem plano de IPs. | Compras sem critério e endereços desorganizados causam retrabalho e pontos sem conectividade. | Desenhar a topologia física e lógica e montar a planilha de endereçamento por setor. | Essencial |
+
 ---
 
 ## Conteúdo

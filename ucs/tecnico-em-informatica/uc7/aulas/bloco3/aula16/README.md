@@ -16,6 +16,12 @@ Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT
 
 A rede interna não tem acesso à internet; é preciso configurar o gateway e o NAT antes de instalar o firewall dedicado.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A rede interna não tem acesso à internet. | Atualizações e serviços externos ficam indisponíveis para os clientes. | Configurar gateway, roteamento e NAT antes de instalar o firewall dedicado. | Importante |
+
 ---
 
 ## Conteúdo

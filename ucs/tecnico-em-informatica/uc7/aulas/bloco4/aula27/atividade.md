@@ -14,6 +14,13 @@ Configurar o servidor de banco de dados e integrar a aplicação PHP ao DB01.
 
 A aplicação está publicada, mas ainda não armazena dados; a NexaTech precisa de um banco dedicado e do fluxo completo funcionando.
 
+## Dor e solução
+
+**Dor:** A aplicação está publicada, mas ainda não armazena dados.  
+**Impacto:** Sem banco dedicado, a intranet não registra informações e não atende ao negócio.  
+**Exemplo de solução:** Criar o banco MariaDB/MySQL, o usuário da aplicação e a conexão PHP + banco.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Aplicação integrada ao banco funcionando nos clientes, com evidências do fluxo completo.

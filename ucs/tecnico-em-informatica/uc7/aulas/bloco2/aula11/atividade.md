@@ -14,6 +14,13 @@ Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por 
 
 A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
 
+## Dor e solução
+
+**Dor:** A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo.  
+**Impacto:** Permissões por pessoa não escalam e aumentam o risco de acesso indevido.  
+**Exemplo de solução:** Criar OUs por setor, grupos e usuários, com permissões atribuídas aos grupos.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Estrutura de OUs, grupos e usuários documentada, com evidência de logins.

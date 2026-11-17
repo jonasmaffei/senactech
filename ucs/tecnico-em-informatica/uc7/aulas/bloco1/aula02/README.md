@@ -27,6 +27,8 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 
 **Classificação dos serviços:** essenciais são autenticação, arquivos, DNS e DHCP; importantes são backup, impressão e monitoramento; opcionais são web interna, banco da aplicação e nuvem. A classificação deve ser justificada pelo impacto no negócio.
 
+**Modelo de preenchimento:** use a [`planilha de diagnóstico`](../../../docs/07_planilha-diagnostico-nexatech.xlsx) e o [`guia de preenchimento`](../../../docs/07_planilha-diagnostico.md).
+
 ---
 
 ## Conteúdo
@@ -45,6 +47,7 @@ A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arq
 | Diagnóstico de dores e priorização de serviços |
 | Modelo cliente/servidor e redes peer-to-peer |
 | Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem |
+| Virtualização: hypervisor tipo 1 e 2, capacidade do host, snapshots e ciclo de vida da VM |
 | Serviços essenciais de uma LAN corporativa |
 | On-premise, nuvem e ambiente híbrido |
 | Ciclo de vida: planejar, instalar, configurar, monitorar e manter |

@@ -1,4 +1,4 @@
-# Laboratório VirtualBox - Aula 06: Virtualização e criação de VMs no VirtualBox
+# Laboratório VirtualBox - Aula 06: Laboratório de servidores - dimensionamento e criação das VMs
 
 **Ambiente:** VirtualBox (criação manual das VMs)  
 **Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
@@ -8,11 +8,13 @@
 
 ## Objetivo
 
-Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
+Criar e dimensionar as VMs DC01, APP01 e DB01 no VirtualBox, preparando a base para a instalação dos serviços.
 
 ## VMs desta aula
 
-DC01, APP01 e DB01 (as VMs clientes CLI01/CLI02 foram criadas na Aula 01). Mantenha o snapshot da aula anterior.
+DC01, APP01 e DB01 (as VMs clientes CLI01/CLI02 foram criadas na Aula 01 e a FS01 na Aula 02). Mantenha o snapshot da aula anterior.
+
+> A instalação dos sistemas operacionais será feita nas Aulas 08 (Windows Server) e 20 (Ubuntu Server). Nesta aula, a VM deve estar criada, dimensionada, conectada e documentada.
 
 ## Antes de começar
 
@@ -26,8 +28,9 @@ DC01, APP01 e DB01 (as VMs clientes CLI01/CLI02 foram criadas na Aula 01). Mante
 1. Criar as VMs DC01, APP01 e DB01
 2. Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)
 3. Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)
-4. Adicionar adaptador NAT e adaptador de rede interna em cada VM
+4. Adicionar adaptador NAT e adaptador de rede interna `rede-nexatech` em cada VM
 5. Iniciar as VMs, testar a rede e tirar o snapshot baseline
+6. Documentar nome, papel, vCPU, RAM, disco e redes de cada VM
 
 ## Testes e evidências
 

@@ -14,6 +14,13 @@ Instalar o Windows Server e executar a configuração inicial segura do servidor
 
 O primeiro servidor da NexaTech será o controlador de domínio e servidor de arquivos. A instalação precisa sair do padrão inseguro de fábrica e já nascer com nome, rede, atualizações e administração remota definidos.
 
+## Dor e solução
+
+**Dor:** O primeiro servidor será o controlador de domínio e servidor de arquivos, mas a instalação de fábrica é insegura.  
+**Impacto:** Nome, rede, atualizações e administração remota indefinidos comprometem o domínio.  
+**Exemplo de solução:** Instalar o Windows Server com nome, IP fixo, atualizações e acesso administrativo definidos.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Checklist de instalação preenchida com evidências e configurações do servidor.

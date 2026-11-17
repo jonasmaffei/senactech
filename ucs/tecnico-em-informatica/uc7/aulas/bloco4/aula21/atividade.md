@@ -14,6 +14,13 @@ Operar serviços, processos, armazenamento, logs e agendamentos em um servidor L
 
 O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O que éstá rodando, quanto disco resta, o que falhou e como agendar tarefas sem depender de lembretes.
 
+## Dor e solução
+
+**Dor:** O servidor Linux está no ar, mas não há rotinas de operação.  
+**Impacto:** A equipe não sabe o que está rodando, quanto disco resta ou o que falhou.  
+**Exemplo de solução:** Criar rotinas de processos, armazenamento, logs e agendamento de tarefas.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Runbook de operação do Linux Server.

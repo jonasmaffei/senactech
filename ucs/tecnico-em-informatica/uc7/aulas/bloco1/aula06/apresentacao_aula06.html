@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 06 - Virtualização e criação de VMs no VirtualBox | UC7</title>
+<title>Aula 06 - Laboratório de servidores: dimensionamento e criação das VMs | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -133,6 +133,11 @@
     border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
     padding: 1px 6px; border-radius: 6px;
   }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: .92rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
+  td { color: var(--muted); }
+  tbody tr:last-child td { border-bottom: none; }
   .note {
     margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
     border-radius: 10px; background: rgba(99,102,241,.06);
@@ -203,13 +208,13 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 06</div>
-  <div id="counter">1 / 11</div>
+  <div id="counter">1 / 10</div>
 </header>
 <main id="deck">
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 1 · Aula 06</span>
-      <h1>Virtualização e criação de VMs no VirtualBox</h1>
-      <p class="lead">Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.</p>
+      <h1>Laboratório de servidores: dimensionamento e criação das VMs</h1>
+      <p class="lead">Transformar a especificação de hardware em VMs DC01, APP01 e DB01 no VirtualBox, com recursos, discos e redes adequados ao papel de cada servidor.</p>
       <div class="meta-row">
         <span class="pill">23/11/2026 (segunda-feira)</span>
         <span class="pill">Fundamentos e Planejamento</span>
@@ -223,32 +228,43 @@
       <span class="kicker">Situação de aprendizagem</span>
       <h2>O desafio da NexaTech</h2>
       <div class="two-col">
-        <div><p class="lead">A NexaTech não pode comprar vários servidores. A equipe usa um único computador com VirtualBox para simular a rede cliente/servidor; as VMs de servidor serão criadas nesta aula.</p></div>
+        <div><p class="lead">O hardware e o RAID já foram definidos. Agora a equipe precisa transformar a especificação em VMs com recursos compatíveis com o papel de cada servidor.</p></div>
         <div class="grid">
-          <div class="card highlight"><h3>Objetivo da aula</h3><p>Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.</p></div>
+          <div class="card highlight"><h3>Objetivo da aula</h3><p>Criar e dimensionar as VMs DC01, APP01 e DB01 no VirtualBox, preparando a base para a instalação dos serviços.</p></div>
           <div class="card"><h3>Entrega principal</h3><p>Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.</p></div>
         </div>
       </div>
     </section>
 
     <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>Virtualização: vários sistemas isolados em um único computador</h3></div><div class="card"><span class="card-num">02</span><h3>Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado)</h3></div><div class="card"><span class="card-num">03</span><h3>VirtualBox como hypervisor tipo 2</h3></div></div>
+      <span class="kicker">Dimensionamento</span>
+      <h2>Do papel do servidor à VM</h2>
+      <p class="lead">A teoria de virtualização foi vista na Aula 02. Aqui o foco é transformar cada papel em uma VM com recursos coerentes.</p>
+      <table><thead><tr><th>VM</th><th>Papel</th><th>vCPU</th><th>RAM</th><th>Disco</th><th>Rede</th></tr></thead><tbody>
+        <tr><td>DC01</td><td>Controlador de domínio, DNS, DHCP e arquivos</td><td>2</td><td>4 GB</td><td>60 GB</td><td>NAT + rede interna</td></tr>
+        <tr><td>APP01</td><td>Servidor web e aplicação</td><td>2</td><td>4 GB</td><td>50 GB</td><td>NAT + rede interna</td></tr>
+        <tr><td>DB01</td><td>Banco de dados</td><td>2</td><td>4 GB</td><td>50 GB</td><td>NAT + rede interna</td></tr>
+      </tbody></table>
+      <p class="note"><strong>Ajuste ao host:</strong> se o computador tiver 8 GB de RAM, reduza a memória das VMs e ligue apenas as necessárias durante cada prática.</p>
     </section>
 
     <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Recursos do host: núcleos, RAM, disco e VT-x/AMD-V</h3></div><div class="card"><span class="card-num">05</span><h3>Redes virtuais: NAT, bridge (ponte) e rede interna</h3></div><div class="card"><span class="card-num">06</span><h3>Snapshots, clones e alocação de disco</h3></div></div>
+      <span class="kicker">Dimensionamento</span>
+      <h2>Decisões antes de criar a VM</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>vCPU e memória</h3><p>Dois vCPUs e 3 a 4 GB por servidor atendem ao laboratório. Reserve memória para o sistema anfitrião e evite ligar todas as VMs ao mesmo tempo.</p></div>
+        <div class="card"><h3>Disco</h3><p>Use 50 a 60 GB com alocação dinâmica. Se o serviço exigir dados separados, crie um segundo disco virtual.</p></div>
+        <div class="card"><h3>Rede</h3><p>Um adaptador NAT para atualizações e um adaptador de rede interna <code>rede-nexatech</code> para a LAN.</p></div>
+        <div class="card"><h3>Snapshot baseline</h3><p>Depois de instalar o sistema e validar a rede, tire o snapshot. Ele será o ponto de retorno das próximas aulas.</p></div>
+      </div>
     </section>
 
     <section class="slide">
       <span class="kicker">Prática</span>
       <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Criação das VMs de servidor e configuração dos recursos do host.</p>
+      <p class="lead">Criação e dimensionamento das VMs de servidor, sem repetir a teoria da Aula 02.</p>
       <div class="grid cols-2">
-        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar as VMs DC01, APP01 e DB01</li><li>Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)</li><li>Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)</li><li>Adicionar adaptador NAT e adaptador de rede interna em cada VM</li><li>Iniciar as VMs, testar a rede e tirar o snapshot baseline</li></ol></div>
+        <div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar as VMs DC01, APP01 e DB01</li><li>Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)</li><li>Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)</li><li>Adicionar adaptador NAT e adaptador de rede interna <code>rede-nexatech</code> em cada VM</li><li>Iniciar as VMs, testar a rede e tirar o snapshot baseline</li><li>Documentar nome, papel, vCPU, RAM, disco e redes de cada VM</li></ol></div>
         <div class="card"><h3>Ferramentas e ambiente</h3><p>VirtualBox 7+, ISO do sistema e prompt do host</p>
           <div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div>
         </div>
@@ -266,9 +282,10 @@
         <div class="top-node dc"><strong>DC01</strong><span>Windows Server</span><small>192.168.10.10</small></div>
         <div class="top-node lnx"><strong>APP01</strong><span>Ubuntu Server</span><small>192.168.10.20</small></div>
         <div class="top-node mon"><strong>DB01</strong><span>Ubuntu Server</span><small>192.168.10.30</small></div>
+        <div class="top-node client"><strong>FS01</strong><span>servidor de arquivos</span><small>192.168.10.102</small></div>
       </div>
     </div>
-      <p class="note"><strong>Nesta aula:</strong> use apenas as VMs necessárias e mantenha o snapshot da aula anterior.</p>
+      <p class="note"><strong>Nesta aula:</strong> crie DC01, APP01 e DB01. A instalação dos sistemas será nas Aulas 08 e 20; aqui a entrega é a VM pronta e documentada.</p>
     </section>
 
     <section class="slide">
@@ -306,7 +323,7 @@
     <section class="slide">
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
-      <ul class="check"><li>O hypervisor distribui CPU, memória, disco e rede entre as VMs.</li><li>NAT dá acesso à internet; bridge conecta à rede física; rede interna isola o laboratório.</li><li>Dimensionar recursos evita lentidão e concentração de risco no host.</li></ul>
+      <ul class="check"><li>O dimensionamento começa pelo papel de cada servidor.</li><li>Cada VM usa NAT para atualizações e rede interna para a LAN.</li><li>O snapshot baseline protege a configuração antes das próximas aulas.</li></ul>
       <div class="next"><span>Próxima aula</span><strong>Aula 07 - Planejamento, laboratório e plano diretor da rede</strong><p>Consolidar o plano de instalação e o plano diretor da rede, com o laboratório VirtualBox pronto e validado.</p></div>
       <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
     </section>

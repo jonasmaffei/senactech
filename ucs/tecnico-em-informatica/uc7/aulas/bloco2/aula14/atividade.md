@@ -14,6 +14,13 @@ Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup
 
 A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compartilhada sem controle. A diretoria quer acesso por setor, rastreabilidade e possibilidade de recuperar arquivos apagados.
 
+## Dor e solução
+
+**Dor:** Contratos, propostas e documentos fiscais ficam em uma pasta compartilhada sem controle.  
+**Impacto:** Qualquer usuário acessa ou apaga arquivos, sem rastreabilidade nem recuperação.  
+**Exemplo de solução:** Criar pastas por setor, aplicar permissões NTFS por grupo, quotas e cópias de sombra.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Matriz de permissões e relatório de testes de acesso.

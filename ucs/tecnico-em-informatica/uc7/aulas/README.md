@@ -30,7 +30,7 @@ aulas/
 | **03** | Arquitetura e topologia de rede local | [Slides](bloco1/aula03/apresentacao_aula03.html) | [Guia](bloco1/aula03/README.md) |
 | **04** | Protocolos e serviços de rede | [Slides](bloco1/aula04/apresentacao_aula04.html) | [Guia](bloco1/aula04/README.md) |
 | **05** | Hardware de servidor, armazenamento e RAID | [Slides](bloco1/aula05/apresentacao_aula05.html) | [Guia](bloco1/aula05/README.md) |
-| **06** | Virtualização e criação de VMs no VirtualBox | [Slides](bloco1/aula06/apresentacao_aula06.html) | [Guia](bloco1/aula06/README.md) |
+| **06** | Laboratório de servidores: dimensionamento e criação das VMs | [Slides](bloco1/aula06/apresentacao_aula06.html) | [Guia](bloco1/aula06/README.md) |
 | **07** | Planejamento, laboratório e plano diretor da rede | [Slides](bloco1/aula07/apresentacao_aula07.html) | [Guia](bloco1/aula07/README.md) |
 
 ### Bloco 2 - Windows Server

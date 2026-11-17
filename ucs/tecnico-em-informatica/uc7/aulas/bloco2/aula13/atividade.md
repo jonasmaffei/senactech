@@ -14,6 +14,13 @@ Configurar escopos, reservas e opções DHCP no Windows Server para entregar end
 
 Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.
 
+## Dor e solução
+
+**Dor:** Configurar IP, gateway e DNS manualmente em cada cliente não escala.  
+**Impacto:** A configuração manual gera erros, conflitos e retrabalho a cada nova estação.  
+**Exemplo de solução:** Criar escopo DHCP com faixa, exclusões e reservas para servidores e impressoras.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.

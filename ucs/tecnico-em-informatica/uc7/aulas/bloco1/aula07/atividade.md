@@ -14,6 +14,13 @@ Consolidar o plano de instalação e o plano diretor da rede, com a base do labo
 
 A direção quer previsibilidade: cronograma, riscos, critérios de aceite e um laboratório que reproduza a rede antes da implantação real.
 
+## Dor e solução
+
+**Dor:** A direção quer previsibilidade, mas não há cronograma, riscos nem critérios de aceite.  
+**Impacto:** A implantação vira improviso e não há como provar que a rede atende aos requisitos.  
+**Exemplo de solução:** Montar o Plano Diretor da Rede com cronograma, riscos, topologia, IPs e critérios de aceite.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.

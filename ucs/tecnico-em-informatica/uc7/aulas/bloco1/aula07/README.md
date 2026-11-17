@@ -16,6 +16,12 @@ Consolidar o plano de instalação e o plano diretor da rede, com a base do labo
 
 A direção quer previsibilidade: cronograma, riscos, critérios de aceite e um laboratório que reproduza a rede antes da implantação real.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A direção quer previsibilidade, mas não há cronograma, riscos nem critérios de aceite. | A implantação vira improviso e não há como provar que a rede atende aos requisitos. | Montar o Plano Diretor da Rede com cronograma, riscos, topologia, IPs e critérios de aceite. | Importante |
+
 ---
 
 ## Conteúdo

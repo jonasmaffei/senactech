@@ -16,6 +16,12 @@ Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 A equipe precisa administrar o servidor sem ir até o console; acesso remoto seguro é obrigatório.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A equipe precisa administrar o servidor sem ir até o console. | Sem acesso remoto seguro, a manutenção depende de deslocamento e senhas expostas. | Habilitar SSH com chaves, restringir usuários e testar o acesso remoto. | Importante |
+
 ---
 
 ## Conteúdo

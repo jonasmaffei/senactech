@@ -14,6 +14,13 @@ Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT
 
 A rede interna não tem acesso à internet; é preciso configurar o gateway e o NAT antes de instalar o firewall dedicado.
 
+## Dor e solução
+
+**Dor:** A rede interna não tem acesso à internet.  
+**Impacto:** Atualizações e serviços externos ficam indisponíveis para os clientes.  
+**Exemplo de solução:** Configurar gateway, roteamento e NAT antes de instalar o firewall dedicado.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Configuração de NAT aplicada e teste de internet a partir do cliente.

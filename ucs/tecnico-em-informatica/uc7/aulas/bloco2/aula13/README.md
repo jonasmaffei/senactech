@@ -16,6 +16,12 @@ Configurar escopos, reservas e opções DHCP no Windows Server para entregar end
 
 Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| Configurar IP, gateway e DNS manualmente em cada cliente não escala. | A configuração manual gera erros, conflitos e retrabalho a cada nova estação. | Criar escopo DHCP com faixa, exclusões e reservas para servidores e impressoras. | Essencial |
+
 ---
 
 ## Conteúdo

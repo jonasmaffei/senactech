@@ -14,6 +14,13 @@ Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, c
 
 É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.
 
+## Dor e solução
+
+**Dor:** A banca vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos.  
+**Impacto:** Sem uma entrega integrada e documentada, o projeto não comprova valor para a NexaTech.  
+**Exemplo de solução:** Consolidar o projeto integrador, demonstrar o ambiente e defender as decisões.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Projeto integrador completo e defesa oral.

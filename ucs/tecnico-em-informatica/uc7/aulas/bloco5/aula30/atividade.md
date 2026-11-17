@@ -14,6 +14,13 @@ Monitorar servidores, automatizar rotinas e diagnosticar falhas no ambiente inte
 
 A equipe precisa saber antes dos usuários quando um serviço cair e ter método para diagnosticar problemas de rede, DNS, aplicação e banco.
 
+## Dor e solução
+
+**Dor:** A equipe só descobre que um serviço caiu quando o usuário reclama.  
+**Impacto:** O tempo de indisponibilidade aumenta e o diagnóstico vira tentativa e erro.  
+**Exemplo de solução:** Monitorar disponibilidade, disco e logs, automatizar rotinas e registrar troubleshooting.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Plano de monitoramento, script de automação e registro de troubleshooting.

@@ -16,6 +16,12 @@ Relacionar protocolos, portas e serviços necessários ao funcionamento dos serv
 
 A equipe precisa definir quais serviços rodarão nos servidores e quais portas deverão ser liberadas no firewall. Um erro nessa matriz pode deixar a rede insegura ou quebrar serviços essenciais.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| Não se sabe quais serviços e portas precisam estar liberados no firewall. | Portas fechadas quebram serviços; portas abertas sem critério expõem a rede. | Montar a matriz de serviços, protocolos, portas e riscos antes de configurar o firewall. | Essencial |
+
 ---
 
 ## Conteúdo

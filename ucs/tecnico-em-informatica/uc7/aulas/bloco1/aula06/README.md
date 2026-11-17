@@ -1,4 +1,4 @@
-# Aula 06 - Virtualização e criação de VMs no VirtualBox
+# Aula 06 - Laboratório de servidores: dimensionamento e criação das VMs
 
 **Data sugerida:** 23/11/2026 (segunda-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,13 +8,19 @@
 
 ## Objetivo
 
-Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
+Criar e dimensionar as VMs DC01, APP01 e DB01 no VirtualBox, preparando a base para a instalação dos serviços.
 
 ---
 
 ## Situação de aprendizagem
 
-A NexaTech não pode comprar vários servidores. A equipe usa um único computador com VirtualBox para simular a rede cliente/servidor; as VMs de servidor serão criadas nesta aula.
+O hardware e o RAID já foram definidos. Agora a equipe precisa transformar a especificação em VMs com recursos compatíveis com o papel de cada servidor.
+
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A especificação do servidor está no papel, mas ainda não existe ambiente virtual para instalar os serviços. | Sem as VMs dimensionadas, as aulas de Windows Server e Linux não têm onde instalar os serviços. | Criar DC01, APP01 e DB01 no VirtualBox com vCPU, RAM, discos e rede interna conforme o papel de cada servidor. | Essencial |
 
 ---
 
@@ -31,12 +37,12 @@ A NexaTech não pode comprar vários servidores. A equipe usa um único computad
 
 | Tópico |
 | :--- |
-| Virtualização: vários sistemas isolados em um único computador |
-| Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado) |
-| VirtualBox como hypervisor tipo 2 |
-| Recursos do host: núcleos, RAM, disco e VT-x/AMD-V |
-| Redes virtuais: NAT, bridge (ponte) e rede interna |
-| Snapshots, clones e alocação de disco |
+| Dimensionamento de vCPU, memória e disco por papel do servidor |
+| Adaptadores NAT e rede interna em cada VM |
+| Alocação dinâmica de disco e segundo disco de dados |
+| Snapshot baseline após instalar o sistema e validar a rede |
+| Documentação de nome, recursos, IP e função de cada VM |
+| Ajuste dos recursos ao host e limites de memória |
 
 ### Ferramentas
 
@@ -46,7 +52,7 @@ VirtualBox 7+, ISO do sistema e prompt do host
 
 ## Prática em laboratório
 
-Criação das VMs de servidor e configuração dos recursos do host.
+Criação e dimensionamento das VMs de servidor, com os recursos ajustados ao papel de cada uma.
 
 1. Criar as VMs DC01, APP01 e DB01
 2. Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)

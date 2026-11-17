@@ -14,6 +14,13 @@ Configurar DHCP, regras de firewall e NAT no pfSense para liberar a navegação 
 
 Com o pfSense no lugar, os clientes da rede interna precisam navegar sem expor a LAN.
 
+## Dor e solução
+
+**Dor:** Os clientes precisam navegar sem expor a LAN.  
+**Impacto:** Sem regras de firewall e NAT, a saída para a internet é insegura ou não funciona.  
+**Exemplo de solução:** Configurar regras de firewall, NAT e liberação de internet no pfSense.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Relatório do laboratório com regras, NAT e teste de navegação pelo pfSense.

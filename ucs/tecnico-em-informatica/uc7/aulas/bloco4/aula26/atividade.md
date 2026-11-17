@@ -14,6 +14,13 @@ Publicar a aplicação web em Apache e PHP no Ubuntu Server.
 
 A NexaTech quer uma aplicação simples para a intranet no servidor Linux.
 
+## Dor e solução
+
+**Dor:** A NexaTech quer uma aplicação simples para a intranet no servidor Linux.  
+**Impacto:** Sem um servidor web configurado, a intranet não fica disponível para os setores.  
+**Exemplo de solução:** Publicar a aplicação em Apache e PHP, com virtual host, permissões e logs.  
+**Prioridade:** Importante
+
 ## O que deve ser entregue
 
 Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.

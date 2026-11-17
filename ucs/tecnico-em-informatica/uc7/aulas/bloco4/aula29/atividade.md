@@ -14,6 +14,13 @@ Definir e testar a rotina de backup, restauração e continuidade dos dados do a
 
 A NexaTech já compartilha arquivos no Windows Server; agora precisa garantir que esses dados sobrevivam a exclusões acidentais e falhas.
 
+## Dor e solução
+
+**Dor:** Os arquivos compartilhados no Windows Server podem ser apagados ou perdidos em uma falha.  
+**Impacto:** Sem backup, a empresa perde contratos e documentos fiscais sem recuperação.  
+**Exemplo de solução:** Definir rotina de backup, testar a restauração e documentar a continuidade.  
+**Prioridade:** Essencial
+
 ## O que deve ser entregue
 
 Plano de backup e continuidade com evidências de restauração e RPO/RTO.

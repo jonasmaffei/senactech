@@ -17,7 +17,7 @@
 | **03** | 17/11/2026 (terça-feira) | 1 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
 | **04** | 18/11/2026 (quarta-feira) | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
 | **05** | 19/11/2026 (quinta-feira) | 1 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
-| **06** | 23/11/2026 (segunda-feira) | 1 | Virtualização e criação de VMs no VirtualBox | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
+| **06** | 23/11/2026 (segunda-feira) | 1 | Laboratório de servidores: dimensionamento e criação das VMs | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
 | **07** | 24/11/2026 (terça-feira) | 1 | Planejamento, laboratório e plano diretor da rede | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
 | **08** | 25/11/2026 (quarta-feira) | 2 | Instalação e configuração inicial do Windows Server | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
 | **09** | 26/11/2026 (quinta-feira) | 2 | Active Directory Domain Services | **Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.** |
@@ -54,6 +54,8 @@
 **Objetivo:** Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.
 
 **Situação de aprendizagem:** Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.
+
+**Dor e solução:** A equipe não entende como os pacotes circulam nem como distribuir os endereços IP. Impacto: Sem um plano de endereçamento, surgem conflitos de IP e as máquinas não se comunicam. Solução: Explicar TCP/IP e IPv4, definir a rede 192.168.10.0/24 e testar a comunicação entre CLI01 e CLI02. Prioridade: Essencial.
 
 **Tópicos:**
 - Modelo TCP/IP e comparação com o modelo OSI
@@ -94,6 +96,7 @@ Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.
 - Diagnóstico de dores e priorização de serviços
 - Modelo cliente/servidor e redes peer-to-peer
 - Tipos de servidor: arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem
+- Virtualização: hypervisor tipo 1 e 2, capacidade do host, snapshots e ciclo de vida da VM
 - Serviços essenciais de uma LAN corporativa
 - On-premise, nuvem e ambiente híbrido
 - Ciclo de vida: planejar, instalar, configurar, monitorar e manter
@@ -120,6 +123,8 @@ Criação de um servidor de arquivos básico em uma terceira VM Windows 10 (FS01
 **Objetivo:** Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
 
 **Situação de aprendizagem:** A empresa ocupa dois andares, tem 45 estações, impressoras de rede, Wi-Fi para visitantes e vai receber servidores. Antes de comprar equipamentos, é preciso desenhar a topologia e definir o plano de endereços.
+
+**Dor e solução:** A empresa tem 45 estações, impressoras e Wi-Fi, mas não tem desenho de rede nem plano de IPs. Impacto: Compras sem critério e endereços desorganizados causam retrabalho e pontos sem conectividade. Solução: Desenhar a topologia física e lógica e montar a planilha de endereçamento por setor. Prioridade: Essencial.
 
 **Tópicos:**
 - Topologias estrela, barramento, anel e malha
@@ -148,6 +153,8 @@ Projeto de topologia em paper/diagrama; a implementação em VMs ocorre nas Aula
 
 **Situação de aprendizagem:** A equipe precisa definir quais serviços rodarão nos servidores e quais portas deverão ser liberadas no firewall. Um erro nessa matriz pode deixar a rede insegura ou quebrar serviços essenciais.
 
+**Dor e solução:** Não se sabe quais serviços e portas precisam estar liberados no firewall. Impacto: Portas fechadas quebram serviços; portas abertas sem critério expõem a rede. Solução: Montar a matriz de serviços, protocolos, portas e riscos antes de configurar o firewall. Prioridade: Essencial.
+
 **Tópicos:**
 - Modelo OSI e pilha TCP/IP
 - TCP versus UDP
@@ -175,6 +182,8 @@ Diagnóstico de rede no host e captura de tráfego local.
 
 **Situação de aprendizagem:** O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória, discos e RAID antes de comprar.
 
+**Dor e solução:** O orçamento permite apenas um servidor físico e a equipe precisa escolher CPU, memória, discos e RAID. Impacto: Uma compra mal dimensionada limita o desempenho e coloca os dados em risco. Solução: Especificar o servidor com justificativa de CPU, memória, discos e RAID 1 ou 5. Prioridade: Importante.
+
 **Tópicos:**
 - BIOS/UEFI, POST e CMOS
 - CPU, núcleos, memória ECC e placas de rede
@@ -196,30 +205,35 @@ Dimensionamento do servidor físico que futuramente dará lugar às VMs.
 
 **Ferramentas:** 
 
-### Aula 06 - Virtualização e criação de VMs no VirtualBox (23/11/2026 (segunda-feira))
+### Aula 06 - Laboratório de servidores: dimensionamento e criação das VMs (23/11/2026 (segunda-feira))
 
-**Objetivo:** Entender o papel do hypervisor e criar, dimensionar e configurar as VMs dos servidores no VirtualBox.
+**Objetivo:** Criar e dimensionar as VMs DC01, APP01 e DB01 no VirtualBox, preparando a base para a instalação dos serviços.
 
-**Situação de aprendizagem:** A NexaTech não pode comprar vários servidores. A equipe usa um único computador com VirtualBox para simular a rede cliente/servidor; as VMs de servidor serão criadas nesta aula.
+**Situação de aprendizagem:** O hardware e o RAID já foram definidos. Agora a equipe precisa transformar a especificação em VMs com recursos compatíveis com o papel de cada servidor.
+
+**Dor e solução:** A especificação do servidor está no papel, mas ainda não existe ambiente virtual para instalar os serviços. Impacto: Sem as VMs dimensionadas, as aulas de Windows Server e Linux não têm onde instalar os serviços. Solução: Criar DC01, APP01 e DB01 no VirtualBox com vCPU, RAM, discos e rede interna conforme o papel de cada servidor. Prioridade: Essencial.
 
 **Tópicos:**
-- Virtualização: vários sistemas isolados em um único computador
-- Hypervisor tipo 1 (bare-metal) e tipo 2 (hospedado)
-- VirtualBox como hypervisor tipo 2
-- Recursos do host: núcleos, RAM, disco e VT-x/AMD-V
-- Redes virtuais: NAT, bridge (ponte) e rede interna
-- Snapshots, clones e alocação de disco
+- Dimensionamento de vCPU, memória e disco por papel do servidor
+- Adaptadores NAT e rede interna em cada VM
+- Alocação dinâmica de disco e segundo disco de dados
+- Snapshot baseline após instalar o sistema e validar a rede
+- Documentação de nome, recursos, IP e função de cada VM
+- Ajuste dos recursos ao host e limites de memória
 
 **Prática:**
-Criação das VMs de servidor e configuração dos recursos do host.
+Criação e dimensionamento das VMs de servidor, com os recursos ajustados ao papel de cada uma.
 
 1. Criar as VMs DC01, APP01 e DB01
 2. Destinar 2 vCPUs e memória conforme o papel (ajustando ao host)
 3. Criar os discos virtuais: 60 GB (DC01) e 50 GB (APP01 e DB01)
-4. Adicionar adaptador NAT e adaptador de rede interna em cada VM
+4. Adicionar adaptador NAT e adaptador de rede interna `rede-nexatech` em cada VM
 5. Iniciar as VMs, testar a rede e tirar o snapshot baseline
+6. Documentar nome, papel, vCPU, RAM, disco e redes de cada VM
 
 **Entrega:** Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.
+
+**Ferramentas:** VirtualBox 7+, ISO do sistema e prompt do host
 
 **Ferramentas:** 
 
@@ -228,6 +242,8 @@ Criação das VMs de servidor e configuração dos recursos do host.
 **Objetivo:** Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
 
 **Situação de aprendizagem:** A direção quer previsibilidade: cronograma, riscos, critérios de aceite e um laboratório que reproduza a rede antes da implantação real.
+
+**Dor e solução:** A direção quer previsibilidade, mas não há cronograma, riscos nem critérios de aceite. Impacto: A implantação vira improviso e não há como provar que a rede atende aos requisitos. Solução: Montar o Plano Diretor da Rede com cronograma, riscos, topologia, IPs e critérios de aceite. Prioridade: Importante.
 
 **Tópicos:**
 - Requisitos, escopo, cronograma e marcos
@@ -258,6 +274,8 @@ Consolidação do plano e validação do laboratório.
 
 **Situação de aprendizagem:** O primeiro servidor da NexaTech será o controlador de domínio e servidor de arquivos. A instalação precisa sair do padrão inseguro de fábrica e já nascer com nome, rede, atualizações e administração remota definidos.
 
+**Dor e solução:** O primeiro servidor será o controlador de domínio e servidor de arquivos, mas a instalação de fábrica é insegura. Impacto: Nome, rede, atualizações e administração remota indefinidos comprometem o domínio. Solução: Instalar o Windows Server com nome, IP fixo, atualizações e acesso administrativo definidos. Prioridade: Essencial.
+
 **Tópicos:**
 - Edições Standard e Datacenter
 - Desktop Experience versus Server Core
@@ -286,6 +304,8 @@ Instalação completa do Windows Server no laboratório virtual.
 
 **Situação de aprendizagem:** A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domínio e o controlador de domínio.
 
+**Dor e solução:** A autenticação está espalhada em contas locais e a empresa quer centralizá-la. Impacto: Sem um domínio, não há login único nem controle central de usuários. Solução: Criar o domínio nexatech.local e promover o DC01 a controlador de domínio. Prioridade: Essencial.
+
 **Tópicos:**
 - Domínio, floresta, árvore e controlador de domínio
 - LDAP, Kerberos e dependência do DNS
@@ -312,6 +332,8 @@ Criação do domínio nexatech.local no DC01.
 **Objetivo:** Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio nexatech.local.
 
 **Situação de aprendizagem:** O domínio existe; agora os clientes CLI01 e CLI02 precisam autenticar nele.
+
+**Dor e solução:** O domínio existe, mas os clientes ainda não autenticam nele. Impacto: Os usuários continuam usando contas locais e o controle central não funciona. Solução: Ingressar CLI01 e CLI02 no domínio e validar o login com contas do domínio. Prioridade: Essencial.
 
 **Tópicos:**
 - Cliente com DNS apontando para o DC01
@@ -340,6 +362,8 @@ Ingresso dos clientes Windows 10 no domínio.
 
 **Situação de aprendizagem:** A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
 
+**Dor e solução:** A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo. Impacto: Permissões por pessoa não escalam e aumentam o risco de acesso indevido. Solução: Criar OUs por setor, grupos e usuários, com permissões atribuídas aos grupos. Prioridade: Essencial.
+
 **Tópicos:**
 - Unidades organizacionais e delegação
 - Usuários, grupos de segurança e grupos de distribuição
@@ -366,6 +390,8 @@ Modelagem dos setores e das contas da NexaTech.
 **Objetivo:** Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
 
 **Situação de aprendizagem:** Os computadores da NexaTech precisam encontrar o controlador de domínio e os serviços pelo nome; sem DNS confiável, o domínio falha de forma intermitente.
+
+**Dor e solução:** Os clientes não encontram o controlador de domínio e os serviços pelo nome. Impacto: O domínio falha de forma intermitente e os serviços ficam inacessíveis pelo nome. Solução: Configurar zonas DNS direta e reversa integradas ao Active Directory e testar a resolução. Prioridade: Essencial.
 
 **Tópicos:**
 - Zonas direta e reversa
@@ -394,6 +420,8 @@ Configuração e teste do DNS do domínio nexatech.local.
 
 **Situação de aprendizagem:** Os clientes precisam receber IP, gateway e DNS automaticamente; configurar tudo à mão não escala.
 
+**Dor e solução:** Configurar IP, gateway e DNS manualmente em cada cliente não escala. Impacto: A configuração manual gera erros, conflitos e retrabalho a cada nova estação. Solução: Criar escopo DHCP com faixa, exclusões e reservas para servidores e impressoras. Prioridade: Essencial.
+
 **Tópicos:**
 - Escopo, faixa e exclusões
 - Opções 003, 006 e 015
@@ -421,6 +449,8 @@ Criação do escopo DHCP da LAN da NexaTech.
 
 **Situação de aprendizagem:** A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compartilhada sem controle. A diretoria quer acesso por setor, rastreabilidade e possibilidade de recuperar arquivos apagados.
 
+**Dor e solução:** Contratos, propostas e documentos fiscais ficam em uma pasta compartilhada sem controle. Impacto: Qualquer usuário acessa ou apaga arquivos, sem rastreabilidade nem recuperação. Solução: Criar pastas por setor, aplicar permissões NTFS por grupo, quotas e cópias de sombra. Prioridade: Essencial.
+
 **Tópicos:**
 - SMB e compartilhamentos de rede
 - Permissões de compartilhamento versus NTFS
@@ -447,6 +477,8 @@ Servidor de arquivos com pastas departamentais e permissões testadas.
 **Objetivo:** Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.
 
 **Situação de aprendizagem:** A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades de rede mapeadas manualmente. A equipe precisa padronizar isso sem visitar cada computador.
+
+**Dor e solução:** A auditoria interna apontou senhas fracas, telas que não bloqueiam e unidades mapeadas manualmente. Impacto: O ambiente fica vulnerável e as configurações se perdem a cada troca de máquina. Solução: Aplicar GPOs de senha, bloqueio de tela e mapeamento de unidades por política. Prioridade: Essencial.
 
 **Tópicos:**
 - Objetos de GPO, escopo e herança
@@ -476,6 +508,8 @@ GPOs aplicadas em OUs específicas e validadas em clientes.
 
 **Situação de aprendizagem:** A rede interna não tem acesso à internet; é preciso configurar o gateway e o NAT antes de instalar o firewall dedicado.
 
+**Dor e solução:** A rede interna não tem acesso à internet. Impacto: Atualizações e serviços externos ficam indisponíveis para os clientes. Solução: Configurar gateway, roteamento e NAT antes de instalar o firewall dedicado. Prioridade: Importante.
+
 **Tópicos:**
 - Rede interna, rede externa e gateway padrão
 - Roteamento estático e encaminhamento de pacotes
@@ -502,6 +536,8 @@ Encaminhamento de pacotes e NAT de saída.
 **Objetivo:** Instalar o pfSense em uma VM com duas interfaces e configurar o acesso inicial.
 
 **Situação de aprendizagem:** A NexaTech quer um firewall dedicado entre a LAN e a internet, com regras claras e administração centralizada.
+
+**Dor e solução:** A NexaTech não tem um firewall dedicado entre a LAN e a internet. Impacto: A rede interna fica exposta e sem regras centralizadas de proteção. Solução: Instalar o pfSense com WAN/NAT e LAN na rede interna e definir a administração. Prioridade: Essencial.
 
 **Tópicos:**
 - pfSense como firewall e roteador baseado em FreeBSD
@@ -530,6 +566,8 @@ Montagem da VM do firewall e primeiros passos.
 
 **Situação de aprendizagem:** Com o pfSense no lugar, os clientes da rede interna precisam navegar sem expor a LAN.
 
+**Dor e solução:** Os clientes precisam navegar sem expor a LAN. Impacto: Sem regras de firewall e NAT, a saída para a internet é insegura ou não funciona. Solução: Configurar regras de firewall, NAT e liberação de internet no pfSense. Prioridade: Essencial.
+
 **Tópicos:**
 - Regras na interface LAN e política padrão
 - NAT de saída e aliases
@@ -556,6 +594,8 @@ Laboratório de liberação de internet através do pfSense.
 **Objetivo:** Publicar serviços web no Windows Server e configurar administração remota segura.
 
 **Situação de aprendizagem:** Além do servidor Linux, a NexaTech quer comparar a publicação web no Windows e precisa administrar o servidor sem expor RDP ou HTTP sem proteção.
+
+**Dor e solução:** A empresa quer publicar serviços web no Windows e administrar o servidor sem expor RDP ou HTTP. Impacto: Serviços publicados sem proteção e acesso remoto aberto aumentam o risco de invasão. Solução: Publicar o IIS e habilitar acesso remoto com regras restritas e HTTPS. Prioridade: Importante.
 
 **Tópicos:**
 - IIS: sites, bindings, permissões e logs
@@ -586,6 +626,8 @@ Publicação web e administração remota no Windows Server.
 
 **Situação de aprendizagem:** A NexaTech vai usar um servidor Linux de baixo custo para DNS, web e monitoramento; a instalação precisa nascer documentada e segura.
 
+**Dor e solução:** A NexaTech vai usar um servidor Linux de baixo custo para DNS, web e monitoramento. Impacto: Uma instalação sem documentação e sem rede configurada compromete todos os serviços. Solução: Instalar o Ubuntu Server sem interface gráfica, com particionamento, IP fixo, SSH e atualizações. Prioridade: Importante.
+
 **Tópicos:**
 - Ubuntu Server 24.04 LTS sem ambiente gráfico
 - Particionamento EFI, /, /home e swap
@@ -612,6 +654,8 @@ Instalação do Ubuntu Server nas VMs APP01 e DB01.
 **Objetivo:** Operar serviços, processos, armazenamento, logs e agendamentos em um servidor Linux.
 
 **Situação de aprendizagem:** O servidor Linux já está no ar, mas a equipe precisa de rotinas para saber O que éstá rodando, quanto disco resta, o que falhou e como agendar tarefas sem depender de lembretes.
+
+**Dor e solução:** O servidor Linux está no ar, mas não há rotinas de operação. Impacto: A equipe não sabe o que está rodando, quanto disco resta ou o que falhou. Solução: Criar rotinas de processos, armazenamento, logs e agendamento de tarefas. Prioridade: Importante.
 
 **Tópicos:**
 - APT: sources.list, update, upgrade e remoção de pacotes
@@ -642,6 +686,8 @@ Rotinas de operação e um serviço próprio rodando sob systemd.
 
 **Situação de aprendizagem:** O servidor Linux terá vários serviços; é preciso separar contas e limitar acessos.
 
+**Dor e solução:** O servidor Linux terá vários serviços e as contas não estão separadas. Impacto: Usuários com privilégios demais ampliam o impacto de erros e invasões. Solução: Criar usuários e grupos, aplicar permissões e usar sudo com o menor privilégio. Prioridade: Essencial.
+
 **Tópicos:**
 - useradd/adduser, passwd e grupos
 - chmod simbólico e octal
@@ -668,6 +714,8 @@ Separação de contas e permissões no servidor Linux.
 **Objetivo:** Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
 
 **Situação de aprendizagem:** A equipe precisa administrar o servidor sem ir até o console; acesso remoto seguro é obrigatório.
+
+**Dor e solução:** A equipe precisa administrar o servidor sem ir até o console. Impacto: Sem acesso remoto seguro, a manutenção depende de deslocamento e senhas expostas. Solução: Habilitar SSH com chaves, restringir usuários e testar o acesso remoto. Prioridade: Importante.
 
 **Tópicos:**
 - openssh-server e sshd_config
@@ -696,6 +744,8 @@ Acesso remoto seguro ao Ubuntu Server.
 
 **Situação de aprendizagem:** A NexaTech já usa DHCP no Windows; a equipe precisa saber operar o mesmo serviço no Linux e entender as diferenças.
 
+**Dor e solução:** A NexaTech já usa DHCP no Windows e quer operar o mesmo serviço no Linux. Impacto: Sem entender as diferenças, a equipe pode criar escopos conflitantes na mesma rede. Solução: Configurar o DHCP no Ubuntu Server com escopo, reservas e testes de concessão. Prioridade: Importante.
+
 **Tópicos:**
 - isc-dhcp-server e Kea DHCP
 - /etc/dhcp/dhcpd.conf
@@ -722,6 +772,8 @@ Configuração do DHCP no Ubuntu Server.
 **Objetivo:** Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.
 
 **Situação de aprendizagem:** O DNS do Windows atende o domínio; a NexaTech quer uma alternativa Linux para entender e comparar a configuração.
+
+**Dor e solução:** O DNS do Windows atende o domínio e a empresa quer comparar com uma alternativa Linux. Impacto: Sem uma configuração correta, a resolução de nomes falha e os serviços ficam inacessíveis. Solução: Configurar o BIND9 com zonas direta e reversa e testar a resolução. Prioridade: Importante.
 
 **Tópicos:**
 - BIND9 e named.conf
@@ -750,6 +802,8 @@ Configuração do DNS Linux com BIND9.
 
 **Situação de aprendizagem:** A NexaTech quer uma aplicação simples para a intranet no servidor Linux.
 
+**Dor e solução:** A NexaTech quer uma aplicação simples para a intranet no servidor Linux. Impacto: Sem um servidor web configurado, a intranet não fica disponível para os setores. Solução: Publicar a aplicação em Apache e PHP, com virtual host, permissões e logs. Prioridade: Importante.
+
 **Tópicos:**
 - Apache e PHP no Ubuntu
 - Virtual host e permissões
@@ -776,6 +830,8 @@ Publicação da aplicação web no APP01.
 **Objetivo:** Configurar o servidor de banco de dados e integrar a aplicação PHP ao DB01.
 
 **Situação de aprendizagem:** A aplicação está publicada, mas ainda não armazena dados; a NexaTech precisa de um banco dedicado e do fluxo completo funcionando.
+
+**Dor e solução:** A aplicação está publicada, mas ainda não armazena dados. Impacto: Sem banco dedicado, a intranet não registra informações e não atende ao negócio. Solução: Criar o banco MariaDB/MySQL, o usuário da aplicação e a conexão PHP + banco. Prioridade: Importante.
 
 **Tópicos:**
 - MariaDB/MySQL no Ubuntu
@@ -804,6 +860,8 @@ Configuração do banco e integração ponta a ponta.
 
 **Situação de aprendizagem:** A NexaTech sofreu tentativas de acesso SSH e precisa provar à diretoria que o servidor Linux está protegido. A auditoria vai verificar usuários, firewall, atualizações e logs.
 
+**Dor e solução:** A NexaTech sofreu tentativas de acesso SSH e precisa provar que o servidor Linux está protegido. Impacto: Uma auditoria reprovada expõe a empresa a riscos e perda de credibilidade. Solução: Aplicar hardening: usuários, firewall, atualizações, SSH e revisão de logs. Prioridade: Essencial.
+
 **Tópicos:**
 - Checklist de hardening e CIS Benchmarks
 - Atualizações e remoção de serviços desnecessários
@@ -831,6 +889,8 @@ Servidor Linux endurecido e com tentativas de acesso bloqueadas.
 **Objetivo:** Definir e testar a rotina de backup, restauração e continuidade dos dados do ambiente.
 
 **Situação de aprendizagem:** A NexaTech já compartilha arquivos no Windows Server; agora precisa garantir que esses dados sobrevivam a exclusões acidentais e falhas.
+
+**Dor e solução:** Os arquivos compartilhados no Windows Server podem ser apagados ou perdidos em uma falha. Impacto: Sem backup, a empresa perde contratos e documentos fiscais sem recuperação. Solução: Definir rotina de backup, testar a restauração e documentar a continuidade. Prioridade: Essencial.
 
 **Tópicos:**
 - Regra 3-2-1 e política de retenção
@@ -862,6 +922,8 @@ Rotina de backup e restauração no ambiente misto.
 
 **Situação de aprendizagem:** A equipe precisa saber antes dos usuários quando um serviço cair e ter método para diagnosticar problemas de rede, DNS, aplicação e banco.
 
+**Dor e solução:** A equipe só descobre que um serviço caiu quando o usuário reclama. Impacto: O tempo de indisponibilidade aumenta e o diagnóstico vira tentativa e erro. Solução: Monitorar disponibilidade, disco e logs, automatizar rotinas e registrar troubleshooting. Prioridade: Importante.
+
 **Tópicos:**
 - Métricas, logs, SNMP e SLO
 - Zabbix, Prometheus e Grafana
@@ -889,6 +951,8 @@ Monitoramento, automação e diagnóstico do ambiente.
 
 **Situação de aprendizagem:** A NexaTech vai passar por uma auditoria de segurança e quer organizar processos. A equipe precisa demonstrar controle sobre ativos, mudanças, incidentes e acessos.
 
+**Dor e solução:** A NexaTech vai passar por uma auditoria de segurança e precisa demonstrar controle sobre ativos, mudanças, incidentes e acessos. Impacto: Sem processos e evidências, a auditoria aponta falhas de governança e conformidade. Solução: Organizar catálogo de serviços, gestão de mudanças e incidentes, riscos e LGPD. Prioridade: Importante.
+
 **Tópicos:**
 - ITIL 4: catálogo de serviços, incidentes, problemas e mudanças
 - COBIT e alinhamento com o negócio
@@ -915,6 +979,8 @@ Dossiê de governança e plano de certificação.
 **Objetivo:** Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
 
 **Situação de aprendizagem:** É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.
+
+**Dor e solução:** A banca vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos. Impacto: Sem uma entrega integrada e documentada, o projeto não comprova valor para a NexaTech. Solução: Consolidar o projeto integrador, demonstrar o ambiente e defender as decisões. Prioridade: Essencial.
 
 **Tópicos:**
 - Síntese dos cinco blocos

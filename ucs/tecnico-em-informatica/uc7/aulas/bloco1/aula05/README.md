@@ -16,6 +16,12 @@ Especificar hardware de servidor e escolher o arranjo de armazenamento adequado,
 
 O orçamento permite um servidor físico. A equipe precisa decidir CPU, memória, discos e RAID antes de comprar.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| O orçamento permite apenas um servidor físico e a equipe precisa escolher CPU, memória, discos e RAID. | Uma compra mal dimensionada limita o desempenho e coloca os dados em risco. | Especificar o servidor com justificativa de CPU, memória, discos e RAID 1 ou 5. | Importante |
+
 ---
 
 ## Conteúdo
@@ -77,7 +83,7 @@ Define a base física que sustenta a infraestrutura da NexaTech.
 
 ## Próxima aula
 
-**Aula 06 - Virtualização e criação de VMs no VirtualBox.** Entender o papel do hypervisor e criar, dimensionar e configurar as primeiras máquinas virtuais no VirtualBox.
+**Aula 06 - Laboratório de servidores: dimensionamento e criação das VMs.** Criar e dimensionar as VMs DC01, APP01 e DB01 no VirtualBox, preparando a base para a instalação dos serviços.
 
 ---
 

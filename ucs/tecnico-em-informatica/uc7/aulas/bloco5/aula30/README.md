@@ -16,6 +16,12 @@ Monitorar servidores, automatizar rotinas e diagnosticar falhas no ambiente inte
 
 A equipe precisa saber antes dos usuários quando um serviço cair e ter método para diagnosticar problemas de rede, DNS, aplicação e banco.
 
+## Dor da NexaTech e solução
+
+| Dor | Impacto | Exemplo de solução | Prioridade |
+| :--- | :--- | :--- | :--- |
+| A equipe só descobre que um serviço caiu quando o usuário reclama. | O tempo de indisponibilidade aumenta e o diagnóstico vira tentativa e erro. | Monitorar disponibilidade, disco e logs, automatizar rotinas e registrar troubleshooting. | Importante |
+
 ---
 
 ## Conteúdo
