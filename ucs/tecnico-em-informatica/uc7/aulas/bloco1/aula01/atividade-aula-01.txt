@@ -1,0 +1,92 @@
+Atividade de Pesquisa – Redes de Computadores
+Tema: Hypervisor – Foco no Oracle VM VirtualBox
+Repositório das aulas: https://github.com/jonasmaffei/senactech
+Objetivo: Compreender os conceitos de virtualização, o funcionamento dos hypervisors e a utilização do VirtualBox na criação, configuração e gerenciamento de máquinas virtuais, relacionando esses recursos à área de redes de computadores.
+
+Orientações: Realize uma pesquisa para responder às 10 atividades. Utilize fontes confiáveis e escreva as respostas com suas próprias palavras.
+
+Envio para: profjonasmaffei@gmail.com
+Assunto: Atividade 01 - TI - UC7
+
+1. Conceitos de virtualização
+a) O que é virtualização na área de tecnologia da informação?
+b) O que é uma máquina virtual (VM)?
+c) Qual é a diferença entre um computador físico e uma máquina virtual?
+d) Quais são as principais vantagens da virtualização?
+
+2. Conhecendo os Hypervisors
+a) O que é um Hypervisor?
+b) Qual é a função de um Hypervisor?
+c) Como ele permite executar vários sistemas operacionais em um único computador físico?
+d) Cite três exemplos de softwares que utilizam a tecnologia de virtualização.
+
+3. Tipos de Hypervisors
+Existem dois tipos principais de Hypervisors. Pesquise e responda:
+a) O que é um Hypervisor Tipo 1 (Bare Metal)?
+b) O que é um Hypervisor Tipo 2 (Hosted)?
+c) Qual é a principal diferença entre esses dois tipos?
+d) Em qual desses tipos o VirtualBox se enquadra? Justifique sua resposta.
+
+4. Conhecendo o Oracle VM VirtualBox
+a) O que é o Oracle VM VirtualBox?
+b) Qual empresa desenvolve e mantém o VirtualBox?
+c) O VirtualBox é gratuito? Possui alguma versão ou licença comercial?
+d) Quais sistemas operacionais podem ser instalados utilizando o VirtualBox?
+e) Quais são as principais funcionalidades desse software?
+
+5. Requisitos para utilizar o VirtualBox
+a) Quais são os requisitos mínimos para instalar e utilizar o VirtualBox?
+b) O que significa sistema operacional hospedeiro (Host)?
+c) O que significa sistema operacional convidado (Guest)?
+d) Qual é a importância da memória RAM e do processador para executar máquinas virtuais?
+e) O que são as tecnologias Intel VT-x e AMD-V?
+
+6. Criação de máquinas virtuais
+Pesquise como criar uma máquina virtual no VirtualBox e responda:
+a) Quais são as etapas necessárias para criar uma máquina virtual?
+b) Para que serve a configuração de memória RAM?
+c) O que é um disco rígido virtual?
+d) O que é uma imagem ISO?
+e) Como realizar a instalação de um sistema operacional dentro de uma máquina virtual?
+
+7. Recursos disponíveis no VirtualBox
+Pesquise e explique a finalidade dos seguintes recursos:
+
+a) Snapshots.
+b) Clonagem de máquinas virtuais.
+c) Pastas compartilhadas.
+d) Área de transferência compartilhada.
+e) Modo de tela cheia e modo integrado.
+
+8. Configurações de rede no VirtualBox
+Esta atividade tem como foco a utilização do VirtualBox em redes de computadores.
+
+a) O que é o modo NAT?
+b) O que é o modo Bridge (Placa em modo Ponte)?
+c) O que é a rede interna (Internal Network)?
+d) O que é o modo Host-Only?
+
+e) Qual é a diferença entre esses modos de conexão?
+
+9. Segurança e utilização de máquinas virtuais
+a) Como as máquinas virtuais podem ajudar nos testes de segurança de computadores?
+b) Por que é interessante utilizar máquinas virtuais para testar programas desconhecidos?
+c) O que é isolamento de máquinas virtuais?
+d) Quais são os riscos de segurança relacionados à utilização de máquinas virtuais?
+e) Por que é importante manter o VirtualBox atualizado?
+
+10. Aplicação prática: laboratório de redes com VirtualBox
+Imagine que uma escola deseja montar um laboratório de redes de computadores, mas não possui recursos financeiros para comprar vários computadores físicos.
+
+Com base em sua pesquisa, responda:
+a) Como o VirtualBox poderia ajudar a escola a montar esse laboratório?
+b) Seria possível criar três máquinas virtuais em um único computador físico? Explique.
+c) Como configurar essas máquinas virtuais para que possam se comunicar em uma mesma rede?
+d) Como realizar testes de comunicação utilizando o comando ping entre as máquinas virtuais?
+e) Quais atividades práticas de redes poderiam ser desenvolvidas nesse laboratório?
+f) Quais seriam as vantagens e desvantagens dessa solução?
+
+
+
+
+https://github.com/jonasmaffei/senactech/blob/main/ucs/tecnico-em-informatica/uc7/aulas/bloco1/aula02/apresentacao_aula02.html
