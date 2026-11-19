@@ -17,6 +17,12 @@ Pasta reservada para os questionários de revisão da UC. A produção será fei
 - Cada resposta deve citar a aula e a fonte consultada.
 - Questões práticas devem incluir o comando ou a configuração usada.
 
+## Questionários disponíveis
+
+| Questionário | Aulas | Arquivo |
+| :--- | :---: | :--- |
+| TCP/IP, IPv4 e servidores (introdutório) | 01 e 02 | [`questionario-aulas-01-02.md`](questionario-aulas-01-02.md) |
+
 ## Próximos arquivos
 
 ```text
