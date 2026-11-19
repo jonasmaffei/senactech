@@ -21,7 +21,7 @@ Pasta reservada para os questionários de revisão da UC. A produção será fei
 
 | Questionário | Aulas | Arquivo |
 | :--- | :---: | :--- |
-| TCP/IP, IPv4 e servidores (introdutório) | 01 e 02 | [`questionario-aulas-01-02.md`](questionario-aulas-01-02.md) |
+| Conceitos básicos de redes e servidores (IP, máscara, gateway, DNS, DHCP) | 01 e 02 | [`questionario-aulas-01-02.md`](questionario-aulas-01-02.md) |
 
 ## Próximos arquivos
 
