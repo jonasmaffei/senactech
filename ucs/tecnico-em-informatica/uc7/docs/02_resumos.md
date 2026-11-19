@@ -378,12 +378,12 @@ A NexaTech vai passar por uma auditoria de segurança e quer organizar processos
 
 ## Aula 32 - Projeto integrador: apresentação e defesa
 
-Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
+Apresentar e defender o projeto integrador do módulo, conforme as orientações da DreamShaper.
 
-É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.
+É o dia da entrega final. A banca vai avaliar se o trabalho desenvolvido atende ao tema e às orientações da plataforma.
 
-**Dor e solução:** A banca vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos. Impacto: Sem uma entrega integrada e documentada, o projeto não comprova valor para a NexaTech. Solução: Consolidar o projeto integrador, demonstrar o ambiente e defender as decisões. Prioridade: Essencial.
+**Dor e solução:** A banca vai avaliar se o trabalho desenvolvido atende ao tema e às orientações da DreamShaper. Impacto: Sem uma entrega organizada e com fontes, o projeto não comprova a aprendizagem. Solução: Consolidar o trabalho desenvolvido e defender as decisões. Prioridade: Essencial.
 
-**Conceitos principais:** Síntese dos cinco blocos; Pacote de documentação do projeto; Demonstração do ambiente e das evidências; Métricas de funcionamento e monitoramento; Lições aprendidas e próximos passos.
+**Conceitos principais:** Síntese das UCs do módulo; Pesquisa, fontes e justificativas; Desenvolvimento do trabalho; Resultados, riscos e limitações; Próximos passos.
 
 **Entrega:** Projeto integrador completo e defesa oral.

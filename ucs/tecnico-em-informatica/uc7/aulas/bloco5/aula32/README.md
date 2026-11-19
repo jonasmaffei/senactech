@@ -8,19 +8,19 @@
 
 ## Objetivo
 
-Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
+Apresentar e defender o **projeto integrador do módulo**, conforme as orientações da plataforma **DreamShaper**.
 
 ---
 
 ## Situação de aprendizagem
 
-É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.
+É o dia da entrega final. A banca vai avaliar se o trabalho desenvolvido atende ao tema escolhido e às orientações da DreamShaper.
 
-## Dor da NexaTech e solução
+## Dor e solução
 
 | Dor | Impacto | Exemplo de solução | Prioridade |
 | :--- | :--- | :--- | :--- |
-| A banca vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos. | Sem uma entrega integrada e documentada, o projeto não comprova valor para a NexaTech. | Consolidar o projeto integrador, demonstrar o ambiente e defender as decisões. | Essencial |
+| A banca vai avaliar se o trabalho desenvolvido atende ao tema e às orientações da DreamShaper. | Sem uma entrega organizada e com fontes, o projeto não comprova a aprendizagem. | Consolidar o trabalho desenvolvido e defender as decisões. | Essencial |
 
 ---
 
@@ -28,57 +28,57 @@ Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, c
 
 | Item | O que é |
 | :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Projeto integrador completo e defesa oral. |
+| [`atividade.md`](atividade.md) | Entrega da aula: projeto integrador completo e defesa oral |
 | [`apresentacao_aula32.html`](apresentacao_aula32.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
+| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro de apresentação e defesa |
 | `scripts/` | Automação e apoio (a produzir, quando necessário) |
 
 ### Tópicos
 
 | Tópico |
 | :--- |
-| Síntese dos cinco blocos |
-| Pacote de documentação do projeto |
-| Demonstração do ambiente e das evidências |
-| Métricas de funcionamento e monitoramento |
-| Lições aprendidas e próximos passos |
+| Síntese das UCs do módulo |
+| Tema, problema e objetivos |
+| Pesquisa, fontes e justificativas |
+| Desenvolvimento do trabalho escolhido |
+| Resultados, riscos e limitações |
 | Comunicação técnica e arguição |
 
 ### Ferramentas
 
-Ambiente virtual, documentação, dashboard, apresentação
+DreamShaper, documento de pesquisa, planilha de orçamento, ferramenta de diagramas e apresentação
 
 ---
 
-## Prática em laboratório
+## Apresentação e defesa
 
-Demonstração final do ambiente integrado.
+1. Apresentar o projeto em 10 a 15 minutos.
+2. Mostrar o trabalho desenvolvido — por exemplo, uma pesquisa, um orçamento ou um desenho de infraestrutura.
+3. Explicar as decisões e as fontes consultadas.
+4. Responder à arguição da banca.
+5. Entregar a documentação final e a autoavaliação.
 
-1. Apresentar o projeto em 10 a 15 minutos
-2. Demonstrar login, DNS/DHCP, arquivos, web, pfSense e monitoramento
-3. Responder à arguição da banca
-4. Entregar a documentação final e a autoavaliação
-
-> Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
+> A entrega e os critérios de avaliação seguem o que está publicado na DreamShaper.
 
 ---
 
 ## Atividade
 
-- **Entrega:** Projeto integrador completo e defesa oral.
+- **Entrega:** projeto integrador completo e defesa oral.
 - **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Qual foi a decisão técnica mais difícil do projeto e o que você faria diferente hoje?
+- **Pergunta de reflexão:** Qual foi a decisão mais difícil do projeto e o que você faria diferente hoje?
 
 ---
 
 ## Relação com o projeto
 
-Fecha a UC provando que o aluno consegue planejar, instalar, configurar e monitorar uma rede cliente/servidor.
+Fecha o módulo retomando o trabalho de pesquisa desenvolvido ao longo das UCs.
 
-**O que fica em aberto:** Depois da UC, o próximo passo é aprofundar certificações e especializações.
+**O que fica em aberto:** aprofundar fontes, atualizar dados e evoluir o trabalho desenvolvido.
 
-**Impacto de negócio:** Um projeto bem documentado e demonstrável reduz risco e facilita a continuidade.
+**Impacto:** um projeto bem pesquisado e documentado melhora a capacidade de analisar, comparar alternativas e propor soluções.
 
+---
 
 ## Encerramento
 

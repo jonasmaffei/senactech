@@ -54,9 +54,9 @@ A infraestrutura construída ao longo do módulo chega ao seguinte ambiente:
 
 ## Cenário condutor: NexaTech
 
-Todas as aulas usam uma empresa fictícia, a **NexaTech Soluções Digitais**, com 45 colaboradores, dois andares e uma rede local sem servidores centralizados.
+As aulas usam uma empresa fictícia, a **NexaTech Soluções Digitais**, com 45 colaboradores, dois andares e uma rede local sem servidores centralizados.
 
-Ao longo da UC, a turma atua como equipe de infraestrutura e deve:
+Ao longo das aulas, a turma atua como equipe de infraestrutura e deve:
 
 1. diagnosticar a situação atual;
 2. projetar a topologia e o plano de endereços;
@@ -66,9 +66,9 @@ Ao longo da UC, a turma atua como equipe de infraestrutura e deve:
 6. publicar a aplicação Apache/PHP e seu banco de dados;
 7. implantar pfSense para roteamento, NAT e liberação de internet;
 8. endurecer a segurança, testar backup e monitorar os serviços;
-9. apresentar o projeto final à banca.
+9. consolidar as práticas no laboratório ao final de cada bloco.
 
-O projeto integrador detalhado está em [`aulas/projeto-integrador/README.md`](aulas/projeto-integrador/README.md).
+O **Projeto Integrador** é um trabalho **individual** que decorre ao longo de todo o módulo, atravessando as UCs. Cada estudante escolhe um tema e desenvolve uma **pesquisa/trabalho** sobre ele — que pode ser, por exemplo, uma pesquisa, um orçamento ou um desenho de infraestrutura — com acompanhamento e entrega pela plataforma **DreamShaper**. Detalhes em [`aulas/projeto-integrador/README.md`](aulas/projeto-integrador/README.md).
 
 ---
 
@@ -352,6 +352,6 @@ Critérios transversais: funcionamento técnico, documentação, segurança, jus
 3. Abra `atividade.md` e confira a entrega.
 4. Monte o laboratório manualmente no VirtualBox conforme `laboratorio_virtual/README.md`.
 5. Registre evidências (prints, comandos, configurações e testes).
-6. Atualize a documentação do projeto integrador a cada bloco.
+6. No projeto integrador individual, registre as evidências e atualize a documentação conforme o cronograma definido com o docente.
 
 > **Pré-requisitos:** computador com virtualização habilitada, 8 GB de RAM ou mais (16 GB recomendado), cerca de 120 GB livres em disco e **VirtualBox** instalado. As atividades podem ser feitas nas VMs do [`laboratorio_virtual/`](laboratorio_virtual/README.md) ou no laboratório físico, quando disponível.

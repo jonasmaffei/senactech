@@ -210,12 +210,12 @@
     <section class="slide active">
       <span class="kicker">UC7 · Bloco 5 · Aula 32</span>
       <h1>Projeto integrador: apresentação e defesa</h1>
-      <p class="lead">Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.</p>
+      <p class="lead">Apresentar e defender o projeto integrador do módulo, conforme as orientações da DreamShaper.</p>
       <div class="meta-row">
         <span class="pill">04/02/2027 (quinta-feira)</span>
         <span class="pill">Operação, Monitoramento e Projeto</span>
         <span class="pill">3 horas</span>
-        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
+        <span class="pill">Projeto integrador · pesquisa · orçamento · infraestrutura</span>
       </div>
       <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
     </section>
@@ -223,15 +223,15 @@
 
     <section class="slide">
       <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
+      <h2>O desafio da organização</h2>
       <div class="two-col">
         <div>
-          <p class="lead">É o dia da entrega final. A banca representa a direção da NexaTech e vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos da empresa.</p>
+          <p class="lead">É o dia da entrega final. A banca vai avaliar se o trabalho desenvolvido atende ao tema escolhido e às orientações da DreamShaper.</p>
         </div>
         <div class="grid">
           <div class="card highlight">
             <h3>Objetivo da aula</h3>
-            <p>Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.</p>
+            <p>Apresentar e defender o projeto integrador do módulo, conforme as orientações da DreamShaper.</p>
           </div>
           <div class="card">
             <h3>Entrega principal</h3>
@@ -246,7 +246,7 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(1/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Síntese dos cinco blocos</h3></div><div class="card"><span class="card-num">02</span><h3>Pacote de documentação do projeto</h3></div><div class="card"><span class="card-num">03</span><h3>Demonstração do ambiente e das evidências</h3></div>
+        <div class="card"><span class="card-num">01</span><h3>Síntese das UCs do módulo</h3></div><div class="card"><span class="card-num">02</span><h3>Pesquisa, fontes e justificativas</h3></div><div class="card"><span class="card-num">03</span><h3>Desenvolvimento do trabalho</h3></div>
       </div>
     </section>
     
@@ -255,26 +255,25 @@
       <span class="kicker">Conceitos</span>
       <h2>Conceitos-chave <span class="muted">(2/2)</span></h2>
       <div class="grid cols-3">
-        <div class="card"><span class="card-num">04</span><h3>Métricas de funcionamento e monitoramento</h3></div><div class="card"><span class="card-num">05</span><h3>Lições aprendidas e próximos passos</h3></div><div class="card"><span class="card-num">06</span><h3>Comunicação técnica e arguição</h3></div>
+        <div class="card"><span class="card-num">04</span><h3>Resultados e análise</h3></div><div class="card"><span class="card-num">05</span><h3>Riscos, limitações e próximos passos</h3></div><div class="card"><span class="card-num">06</span><h3>Comunicação técnica e arguição</h3></div>
       </div>
     </section>
     
 
     <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>No laboratório VirtualBox</h2>
-      <p class="lead">Demonstração final do ambiente integrado.</p>
+      <span class="kicker">Apresentação</span>
+      <h2>Defesa do projeto integrador</h2>
+      <p class="lead">Apresentação individual da pesquisa, do orçamento e do desenho de infraestrutura.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Roteiro da aula</h3>
-          <ol class="steps"><li>Apresentar o projeto em 10 a 15 minutos</li><li>Demonstrar login, DNS/DHCP, arquivos, web, pfSense e monitoramento</li><li>Responder à arguição da banca</li><li>Entregar a documentação final e a autoavaliação</li></ol>
+          <ol class="steps"><li>Apresentar o projeto em 10 a 15 minutos</li><li>Mostrar o trabalho desenvolvido e as fontes</li><li>Responder à arguição da banca</li><li>Entregar a documentação final e a autoavaliação</li></ol>
         </div>
         <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>Ambiente virtual, documentação, dashboard, apresentação</p>
+          <h3>Materiais de apoio</h3>
+          <p>Documento de pesquisa, planilha de orçamento, diagramas e apresentação</p>
           <div class="note">
-            Trabalhe sempre com snapshots antes de mudanças arriscadas.
-            Registre prints, saídas de comando e testes no portfólio do grupo.
+            Registre as fontes consultadas, as decisões e as limitações do trabalho.
           </div>
         </div>
       </div>
@@ -282,43 +281,17 @@
     
 
     <section class="slide">
-      <span class="kicker">Infraestrutura · VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-node client">
-        <strong>CLI01 / CLI02</strong>
-        <span>cliente Windows</span>
-        <small>IP via DHCP</small>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>DC01</strong>
-          <span>Windows Server</span>
-          <small>192.168.10.10</small>
-        </div>
-        <div class="top-node lnx">
-          <strong>APP01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.20</small>
-        </div>
-        <div class="top-node mon">
-          <strong>DB01</strong>
-          <span>Ubuntu Server</span>
-          <small>192.168.10.30</small>
-        </div>
-      </div>
-    </div>
-    
+      <span class="kicker">Projeto integrador</span>
+      <h2>O que deve aparecer na entrega</h2>
       <div class="grid cols-3">
-        <div class="card"><h3>DC01</h3><p>Windows Server. Active Directory, DNS, DHCP, arquivos e GPOs.</p></div>
-        <div class="card"><h3>APP01</h3><p>Ubuntu Server. DNS, DHCP, web,  e hardening.</p></div>
-        <div class="card"><h3>DB01</h3><p>Ubuntu Server. Monitoramento, logs e dashboards.</p></div>
+        <div class="card"><h3>Tema e problema</h3><p>Contexto, pergunta de pesquisa e objetivos.</p></div>
+        <div class="card"><h3>Pesquisa e fontes</h3><p>Referências confiáveis, comparações e justificativas.</p></div>
+        <div class="card"><h3>Desenvolvimento</h3><p>O trabalho escolhido: pesquisa, orçamento, desenho de infraestrutura ou outro.</p></div>
+        <div class="card"><h3>Resultados</h3><p>Análise, riscos, limitações e conclusões.</p></div>
+        <div class="card"><h3>Integração com as UCs</h3><p>Conceitos e ferramentas do módulo aplicados ao tema.</p></div>
+        <div class="card"><h3>Entrega</h3><p>Formato e critérios definidos na DreamShaper.</p></div>
       </div>
-      <p class="note"><strong>Nesta aula:</strong> Use a VM DB01 para monitoramento e o ambiente integrado DC01 + APP01 + CLI01 para a demonstração final.</p>
+      <p class="note"><strong>Nesta aula:</strong> apresente o percurso completo do projeto, não apenas o resultado final.</p>
     </section>
     
 
@@ -327,7 +300,7 @@
       <h2>O que deve ser entregue</h2>
       <div class="card highlight">
         <h3>Projeto integrador completo e defesa oral.</h3>
-        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p>
+        <p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio individual.</p>
       </div>
       <div class="grid cols-2" style="margin-top:14px">
         <div class="card">
@@ -362,21 +335,21 @@
 
     <section class="slide">
       <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Fecha a UC provando que o aluno consegue planejar, instalar, configurar e monitorar uma rede cliente/servidor.</p>
+      <h2>Conexão com o projeto integrador</h2>
+      <p class="lead">Fecha o módulo retomando o trabalho de pesquisa desenvolvido ao longo das UCs.</p>
       <div class="grid cols-2">
         <div class="card">
           <h3>Entrega que sustenta o projeto</h3>
-          <p>Projeto integrador completo e defesa oral.</p>
+          <p>Trabalho de pesquisa, fontes e defesa oral.</p>
         </div>
         <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Depois da UC, o próximo passo é aprofundar certificações e especializações.</p>
+          <h3>Próximo passo</h3>
+          <p>Aprofundar fontes, atualizar dados e evoluir o trabalho desenvolvido.</p>
         </div>
       </div>
       <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
+        O projeto é avaliado pela coerência entre a pesquisa, o trabalho desenvolvido
+        e as orientações da DreamShaper.
       </div>
     </section>
     
@@ -385,12 +358,12 @@
       <span class="kicker">Fechamento</span>
       <h2>Resumo da aula</h2>
       <ul class="check">
-        <li>O projeto final integra planejamento, instalação, configuração, segurança e monitoramento.</li><li>A defesa oral verifica domínio técnico e capacidade de justificar decisões.</li><li>Documentação e evidências são tão importantes quanto o ambiente funcionando.</li>
+        <li>O projeto integra o trabalho de pesquisa desenvolvido ao longo das UCs.</li><li>A defesa oral verifica domínio do tema e capacidade de justificar decisões.</li><li>Fontes, organização e aderência à DreamShaper são tão importantes quanto o resultado.</li>
       </ul>
       
-        <div class="next"><span>Fim da UC</span><strong>Projeto integrador entregue</strong><p>Revise as evidências e finalize a documentação.</p></div>
+        <div class="next"><span>Fim do módulo</span><strong>Projeto integrador entregue</strong><p>Revise as fontes e finalize a entrega na DreamShaper.</p></div>
         
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do projeto do grupo.</p>
+      <p class="hint">Antes de sair: confira a entrega na DreamShaper e atualize o seu projeto individual.</p>
     </section>
     
 
@@ -399,27 +372,27 @@
       <h2>Checklist da apresentação</h2>
       <div class="grid cols-2">
         <div class="card">
-          <h3>Demonstração</h3>
+          <h3>Pesquisa e desenvolvimento</h3>
           <ul class="check">
-            <li>Login no domínio e permissões por setor.</li>
-            <li>DNS e DHCP respondendo aos clientes.</li>
-            <li>Pastas compartilhadas e políticas aplicadas.</li>
-            <li>Intranet e acesso remoto seguro.</li>
-            <li>Serviços Linux e integração com Windows.</li>
+            <li>Tema, problema e justificativa.</li>
+            <li>Fontes confiáveis e referências.</li>
+            <li>Trabalho desenvolvido e resultados.</li>
+            <li>Riscos, limitações e conclusões.</li>
+            <li>Declaração de uso de IA.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Documentação e operação</h3>
+          <h3>Integração e entrega</h3>
           <ul class="check">
-            <li>Topologia, plano de IPs e inventário.</li>
-            <li>Backup testado e plano de continuidade.</li>
-            <li>Dashboard de monitoramento e alertas.</li>
-            <li>Análise de riscos e governança.</li>
+            <li>Conexão com os conteúdos das UCs.</li>
+            <li>Organização e clareza do trabalho.</li>
+            <li>Justificativa das decisões.</li>
+            <li>Formato e critérios da DreamShaper.</li>
             <li>Lições aprendidas e próximos passos.</li>
           </ul>
         </div>
       </div>
-      <div class="note">A defesa deve mostrar evidências reais do ambiente VirtualBox, não apenas slides.</div>
+      <div class="note">A defesa deve mostrar o trabalho desenvolvido e as fontes, conforme a DreamShaper.</div>
     </section>
     
 </main>

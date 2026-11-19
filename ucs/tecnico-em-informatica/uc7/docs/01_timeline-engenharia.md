@@ -250,9 +250,9 @@ A30 Monitoramento, automação e troubleshooting -> A31 Governança de TI, segur
 * **Impacto de negócio:** Governança reduz risco, melhora auditoria e alinha TI ao negócio.
 
 ### Aula 32 - Projeto integrador: apresentação e defesa
-* **Dor e solução:** A banca vai avaliar se a rede planejada, instalada, configurada e monitorada atende aos requisitos. Impacto: Sem uma entrega integrada e documentada, o projeto não comprova valor para a NexaTech. Solução: Consolidar o projeto integrador, demonstrar o ambiente e defender as decisões. Prioridade: Essencial.
-* **Conceito/fundamento:** Síntese dos cinco blocos; Pacote de documentação do projeto; Demonstração do ambiente e das evidências; Métricas de funcionamento e monitoramento.
-* **O que se aprende:** Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
+* **Dor e solução:** A banca vai avaliar se o trabalho desenvolvido atende ao tema e às orientações da DreamShaper. Impacto: Sem uma entrega organizada e com fontes, o projeto não comprova a aprendizagem. Solução: Consolidar o trabalho desenvolvido e defender as decisões. Prioridade: Essencial.
+* **Conceito/fundamento:** Síntese das UCs do módulo; pesquisa; desenvolvimento do trabalho; entrega na DreamShaper.
+* **O que se aprende:** Apresentar e defender o projeto integrador do módulo, conforme as orientações da DreamShaper.
 * **Problema em aberto:** Depois da UC, o próximo passo é aprofundar certificações e especializações.
 * **Impacto de negócio:** Um projeto bem documentado e demonstrável reduz risco e facilita a continuidade.
 

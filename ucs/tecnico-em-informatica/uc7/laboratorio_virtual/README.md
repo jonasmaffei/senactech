@@ -189,6 +189,6 @@ Cada roteiro indica:
 
 ## Relação com o projeto integrador
 
-O laboratório é a base técnica do projeto da NexaTech. As evidências geradas nas VMs (prints, comandos, configurações e testes) devem ser guardadas no portfólio do grupo e usadas na defesa final da Aula 32.
+O laboratório é a base técnica das aulas e do projeto integrador. As evidências geradas nas VMs (prints, comandos, configurações e testes) devem ser guardadas no portfólio individual e usadas na defesa final, adaptadas ao tema escolhido por cada estudante.
 
 > Voltar para o [README do repositório](../README.md).

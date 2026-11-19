@@ -1,61 +1,50 @@
-# Laboratório VirtualBox - Aula 32: Projeto integrador: apresentação e defesa
+# Apresentação e defesa - Aula 32
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Projeto integrador completo e defesa oral.
+**Entrega da aula:** Projeto integrador completo e defesa oral.  
+**Plataforma de acompanhamento:** DreamShaper.
 
 ---
 
 ## Objetivo
 
-Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
-
-## VMs desta aula
-
-DC01, CLI01, CLI02, APP01, DB01 e FW01.
+Apresentar e defender o **projeto integrador do módulo**, conforme as orientações da DreamShaper.
 
 ## Antes de começar
 
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
+1. Confira na DreamShaper o formato de entrega, os critérios e os prazos.
+2. Revise a pesquisa, as fontes e o orçamento.
+3. Organize os diagramas e os materiais de apoio.
+4. Teste a apresentação e o compartilhamento de tela.
 
 ## Roteiro
 
-1. Apresentar o projeto em 10 a 15 minutos
-2. Demonstrar login, DNS/DHCP, arquivos, web, pfSense e monitoramento
-3. Responder à arguição da banca
-4. Entregar a documentação final e a autoavaliação
+1. Apresentar o projeto em 10 a 15 minutos.
+2. Mostrar o trabalho desenvolvido e as fontes consultadas.
+3. Explicar as decisões e as justificativas.
+4. Responder à arguição da banca.
+5. Entregar a documentação final e a autoavaliação.
 
-## Testes e evidências
+## Materiais de apoio
 
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula32"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula32"
-```
-
+- Documento de pesquisa.
+- Planilha de orçamento.
+- Diagramas da infraestrutura.
+- Referências e fontes consultadas.
+- Apresentação final.
 
 ## Observações
 
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
+- A apresentação deve ser individual.
+- O foco é explicar o percurso: tema, pesquisa, desenvolvimento do trabalho e conclusão.
+- Registre as decisões e as limitações do trabalho.
 
+---
 
 ## Relação com o projeto
 
-Fecha a UC provando que o aluno consegue planejar, instalar, configurar e monitorar uma rede cliente/servidor.
+Fecha o módulo retomando o trabalho de pesquisa desenvolvido ao longo das UCs.
 
-**O que fica em aberto:** Depois da UC, o próximo passo é aprofundar certificações e especializações.
+**O que fica em aberto:** aprofundar fontes, atualizar o orçamento e evoluir o desenho da infraestrutura.
 
 ---
 

@@ -91,6 +91,6 @@ aulas/
 
 ## Projeto integrador
 
-[`projeto-integrador/README.md`](projeto-integrador/README.md) - rede cliente/servidor da NexaTech com Windows Server, dois clientes Windows 10, Ubuntu para aplicação e banco, e pfSense como roteador/firewall.
+[`projeto-integrador/README.md`](projeto-integrador/README.md) - **trabalho individual do módulo**, com **tema livre**. Cada estudante desenvolve uma **pesquisa/trabalho** sobre o tema — por exemplo, uma pesquisa, um orçamento ou um desenho de infraestrutura — com acompanhamento e entrega pela plataforma **DreamShaper**.
 
 > Voltar para o [README do repositório](../README.md).

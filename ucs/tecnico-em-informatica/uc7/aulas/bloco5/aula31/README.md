@@ -83,7 +83,7 @@ Dá sustentação organizacional ao ambiente técnico construído na UC.
 
 ## Próxima aula
 
-**Aula 32 - Projeto integrador: apresentação e defesa.** Apresentar e defender o projeto completo de rede cliente/servidor da NexaTech, com evidências de instalação, configuração e monitoramento.
+**Aula 32 - Projeto integrador: apresentação e defesa.** Apresentar e defender o projeto integrador do módulo, conforme as orientações da DreamShaper.
 
 ---
 
