@@ -1,130 +1,199 @@
-# Projeto Integrador do Módulo
+# Projeto Integrador - UC7
 
 ## O que é
 
-O Projeto Integrador é um **trabalho individual** que **decorre ao longo de todo o módulo**, atravessando as UCs que o estudante está cursando. Nele, o estudante escolhe um tema e desenvolve uma **pesquisa/trabalho** sobre esse tema, seguindo o que a plataforma **DreamShaper** orienta e avalia.
+O Projeto Integrador é um **trabalho em grupo** que decorre ao longo do módulo e tem como base os conteúdos da **UC7**. A turma está dividida em **3 grupos** e cada grupo recebe **3 opções de tema**, escolhendo **uma** para desenvolver um trabalho de pesquisa.
 
-Não existe um roteiro único nem um conjunto obrigatório de componentes. **Pesquisa, orçamento e desenho de infraestrutura são apenas exemplos** do que pode ser pesquisado e trabalhado. O estudante pode escolher um desses exemplos, combinar mais de um ou propor outra abordagem que faça sentido para o tema.
+O trabalho é de **pesquisa**: o grupo investiga o tema, compara soluções, analisa viabilidade, riscos e boas práticas, e apresenta conclusões fundamentadas. Não há obrigação de instalar ou configurar um ambiente; o foco é compreender, comparar e propor.
 
-O percurso é definido pelo tema escolhido e pelas etapas de pesquisa e entrega propostas na DreamShaper.
+Pesquisa, orçamento e desenho de infraestrutura são **exemplos** do que pode ser pesquisado e trabalhado. O grupo escolhe o recorte que fizer mais sentido para o tema.
+
+O acompanhamento e a entrega seguem as orientações da plataforma **DreamShaper**.
 
 ---
 
 ## Como funciona
 
-1. **O estudante escolhe um tema** — uma organização, um problema, uma tecnologia ou uma necessidade real.
-2. **A pesquisa é conduzida na DreamShaper** — a plataforma organiza a trilha de pesquisa, as fontes, os modelos e as entregas.
-3. **O projeto acompanha o módulo** — os conteúdos e ferramentas das UCs alimentam a pesquisa e o trabalho desenvolvido.
-4. **As entregas parciais e a entrega final** seguem os prazos, os formatos e os critérios publicados na DreamShaper.
-5. **O estudante registra a evolução** — versões, fontes consultadas, decisões e ajustes feitos ao longo do percurso.
-
-> A DreamShaper é a referência de acompanhamento e entrega. Este README apenas orienta o estudante sobre o que é o projeto; os detalhes de cada etapa devem ser consultados na plataforma.
+1. A turma é dividida em **3 grupos**.
+2. Cada grupo recebe **3 temas** e escolhe **1** para o trabalho.
+3. O grupo pesquisa o tema com fontes confiáveis, registrando a evolução na **DreamShaper**.
+4. O trabalho é desenvolvido ao longo do módulo, conectando os conteúdos da UC7.
+5. A entrega final e a apresentação seguem os prazos, formatos e critérios da **DreamShaper**.
 
 ---
 
-## Exemplos do que pode ser pesquisado e trabalhado
+## Temas por grupo
 
-Os itens abaixo são **apenas exemplos**. O estudante escolhe o que faz sentido para o tema e para as orientações da DreamShaper.
+### Grupo 1 — Serviços de rede e identidade
 
-| Exemplo | O que pode ser desenvolvido |
-| :--- | :--- |
-| **Pesquisa** | Contexto, problema, fontes confiáveis, comparação de soluções, estudo de caso, tendências ou análise de tecnologias |
-| **Orçamento** | Levantamento de custos, alternativas de equipamentos e serviços, análise de viabilidade e critérios de escolha |
-| **Desenho de infraestrutura** | Topologia, componentes, serviços, fluxos, requisitos, riscos e proposta de operação |
-| **Outros trabalhos** | Proposta técnica, plano de migração, análise de segurança, estudo de viabilidade, manual, política ou outro formato adequado ao tema |
+1. **Active Directory x alternativas Linux para gestão de identidades**
+   - Pesquisa comparativa entre AD DS (Windows Server) e soluções como Samba 4 e FreeIPA.
+   - Estrutura de domínio, OUs, usuários, grupos, GPOs, custo, complexidade e cenários de uso.
 
-A entrega final deve apresentar o trabalho escolhido de forma coerente, conforme o modelo e os critérios da DreamShaper.
+2. **DNS e DHCP em redes locais: Windows Server x BIND9/ISC DHCP**
+   - Comparação de configuração, zonas, escopos, reservas e integração com o domínio.
+   - Disponibilidade, segurança, administração e boas práticas em redes locais.
 
----
+3. **Servidor de arquivos, permissões e quotas: Windows Server x Samba**
+   - Análise de compartilhamentos, ACLs, permissões, quotas, GPOs e backup.
+   - Controle de acesso e organização de pastas por setor em pequenas e médias empresas.
 
-## Como escolher o tema
+### Grupo 2 — Redes, firewall e serviços web
 
-Um bom tema de Projeto Integrador:
+1. **pfSense em redes locais: segmentação, NAT, firewall e VPN**
+   - Estudo de regras de firewall, VLANs, NAT, VPN e boas práticas de segurança.
+   - Aplicação em pequenas e médias empresas e comparação com outras soluções.
 
-- **tem relação com a área do módulo**;
-- **permite pesquisa com fontes confiáveis**;
-- **possibilita um trabalho concreto**, como uma pesquisa, um orçamento, um desenho de infraestrutura ou outro formato;
-- **é viável de desenvolver ao longo do módulo**.
+2. **Publicação de aplicações web em servidores locais: IIS x Apache/Nginx**
+   - Comparação de instalação, VirtualHosts, HTTPS, PHP e integração com banco de dados.
+   - Desempenho, segurança, manutenção e cenários de uso.
 
-O tema é livre e não precisa ter relação com as aulas ou com os exemplos usados em sala.
+3. **Hardening e administração remota de servidores Linux**
+   - SSH, usuários, sudo, permissões, firewall, atualizações e logs.
+   - Monitoramento, auditoria e boas práticas de segurança em servidores Linux.
 
----
+### Grupo 3 — Segurança, continuidade e operação
 
-## Temas sugeridos
+1. **Backup e recuperação de desastres em servidores locais**
+   - Estratégias de backup, backup completo e incremental, retenção e testes de restauração.
+   - RPO, RTO, continuidade de negócios e proteção de dados.
 
-> Os temas abaixo são pontos de partida. O estudante pode adaptá-los ou propor outro.
+2. **Monitoramento e troubleshooting de redes e servidores**
+   - Ferramentas como Zabbix, Prometheus e Grafana, SNMP, logs e alertas.
+   - Métricas, diagnóstico de falhas e resposta a incidentes.
 
-### 🛒 Comércio, Varejo e Serviços
-1. Rede de uma rede de lojas de bairro.
-2. Infraestrutura de um supermercado de médio porte.
-3. Servidores de uma rede de academias.
-4. Rede de uma rede de restaurantes.
-5. Infraestrutura de uma clínica de estética.
-
-### 🏥 Saúde e Bem-Estar
-6. Rede de uma clínica médica com 4 especialidades.
-7. Servidores de um laboratório de análises clínicas.
-8. Infraestrutura de uma clínica odontológica.
-9. Rede de uma unidade de fisioterapia e reabilitação.
-10. Servidores de um hospital-dia.
-
-### 📚 Educação e Treinamento
-11. Rede de uma escola de idiomas.
-12. Infraestrutura de um instituto de cursos técnicos.
-13. Servidores de uma creche municipal.
-14. Rede de uma faculdade pequena.
-15. Infraestrutura de uma plataforma de cursos livres.
-
-### 🏭 Indústria, Logística e Agro
-16. Rede de uma fábrica de pequeno porte.
-17. Infraestrutura de um centro de distribuição.
-18. Servidores de uma cooperativa agrícola.
-19. Rede de uma transportadora.
-20. Infraestrutura de um frigorífico.
-
-### ⚖️ Jurídico, Contabilidade e Compliance
-21. Rede de um escritório de advocacia.
-22. Infraestrutura de um escritório de contabilidade.
-23. Servidores de uma empresa de auditoria.
-24. Rede de um departamento jurídico interno.
-25. Infraestrutura de uma corretora de seguros.
-
-### 💻 Tecnologia, Mídia e Comunicação
-26. Rede de uma agência de marketing digital.
-27. Infraestrutura de um estúdio de produção audiovisual.
-28. Servidores de uma software house pequena.
-29. Rede de uma rádio comunitária.
-30. Infraestrutura de um provedor de internet local.
-
-### 🏛️ Setor Público e Cidades
-31. Rede de uma prefeitura de pequeno porte.
-32. Infraestrutura de uma câmara municipal.
-33. Servidores de uma unidade de saúde pública.
-34. Rede de uma escola pública.
-35. Infraestrutura de um centro de referência de assistência social.
-
-### 🌱 ONGs, Cultura e Terceiro Setor
-36. Rede de uma ONG de proteção animal.
-37. Infraestrutura de uma associação comunitária.
-38. Servidores de um museu local.
-39. Rede de uma biblioteca comunitária.
-40. Infraestrutura de um centro cultural.
+3. **Governança de TI e segurança da informação em redes locais**
+   - LGPD, políticas de acesso, gestão de riscos, auditoria e certificações.
+   - Continuidade de negócios e boas práticas de governança.
 
 ---
 
-## O que a entrega final deve apresentar
+## Norte para começar a pesquisa
 
-Independentemente do tipo de trabalho escolhido, a entrega final deve deixar claro:
+Antes de iniciar, o grupo deve:
+
+1. Ler os três temas recebidos e escolher **um**.
+2. Delimitar uma **pergunta de pesquisa** e um recorte viável.
+3. Levantar **palavras-chave** e **fontes oficiais**.
+4. Definir **critérios de comparação** antes de pesquisar as soluções.
+5. Registrar as fontes e os achados na **DreamShaper** desde o início.
+
+### Grupo 1 — Serviços de rede e identidade
+
+**Pergunta de pesquisa:** como escolher e justificar soluções de identidade, DNS/DHCP e arquivos para uma pequena ou média empresa?
+
+**Palavras-chave:** Active Directory DS, Samba 4, FreeIPA, LDAP, Kerberos, GPO, BIND9, ISC DHCP, DNS/DHCP no Windows Server, NTFS, ACL, quotas e compartilhamentos Samba.
+
+**Fontes iniciais:** Microsoft Learn (AD DS, DNS, DHCP e GPO), documentação do Samba, FreeIPA, ISC/BIND, Ubuntu Server e Red Hat.
+
+**Primeiros passos:**
+
+1. Escolha um dos três temas do grupo e defina uma empresa fictícia com número de usuários, setores e necessidades.
+2. Liste os requisitos: autenticação, permissões, disponibilidade, custo, segurança e facilidade de administração.
+3. Monte uma matriz de comparação com critérios e pesos.
+4. Pesquise cada solução em fontes oficiais e registre os achados.
+5. Conclua com uma recomendação justificada e com as limitações do estudo.
+
+**Critérios de comparação:** custo, complexidade, segurança, integração, escalabilidade, suporte e curva de aprendizado.
+
+### Grupo 2 — Redes, firewall e serviços web
+
+**Pergunta de pesquisa:** como segmentar, proteger e publicar serviços web em uma rede local com segurança e disponibilidade?
+
+**Palavras-chave:** pfSense, NAT, VLAN, firewall, VPN, IDS/IPS, IIS, Apache, Nginx, HTTPS, PHP, banco de dados, hardening, SSH, UFW e fail2ban.
+
+**Fontes iniciais:** documentação do pfSense/Netgate, Microsoft IIS, Apache, Nginx, OWASP, CIS Benchmarks e Ubuntu Server.
+
+**Primeiros passos:**
+
+1. Escolha um dos três temas do grupo e defina um cenário de rede com setores e serviços.
+2. Desenhe a topologia e liste os fluxos que devem ser permitidos ou bloqueados.
+3. Defina os critérios de comparação antes de analisar as ferramentas.
+4. Pesquise configurações e boas práticas nas fontes oficiais.
+5. Apresente a recomendação, os riscos e as limitações.
+
+**Critérios de comparação:** segurança, desempenho, disponibilidade, custo, complexidade, manutenção e aderência ao cenário.
+
+### Grupo 3 — Segurança, continuidade e operação
+
+**Pergunta de pesquisa:** como garantir continuidade, monitoramento e governança em servidores locais?
+
+**Palavras-chave:** backup 3-2-1, RPO, RTO, recuperação de desastres, rsync, Bacula, Veeam, Zabbix, Prometheus, Grafana, SNMP, LGPD, gestão de riscos, ISO 27001 e CIS Controls.
+
+**Fontes iniciais:** NIST, ISO 27001, LGPD, documentação do Zabbix, Prometheus e Grafana, Bacula, Veeam e CIS Benchmarks.
+
+**Primeiros passos:**
+
+1. Escolha um dos três temas do grupo e defina os ativos críticos e os riscos.
+2. Estabeleça os requisitos: RPO/RTO, métricas, políticas e responsabilidades.
+3. Compare ferramentas e abordagens com critérios claros.
+4. Estruture o plano ou dossiê com etapas, responsáveis e testes.
+5. Conclua com recomendações, riscos e limitações.
+
+**Critérios de comparação:** cobertura, confiabilidade, custo, complexidade, segurança, conformidade e facilidade de operação.
+
+---
+
+## Entrega
+
+A entrega segue o **mesmo formato para os três grupos**. Cada grupo escolhe **1 dos 3 temas** recebidos e entrega apenas o trabalho referente ao tema escolhido.
+
+### Formato comum
+
+1. **Relatório de pesquisa** em PDF ou Word, com 8 a 12 páginas.
+2. **Apresentação e defesa oral** de 10 a 15 minutos.
+3. **Anexos** com tabelas comparativas, diagramas, checklists e fontes.
+4. **Submissão na DreamShaper**, conforme prazos e formato da plataforma.
+
+### Estrutura mínima do relatório
+
+- Capa com tema, grupo e integrantes.
+- Introdução: contexto, problema e pergunta de pesquisa.
+- Objetivos.
+- Metodologia: fontes e critérios de comparação.
+- Desenvolvimento: análise e comparação das soluções.
+- Resultados: quadro comparativo, recomendações e limitações.
+- Conclusão.
+- Referências.
+- Declaração de uso de IA.
+
+### O que a entrega deve deixar claro
+
+Independentemente do tema escolhido, o trabalho deve apresentar:
 
 - **qual é o tema e o problema ou pergunta de pesquisa**;
-- **quais objetivos e o que foi desenvolvido**;
-- **quais fontes foram pesquisadas**;
-- **quais decisões foram tomadas** e por quê;
-- **quais resultados, riscos e limitações** existem;
-- **como o trabalho se conecta às UCs do módulo**;
+- **quais objetivos** o grupo definiu;
+- **quais fontes** foram pesquisadas;
+- **quais soluções ou abordagens** foram comparadas;
+- **quais resultados e conclusões** o grupo chegou;
+- **quais riscos, limitações e recomendações** existem;
+- **como o trabalho se conecta aos conteúdos da UC7**;
 - **quais referências** foram usadas.
 
-O formato exato do documento, os anexos, a apresentação e a submissão devem seguir as instruções da **DreamShaper**.
+### Entregas específicas por tema
+
+| Grupo | Tema | Entrega principal | Artefatos esperados |
+| :--- | :--- | :--- | :--- |
+| **1** | Active Directory x alternativas Linux | Relatório comparativo e recomendação para uma PME | Matriz AD DS x Samba 4 x FreeIPA; desenho lógico do domínio; análise de custo, complexidade e segurança |
+| **1** | DNS e DHCP: Windows Server x BIND9/ISC DHCP | Relatório comparativo e proposta de serviço de nomes/endereçamento | Tabela de zonas, escopos e reservas; exemplos de configuração; análise de disponibilidade e segurança |
+| **1** | Servidor de arquivos: Windows Server x Samba | Relatório e proposta de compartilhamento seguro | Estrutura de pastas, matriz de permissões/ACLs, política de quotas, GPOs e plano de backup |
+| **2** | pfSense: segmentação, NAT, firewall e VPN | Relatório e proposta de segurança de rede | Diagrama de segmentação; tabela de regras, NAT e VPN; análise de riscos e comparação com alternativas |
+| **2** | IIS x Apache/Nginx | Relatório comparativo e proposta de publicação web | Quadro comparativo; checklist de HTTPS, PHP e banco; análise de desempenho, segurança e manutenção |
+| **2** | Hardening e administração remota Linux | Relatório e checklist de hardening | Checklist antes/depois; configuração de SSH, sudo e firewall; política de atualizações e logs |
+| **3** | Backup e recuperação de desastres | Relatório e plano de backup/continuidade | Estratégia 3-2-1; definição de RPO/RTO; cronograma; simulação de restauração |
+| **3** | Monitoramento e troubleshooting | Relatório e proposta de monitoramento | Mapa de métricas e alertas; comparação de ferramentas; fluxo de resposta a incidentes; esboço de dashboard |
+| **3** | Governança de TI e segurança da informação | Relatório e dossiê de governança | Matriz de riscos; políticas de acesso; adequação à LGPD; roadmap de certificações |
+
+### Distribuição da nota sugerida
+
+| Componente | Peso |
+| :--- | :---: |
+| Relatório de pesquisa | 50% |
+| Apresentação e defesa | 25% |
+| Anexos e qualidade das fontes | 15% |
+| Participação e organização do grupo | 10% |
+
+> Os pesos finais e o formato de submissão são os definidos na DreamShaper e pelo docente.
 
 ---
 
@@ -133,9 +202,9 @@ O formato exato do documento, os anexos, a apresentação e a submissão devem s
 | Critério | O que será observado |
 | :--- | :--- |
 | Pesquisa e fontes | Qualidade, profundidade, atualidade e pertinência das fontes |
-| Desenvolvimento do trabalho | Coerência do que foi produzido com o tema e com os objetivos propostos |
-| Justificativas e decisões | Clareza dos critérios, comparações e escolhas feitas |
-| Integração com as UCs | Uso dos conceitos e ferramentas trabalhados no módulo |
+| Desenvolvimento do tema | Coerência entre o problema, a pesquisa e as conclusões |
+| Comparação e análise | Capacidade de comparar soluções, apontar vantagens e limitações |
+| Conexão com a UC7 | Uso dos conceitos e ferramentas trabalhados na UC |
 | Organização e comunicação | Estrutura do trabalho, clareza, referências e apresentação |
 | Acompanhamento na DreamShaper | Cumprimento das etapas, prazos e formatos da plataforma |
 
@@ -145,9 +214,9 @@ Os pesos e os critérios finais são os definidos na DreamShaper e pelo docente.
 
 ## Regras de trabalho
 
-- O trabalho é **individual**.
-- O tema é **livre** e **não precisa ter relação com as aulas**.
-- O projeto pode ser, por exemplo, uma **pesquisa**, um **orçamento**, um **desenho de infraestrutura** ou outro tipo de trabalho.
+- O trabalho é **em grupo**, conforme a divisão da turma em **3 grupos**.
+- Cada grupo escolhe **1 tema** entre as **3 opções** recebidas.
+- O tema é desenvolvido como **pesquisa**, com fontes confiáveis.
 - O acompanhamento e a entrega seguem a plataforma **DreamShaper**.
 - Use apenas dados fictícios ou públicos.
 - Cite todas as fontes consultadas.
@@ -156,8 +225,22 @@ Os pesos e os critérios finais são os definidos na DreamShaper e pelo docente.
 
 ---
 
+## Cronograma sugerido
+
+As datas de entrega são definidas pelo docente. Como sugestão:
+
+| Etapa | Entrega |
+| :--- | :--- |
+| E1 - Escolha do tema | Grupo, tema escolhido, problema e objetivos |
+| E2 - Pesquisa inicial | Fontes, levantamento e recorte do trabalho |
+| E3 - Desenvolvimento | Comparações, análise e estrutura do trabalho |
+| E4 - Versão preliminar | Texto parcial e ajustes com base na DreamShaper |
+| E5 - Entrega final | Trabalho completo, apresentação e defesa |
+
+---
+
 ## Referências
 
 - **Plataforma DreamShaper** — trilha de pesquisa, modelos e entrega do projeto (acesso institucional).
-- Competências e organização do módulo: [`../../docs/04_plano-de-aulas.md`](../../docs/04_plano-de-aulas.md)
+- Competências e organização da UC: [`../../docs/04_plano-de-aulas.md`](../../docs/04_plano-de-aulas.md)
 - Materiais complementares: [`../../docs/05_materiais-complementares.md`](../../docs/05_materiais-complementares.md)

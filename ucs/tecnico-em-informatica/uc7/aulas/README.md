@@ -91,6 +91,6 @@ aulas/
 
 ## Projeto integrador
 
-[`projeto-integrador/README.md`](projeto-integrador/README.md) - **trabalho individual do módulo**, com **tema livre**. Cada estudante desenvolve uma **pesquisa/trabalho** sobre o tema — por exemplo, uma pesquisa, um orçamento ou um desenho de infraestrutura — com acompanhamento e entrega pela plataforma **DreamShaper**.
+[`projeto-integrador/README.md`](projeto-integrador/README.md) - **trabalho em grupo** com base na UC7. A turma é dividida em **3 grupos**; cada grupo recebe **3 opções de tema** e escolhe uma para desenvolver um trabalho de pesquisa, com acompanhamento e entrega pela plataforma **DreamShaper**.
 
 > Voltar para o [README do repositório](../README.md).

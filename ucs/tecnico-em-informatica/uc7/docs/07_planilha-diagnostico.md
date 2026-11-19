@@ -1,6 +1,6 @@
 # Planilha de diagnóstico - modelo de referência
 
-> Modelo para registrar as dores da organização, o impacto de cada uma, a solução proposta, a prioridade dos serviços e as evidências do projeto integrador. O exemplo original usa a NexaTech, cenário das aulas; no projeto, adapte as linhas ao tema escolhido pelo estudante.
+> Modelo para registrar as dores da organização, o impacto de cada uma, a solução proposta, a prioridade dos serviços e as evidências do projeto integrador. O exemplo original usa a NexaTech, cenário das aulas; no projeto, adapte as linhas ao tema escolhido pelo grupo.
 
 **Arquivo:** [`07_planilha-diagnostico-nexatech.xlsx`](07_planilha-diagnostico-nexatech.xlsx)
 
@@ -58,7 +58,7 @@ A planilha transforma o diagnóstico em um documento verificável. Cada linha re
 2. A solução deve citar a tecnologia e o local: servidor, serviço e configuração.
 3. A evidência deve ser verificável por outra pessoa.
 4. A prioridade precisa de justificativa; não classifique tudo como essencial.
-5. Atualize o status ao final de cada etapa, junto com o portfólio individual do projeto.
+5. Atualize o status ao final de cada etapa, junto com o portfólio do grupo.
 
 ---
 

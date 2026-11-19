@@ -1,7 +1,7 @@
 # Atividade - Aula 32: Projeto integrador: apresentação e defesa
 
 **Entrega:** Projeto integrador completo e defesa oral.  
-**Formato:** individual  
+**Formato:** em grupo (3 grupos na turma)  
 **Peso sugerido:** atividade do bloco
 
 ---

@@ -34,7 +34,7 @@ Apresentar e defender o **projeto integrador do módulo**, conforme as orientaç
 
 ## Observações
 
-- A apresentação deve ser individual.
+- A apresentação deve ser feita pelo grupo.
 - O foco é explicar o percurso: tema, pesquisa, desenvolvimento do trabalho e conclusão.
 - Registre as decisões e as limitações do trabalho.
 
