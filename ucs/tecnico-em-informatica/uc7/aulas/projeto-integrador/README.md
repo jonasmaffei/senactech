@@ -22,6 +22,62 @@ O acompanhamento e a entrega seguem as orientações da plataforma **DreamShaper
 
 ---
 
+## Alinhamento com a DreamShaper
+
+Na plataforma, o projeto é acompanhado pelas seguintes etapas:
+
+### Planejamento
+
+- Abertura
+- Tema Gerador
+- Mapa de empatia
+- Preparação do plano
+- Cronograma preliminar
+
+### Problematização
+
+### Desenvolvimento
+
+### Síntese
+
+O grupo deve preencher cada etapa na DreamShaper e manter comunicação com o docente. As orientações deste README ajudam a começar, mas **não substituem os campos e critérios da plataforma**.
+
+### Como preencher o Tema Gerador
+
+| Campo da plataforma | O que registrar |
+| :--- | :--- |
+| **Orientação** | Leia com atenção as orientações do docente e mantenha o grupo alinhado sobre tema, prazos e responsabilidades. |
+| **Contexto do Tema Gerador** | Descreva o cenário profissional, a organização ou a situação que será investigada, relacionando-a à área do curso e aos conteúdos da UC7. |
+| **Passos que antecederam o projeto** | Registre as conversas, debates, aulas, pesquisas exploratórias ou estudos de caso que ajudaram o grupo a compreender o tema. |
+| **Evidências de pesquisa** | Anexe ou registre links, documentos, anotações, imagens e outros materiais que fundamentam a leitura inicial do cenário. |
+
+> Use o modelo [`passos-que-antecedem-o-projeto.docx`](passos-que-antecedem-o-projeto.docx) para preencher o campo **“Passos que antecederam o projeto”**. Depois de preencher, exporte em PDF e anexe na DreamShaper.
+
+### Sugestões de Tema Gerador por grupo
+
+#### Grupo 1 — Serviços de rede e identidade
+
+- **Tema Gerador:** serviços de redes e identidade em pequenas e médias empresas.
+- **Contexto:** uma empresa precisa organizar contas, permissões, nomes e arquivos em uma rede local, avaliando soluções como Active Directory, Samba, FreeIPA, DNS e DHCP.
+- **Passos anteriores:** discussões em sala sobre identidade, DNS, DHCP e compartilhamentos; levantamento de dúvidas; pesquisa exploratória inicial.
+- **Evidências de pesquisa:** documentação da Microsoft Learn, Samba, FreeIPA, BIND9 e ISC DHCP; anotações e comparativos iniciais.
+
+#### Grupo 2 — Redes, firewall e serviços web
+
+- **Tema Gerador:** redes, firewall e serviços web em redes locais.
+- **Contexto:** uma empresa precisa segmentar a rede, controlar o acesso à internet e publicar aplicações web com segurança e disponibilidade.
+- **Passos anteriores:** discussões sobre TCP/IP, NAT, firewall e servidores web; levantamento de requisitos; pesquisa exploratória inicial.
+- **Evidências de pesquisa:** documentação do pfSense, IIS, Apache, Nginx, OWASP e CIS Benchmarks; diagramas e anotações.
+
+#### Grupo 3 — Segurança, continuidade e operação
+
+- **Tema Gerador:** segurança, continuidade e operação de servidores locais.
+- **Contexto:** uma empresa precisa proteger dados, garantir backup e acompanhar a operação dos serviços, considerando riscos, monitoramento e governança.
+- **Passos anteriores:** discussões sobre backup, monitoramento, riscos e governança; levantamento de incidentes comuns; pesquisa exploratória inicial.
+- **Evidências de pesquisa:** NIST, ISO 27001, LGPD, Zabbix, Prometheus, Grafana, Bacula, Veeam e CIS Controls; anotações.
+
+---
+
 ## Temas por grupo
 
 ### Grupo 1 — Serviços de rede e identidade
@@ -225,17 +281,20 @@ Os pesos e os critérios finais são os definidos na DreamShaper e pelo docente.
 
 ---
 
-## Cronograma sugerido
+## Etapas e entregas na DreamShaper
 
-As datas de entrega são definidas pelo docente. Como sugestão:
+As datas são definidas pelo docente e pela plataforma. O grupo deve registrar cada etapa na DreamShaper:
 
-| Etapa | Entrega |
+| Etapa | O que o grupo registra |
 | :--- | :--- |
-| E1 - Escolha do tema | Grupo, tema escolhido, problema e objetivos |
-| E2 - Pesquisa inicial | Fontes, levantamento e recorte do trabalho |
-| E3 - Desenvolvimento | Comparações, análise e estrutura do trabalho |
-| E4 - Versão preliminar | Texto parcial e ajustes com base na DreamShaper |
-| E5 - Entrega final | Trabalho completo, apresentação e defesa |
+| **Planejamento — Abertura** | Integrantes, tema escolhido e alinhamento inicial com o docente |
+| **Planejamento — Tema Gerador** | Contexto profissional, passos anteriores e evidências de pesquisa |
+| **Planejamento — Mapa de empatia** | Necessidades, dores e expectativas dos envolvidos no cenário estudado |
+| **Planejamento — Preparação do plano** | Objetivos, recorte, fontes e estratégia de pesquisa |
+| **Planejamento — Cronograma preliminar** | Etapas, responsáveis e prazos do grupo |
+| **Problematização** | Pergunta de pesquisa, justificativa e objetivos |
+| **Desenvolvimento** | Pesquisa, comparação de soluções, análise e achados |
+| **Síntese** | Conclusões, recomendações, limitações e entrega final |
 
 ---
 
