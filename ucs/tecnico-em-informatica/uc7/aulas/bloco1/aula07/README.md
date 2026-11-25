@@ -1,4 +1,4 @@
-# Aula 07 - Planejamento, laboratório e plano diretor da rede
+# Aula 07 - Windows Server: Grupos, Usuários, Partição e Pastas
 
 **Data sugerida:** 24/11/2026 (terça-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Consolidar o plano de instalação e o plano diretor da rede, com a base do laboratório VirtualBox validada.
+Instalar o Windows Server, formatar a partição de dados D: (5 GB NTFS), criar grupos e usuários locais por setor e aplicar permissões.
 
 ---
 

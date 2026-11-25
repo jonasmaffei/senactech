@@ -1,12 +1,12 @@
 # 🖥️ Laboratório: Monitoramento Web em Python com Agente de IA
 
-Este laboratório é um exercício prático da **Aula 16** para demonstrar como um **agente de código** (`agy`) utiliza o arquivo [`AGENTS.md`](AGENTS.md) como **contexto** para construir uma aplicação completa de monitoramento do sistema em Python acessível via navegador.
+Este laboratório é um exercício prático da **Aula 16** para demonstrar como um **agente de código** (`agy`) utiliza o arquivo [`README.md`](README.md) como **contexto** para construir uma aplicação completa de monitoramento do sistema em Python acessível via navegador.
 
 ---
 
 ## 🎯 Objetivo
 
-Usar a **Antigravity CLI** (`agy`) dentro desta pasta para ler o [`AGENTS.md`](AGENTS.md) e implementar a aplicação de monitoramento web.
+Usar a **Antigravity CLI** (`agy`) dentro desta pasta para ler o [`README.md`](README.md) e implementar a aplicação de monitoramento web.
 
 ---
 

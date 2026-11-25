@@ -1,4 +1,4 @@
-# Aula 03 - Arquitetura e topologia de rede local
+# Aula 03 - VirtualBox: Overview da Ferramenta
 
 **Data sugerida:** 17/11/2026 (terça-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.
+Compreender os fundamentos da virtualização (Hypervisor Tipo 1 vs. Tipo 2), operar a interface do VirtualBox, gerenciar discos e usar Snapshots.
 
 ---
 

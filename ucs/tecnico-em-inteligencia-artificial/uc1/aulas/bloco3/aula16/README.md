@@ -6,7 +6,7 @@
 
 ## 🎯 Situação de Aprendizagem
 
-A startup precisa **acelerar o time de desenvolvimento** mantendo controle de qualidade. Você vai usar um **agente de código no terminal** para criar uma **aplicação de monitoramento de sistema em Python acessível via web**, guiando o agente através de um arquivo de diretrizes (`AGENTS.md`) e salvando o progresso de forma segura no **GitHub**.
+A startup precisa **acelerar o time de desenvolvimento** mantendo controle de qualidade. Você vai usar um **agente de código no terminal** para criar uma **aplicação de monitoramento de sistema em Python acessível via web**, guiando o agente através de um arquivo de diretrizes (`README.md`) e salvando o progresso de forma segura no **GitHub**.
 
 ---
 
@@ -79,4 +79,4 @@ Em grupos de 3–4:
 
 - Documentação da **Antigravity**: CLI, [Agent Skills](https://antigravity.google/docs/skills) e [Best Practices](https://antigravity.google/docs/cli/best-practices).
 - Padrão aberto de **Agent Skills**: <https://agentskills.io/home>.
-- Exemplo de `AGENTS.md` usado no laboratório desta aula: [`laboratorio_monitoramento/AGENTS.md`](laboratorio_monitoramento/AGENTS.md).
+- Exemplo de `AGENTS.md` usado no laboratório desta aula: [`laboratorio_monitoramento/AGENTS.md`](README.md).

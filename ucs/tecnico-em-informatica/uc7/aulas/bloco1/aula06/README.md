@@ -1,4 +1,4 @@
-# Aula 06 - Laboratório de servidores: dimensionamento e criação das VMs
+# Aula 06 - Tipos de Servidores
 
 **Data sugerida:** 23/11/2026 (segunda-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Criar e dimensionar as VMs DC01, APP01 e DB01 no VirtualBox, preparando a base para a instalação dos serviços.
+Relacionar portas, protocolos e os principais tipos de servidores corporativos: Arquivos, AD DS, DNS, DHCP, Web e Banco de Dados.
 
 ---
 

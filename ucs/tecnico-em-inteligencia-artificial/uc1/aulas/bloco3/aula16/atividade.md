@@ -6,7 +6,7 @@
 
 Ao final desta atividade você terá, **no seu repositório pessoal do GitHub**:
 
-1. Um arquivo [`AGENTS.md`](laboratorio_monitoramento/AGENTS.md) descrevendo o contexto e as regras do projeto.
+1. Um arquivo [`AGENTS.md`](README.md) descrevendo o contexto e as regras do projeto.
 2. Um **programa em Python que roda via web** e mostra, em tempo real, a **informação de desempenho do seu computador** (CPU, memória RAM, disco e uptime).
 3. Todo o progresso versionado (`add`, `commit`, `push`) no repositório que **você mesmo criou** no GitHub.
 
@@ -135,7 +135,7 @@ Quando você conversa com um modelo de linguagem ou agente de código, o **conte
 
 - **O que entra no contexto?**
   - O prompt enviado por você.
-  - As regras do projeto (`AGENTS.md`).
+  - As regras do projeto (`README.md`).
   - O histórico das mensagens trocadas na sessão.
   - O conteúdo dos arquivos lidos pelo agente através de ferramentas (*tools*).
   - O resultado da execução de comandos no terminal.
@@ -153,7 +153,7 @@ Quando você conversa com um modelo de linguagem ou agente de código, o **conte
 
 ## Parte 3 — O que é `AGENTS.md` e Como Funciona?
 
-O [`AGENTS.md`](laboratorio_monitoramento/AGENTS.md) é um padrão adotado por projetos modernos para servir como **memória persistente do repositório para agentes de IA**.
+O [`AGENTS.md`](README.md) é um padrão adotado por projetos modernos para servir como **memória persistente do repositório para agentes de IA**.
 
 ### Por que usar um `AGENTS.md`?
 
@@ -189,7 +189,7 @@ Comandos exatos para rodar o ambiente, testes e validação.
 
 ## Parte 4 — Prática Guiada: `AGENTS.md` + Agente (`agy`) + Programa de Monitoramento Web
 
-Nesta prática — **o coração da aula** — você usará a **Antigravity CLI** (`agy`) para ler o arquivo [`AGENTS.md`](laboratorio_monitoramento/AGENTS.md) e construir um programa completo de **monitoramento de hardware em Python** acessível pelo navegador web. No fim, o programa vai para o **seu repositório pessoal** criado na Parte 1.
+Nesta prática — **o coração da aula** — você usará a **Antigravity CLI** (`agy`) para ler o arquivo [`AGENTS.md`](README.md) e construir um programa completo de **monitoramento de hardware em Python** acessível pelo navegador web. No fim, o programa vai para o **seu repositório pessoal** criado na Parte 1.
 
 ### Passo 1 — Entrar na pasta do laboratório
 

@@ -1,4 +1,4 @@
-# Aula 02 - O servidor na rede local e a UC7
+# Aula 02 - Conceito de Servidores
 
 **Data sugerida:** 16/11/2026 (segunda-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.
+Reconhecer o papel dos servidores em redes locais, o modelo Cliente/Servidor vs. P2P e o hardware corporativo (ECC, fontes redundantes, RAID).
 
 ---
 

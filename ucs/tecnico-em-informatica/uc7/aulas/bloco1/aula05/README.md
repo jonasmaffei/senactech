@@ -1,4 +1,4 @@
-# Aula 05 - Hardware de servidor, armazenamento e RAID
+# Aula 05 - Redes dentro do VirtualBox e Comunicação entre VMs
 
 **Data sugerida:** 19/11/2026 (quinta-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Especificar hardware de servidor e escolher o arranjo de armazenamento adequado, entendendo BIOS/UEFI, discos e RAID.
+Configurar adaptadores de Rede Interna isolada, fixar endereçamento IPv4 na mesma sub-rede e validar a conectividade bidirecional com ping.
 
 ---
 

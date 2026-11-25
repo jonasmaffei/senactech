@@ -1,4 +1,4 @@
-# Aula 04 - Protocolos e serviços de rede
+# Aula 04 - Criação de Máquina Virtual no VirtualBox
 
 **Data sugerida:** 18/11/2026 (quarta-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Relacionar protocolos, portas e serviços necessários ao funcionamento dos servidores da rede local.
+Dimensionar e criar máquinas virtuais na prática, entendendo vCPUs, memória RAM e alocação dinâmica vs. fixa de disco.
 
 ---
 

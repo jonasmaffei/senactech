@@ -1,4 +1,4 @@
-# Aula 08 - Instalação e configuração inicial do Windows Server
+# Aula 08 - Replicação do Desafio: Windows Server e Clientes
 
 **Data sugerida:** 25/11/2026 (quarta-feira)
 **Bloco:** 2 - Windows Server
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Instalar o Windows Server e executar a configuração inicial segura do servidor.
+Replicar de forma autônoma o laboratório completo do servidor de arquivos e validar o acesso dos 3 clientes setoriais na rede interna.
 
 ---
 

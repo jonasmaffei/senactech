@@ -1,4 +1,4 @@
-# Aula 01 - TCP/IP e IPv4
+# Aula 01 - Introdução a Redes de Computadores
 
 **Data sugerida:** 13/11/2026 (sexta-feira)
 **Bloco:** 1 - Fundamentos e Planejamento
@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.
+Compreender o modelo OSI (7 camadas), a pilha TCP/IP (4 camadas), endereçamento IPv4, máscaras e comunicação em rede local.
 
 ---
 

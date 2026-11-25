@@ -12,14 +12,14 @@
 
 | Aula | Data | Bloco | Tema | Entrega principal |
 | :---: | :---: | :---: | :--- | :--- |
-| **01** | 13/11/2026 (sexta-feira) | 1 | TCP/IP e IPv4 | **Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.** |
-| **02** | 16/11/2026 (segunda-feira) | 1 | O servidor na rede local e a UC7 | **Servidor de arquivos básico na FS01 acessível pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.** |
-| **03** | 17/11/2026 (terça-feira) | 1 | Arquitetura e topologia de rede local | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
-| **04** | 18/11/2026 (quarta-feira) | 1 | Protocolos e serviços de rede | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
-| **05** | 19/11/2026 (quinta-feira) | 1 | Hardware de servidor, armazenamento e RAID | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
-| **06** | 23/11/2026 (segunda-feira) | 1 | Laboratório de servidores: dimensionamento e criação das VMs | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
-| **07** | 24/11/2026 (terça-feira) | 1 | Planejamento, laboratório e plano diretor da rede | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
-| **08** | 25/11/2026 (quarta-feira) | 2 | Instalação e configuração inicial do Windows Server | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
+| **01** | 13/11/2026 (sexta-feira) | 1 | Introdução a Redes de Computadores (Modelo OSI e TCP/IP) | **Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.** |
+| **02** | 16/11/2026 (segunda-feira) | 1 | Conceito de Servidores (Cliente/Servidor vs P2P e Hardware) | **Servidor de arquivos básico na FS01 acessível pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.** |
+| **03** | 17/11/2026 (terça-feira) | 1 | VirtualBox: Overview da Ferramenta e Virtualização | **Diagrama de rede e planilha de endereçamento IP da NexaTech.** |
+| **04** | 18/11/2026 (quarta-feira) | 1 | Criação de Máquina Virtual no VirtualBox | **Matriz de serviços, protocolos, portas e riscos da NexaTech.** |
+| **05** | 19/11/2026 (quinta-feira) | 1 | Redes no VirtualBox e Comunicação entre VMs | **Especificação técnica do servidor com justificativa de CPU, memória, discos e RAID.** |
+| **06** | 23/11/2026 (segunda-feira) | 1 | Tipos de Servidores (Serviços, Portas e Funções) | **Ficha das VMs DC01, APP01 e DB01 (CPU, memória, disco e redes) com prints do VirtualBox e teste de conectividade.** |
+| **07** | 24/11/2026 (terça-feira) | 1 | Windows Server: Grupos, Usuários, Partição D: e Pastas | **Plano Diretor da Rede com cronograma, riscos, topologia, IPs e evidências do laboratório.** |
+| **08** | 25/11/2026 (quarta-feira) | 2 | Replicação Prática do Desafio: Windows Server e Clientes | **Checklist de instalação preenchida com evidências e configurações do servidor.** |
 | **09** | 26/11/2026 (quinta-feira) | 2 | Active Directory Domain Services | **Domínio nexatech.local criado, com evidência de promoção e verificação do controlador.** |
 | **10** | 27/11/2026 (sexta-feira) | 2 | Controlador de domínio e ingresso de clientes | **Evidência de login dos clientes CLI01 e CLI02 no domínio.** |
 | **11** | 30/11/2026 (segunda-feira) | 2 | Unidades organizacionais, grupos e usuários | **Estrutura de OUs, grupos e usuários documentada, com evidência de logins.** |
