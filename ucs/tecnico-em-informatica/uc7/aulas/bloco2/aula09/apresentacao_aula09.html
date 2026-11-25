@@ -170,80 +170,184 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 09</div>
-  <div id="counter">1 / 5</div>
+  <div id="counter">1 / 10</div>
 </header>
 <main id="deck">
 <section class="slide active">
-              <span class="kicker">UC7 · Bloco 2 · Aula 09</span>
-              <h1>Active Directory Domain Services (AD DS)</h1>
-              <p class="lead">Compreenda a espinha dorsal de identidade da Microsoft: Floresta, Domínio, Controlador de Domínio, Kerberos e LDAP.</p>
-              <div class="meta-row">
-                <span class="pill">Carga: 3 horas</span>
-                <span class="pill">Identidade Corporativa</span>
-                <span class="pill">Promoção a DC</span>
-              </div>
-              <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou utilize os botões no canto inferior direito.</p>
-            </section>
+      <span class="kicker">UC7 · Aula 09</span>
+      <h1>Active Directory Domain Services (AD DS)</h1>
+      <p class="lead">O que é, para que serve, quais dores reais de negócio ele resolve e como transformar o Windows Server no cérebro da rede corporativa.</p>
+      <div class="meta-row">
+        <span class="pill">Carga: 3 horas</span>
+        <span class="pill">Serviço de Diretório</span>
+        <span class="pill">Identidade Corporativa</span>
+        <span class="pill">Single Sign-On</span>
+      </div>
+      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou utilize os botões no canto inferior direito.</p>
+    </section>
 <section class="slide">
-              <span class="kicker">Fundamentos Conceituais</span>
-              <h2>Estrutura Lógica do Active Directory</h2>
-              <div class="grid cols-3" style="margin-top:14px;">
-                <div class="card highlight">
-                  <span class="card-num">Conceito 1</span>
-                  <h3>Domínio (Domain)</h3>
-                  <p>Fronteira administrativa de segurança. Compartilha o mesmo banco de dados (<code>ntds.dit</code>). Exemplo: <code>nexatech.local</code>.</p>
-                </div>
-                <div class="card">
-                  <span class="card-num">Conceito 2</span>
-                  <h3>Floresta (Forest)</h3>
-                  <p>O limite máximo de segurança e catálogo global de todos os domínios de uma corporação.</p>
-                </div>
-                <div class="card">
-                  <span class="card-num">Conceito 3</span>
-                  <h3>Controlador de Domínio (DC)</h3>
-                  <p>O servidor físico ou virtual que hospeda o serviço AD DS e autentica todas as credenciais.</p>
-                </div>
-              </div>
-            </section>
+      <span class="kicker">Conceito Fundamental</span>
+      <h2>O que é o Active Directory?</h2>
+      <p class="lead">O Active Directory (AD) é o serviço de diretório da Microsoft que armazena, organiza e controla o acesso a todos os recursos de uma rede corporativa.</p>
+      <div class="grid cols-3" style="margin-top:14px;">
+        <div class="card">
+          <span class="card-num">01</span>
+          <h3>Banco de Dados Central</h3>
+          <p>Um repositório seguro e distribuído (arquivo <code>ntds.dit</code>) que registra usuários, senhas, grupos, computadores, impressoras e servidores.</p>
+        </div>
+        <div class="card highlight">
+          <span class="card-num">02</span>
+          <h3>Provedor de Identidade (IdP)</h3>
+          <p>O único órgão validador da rede: se o AD autorizar, o usuário entra; se o AD recusar ou a conta estiver bloqueada, nada na empresa é acessado.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">03</span>
+          <h3>Mecanismo de Governança</h3>
+          <p>Permite aplicar políticas de segurança e configurações simultâneas em 10 ou 10.000 computadores sem encostar fisicamente neles.</p>
+        </div>
+      </div>
+    </section>
 <section class="slide">
-              <span class="kicker">Protocolos Subjacentes</span>
-              <h2>Como o AD Funciona por Baixo dos Panos: Kerberos & LDAP</h2>
-              <div class="grid cols-2" style="margin-top:14px;">
-                <div class="card">
-                  <h3>LDAP (Portas 389 e 636 SSL)</h3>
-                  <p>Lightweight Directory Access Protocol: protocolo de consulta que permite localizar usuários, telefones, e-mails e computadores dentro da árvore do AD.</p>
-                </div>
-                <div class="card highlight">
-                  <h3>Kerberos v5 (Porta 88)</h3>
-                  <p>Protocolo de autenticação baseado em bilhetes (Tickets TGT). Garante que a senha do usuário <strong>nunca trafegue em texto claro</strong> pela rede local.</p>
-                  <p style="margin-top:6px; font-size:.85rem; color:var(--muted);">Requisito crítico: O relógio entre o cliente e o DC não pode ter diferença maior que 5 minutos.</p>
-                </div>
-              </div>
-            </section>
+      <span class="kicker">O Problema Real</span>
+      <h2>A Dor do Administrador: A Vida SEM Active Directory</h2>
+      <p class="lead">Nas Aulas 07 e 08, criamos contas locais no <code>compmgmt.msc</code>. Agora imagine essa realidade em uma empresa com 50 funcionários:</p>
+      <div class="grid cols-2" style="margin-top:14px;">
+        <div class="card danger">
+          <h3>O Caos do Grupo de Trabalho (Workgroup)</h3>
+          <ul class="clean" style="font-size:.88rem; line-height:1.6;">
+            <li><strong>Múltiplas Senhas:</strong> Se Ana mudar de máquina, a senha dela não existe lá. O técnico precisa cadastrar Ana manualmente em cada PC.</li>
+            <li><strong>Demissão de Funcionário:</strong> Para revogar o acesso de um ex-colaborador, a TI precisa sentar em todas as 50 máquinas para apagar a conta dele.</li>
+            <li><strong>Vulnerabilidade Crítica:</strong> Nenhuma garantia de que os computadores usam senhas fortes ou telas bloqueadas.</li>
+            <li><strong>Sem Rastreabilidade:</strong> Não há log central de quem logou onde ou quando.</li>
+          </ul>
+        </div>
+        <div class="card highlight">
+          <h3>A Solução: Domínio Active Directory</h3>
+          <ul class="clean" style="font-size:.88rem; line-height:1.6;">
+            <li><strong>Cadastro Único (1 segundo):</strong> Cria a conta <code>ana.financeiro</code> no DC01 e ela pode logar em qualquer computador da empresa.</li>
+            <li><strong>Revogação Imediata:</strong> Um clique em *Disable Account* no DC01 corta o acesso da pessoa a todos os computadores, arquivos e e-mails instantaneamente.</li>
+            <li><strong>Políticas em Massa (GPO):</strong> Trocar a exigência de senha de 8 para 12 dígitos leva 30 segundos para a empresa inteira.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 <section class="slide">
-              <span class="kicker">Hands-on</span>
-              <h2>Promoção do Servidor a DC via PowerShell</h2>
-              <p class="lead">Após instalar a feature <code>AD-Domain-Services</code>, a promoção pode ser feita com um comando:</p>
-              <div class="code-box">
-                <span class="comment"># Instalar a função AD DS com ferramentas de administração:</span><br>
-                Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools<br><br>
-                <span class="comment"># Criar uma nova floresta com o domínio nexatech.local:</span><br>
-                Install-ADDSForest -DomainName "nexatech.local" -InstallDns:$true -Force
-              </div>
-            </section>
+      <span class="kicker">Experiência do Usuário</span>
+      <h2>Single Sign-On (SSO): Uma Chave para Todas as Portas</h2>
+      <p class="lead">Sem o AD, o funcionário tem que digitar usuário e senha para o Windows, outra senha para a pasta de arquivos, outra para o sistema e outra para o Wi-Fi.</p>
+      <div class="card highlight" style="margin-top:14px;">
+        <h3>Com Active Directory (Autenticação Kerberos v5)</h3>
+        <p>O usuário senta pela manhã, digita sua credencial de domínio uma única vez e ganha um <strong>Ticket de Concessão de Bilhete (TGT)</strong>.</p>
+        <div class="code-box" style="margin-top:10px; font-size:.88rem; line-height:1.7;">
+          Login no Windows 10 &rarr; <strong>Ticket Kerberos emitido pelo DC01</strong><br>
+          &boxvr; Acessa pasta <code>\\DC01\Financeiro</code> &rarr; <span class="green">Entra direto sem pedir senha</span><br>
+          &boxvr; Abre o ERP corporativo &rarr; <span class="green">Reconhece o usuário automaticamente</span><br>
+          &boxur; Conecta à impressora de rede &rarr; <span class="green">Imprime com sua cota corporativa</span>
+        </div>
+      </div>
+    </section>
 <section class="slide">
-              <span class="kicker">Fechamento</span>
-              <h2>Resumo da Aula</h2>
-              <ul class="clean">
-                <li>O DC01 é agora oficialmente o Controlador de Domínio de <code>nexatech.local</code>.</li>
-                <li>O DNS foi instalado automaticamente integrado ao AD.</li>
-              </ul>
-              <div class="next">
-                <span>Próxima Aula</span>
-                <strong>Aula 10 - Ingresso de Clientes e Primeiro Logon</strong>
-                <p>Configuração do cliente Windows 10 para usar o DC como DNS e realização do Join no Domínio.</p>
-              </div>
-            </section>
+      <span class="kicker">Arquitetura de Diretório</span>
+      <h2>A Hierarquia Lógica: Floresta, Árvore e Domínio</h2>
+      <div class="grid cols-3" style="margin-top:14px;">
+        <div class="card">
+          <span class="card-num">Nível 1</span>
+          <h3>Floresta (Forest)</h3>
+          <p>O limite máximo de segurança e autoridade da organização. Compartilha o mesmo Catálogo Global (GC) e esquema de diretório.</p>
+        </div>
+        <div class="card highlight">
+          <span class="card-num">Nível 2</span>
+          <h3>Domínio (Domain)</h3>
+          <p>A fronteira administrativa principal. No nosso laboratório: <code>nexatech.local</code>.</p>
+          <p style="margin-top:6px; font-size:.85rem; color:var(--muted);">Define as políticas de senha e armazena os objetos da empresa.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">Nível 3</span>
+          <h3>Unidades Organizacionais (OUs)</h3>
+          <p>Subpastas dentro do domínio para organizar setores (TI, Financeiro, Vendas) e computadores.</p>
+        </div>
+      </div>
+    </section>
+<section class="slide">
+      <span class="kicker">O Servidor</span>
+      <h2>O que é o Controlador de Domínio (Domain Controller)?</h2>
+      <p class="lead">O Controlador de Domínio (DC) é o servidor físico ou virtual que roda a função <strong>AD DS</strong> e hospeda a réplica do banco de dados.</p>
+      <div class="grid cols-2" style="margin-top:14px;">
+        <div class="card">
+          <h3>O Banco <code>NTDS.DIT</code> e a Pasta <code>SYSVOL</code></h3>
+          <ul class="clean" style="font-size:.88rem;">
+            <li><strong>NTDS.DIT:</strong> O arquivo de banco de dados baseado em Jet Database Engine onde residem todas as contas, hashes de senhas e objetos.</li>
+            <li><strong>SYSVOL:</strong> Pasta compartilhada na rede onde ficam os scripts de logon e as diretivas de GPO replicadas entre os DCs.</li>
+          </ul>
+        </div>
+        <div class="card warning">
+          <h3>Boas Práticas de Mercado</h3>
+          <p><strong>Regra da Redundância:</strong> Em ambientes de produção reais, NUNCA existe apenas um DC. Sempre implantamos no mínimo <strong>dois Controladores de Domínio (DC01 e DC02)</strong> com replicação mútua para tolerância a falhas.</p>
+        </div>
+      </div>
+    </section>
+<section class="slide">
+      <span class="kicker">Engenharia de Protocolos</span>
+      <h2>O Trio que faz o Active Directory Funcionar</h2>
+      <table class="layers-table" style="margin-top:10px;">
+        <thead>
+          <tr><th>Protocolo</th><th>Porta</th><th>Função no Active Directory</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DNS</strong> (Domain Name System)</td>
+            <td>53 (UDP/TCP)</td>
+            <td><strong>O GPS do AD.</strong> As estações não acham o DC sem ele. Registra registros SRV vitais como <code>_ldap._tcp.dc._msdcs.nexatech.local</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>Kerberos v5</strong></td>
+            <td>88 (TCP/UDP)</td>
+            <td><strong>O Segurança.</strong> Emite bilhetes criptografados (Tickets TGT). A senha do usuário nunca viaja pelo cabo de rede.</td>
+          </tr>
+          <tr>
+            <td><strong>LDAP / LDAPS</strong></td>
+            <td>389 / 636 (SSL)</td>
+            <td><strong>O Catálogo.</strong> Protocolo de busca usado por aplicações, e-mails e sistemas para consultar a lista de usuários e permissões.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section class="slide">
+      <span class="kicker">Procedimento de Recuperação</span>
+      <h2>Atenção: A Senha DSRM (Directory Services Restore Mode)</h2>
+      <p class="lead">Durante o assistente de promoção a DC, o Windows solicitará uma senha especial de DSRM. Por que ela é crucial?</p>
+      <div class="card danger" style="margin-top:14px;">
+        <h3>Para que serve o DSRM?</h3>
+        <p>Se o banco de dados <code>ntds.dit</code> for corrompido, se houver um ataque de ransomware ou falha catastrófica de boot do AD DS, o servidor não conseguirá logar com contas comuns do domínio.</p>
+        <p style="margin-top:8px;">A <strong>Senha DSRM</strong> é a chave-mestra de emergência que permite iniciar o Windows Server em modo de restauração segura e reparar o Active Directory offline.</p>
+        <p style="margin-top:8px; font-weight:bold; color:var(--accent-2);">Anote essa senha no seu caderno de laboratório!</p>
+      </div>
+    </section>
+<section class="slide">
+      <span class="kicker">Laboratório Prático</span>
+      <h2>A Missão de Hoje no Laboratório</h2>
+      <ol class="steps" style="font-size:.95rem; line-height:1.7; margin-top:10px;">
+        <li>Conferir IP estático <code>192.168.10.2</code> e DNS local <code>127.0.0.1</code> no servidor.</li>
+        <li>Instalar a função <strong>Active Directory Domain Services</strong> no Server Manager.</li>
+        <li>Executar o assistente e <strong>Promover o Servidor a Controlador de Domínio</strong>.</li>
+        <li>Criar a floresta raiz com o domínio <code>nexatech.local</code>.</li>
+        <li>Definir a senha de DSRM e concluir a instalação.</li>
+        <li>Reiniciar o servidor e validar o primeiro login corporativo como <code>NEXATECH\Administrator</code>.</li>
+      </ol>
+    </section>
+<section class="slide">
+      <span class="kicker">Fechamento</span>
+      <h2>Resumo da Aula 09</h2>
+      <ul class="clean">
+        <li>O Active Directory substitui o modelo descentralizado de contas locais por um banco de dados global seguro.</li>
+        <li>Com a promoção concluída hoje, o servidor <code>DC01</code> assume o controle oficial da rede <code>nexatech.local</code>.</li>
+      </ul>
+      <div class="next" style="margin-top:16px;">
+        <span>Próxima Aula</span>
+        <strong>Aula 10 - Controlador de Domínio e Ingresso de Clientes (Domain Join)</strong>
+        <p>Configuração do DNS nas máquinas clientes e o processo formal de adesão das estações ao domínio corporativo.</p>
+      </div>
+    </section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>
