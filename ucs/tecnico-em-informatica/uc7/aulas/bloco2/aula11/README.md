@@ -1,90 +1,40 @@
-# Aula 11 - Unidades organizacionais, grupos e usuários
+# Aula 11 - Unidades Organizacionais (OUs), Grupos de Domínio e Delegação
 
-**Data sugerida:** 30/11/2026 (segunda-feira)
-**Bloco:** 2 - Windows Server
-**Carga:** 3 horas
+**Bloco:** 2 - Windows Server  
+**Carga:** 3 horas (1 encontro)  
 
 ---
 
 ## Objetivo
 
-Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
+Organizar a estrutura corporativa dentro do Active Directory utilizando Unidades Organizacionais (OUs), Grupos Globais/Locais de Domínio e delegação administrativa, evoluindo a gestão local das Aulas 07 e 08 para um modelo empresarial centralizado.
 
 ---
 
-## Situação de aprendizagem
+## Contexto de Negócio
 
-A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
-
-## Dor da NexaTech e solução
-
-| Dor | Impacto | Exemplo de solução | Prioridade |
-| :--- | :--- | :--- | :--- |
-| A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo. | Permissões por pessoa não escalam e aumentam o risco de acesso indevido. | Criar OUs por setor, grupos e usuários, com permissões atribuídas aos grupos. | Essencial |
+Nas Aulas 07 e 08, a equipe gerenciou usuários locais máquina por máquina. Agora que o servidor é um Controlador de Domínio (AD DS), a NexaTech precisa estruturar os setores no Active Directory em **OUs** para permitir aplicação futura de GPOs e delegação de suporte.
 
 ---
 
-## Conteúdo
+## Conteúdo Programático
 
-| Item | O que é |
-| :--- | :--- |
-| [`atividade.md`](atividade.md) | Entrega da aula: Estrutura de OUs, grupos e usuários documentada, com evidência de logins. |
-| [`apresentacao_aula11.html`](apresentacao_aula11.html) | Slides de conceito (abra no navegador) |
-| [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
-| `scripts/` | Automação e apoio (a produzir, quando necessário) |
-
-### Tópicos
-
-| Tópico |
-| :--- |
-| Unidades organizacionais e delegação |
-| Usuários, grupos de segurança e grupos de distribuição |
-| UPN, senha e políticas de conta |
-| Grupos globais, locais de domínio e universais |
-| Modelo AGDLP |
-| Menor privilégio e contas administrativas |
-
-### Ferramentas
-
-Active Directory Users and Computers, PowerShell
+1. **O que muda em relação ao que já fizemos:**
+   - Nas Aulas 07 e 08: Usuários e grupos locais criados no `compmgmt.msc` (base SAM local de uma máquina só).
+   - Na Aula 11: Criação centralizada no **Active Directory Users and Computers (`dsa.msc`)**, válida para toda a rede.
+2. **Estrutura de OUs da NexaTech:**
+   - Criação da OU raiz `NexaTech` e sub-OUs: `Diretoria`, `Financeiro`, `Gerencia`, `Secretaria`, `TI`, `Computadores`.
+3. **Estratégia AGDLP no AD:**
+   - Diferença entre Grupos Globais (ex: `GG_Financeiro`) e Grupos Locais de Domínio (ex: `DL_PastaFinanceiro_RW`).
+4. **Delegação de Controle:**
+   - Como conceder ao estagiário de TI permissão de resetar senhas da OU Secretaria sem torná-lo Administrador do Domínio.
 
 ---
 
-## Prática em laboratório
+## Prática de Laboratório
 
-Modelagem dos setores e das contas da NexaTech.
-
-1. Criar as OUs ADM, RH, PROD e TI
-2. Criar grupos de segurança por setor
-3. Criar usuários e adicionar aos grupos
-4. Testar login de um usuário comum
-5. Documentar a estrutura criada
-
-> Registre evidências: prints, saídas de comando, configurações e testes. Elas serão exigidas no projeto integrador.
-
----
-
-## Atividade
-
-- **Entrega:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
-- **Enunciado:** [`atividade.md`](atividade.md)
-- **Pergunta de reflexão:** Por que é melhor conceder permissão a grupos do que a usuários individuais?
-
----
-
-## Relação com o projeto
-
-Organiza a identidade e as permissões da NexaTech.
-
-**O que fica em aberto:** Publicar serviços de rede que dependem do domínio: DNS e DHCP.
-
-**Impacto de negócio:** Permite aplicar regras por setor e reduz o esforço de administração.
-
-
-## Próxima aula
-
-**Aula 12 - DNS no Windows Server.** Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
-
----
-
-> Voltar para o [índice do Bloco 2](../README.md).
+1. Abrir o console **Active Directory Users and Computers (`dsa.msc`)** no DC01.
+2. Criar a estrutura hierárquica de OUs da empresa.
+3. Migrar os usuários dos setores para dentro de suas respectivas OUs.
+4. Criar os grupos de segurança de domínio e associar as contas corporativas.
+5. Delegar controle de redefinição de senha na OU Secretaria para o usuário da TI.

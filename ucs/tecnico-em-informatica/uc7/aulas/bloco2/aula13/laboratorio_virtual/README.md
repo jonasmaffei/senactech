@@ -1,63 +1,75 @@
-# Laboratório VirtualBox - Aula 13: DHCP no Windows Server
+# Roteiro Prático Passo a Passo — Aula 13: DHCP no Windows Server (Escopos e Autorização)
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Plano de DHCP com escopo, exclusões, reservas e evidências de concessão.
-
----
-
-## Objetivo
-
-Configurar escopos, reservas e opções DHCP no Windows Server para entregar endereçamento à rede.
-
-## VMs desta aula
-
-DC01 e CLI01/CLI02 (teste de concessão DHCP). Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-
-## Roteiro
-
-1. Criar o escopo 192.168.10.100-200
-2. Definir gateway e DNS nas opções
-3. Reservar IPs para servidores e impressoras
-4. Autorizar e ativar o escopo
-5. Testar a concessão em um cliente
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula13"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula13"
-```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Completa o serviço de endereçamento da NexaTech.
-
-**O que fica em aberto:** Controlar o acesso aos dados compartilhados com permissões adequadas.
+## 1. Identificação
+- **Tema:** Dynamic Host Configuration Protocol (DHCP)
+- **Ambiente:** Servidor DC01
+- **Console Principal:** DHCP Manager (`dhcpmgmt.msc`)
 
 ---
 
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula13.html) e a [atividade](../atividade.md).
+## 2. Objetivos
+1. Instalar a função DHCP Server no Windows Server.
+2. Autorizar o servidor DHCP no Active Directory.
+3. Criar o escopo corporativo da rede `192.168.10.0/24`.
+4. Definir exclusões de servidores e opções de Gateway e DNS.
+5. Criar uma Reserva de IP por endereço MAC.
+6. Validar a concessão automática em um cliente Windows 10.
+
+---
+
+## 3. Passo a Passo Detalhado
+
+### Parte A — Instalação e Autorização da Função DHCP
+1. No Server Manager, vá em **Manage &rarr; Add Roles and Features**.
+2. Em *Server Roles*, marque **DHCP Server** &rarr; **Add Features** &rarr; Avance até **Install**.
+3. Após concluir, clique no triângulo amarelo de notificações &rarr; **Complete DHCP Configuration**.
+4. Clique em **Commit** usando a conta `NEXATECH\Administrador` para **Autorizar** o DHCP no Active Directory.
+
+---
+
+### Parte B — Criação do Escopo de IPs
+1. Abra **Server Manager &rarr; Tools &rarr; DHCP (`dhcpmgmt.msc`)**.
+2. Expanda `DC01.nexatech.local` &rarr; clique com botão direito em **IPv4** &rarr; **New Scope...**.
+3. **Name:** `Escopo-NexaTech-LAN` &rarr; **Next**.
+4. **Faixa de Endereços (IP Address Range):**
+   - **Start IP:** `192.168.10.1`
+   - **End IP:** `192.168.10.254`
+   - **Subnet mask:** `255.255.255.0` (Length: 24) &rarr; **Next**.
+5. **Faixa de Exclusão (Para proteger servidores e roteador):**
+   - **Start IP:** `192.168.10.1`
+   - **End IP:** `192.168.10.50`
+   - Clique em **Add** &rarr; **Next**.
+   *(Os clientes receberão apenas IPs do .51 ao .254).*
+6. **Lease Duration:** 8 dias &rarr; **Next**.
+7. Selecione: *"Yes, I want to configure these options now"* &rarr; **Next**.
+8. **Configurar as Opções do Escopo:**
+   - **Router (Default Gateway - Opção 003):** Digite `192.168.10.1` &rarr; Clique em **Add** &rarr; **Next**.
+   - **Domain Name and DNS Servers (Opção 006):** Verifique se o IP `192.168.10.2` do DC01 está listado.
+   - **Domain Name (Opção 015):** `nexatech.local` &rarr; **Next**.
+9. Marque *"Yes, I want to activate this scope now"* &rarr; **Next &rarr; Finish**.
+
+---
+
+### Parte C — Criar Reserva de IP por MAC Address
+1. No console DHCP, expanda `Scope [192.168.10.0] &rarr; Reservations`.
+2. Clique com botão direito &rarr; **New Reservation...**:
+   - **Reservation name:** `Diretoria-Notebook`
+   - **IP address:** `192.168.10.99`
+   - **MAC Address:** Digite o MAC da placa do cliente (obtido via `getmac` no cliente, sem traços).
+   - Clique em **Add &rarr; Close**.
+
+---
+
+## 4. Testes no Cliente
+
+1. No cliente Windows 10, abra as propriedades do adaptador de rede (`ncpa.cpl`).
+2. Mude o IPv4 de "Usar o seguinte endereço IP" para:
+   - **Obter um endereço IP automaticamente**
+   - **Obter o endereço dos servidores DNS automaticamente**
+3. No CMD do cliente, renove a concessão:
+   ```cmd
+   ipconfig /release
+   ipconfig /renew
+   ipconfig /all
+   ```
+*Saída esperada:* A máquina recebe um IP na faixa livre (ex: `192.168.10.51`), com o Gateway `192.168.10.1` e DNS `192.168.10.2`.

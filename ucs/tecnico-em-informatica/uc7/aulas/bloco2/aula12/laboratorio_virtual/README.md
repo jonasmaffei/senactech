@@ -1,63 +1,77 @@
-# Laboratório VirtualBox - Aula 12: DNS no Windows Server
+# Roteiro Prático Passo a Passo — Aula 12: DNS no Windows Server (Zonas e Registros)
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Plano de DNS com zonas direta e reversa, registros e evidências de resolução.
+## 1. Identificação
+- **Tema:** Resolução de Nomes e Encaminhadores DNS
+- **Ambiente:** Servidor DC01 (`192.168.10.2`)
+- **Console Principal:** DNS Manager (`dnsmgmt.msc`)
 
 ---
 
-## Objetivo
+## 2. Objetivos
+1. Criar e gerenciar a Zona de Pesquisa Reversa para a sub-rede `192.168.10.0/24`.
+2. Criar registros do tipo A, CNAME (Alias) e PTR no domínio `nexatech.local`.
+3. Configurar os Encaminhadores de DNS (Forwarders) para resolução de sites da Internet.
+4. Validar as resoluções de nomes no cliente utilizando `nslookup`.
 
-Configurar zonas DNS integradas ao Active Directory para resolver nomes dos servidores e clientes.
+---
 
-## VMs desta aula
+## 3. Passo a Passo Detalhado (No Servidor DC01)
 
-DC01 e CLI01/CLI02 (teste de resolução). Mantenha o snapshot da aula anterior.
+### Parte A — Criar a Zona de Pesquisa Reversa
+1. Abra o **Server Manager → Tools → DNS (`dnsmgmt.msc`)**.
+2. Expanda o servidor `DC01` no painel esquerdo.
+3. Clique com o botão direito em **Reverse Lookup Zones (Zonas de Pesquisa Inversa)** &rarr; **New Zone...**.
+4. Clique em **Next**.
+5. Mantenha **Primary zone** e marque *Store the zone in Active Directory* &rarr; **Next**.
+6. Selecione a opção padrão: *"To all DNS servers running on domain controllers in this domain"* &rarr; **Next**.
+7. Selecione **IPv4 Reverse Lookup Zone** &rarr; **Next**.
+8. No campo **Network ID**, digite os 3 primeiros octetos da rede:
+   ```text
+   192.168.10
+   ```
+   *(A zona será nomeada automaticamente como `10.168.192.in-addr.arpa`)* &rarr; **Next**.
+9. Em *Dynamic Update*, mantenha: *"Allow only secure dynamic updates"* &rarr; **Next &rarr; Finish**.
 
-## Antes de começar
+---
 
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
+### Parte B — Criar Registros A e CNAME
+1. Expanda **Forward Lookup Zones (Zonas de Pesquisa Direta) &rarr; `nexatech.local`**.
+2. **Criar Registro A para o futuro servidor Web/App:**
+   - Clique com o botão direito na área em branco da zona &rarr; **New Host (A or AAAA)...**.
+   - **Name:** `app`
+   - **IP address:** `192.168.10.20`
+   - Marque a caixa: **Create associated pointer (PTR) record**.
+   - Clique em **Add Host**.
+3. **Criar Registro CNAME (Apelido/Alias):**
+   - Clique com o botão direito na área em branco &rarr; **New Alias (CNAME)...**.
+   - **Alias name:** `portal`
+   - No campo FQDN de destino, clique em **Browse...** e selecione o host `app.nexatech.local`.
+   - Clique em **OK**.
 
+---
 
-## Roteiro
+### Parte C — Configurar Encaminhadores de DNS (Forwarders)
+1. No console DNS, clique com o botão direito no nome do servidor (**DC01**) &rarr; **Properties**.
+2. Vá até a aba **Forwarders (Encaminhadores)** &rarr; Clique em **Edit...**.
+3. Adicione os endereços de servidores DNS de saída:
+   - `1.1.1.1` (Cloudflare)
+   - `8.8.8.8` (Google)
+4. Clique em **OK** e **Apply**.
 
-1. Criar a zona direta nexatech.local
-2. Criar a zona reversa da faixa 192.168.10.0/24
-3. Cadastrar registros de servidores e apelidos
-4. Configurar encaminhadores externos
-5. Testar resolução direta e reversa no cliente
+---
 
-## Testes e evidências
+## 4. Testes no Cliente (CMD / PowerShell)
 
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
+No cliente Windows (`CLI-FIN`), teste a resolução direta, reversa e do alias:
 
-## Comandos úteis
+```cmd
+# 1. Testar resolução direta:
+nslookup app.nexatech.local
 
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula12"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula12"
+# 2. Testar resolução do CNAME:
+nslookup portal.nexatech.local
+
+# 3. Testar resolução reversa (IP -> Nome):
+nslookup 192.168.10.20
 ```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Consolida a camada de nomes da NexaTech.
-
-**O que fica em aberto:** Entregar endereçamento automático aos clientes com DHCP.
-
----
-
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula12.html) e a [atividade](../atividade.md).
+*Saída esperada:* Todos os comandos devem responder apontando corretamente para o servidor `192.168.10.20` com o nome associado.

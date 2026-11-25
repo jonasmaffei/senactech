@@ -1,63 +1,60 @@
-# Laboratório VirtualBox - Aula 20: Instalação e configuração inicial do Ubuntu Server
+# Roteiro Prático Passo a Passo — Aula 20: Instalação do Ubuntu Server 24.04 e Netplan
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Checklist de instalação do Ubuntu (APP01 e DB01) com particionamento, rede, SSH e evidências.
+## 1. Identificação
+- **Tema:** Instalação de Servidor Linux sem GUI e Configuração de Rede Estática
+- **VM:** `APP01` (Ubuntu Server 24.04 LTS)
+- **Arquivo de Configuração:** `/etc/netplan/50-cloud-init.yaml`
 
----
+## 2. Objetivos
+1. Criar e instalar a VM do Ubuntu Server 24.04 sem interface gráfica.
+2. Definir usuário administrativo `administrador` com permissões `sudo`.
+3. Configurar endereço IPv4 estático (`192.168.10.20/24`), gateway e DNS via Netplan.
+4. Validar conectividade interna com o DC01 e externa com o pfSense.
 
-## Objetivo
+## 3. Passo a Passo Detalhado
 
-Instalar o Ubuntu Server sem interface gráfica nas VMs APP01 e DB01, particionar o disco e configurar rede, SSH e atualizações.
+### Parte A — Instalação do Ubuntu Server
+1. Inicie a VM com a ISO do Ubuntu Server 24.04 LTS.
+2. Escolha o idioma (Inglês recomendado para servidores corporativos) e teclado `Portuguese (Brazil)`.
+3. Selecione o tipo de instalação: **Ubuntu Server (minimized)** para menor consumo de recursos.
+4. Na tela de rede, ignore o DHCP temporário (configuraremos o Netplan estático).
+5. Particionamento: use o disco inteiro com LVM habilitado.
+6. Configuração de perfil:
+   - **Your name:** Administrador
+   - **Your server's name:** `app01`
+   - **Pick a username:** `administrador`
+   - **Password:** `Senha@123`
+7. Marque a caixa: **Install OpenSSH server** (indispensável para aulas futuras).
+8. Conclua a instalação e reinicie a VM.
 
-## VMs desta aula
-
-APP01 e DB01 (instalação do Ubuntu Server). Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-
-## Roteiro
-
-1. Criar as VMs com dois adaptadores (NAT e rede interna)
-2. Particionar: EFI 200 MB, / 20 GB ext4, /home 25 GB ext4 e swap
-3. Instalar sem ambiente gráfico
-4. Configurar IP estático 192.168.10.20 no APP01 e 192.168.10.30 no DB01, com hostname
-5. Instalar SSH, atualizar o sistema e configurar o ufw
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula20"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula20"
-```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Entrega o servidor Linux base da NexaTech.
-
-**O que fica em aberto:** Aprender a operar serviços, processos, logs e agendamentos.
-
----
-
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula20.html) e a [atividade](../atividade.md).
+### Parte B — Configuração de Rede com Netplan
+1. Faça login no terminal do Ubuntu Server.
+2. Abra o arquivo de configuração do Netplan com o editor Nano:
+   ```bash
+   sudo nano /etc/netplan/50-cloud-init.yaml
+   ```
+3. Edite o arquivo deixando exatamente com esta estrutura (respeitando a indentação de 2 espaços do YAML):
+   ```yaml
+   network:
+     version: 2
+     ethernets:
+       enp0s3:
+         dhcp4: no
+         addresses:
+           - 192.168.10.20/24
+         routes:
+           - to: default
+             via: 192.168.10.1
+         nameservers:
+           addresses: [192.168.10.2, 1.1.1.1]
+   ```
+4. Salve pressionando `Ctrl + O`, Enter e saia com `Ctrl + X`.
+5. Aplique as configurações de rede:
+   ```bash
+   sudo netplan apply
+   ```
+6. Confira a placa e teste conectividade:
+   ```bash
+   ip addr show enp0s3
+   ping -c 3 192.168.10.2
+   ```

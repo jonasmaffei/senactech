@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 01 - TCP/IP e IPv4 | UC7</title>
+<title>Aula 01 - Introdução a Redes: Modelo OSI e Pilha TCP/IP | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -46,125 +46,102 @@
   #deck { position: relative; height: 100%; width: 100%; }
   .slide {
     position: absolute; inset: 0; display: none; flex-direction: column;
-    justify-content: center; padding: 64px 7vw 72px; opacity: 0;
-    transform: translateY(14px); transition: opacity .3s ease, transform .3s ease;
+    justify-content: center; padding: 50px 6vw 60px; opacity: 0;
+    transform: translateY(14px); transition: opacity .25s ease, transform .25s ease;
     overflow-y: auto;
   }
   .slide.active { display: flex; opacity: 1; transform: translateY(0); }
-  .slide::-webkit-scrollbar { width: 10px; }
-  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+  .slide::-webkit-scrollbar { width: 8px; }
+  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
   .kicker {
     display: inline-block; align-self: flex-start; font-size: .7rem;
     letter-spacing: .16em; text-transform: uppercase; color: var(--accent-2);
     border: 1px solid var(--border); background: rgba(16,185,129,.08);
-    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
   }
-  h1 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; margin: 0 0 16px; font-weight: 700; letter-spacing: -.02em; }
-  h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); margin: 0 0 16px; line-height: 1.15; letter-spacing: -.01em; }
-  h3 { font-size: 1.02rem; margin: 0 0 8px; color: var(--text); }
-  p { font-size: 1rem; line-height: 1.6; color: var(--muted); margin: 0 0 12px; max-width: 70ch; }
+  h1 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); line-height: 1.1; margin: 0 0 14px; font-weight: 700; }
+  h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 14px; line-height: 1.15; }
+  h3 { font-size: 1.05rem; margin: 0 0 6px; color: var(--text); }
+  p { font-size: 0.98rem; line-height: 1.55; color: var(--muted); margin: 0 0 10px; max-width: 75ch; }
   p strong, li strong { color: var(--text); }
-  .lead { font-size: 1.18rem; color: var(--text); max-width: 72ch; }
+  .lead { font-size: 1.12rem; color: var(--text); max-width: 75ch; }
   .muted { color: var(--muted); font-weight: 400; }
-  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .pill {
     font-size: .76rem; letter-spacing: .04em; color: var(--muted);
     border: 1px solid var(--border); background: var(--panel);
-    padding: 6px 10px; border-radius: 999px;
+    padding: 5px 10px; border-radius: 999px;
   }
-  .hint { margin-top: 18px; font-size: .8rem; color: var(--muted); }
-  .grid { display: grid; gap: 14px; }
+  .hint { margin-top: 14px; font-size: .8rem; color: var(--muted); }
+  .grid { display: grid; gap: 12px; }
   .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .card {
     background: linear-gradient(180deg, var(--panel), var(--panel-2));
     border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 16px 18px; box-shadow: var(--shadow);
+    padding: 14px 16px; box-shadow: var(--shadow);
   }
   .card h3 { line-height: 1.3; }
-  .card p { font-size: .94rem; margin: 0; }
+  .card p { font-size: .92rem; margin: 0; }
   .card-num {
     display: inline-block; font-size: .7rem; letter-spacing: .12em;
-    color: var(--accent-2); font-weight: 700; margin-bottom: 6px;
+    color: var(--accent-2); font-weight: 700; margin-bottom: 4px;
   }
   .card.highlight {
     border-color: rgba(16,185,129,.5);
     background: linear-gradient(180deg, rgba(16,185,129,.14), var(--panel-2));
   }
-  ul.clean, ul.check, ol.steps { margin: 0; padding: 0; }
-  ul.clean { list-style: none; }
-  ul.clean > li {
-    position: relative; padding: 7px 0 7px 26px; font-size: .98rem;
-    line-height: 1.5; color: var(--muted);
+  .card.warning {
+    border-color: rgba(249,115,22,.5);
+    background: linear-gradient(180deg, rgba(249,115,22,.12), var(--panel-2));
   }
-  ul.clean > li::before {
-    content: ""; position: absolute; left: 4px; top: 15px;
-    width: 9px; height: 9px; border-radius: 3px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  .card.danger {
+    border-color: rgba(239,68,68,.5);
+    background: linear-gradient(180deg, rgba(239,68,68,.12), var(--panel-2));
   }
-  ul.check { list-style: none; }
-  ul.check > li {
-    position: relative; padding: 7px 0 7px 30px; font-size: .98rem;
-    line-height: 1.5; color: var(--muted);
+  .code-box {
+    background: #060913; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; font-family: "Cascadia Code", Consolas, monospace;
+    font-size: .82rem; color: #a5b4fc; overflow-x: auto; margin-top: 8px;
   }
-  ul.check > li::before {
-    content: "✓"; position: absolute; left: 0; top: 6px;
-    color: var(--accent-2); font-weight: 700;
+  .code-box span.comment { color: #64748b; }
+  .code-box span.green { color: var(--accent-2); }
+  .code-box span.orange { color: var(--accent-3); }
+
+  .layers-table {
+    width: 100%; border-collapse: collapse; font-size: .86rem; margin-top: 8px;
   }
-  ol.steps { list-style: none; counter-reset: step; }
-  ol.steps > li {
-    counter-increment: step; position: relative; padding: 8px 0 8px 36px;
-    font-size: .96rem; line-height: 1.5; color: var(--muted);
+  .layers-table th, .layers-table td {
+    padding: 8px 12px; border: 1px solid var(--border); text-align: left;
   }
-  ol.steps > li::before {
-    content: counter(step); position: absolute; left: 0; top: 5px;
-    width: 24px; height: 24px; border-radius: 50%;
-    display: grid; place-items: center; font-size: .72rem; font-weight: 700;
-    background: rgba(99,102,241,.2); color: #c7d0ff; border: 1px solid var(--border);
+  .layers-table th {
+    background: var(--panel-2); color: var(--text); font-weight: 600;
   }
-  blockquote {
-    margin: 0 0 16px; padding: 16px 18px; border-left: 4px solid var(--accent-3);
-    background: var(--panel); border-radius: 0 12px 12px 0;
-    color: var(--text); font-size: 1.05rem; line-height: 1.55;
+  .layers-table tr:nth-child(even) { background: rgba(255,255,255,.02); }
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: .75rem; font-weight: bold;
   }
-  code {
-    font-family: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
-    font-size: .9em; background: rgba(99,102,241,.16);
-    border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
-    padding: 1px 6px; border-radius: 6px;
+  .b-app { background: #3b82f6; color: white; }
+  .b-trans { background: #8b5cf6; color: white; }
+  .b-net { background: #10b981; color: white; }
+  .b-link { background: #f59e0b; color: #1e1e1e; }
+  .b-phy { background: #64748b; color: white; }
+
+  .encap-flow {
+    display: flex; flex-direction: column; gap: 8px; margin: 10px 0;
   }
-  table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: .92rem; }
-  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { color: var(--text); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
-  td { color: var(--muted); }
-  tbody tr:last-child td { border-bottom: none; }
-  .note {
-    margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
-    border-radius: 10px; background: rgba(99,102,241,.06);
-    font-size: .9rem; color: var(--muted);
+  .encap-step {
+    display: flex; align-items: center; gap: 10px; font-size: .88rem;
   }
-  .topology {
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    margin: 8px 0 16px;
+  .encap-layer {
+    width: 140px; padding: 6px 10px; border-radius: 6px; font-weight: bold; text-align: center;
   }
-  .top-node {
-    min-width: 128px; padding: 12px 14px; border-radius: 12px;
-    border: 1px solid var(--border); background: var(--panel);
-    display: flex; flex-direction: column; gap: 3px;
+  .encap-pdu {
+    padding: 6px 12px; background: #060913; border: 1px dashed var(--border); border-radius: 6px;
+    font-family: monospace; color: var(--accent-2); flex: 1;
   }
-  .top-node strong { color: var(--text); font-size: .95rem; }
-  .top-node span { color: var(--muted); font-size: .8rem; }
-  .top-node small { color: var(--accent-2); font-size: .72rem; font-variant-numeric: tabular-nums; }
-  .top-node.client { border-color: rgba(249,115,22,.5); }
-  .top-node.dc { border-color: rgba(99,102,241,.6); }
-  .top-node.lnx { border-color: rgba(16,185,129,.6); }
-  .top-node.mon { border-color: rgba(249,115,22,.45); }
-  .top-link {
-    flex: 0 0 auto; color: var(--accent); font-size: .72rem; text-transform: uppercase;
-    letter-spacing: .1em; display: flex; align-items: center; gap: 6px;
-  }
-  .top-link::before, .top-link::after { content: ""; width: 26px; height: 1px; background: var(--border); }
-  .top-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
   .next {
     margin-top: 16px; padding: 14px 16px; border: 1px solid var(--border);
     border-radius: 12px; background: var(--panel);
@@ -176,10 +153,18 @@
   .next strong { display: block; color: var(--text); margin-bottom: 4px; }
   .next p { margin: 0; font-size: .92rem; }
   .two-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: start; }
-  .big-quote {
-    font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.4; color: var(--text);
-    max-width: 30ch;
+  ul.clean, ul.check, ol.steps { margin: 0; padding: 0; }
+  ul.clean { list-style: none; }
+  ul.clean > li {
+    position: relative; padding: 6px 0 6px 24px; font-size: .95rem;
+    line-height: 1.5; color: var(--muted);
   }
+  ul.clean > li::before {
+    content: "•"; position: absolute; left: 8px; color: var(--accent-2); font-size: 1.2rem; line-height: 1;
+  }
+  ol.steps { padding-left: 20px; }
+  ol.steps > li { padding: 4px 0; color: var(--muted); font-size: .95rem; }
+
   #nav {
     position: fixed; right: 18px; bottom: 16px; display: flex; gap: 8px; z-index: 60;
   }
@@ -197,10 +182,8 @@
     color: var(--muted); background: var(--panel);
   }
   @media (max-width: 900px) {
-    .grid.cols-2, .grid.cols-3, .two-col { grid-template-columns: 1fr; }
-    .slide { padding: 58px 6vw 70px; }
-    .topology { align-items: flex-start; }
-    .top-group { flex-direction: column; }
+    .grid.cols-2, .grid.cols-3, .grid.cols-4, .two-col { grid-template-columns: 1fr; }
+    .slide { padding: 48px 5vw 50px; }
   }
 </style>
 </head>
@@ -208,124 +191,426 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 01</div>
-  <div id="counter">1 / 15</div>
+  <div id="counter">1 / 14</div>
 </header>
 <main id="deck">
-    <section class="slide active"><span class="kicker">UC7 · Bloco 1 · Aula 01</span><h1>TCP/IP e IPv4</h1><p class="lead">Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.</p>
-      <div class="meta-row"><span class="pill">13/11/2026 (sexta-feira)</span><span class="pill">Fundamentos e Planejamento</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
-    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
-      <div class="two-col"><div><p class="lead">Antes de instalar servidores, a equipe precisa entender como os pacotes circulam e como os endereços IP serão distribuídos na rede local.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Compreender o modelo TCP/IP e o endereçamento IPv4, criando duas VMs Windows 10 na mesma rede interna e testando a comunicação.</p></div><div class="card"><h3>Entrega principal</h3><p>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</p></div></div></div></section>
-    <section class="slide"><span class="kicker">Conceitos</span><h2>O modelo TCP/IP em 4 camadas</h2>
-      <p class="lead">O TCP/IP é o conjunto de protocolos que faz a comunicação entre computadores. Ele divide essa tarefa em camadas, cada uma com uma responsabilidade.</p>
-      <table><thead><tr><th>Camada TCP/IP</th><th>Função</th><th>Exemplos</th><th>Equivalente no OSI</th></tr></thead><tbody>
-        <tr><td>Aplicação</td><td>Oferece o serviço ao usuário e define o formato dos dados</td><td>HTTP, HTTPS, DNS, DHCP, SMB, SSH</td><td>Aplicação, apresentação e sessão</td></tr>
-        <tr><td>Transporte</td><td>Entrega os dados ponta a ponta, com controle de erro ou não</td><td>TCP, UDP</td><td>Transporte</td></tr>
-        <tr><td>Internet</td><td>Endereça e roteia os pacotes entre redes diferentes</td><td>IP, ICMP, ARP</td><td>Rede</td></tr>
-        <tr><td>Acesso à rede</td><td>Coloca os quadros no meio físico e usa o endereço MAC</td><td>Ethernet, Wi-Fi</td><td>Enlace e física</td></tr>
-      </tbody></table>
-      <p class="note"><strong>Comparação:</strong> o modelo OSI tem 7 camadas e serve de referência didática. O modelo TCP/IP tem 4 camadas e é o que realmente roda nos sistemas operacionais.</p>
+
+    <!-- Slide 1: Abertura -->
+    <section class="slide active">
+      <span class="kicker">UC7 · Aula 01</span>
+      <h1>Introdução a Redes: Modelo OSI e Pilha TCP/IP</h1>
+      <p class="lead">Domine os modelos <strong>OSI vs. TCP/IP</strong>, o processo real de <strong>Encapsulamento</strong>, endereçamento <strong>IPv4</strong> e os protocolos essenciais em servidores.</p>
+      <div class="meta-row">
+        <span class="pill">Carga: 3 horas</span>
+        <span class="pill">Fundamentos Teóricos e Práticos</span>
+        <span class="pill">Exemplos do Mundo Real</span>
+      </div>
+      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou utilize os botões no canto inferior direito.</p>
     </section>
 
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Encapsulamento e a escolha entre TCP e UDP</h2>
-      <div class="two-col">
-        <div class="card"><h3>Como o dado desce as camadas</h3>
-          <ol class="steps">
-            <li>A aplicação gera os dados (por exemplo, uma página HTTP)</li>
-            <li>O transporte segmenta e adiciona as portas de origem e destino</li>
-            <li>A camada internet acrescenta os IPs de origem e destino e forma o pacote</li>
-            <li>O acesso à rede monta o quadro com os endereços MAC e envia os bits</li>
+    <!-- Slide 2: Por que modelos em camadas? -->
+    <section class="slide">
+      <span class="kicker">Fundamentação Teórica</span>
+      <h2>Por que a comunicação em rede é em camadas?</h2>
+      <p class="lead">Sem camadas, um navegador web precisaria saber exatamente se você está em um cabo de rede de fibra, Wi-Fi 6 ou sinal 5G.</p>
+      <div class="grid cols-3" style="margin-top:14px;">
+        <div class="card">
+          <span class="card-num">01</span>
+          <h3>Modularidade</h3>
+          <p>Se você troca uma placa de rede Ethernet por uma placa Wi-Fi, o seu navegador e as aplicações web não precisam ser reprogramados.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">02</span>
+          <h3>Padronização (Interoperabilidade)</h3>
+          <p>Permite que um servidor Linux dialogue perfeitamente com um cliente Windows e um smartphone Apple usando padrões abertos.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">03</span>
+          <h3>Diagnóstico / Troubleshooting</h3>
+          <p>Um administrador de redes diagnostica problemas de baixo para cima: <em>"O link físico acendeu? O IP responde? A porta do serviço está aberta?"</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: OSI vs TCP/IP Comparação -->
+    <section class="slide">
+      <span class="kicker">Modelos de Referência</span>
+      <h2>Modelo OSI (7 Camadas) vs. Pilha TCP/IP (4 Camadas)</h2>
+      <p>O <strong>Modelo OSI</strong> é um modelo conceitual/acadêmico da ISO. O <strong>TCP/IP</strong> é a implementação prática que move a Internet.</p>
+      <table class="layers-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Modelo OSI (7 Camadas)</th>
+            <th style="width: 25%;">Pilha TCP/IP (4 Camadas)</th>
+            <th style="width: 25%;">PDU (Unidade de Dados)</th>
+            <th style="width: 25%;">Exemplos de Tecnologias</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>7. Aplicação<br>6. Apresentação<br>5. Sessão</strong></td>
+            <td><span class="badge b-app">Aplicação</span></td>
+            <td><strong>Dados / Payload</strong></td>
+            <td>HTTP, HTTPS, DNS, DHCP, SSH, SMB, FTP</td>
+          </tr>
+          <tr>
+            <td><strong>4. Transporte</strong></td>
+            <td><span class="badge b-trans">Transporte</span></td>
+            <td><strong>Segmento</strong> (TCP) / <strong>Datagrama</strong> (UDP)</td>
+            <td>TCP (confiável/sessão), UDP (rápido/sem handshake)</td>
+          </tr>
+          <tr>
+            <td><strong>3. Rede</strong></td>
+            <td><span class="badge b-net">Internet / Rede</span></td>
+            <td><strong>Pacote</strong></td>
+            <td>IPv4, IPv6, ICMP (ping), IPsec, Roteamento (OSPF/BGP)</td>
+          </tr>
+          <tr>
+            <td><strong>2. Enlace de Dados</strong></td>
+            <td rowspan="2"><span class="badge b-link">Acesso à Rede / Físico</span></td>
+            <td><strong>Quadro (Frame)</strong></td>
+            <td>Ethernet (802.3), Wi-Fi (802.11), Endereçamento MAC</td>
+          </tr>
+          <tr>
+            <td><strong>1. Física</strong></td>
+            <td><strong>Bits (Sinais)</strong></td>
+            <td>Cabos RJ45 Cat6, Fibra óptica, Ondas de rádio, Tensões</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Slide 4: O Encapsulamento (Exemplo prático) -->
+    <section class="slide">
+      <span class="kicker">Mecânica de Funcionamento</span>
+      <h2>Encapsulamento: Como o dado viaja</h2>
+      <p class="lead">Pense no encapsulamento como colocar uma carta dentro de vários envelopes sucessivos até chegar ao carteiro.</p>
+      
+      <div class="encap-flow">
+        <div class="encap-step">
+          <div class="encap-layer b-app">1. Aplicação</div>
+          <div class="encap-pdu">[GET /index.html HTTP/1.1] <span style="color:#aaa;">(Mensagem original criada pelo navegador)</span></div>
+        </div>
+        <div class="encap-step">
+          <div class="encap-layer b-trans">2. Transporte</div>
+          <div class="encap-pdu">[Porta Origem: 54321 | <strong>Porta Destino: 80</strong>] + [Dados HTTP] <span style="color:#aaa;">(Gera o Segmento TCP)</span></div>
+        </div>
+        <div class="encap-step">
+          <div class="encap-layer b-net">3. Internet / Rede</div>
+          <div class="encap-pdu">[IP Origem: 192.168.10.100 | <strong>IP Destino: 192.168.10.10</strong>] + [Segmento TCP] <span style="color:#aaa;">(Gera o Pacote IP)</span></div>
+        </div>
+        <div class="encap-step">
+          <div class="encap-layer b-link">4. Enlace</div>
+          <div class="encap-pdu">[MAC Origem: AA:BB:.. | <strong>MAC Destino: CC:DD:..</strong>] + [Pacote IP] + [FCS Verificação] <span style="color:#aaa;">(Quadro)</span></div>
+        </div>
+        <div class="encap-step">
+          <div class="encap-layer b-phy">5. Física</div>
+          <div class="encap-pdu">01101001 01110100 00100000 01110010 01100101 01100100 01100101 ... <span style="color:#aaa;">(Pulsos elétricos ou de luz no cabo)</span></div>
+        </div>
+      </div>
+      <p class="hint">No receptor ocorre o processo inverso: o <strong>Desencapsulamento</strong> (removendo cabeçalho por cabeçalho até entregar o payload ao Apache/Nginx).</p>
+    </section>
+
+    <!-- Slide 5: Camada de Rede: O papel do IPv4 -->
+    <section class="slide">
+      <span class="kicker">Camada 3 · Internet</span>
+      <h2>A Camada de Rede e o Endereçamento IPv4</h2>
+      <p class="lead">A camada de rede é responsável por encontrar o caminho e entregar o pacote do host de origem até o host de destino final (Roteamento).</p>
+      <div class="grid cols-2" style="margin-top:14px;">
+        <div class="card">
+          <h3>Estrutura do Endereço IPv4 (32 bits)</h3>
+          <p>Dividido em 4 octetos: <code>192.168.10.100 /24</code></p>
+          <ul class="clean" style="margin-top:8px;">
+            <li><strong>Parte de Rede:</strong> <code>192.168.10.0</code> (identifica a sub-rede local).</li>
+            <li><strong>Parte de Host:</strong> <code>.100</code> (identifica a máquina específica).</li>
+            <li><strong>Máscara:</strong> <code>255.255.255.0 (/24)</code> - diz onde termina a rede e começa o host.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Como o host decide para onde enviar o pacote?</h3>
+          <p>Se o IP de destino estiver na <strong>mesma rede local</strong>:</p>
+          <p>O pacote vai direto via switch usando o MAC Address obtido por <strong>ARP</strong>.</p>
+          <p style="margin-top:8px;">Se o IP de destino for de uma <strong>rede diferente (ex: 8.8.8.8)</strong>:</p>
+          <p>O pacote é obrigatoriamente enviado ao <strong>Default Gateway (Roteador/pfSense)</strong> para ser encaminhado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Camada de Transporte: TCP vs UDP -->
+    <section class="slide">
+      <span class="kicker">Camada 4 · Transporte</span>
+      <h2>TCP vs. UDP: Qual a diferença prática?</h2>
+      <div class="grid cols-2" style="margin-top:12px;">
+        <div class="card highlight">
+          <h3>TCP (Transmission Control Protocol)</h3>
+          <p><strong>Orientado à conexão e confiável.</strong> Estabelece uma sessão antes de enviar dados.</p>
+          <ul class="clean" style="margin-top:8px; font-size:.88rem;">
+            <li><strong>Handshake de 3 vias:</strong> SYN &rarr; SYN-ACK &rarr; ACK.</li>
+            <li><strong>Garantia de entrega:</strong> Se um pacote cair, o TCP retransmite.</li>
+            <li><strong>Controle de ordem:</strong> Pacotes chegam numerados e são organizados.</li>
+            <li><strong>Exemplos:</strong> Páginas Web (HTTP/HTTPS), Compartilhamento (SMB), SSH e RDP.</li>
+          </ul>
+        </div>
+        <div class="card warning">
+          <h3>UDP (User Datagram Protocol)</h3>
+          <p><strong>Sem conexão e rápido (Best Effort).</strong> Envia sem confirmação de recebimento.</p>
+          <ul class="clean" style="margin-top:8px; font-size:.88rem;">
+            <li><strong>Sem Handshake:</strong> Dispara os dados imediatamente sem aviso prévio.</li>
+            <li><strong>Sem Retransmissão:</strong> Se perder pacotes, a aplicação decide o que fazer.</li>
+            <li><strong>Baixo overhead:</strong> Cabeçalho minúsculo (apenas 8 bytes contra 20+ bytes do TCP).</li>
+            <li><strong>Exemplos:</strong> Resolução de nomes (DNS), Configuração de rede (DHCP), Streaming e VoIP.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Entendendo Portas e Sockets -->
+    <section class="slide">
+      <span class="kicker">Camada 4 · Multiplexação</span>
+      <h2>O que é uma Porta e o que é um Socket?</h2>
+      <p class="lead">Um servidor com um único endereço IP pode rodar dezenas de serviços simultâneos. As portas são os "ramais" que diferenciam quem recebe o quê.</p>
+      <div class="grid cols-3" style="margin-top:14px;">
+        <div class="card">
+          <h3>Portas Bem Conhecidas (0 - 1023)</h3>
+          <p>Reservadas para serviços padrão e exigem privilégios de administrador para escutar.</p>
+          <p><em>Exemplos: 22 (SSH), 53 (DNS), 80 (HTTP), 443 (HTTPS), 445 (SMB).</em></p>
+        </div>
+        <div class="card">
+          <h3>Portas Efêmeras / Dinâmicas (49152 - 65535)</h3>
+          <p>Usadas pelo sistema operacional do cliente para abrir conexões de saída temporárias.</p>
+          <p><em>Ex: O Windows sorteia a porta 53120 para falar com a porta 443 do servidor web.</em></p>
+        </div>
+        <div class="card highlight">
+          <h3>O Conceito de Socket</h3>
+          <p>Um Socket é o par exato que identifica univocamente qualquer conexão na rede:</p>
+          <div class="code-box">
+            IP:Porta Origem &harr; IP:Porta Destino<br>
+            <span class="green">192.168.10.100:54201 &harr; 192.168.10.10:443</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: O Ciclo de Vida do DHCP (DORA) -->
+    <section class="slide">
+      <span class="kicker">Protocolo em Foco · DHCP</span>
+      <h2>Como uma máquina obtém IP: O Processo D.O.R.A.</h2>
+      <p>DHCP opera sobre <strong>UDP nas portas 67 (servidor) e 68 (cliente)</strong> usando broadcast.</p>
+      
+      <div class="grid cols-4" style="margin-top:14px;">
+        <div class="card">
+          <span class="card-num">Passo 1</span>
+          <h3>Discover</h3>
+          <p><strong>Cliente &rarr; Broadcast</strong></p>
+          <p><em>"Quem é o servidor DHCP? Não tenho IP ainda! (0.0.0.0 &rarr; 255.255.255.255)"</em></p>
+        </div>
+        <div class="card">
+          <span class="card-num">Passo 2</span>
+          <h3>Offer</h3>
+          <p><strong>Servidor &rarr; Cliente</strong></p>
+          <p><em>"Olá! Eu sou o servidor 192.168.10.10. Posso te emprestar o IP 192.168.10.101 com máscara /24."</em></p>
+        </div>
+        <div class="card">
+          <span class="card-num">Passo 3</span>
+          <h3>Request</h3>
+          <p><strong>Cliente &rarr; Broadcast</strong></p>
+          <p><em>"Aceito formalmente a oferta do servidor 192.168.10.10 para usar o IP 192.168.10.101."</em></p>
+        </div>
+        <div class="card highlight">
+          <span class="card-num">Passo 4</span>
+          <h3>Acknowledge (ACK)</h3>
+          <p><strong>Servidor &rarr; Cliente</strong></p>
+          <p><em>"Confirmado! O IP 192.168.10.101 é seu por 8 dias, gateway 192.168.10.1 e DNS 192.168.10.10."</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: O Ciclo de Resolução de Nomes (DNS) -->
+    <section class="slide">
+      <span class="kicker">Protocolo em Foco · DNS</span>
+      <h2>Como funciona a resolução de nomes (DNS)</h2>
+      <p>O DNS converte nomes amigáveis (como <code>app.nexatech.local</code>) no IP numérico que o roteador compreende. Utiliza porta <strong>UDP 53</strong> para consultas e <strong>TCP 53</strong> para transferências de zona.</p>
+      
+      <div class="grid cols-2" style="margin-top:12px;">
+        <div class="card">
+          <h3>Tipos de Registro Fundamentais</h3>
+          <ul class="clean" style="margin-top:8px; font-size:.88rem;">
+            <li><strong>A:</strong> Aponta um nome de domínio para um IPv4 (ex: <code>app &rarr; 192.168.10.20</code>).</li>
+            <li><strong>AAAA:</strong> Aponta um nome de domínio para um IPv6.</li>
+            <li><strong>CNAME:</strong> Cria um apelido/alias (ex: <code>www &rarr; app.nexatech.local</code>).</li>
+            <li><strong>PTR:</strong> Resolução reversa (converte IP de volta para nome).</li>
+            <li><strong>SRV:</strong> Localizador de serviços (crucial para o Active Directory localizar o DC).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hierarquia de Resolução</h3>
+          <ol class="steps" style="font-size:.88rem;">
+            <li>O cliente checa o seu cache DNS local e o arquivo <code>hosts</code>.</li>
+            <li>Consulta o servidor DNS local configurado (ex: DC01 em <code>192.168.10.10</code>).</li>
+            <li>Se o domínio for interno (<code>nexatech.local</code>), o DC01 responde autoritativamente.</li>
+            <li>Se for externo (<code>google.com</code>), o DNS local faz encaminhamento (forwarding) para a internet.</li>
           </ol>
         </div>
-        <div class="grid">
-          <div class="card"><h3>TCP</h3><p>Orientado a conexão, confirma o recebimento e retransmite o que se perde. Usado em web, arquivos e e-mail, onde a integridade importa.</p></div>
-          <div class="card"><h3>UDP</h3><p>Sem conexão e sem confirmação. É mais rápido e leve. Usado em DNS, DHCP e streaming, onde a velocidade importa mais que a garantia.</p></div>
+      </div>
+    </section>
+
+    <!-- Slide 10: Matriz de Serviços e Portas de Servidores -->
+    <section class="slide">
+      <span class="kicker">Aplicações Práticas · UC7</span>
+      <h2>Matriz de Serviços e Portas da NexaTech</h2>
+      <p>Estes são os serviços que você implantará nos servidores Windows, Linux e pfSense durante as aulas:</p>
+      
+      <table class="layers-table" style="margin-top:10px;">
+        <thead>
+          <tr>
+            <th>Serviço / Função</th>
+            <th>Protocolo</th>
+            <th>Porta Padrão</th>
+            <th>Papel na Infraestrutura</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Active Directory / LDAP</strong></td>
+            <td>TCP / UDP</td>
+            <td>389 / 636 (SSL) / 88 (Kerberos)</td>
+            <td>Autenticação centralizada de usuários e políticas de domínio.</td>
+          </tr>
+          <tr>
+            <td><strong>DNS Local</strong></td>
+            <td>UDP / TCP</td>
+            <td>53</td>
+            <td>Resolução de nomes internos dos servidores e estações.</td>
+          </tr>
+          <tr>
+            <td><strong>DHCP Server</strong></td>
+            <td>UDP</td>
+            <td>67 (Server) / 68 (Client)</td>
+            <td>Distribuição dinâmica de configurações de rede para clientes.</td>
+          </tr>
+          <tr>
+            <td><strong>Web Server (Apache/Nginx/IIS)</strong></td>
+            <td>TCP</td>
+            <td>80 (HTTP) / 443 (HTTPS)</td>
+            <td>Hospedagem da aplicação corporativa e painéis web.</td>
+          </tr>
+          <tr>
+            <td><strong>Compartilhamento de Arquivos (SMB)</strong></td>
+            <td>TCP</td>
+            <td>445</td>
+            <td>Pastas compartilhadas no Windows e Samba no Linux.</td>
+          </tr>
+          <tr>
+            <td><strong>Administração Remota (SSH & RDP)</strong></td>
+            <td>TCP</td>
+            <td>22 (SSH) / 3389 (RDP)</td>
+            <td>Acesso shell em servidores Linux e área de trabalho remota no Windows.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Slide 11: Comandos Práticos de Diagnóstico -->
+    <section class="slide">
+      <span class="kicker">Hands-on · Comandos</span>
+      <h2>Ferramentas Práticas de Inspeção</h2>
+      <p class="lead">Como ver o que está acontecendo na pilha de protocolos na prática:</p>
+      
+      <div class="grid cols-2" style="margin-top:12px;">
+        <div class="card">
+          <h3>No Windows (Prompt / PowerShell)</h3>
+          <div class="code-box">
+            <span class="comment"># Ver tabela de conexões ativas e portas em escuta:</span><br>
+            netstat -ano | findstr :80<br><br>
+            <span class="comment"># Testar se a porta TCP de um servidor está aberta:</span><br>
+            Test-NetConnection -ComputerName 192.168.10.10 -Port 445<br><br>
+            <span class="comment"># Consultar resolução de nomes no servidor DNS local:</span><br>
+            nslookup app.nexatech.local 192.168.10.10
+          </div>
+        </div>
+        <div class="card">
+          <h3>No Linux (Ubuntu Server)</h3>
+          <div class="code-box">
+            <span class="comment"># Inspecionar sockets TCP e UDP ouvindo (listening):</span><br>
+            ss -tulpn<br><br>
+            <span class="comment"># Testar handshake de porta via terminal:</span><br>
+            nc -zv 192.168.10.10 22<br><br>
+            <span class="comment"># Diagnosticar DNS detalhadamente com dig:</span><br>
+            dig @192.168.10.10 app.nexatech.local
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="slide"><span class="kicker">Conceitos</span><h2>O endereço IPv4: rede, host, máscara e gateway</h2>
-      <p class="lead">Um IPv4 tem 32 bits, escritos como quatro octetos separados por ponto. Cada octeto vai de 0 a 255.</p>
-      <table><thead><tr><th>Elemento</th><th>Exemplo</th><th>O que significa</th></tr></thead><tbody>
-        <tr><td>Endereço IP</td><td><code>192.168.10.100</code></td><td>Identifica a estação na rede</td></tr>
-        <tr><td>Máscara</td><td><code>255.255.255.0</code></td><td>Separa a parte de rede da parte de host</td></tr>
-        <tr><td>Rede</td><td><code>192.168.10.0</code></td><td>Endereço que representa o grupo de máquinas</td></tr>
-        <tr><td>Host</td><td><code>100</code></td><td>Identifica a máquina dentro daquela rede</td></tr>
-        <tr><td>Gateway</td><td><code>192.168.10.1</code></td><td>Porta de saída para outras redes</td></tr>
-      </tbody></table>
-      <p class="note"><strong>Regra prática:</strong> duas máquinas só se comunicam diretamente quando a parte de rede dos IPs, calculada com a máscara, é a mesma.</p>
-    </section>
-
-    <section class="slide"><span class="kicker">Conceitos</span><h2>IPs privados, públicos e NAT</h2>
-      <div class="grid cols-2">
-        <div class="card highlight"><h3>Faixas privadas (RFC 1918)</h3>
-          <table><tbody>
-            <tr><td><code>10.0.0.0/8</code></td><td>Redes grandes</td></tr>
-            <tr><td><code>172.16.0.0/12</code></td><td>Redes médias</td></tr>
-            <tr><td><code>192.168.0.0/16</code></td><td>Redes domésticas e locais</td></tr>
-          </tbody></table>
-        </div>
-        <div class="grid">
-          <div class="card"><h3>IP público</h3><p>É único no mundo e fornecido pelo provedor de internet. É o endereço pelo qual a empresa é vista na rede mundial.</p></div>
-          <div class="card"><h3>NAT</h3><p>Traduz vários IPs privados para um ou poucos IPs públicos. Permite que dezenas de máquinas internas naveguem usando um único endereço externo.</p></div>
+    <!-- Slide 12: Inspeção com Wireshark -->
+    <section class="slide">
+      <span class="kicker">Análise de Tráfego</span>
+      <h2>Identificando as Camadas no Wireshark</h2>
+      <p class="lead">Ao abrir uma captura de pacote no Wireshark, você vê a árvore de encapsulamento refletida linha por linha:</p>
+      <div class="card" style="margin-top:10px;">
+        <div class="code-box" style="font-size:.85rem; line-height:1.7;">
+          &blacktriangleright; <strong>Frame 1:</strong> 454 bytes on wire (Camada 1: Física / Bits capturados)<br>
+          &blacktriangleright; <strong>Ethernet II,</strong> Src: 08:00:27:12:34:56, Dst: 08:00:27:65:43:21 (Camada 2: Enlace / MAC Addresses)<br>
+          &blacktriangleright; <strong>Internet Protocol Version 4,</strong> Src: 192.168.10.100, Dst: 192.168.10.10 (Camada 3: Rede / IPs)<br>
+          &blacktriangleright; <strong>Transmission Control Protocol,</strong> Src Port: 51234, Dst Port: 80, Seq: 1, Ack: 1 (Camada 4: Transporte)<br>
+          &blacktriangleright; <strong>Hypertext Transfer Protocol,</strong> GET /index.html HTTP/1.1\r\n (Camada 7: Aplicação / Payload)
         </div>
       </div>
-      <p class="note"><strong>No laboratório:</strong> a rede <code>192.168.10.0/24</code> é privada. Ela não acessa a internet sozinha; isso dependerá do pfSense e do NAT, no Bloco 3.</p>
+      <p class="hint">Essa árvore comprova que a pilha teórica é exatamente o que está trafegando pelo cabo da rede.</p>
     </section>
 
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Notação CIDR e identificação da rede</h2>
-      <p class="lead">O CIDR indica quantos bits da máscara pertencem à rede. Quanto maior o número depois da barra, menor o número de hosts disponíveis.</p>
-      <table><thead><tr><th>CIDR</th><th>Máscara</th><th>Hosts úteis</th><th>Faixa de exemplo</th></tr></thead><tbody>
-        <tr><td><code>/24</code></td><td><code>255.255.255.0</code></td><td>254</td><td><code>192.168.10.0</code> a <code>192.168.10.255</code></td></tr>
-        <tr><td><code>/25</code></td><td><code>255.255.255.128</code></td><td>126</td><td><code>192.168.10.0</code> ou <code>192.168.10.128</code></td></tr>
-        <tr><td><code>/30</code></td><td><code>255.255.255.252</code></td><td>2</td><td>Links ponto a ponto entre roteadores</td></tr>
-      </tbody></table>
-      <div class="grid cols-2">
-        <div class="card"><h3>Mesma rede</h3><p><code>192.168.10.100/24</code> e <code>192.168.10.101/24</code> compartilham a rede <code>192.168.10.0</code> e se comunicam diretamente.</p></div>
-        <div class="card"><h3>Redes diferentes</h3><p><code>192.168.10.100/24</code> e <code>192.168.20.100/24</code> não se falam sem um roteador ou gateway entre elas.</p></div>
+    <!-- Slide 13: Desafio e Atividade da Aula -->
+    <section class="slide">
+      <span class="kicker">Atividade Prática</span>
+      <h2>Entrega da Aula: Matriz de Serviços e Segurança</h2>
+      <div class="two-col" style="margin-top:14px;">
+        <div class="card highlight">
+          <h3>Missão NexaTech</h3>
+          <p>Você é o administrador de rede e deve documentar todos os serviços que os servidores DC01, APP01 e DB01 hospedarão, relacionando:</p>
+          <ul class="clean" style="margin-top:8px; font-size:.9rem;">
+            <li>Nome do serviço e Servidor de destino.</li>
+            <li>Protocolo de transporte (TCP ou UDP) e porta.</li>
+            <li>Quem precisa acessar (Rede interna ou Internet?).</li>
+            <li>Risco de segurança se a porta ficar exposta publicamente.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pergunta de Reflexão</h3>
+          <blockquote style="font-size:1.05rem; margin:8px 0; color:var(--text);">
+            "Por que uma porta necessária para o serviço pode, ao mesmo tempo, ser a maior vulnerabilidade do servidor?"
+          </blockquote>
+          <p style="font-size:.88rem; color:var(--muted); margin-top:10px;">
+            Dica: Pense no serviço SMB (porta 445), fundamental para a rede local da empresa, mas causador da proliferação global do ransomware WannaCry quando aberto para o mundo.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Gateway, DNS e DHCP no fluxo de configuração</h2>
-      <div class="grid cols-3">
-        <div class="card"><span class="card-num">01</span><h3>Gateway</h3><p>É o endereço da saída para outras redes, normalmente o roteador ou firewall. Precisa estar na mesma rede da máquina.</p></div>
-        <div class="card"><span class="card-num">02</span><h3>DNS</h3><p>Traduz nomes em IPs, como <code>nexatech.local</code> para <code>192.168.10.10</code>. Sem DNS, o usuário teria de decorar endereços.</p></div>
-        <div class="card"><span class="card-num">03</span><h3>DHCP</h3><p>Entrega IP, máscara, gateway e DNS automaticamente. O cliente descobre, recebe a oferta, solicita e confirma o endereço.</p></div>
+    <!-- Slide 14: Resumo e Próximos Passos -->
+    <section class="slide">
+      <span class="kicker">Fechamento</span>
+      <h2>O que aprendemos hoje</h2>
+      <ul class="clean">
+        <li><strong>Camadas e Modularidade:</strong> O modelo OSI orienta o conceito e a pilha TCP/IP executa a comunicação no mundo real.</li>
+        <li><strong>Encapsulamento:</strong> Os dados ganham cabeçalhos (Portas &rarr; IPs &rarr; MACs) na descida e perdem na subida.</li>
+        <li><strong>TCP vs UDP:</strong> TCP assegura integridade via 3-way handshake; UDP entrega alta velocidade e baixa latência.</li>
+        <li><strong>Portas e Sockets:</strong> Identificam com precisão cada serviço em execução nos servidores.</li>
+      </ul>
+      
+      <div class="next" style="margin-top:16px;">
+        <span>Próxima Aula</span>
+        <strong>Aula 02 - Conceito de Servidores</strong>
+        <p>A transição do modelo P2P para Cliente/Servidor, hardware especializado (ECC, Hot-Swap) e funções corporativas.</p>
       </div>
-      <p class="note"><strong>Nesta aula:</strong> a configuração é manual e sem gateway, para isolar o teste de comunicação. O DHCP será configurado no Bloco 2, quando o DC01 existir.</p>
     </section>
 
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Diagnóstico no prompt de comando</h2>
-      <table><thead><tr><th>Comando</th><th>O que mostra</th><th>Quando usar</th></tr></thead><tbody>
-        <tr><td><code>ipconfig /all</code></td><td>IP, máscara, gateway, DNS e endereço MAC</td><td>Conferir a configuração da estação</td></tr>
-        <tr><td><code>ping</code></td><td>Se o destino responde e em quanto tempo</td><td>Testar conectividade entre duas máquinas</td></tr>
-        <tr><td><code>tracert</code></td><td>O caminho percorrido até o destino</td><td>Descobrir onde o tráfego para ou demora</td></tr>
-        <tr><td><code>nslookup</code></td><td>A resolução de nomes pelo DNS</td><td>Verificar se o nome aponta para o IP correto</td></tr>
-      </tbody></table>
-      <p class="note">Um teste de rede começa pelo mais simples: o IP está correto? A máscara é compatível? O ping responde? Só depois se investiga DNS, gateway e firewall.</p>
-    </section>
-    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Criação de duas VMs Windows 10 na mesma rede interna e teste de conectividade.</p>
-      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Criar as VMs CLI01 e CLI02 com Windows 10</li><li>Adicionar as duas VMs à rede interna rede-nexatech</li><li>Configurar IPs diferentes na mesma rede: 192.168.10.100 e 192.168.10.101</li><li>Testar ping entre as duas VMs nos dois sentidos</li><li>Registrar prints do ipconfig e do ping</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>VirtualBox, Windows 10, ISO e prompt de comando</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
-    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code></p>
-      <table><thead><tr><th>VM</th><th>IP</th><th>Máscara</th></tr></thead><tbody><tr><td>CLI01</td><td>192.168.10.100</td><td>255.255.255.0</td></tr><tr><td>CLI02</td><td>192.168.10.101</td><td>255.255.255.0</td></tr></tbody></table>
-      <p class="note"><strong>Nesta aula:</strong> as duas VMs devem usar o mesmo nome de rede interna e IPs diferentes na mesma faixa.</p></section>
-    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
-      <div class="card highlight"><h3>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
-      <div class="card" style="margin-top:14px"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div></section>
-    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Por que uma máscara ou gateway errado derruba a comunicação mesmo com o cabo conectado?</blockquote>
-      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Um plano de IP correto evita conflitos e facilita a instalação dos servidores.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Com os conceitos entendidos, é preciso definir o papel de cada servidor.</p></div></div></section>
-    <section class="slide"><span class="kicker">Cenário das aulas</span><h2>Conexão com a NexaTech</h2><p class="lead">Define os conceitos de endereçamento que sustentarão toda a infraestrutura.</p>
-      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Ficha das VMs CLI01 e CLI02 com IPs, máscara, rede e evidências do teste de ping.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Com os conceitos entendidos, é preciso definir o papel de cada servidor.</p></div></div>
-      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
-    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>TCP/IP organiza a comunicação em camadas.</li><li>IPv4 combina endereço, máscara e gateway.</li><li>Duas VMs na mesma rede se comunicam quando IP e máscara são compatíveis.</li></ul>
-      <div class="next"><span>Próxima aula</span><strong>Aula 02 - O servidor na rede local e a UC7</strong><p>Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e o cenário que conduzirá a UC7.</p></div>
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do seu projeto individual.</p></section>
 </main>
+
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>
   <button id="next" type="button" aria-label="Próximo slide">→</button>
 </nav>
+
 <script>
   const slides = Array.from(document.querySelectorAll('.slide'));
   const counter = document.getElementById('counter');
@@ -339,9 +624,7 @@
     progress.style.width = (((index + 1) / slides.length) * 100) + '%';
     try {
       if (history.replaceState) history.replaceState(null, '', '#' + (index + 1));
-    } catch (error) {
-      /* alguns navegadores bloqueiam replaceState em file:// */
-    }
+    } catch (error) {}
   }
 
   document.getElementById('prev').addEventListener('click', () => show(index - 1));

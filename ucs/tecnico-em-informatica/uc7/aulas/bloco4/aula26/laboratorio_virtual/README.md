@@ -1,62 +1,74 @@
-# Laboratório VirtualBox - Aula 26: Servidor web Apache + PHP
+# Roteiro Prático Passo a Passo — Aula 26: Servidor Web Apache2, PHP e Virtual Hosts
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Aplicação de teste:** [`aplicacao-teste/`](../../../../laboratorio_virtual/aplicacao-teste/README.md)  
-**Entrega da aula:** Aplicação PHP publicada no APP01 com evidências de acesso pelos clientes.
+## 1. Identificação
+- **Tema:** Servidor Web LAMP (Apache + PHP)
+- **Servidor:** `APP01` (`192.168.10.20`)
+- **Caminho da Aplicação:** `/var/www/nexatech/`
 
----
+## 2. Objetivos
+1. Instalar o servidor web Apache2 e o interpretador PHP no Ubuntu Server.
+2. Criar a estrutura de diretórios da aplicação corporativa.
+3. Criar e habilitar o Virtual Host `app.nexatech.local`.
+4. Testar o acesso via navegador a partir dos clientes Windows.
 
-## Objetivo
+## 3. Passo a Passo Detalhado
 
-Publicar a aplicação web em Apache e PHP no Ubuntu Server.
-
-## VMs desta aula
-
-APP01 (Apache/PHP) e CLI01/CLI02 (acesso ao site). Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-## Roteiro
-
-1. Copiar a aplicação de teste para o APP01
-2. Executar o deploy-app.sh (instala Apache/PHP e publica a aplicação)
-3. Conferir o VirtualHost e as permissões em /var/www/nexatech
-4. Testar http://app.nexatech.local e health.php nos clientes
-5. Registrar configuração, logs e evidências
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
+### Parte A — Instalação dos Pacotes
+No terminal do `APP01`, execute:
 ```bash
-# Ubuntu
-sudo systemctl status apache2
-sudo systemctl status mariadb
-sudo systemctl status isc-dhcp-server
-sudo systemctl status bind9
+sudo apt update
+sudo apt install -y apache2 php libapache2-mod-php php-mysql
 ```
 
-## Observações
+### Parte B — Criação da Pasta e Página PHP
+1. Crie o diretório raiz da aplicação:
+   ```bash
+   sudo mkdir -p /var/www/nexatech/public
+   ```
+2. Defina o dono do diretório para o usuário do Apache:
+   ```bash
+   sudo chown -R www-data:www-data /var/www/nexatech
+   sudo chmod -R 755 /var/www/nexatech
+   ```
+3. Crie um arquivo de teste `index.php`:
+   ```bash
+   sudo nano /var/www/nexatech/public/index.php
+   ```
+4. Insira o seguinte código:
+   ```php
+   <?php
+   echo "<h1>Portal NexaTech - Servidor Web Operacional</h1>";
+   echo "<p>Hospedado no servidor: " . gethostname() . "</p>";
+   echo "<p>Data e Hora do Servidor: " . date("d/m/Y H:i:s") . "</p>";
+   ?>
+   ```
+   Salve e feche o arquivo.
 
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-- O Windows Server mantém o DNS e o DHCP oficiais do domínio; os serviços Linux são usados para comparação e prática.
+### Parte C — Criação do Virtual Host no Apache
+1. Crie o arquivo de configuração do site:
+   ```bash
+   sudo nano /etc/apache2/sites-available/nexatech.conf
+   ```
+2. Insira a configuração:
+   ```apache
+   <VirtualHost *:80>
+       ServerName app.nexatech.local
+       ServerAlias portal.nexatech.local
+       DocumentRoot /var/www/nexatech/public
+       ErrorLog ${APACHE_LOG_DIR}/nexatech_error.log
+       CustomLog ${APACHE_LOG_DIR}/nexatech_access.log combined
+   </VirtualHost>
+   ```
+3. Habilite o site e o módulo de reescrita:
+   ```bash
+   sudo a2ensite nexatech.conf
+   sudo a2dissite 000-default.conf
+   sudo systemctl reload apache2
+   ```
 
-## Relação com o projeto
-
-Entrega a camada web da aplicação.
-
-**O que fica em aberto:** A aplicação precisa de um banco de dados dedicado.
-
----
-
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula26.html) e a [atividade](../atividade.md).
+### Parte D — Teste no Cliente Windows
+No cliente `CLI-FIN`, abra o navegador e acesse:
+```text
+http://app.nexatech.local
+```
+*Resultado esperado:* A página PHP carrega perfeitamente com a identificação do servidor `app01`!

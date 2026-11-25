@@ -46,135 +46,104 @@
   #deck { position: relative; height: 100%; width: 100%; }
   .slide {
     position: absolute; inset: 0; display: none; flex-direction: column;
-    justify-content: center; padding: 64px 7vw 72px; opacity: 0;
-    transform: translateY(14px); transition: opacity .3s ease, transform .3s ease;
+    justify-content: center; padding: 50px 6vw 60px; opacity: 0;
+    transform: translateY(14px); transition: opacity .25s ease, transform .25s ease;
     overflow-y: auto;
   }
   .slide.active { display: flex; opacity: 1; transform: translateY(0); }
-  .slide::-webkit-scrollbar { width: 10px; }
-  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+  .slide::-webkit-scrollbar { width: 8px; }
+  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
   .kicker {
     display: inline-block; align-self: flex-start; font-size: .7rem;
     letter-spacing: .16em; text-transform: uppercase; color: var(--accent-2);
     border: 1px solid var(--border); background: rgba(16,185,129,.08);
-    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
   }
-  h1 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; margin: 0 0 16px; font-weight: 700; letter-spacing: -.02em; }
-  h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); margin: 0 0 16px; line-height: 1.15; letter-spacing: -.01em; }
-  h3 { font-size: 1.02rem; margin: 0 0 8px; color: var(--text); }
-  p { font-size: 1rem; line-height: 1.6; color: var(--muted); margin: 0 0 12px; max-width: 70ch; }
+  h1 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); line-height: 1.1; margin: 0 0 14px; font-weight: 700; }
+  h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 14px; line-height: 1.15; }
+  h3 { font-size: 1.05rem; margin: 0 0 6px; color: var(--text); }
+  p { font-size: 0.98rem; line-height: 1.55; color: var(--muted); margin: 0 0 10px; max-width: 75ch; }
   p strong, li strong { color: var(--text); }
-  .lead { font-size: 1.18rem; color: var(--text); max-width: 72ch; }
+  .lead { font-size: 1.12rem; color: var(--text); max-width: 75ch; }
   .muted { color: var(--muted); font-weight: 400; }
-  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .pill {
     font-size: .76rem; letter-spacing: .04em; color: var(--muted);
     border: 1px solid var(--border); background: var(--panel);
-    padding: 6px 10px; border-radius: 999px;
+    padding: 5px 10px; border-radius: 999px;
   }
-  .hint { margin-top: 18px; font-size: .8rem; color: var(--muted); }
-  .grid { display: grid; gap: 14px; }
+  .hint { margin-top: 14px; font-size: .8rem; color: var(--muted); }
+  .grid { display: grid; gap: 12px; }
   .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .card {
     background: linear-gradient(180deg, var(--panel), var(--panel-2));
     border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 16px 18px; box-shadow: var(--shadow);
+    padding: 14px 16px; box-shadow: var(--shadow);
   }
   .card h3 { line-height: 1.3; }
-  .card p { font-size: .94rem; margin: 0; }
+  .card p { font-size: .92rem; margin: 0; }
   .card-num {
     display: inline-block; font-size: .7rem; letter-spacing: .12em;
-    color: var(--accent-2); font-weight: 700; margin-bottom: 6px;
+    color: var(--accent-2); font-weight: 700; margin-bottom: 4px;
   }
   .card.highlight {
     border-color: rgba(16,185,129,.5);
     background: linear-gradient(180deg, rgba(16,185,129,.14), var(--panel-2));
   }
-  ul.clean, ul.check, ol.steps { margin: 0; padding: 0; }
-  ul.clean { list-style: none; }
-  ul.clean > li {
-    position: relative; padding: 7px 0 7px 26px; font-size: .98rem;
-    line-height: 1.5; color: var(--muted);
+  .card.warning {
+    border-color: rgba(249,115,22,.5);
+    background: linear-gradient(180deg, rgba(249,115,22,.12), var(--panel-2));
   }
-  ul.clean > li::before {
-    content: ""; position: absolute; left: 4px; top: 15px;
-    width: 9px; height: 9px; border-radius: 3px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  .card.danger {
+    border-color: rgba(239,68,68,.5);
+    background: linear-gradient(180deg, rgba(239,68,68,.12), var(--panel-2));
   }
-  ul.check { list-style: none; }
-  ul.check > li {
-    position: relative; padding: 7px 0 7px 30px; font-size: .98rem;
-    line-height: 1.5; color: var(--muted);
+  .code-box {
+    background: #060913; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; font-family: "Cascadia Code", Consolas, monospace;
+    font-size: .82rem; color: #a5b4fc; overflow-x: auto; margin-top: 8px;
   }
-  ul.check > li::before {
-    content: "✓"; position: absolute; left: 0; top: 6px;
-    color: var(--accent-2); font-weight: 700;
+  .code-box span.comment { color: #64748b; }
+  .code-box span.green { color: var(--accent-2); }
+  .code-box span.orange { color: var(--accent-3); }
+
+  /* Tabela de Comparação de Camadas */
+  .layers-table {
+    width: 100%; border-collapse: collapse; font-size: .86rem; margin-top: 8px;
   }
-  ol.steps { list-style: none; counter-reset: step; }
-  ol.steps > li {
-    counter-increment: step; position: relative; padding: 8px 0 8px 36px;
-    font-size: .96rem; line-height: 1.5; color: var(--muted);
+  .layers-table th, .layers-table td {
+    padding: 8px 12px; border: 1px solid var(--border); text-align: left;
   }
-  ol.steps > li::before {
-    content: counter(step); position: absolute; left: 0; top: 5px;
-    width: 24px; height: 24px; border-radius: 50%;
-    display: grid; place-items: center; font-size: .72rem; font-weight: 700;
-    background: rgba(99,102,241,.2); color: #c7d0ff; border: 1px solid var(--border);
+  .layers-table th {
+    background: var(--panel-2); color: var(--text); font-weight: 600;
   }
-  blockquote {
-    margin: 0 0 16px; padding: 16px 18px; border-left: 4px solid var(--accent-3);
-    background: var(--panel); border-radius: 0 12px 12px 0;
-    color: var(--text); font-size: 1.05rem; line-height: 1.55;
+  .layers-table tr:nth-child(even) { background: rgba(255,255,255,.02); }
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: .75rem; font-weight: bold;
   }
-  code {
-    font-family: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
-    font-size: .9em; background: rgba(99,102,241,.16);
-    border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
-    padding: 1px 6px; border-radius: 6px;
+  .b-app { background: #3b82f6; color: white; }
+  .b-trans { background: #8b5cf6; color: white; }
+  .b-net { background: #10b981; color: white; }
+  .b-link { background: #f59e0b; color: #1e1e1e; }
+  .b-phy { background: #64748b; color: white; }
+
+  /* Diagrama de Encapsulamento */
+  .encap-flow {
+    display: flex; flex-direction: column; gap: 8px; margin: 10px 0;
   }
-  .note {
-    margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
-    border-radius: 10px; background: rgba(99,102,241,.06);
-    font-size: .9rem; color: var(--muted);
+  .encap-step {
+    display: flex; align-items: center; gap: 10px; font-size: .88rem;
   }
-  .topology {
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    margin: 8px 0 16px;
+  .encap-layer {
+    width: 140px; padding: 6px 10px; border-radius: 6px; font-weight: bold; text-align: center;
   }
-  .top-node {
-    min-width: 128px; padding: 12px 14px; border-radius: 12px;
-    border: 1px solid var(--border); background: var(--panel);
-    display: flex; flex-direction: column; gap: 3px;
+  .encap-pdu {
+    padding: 6px 12px; background: #060913; border: 1px dashed var(--border); border-radius: 6px;
+    font-family: monospace; color: var(--accent-2); flex: 1;
   }
-  .top-node strong { color: var(--text); font-size: .95rem; }
-  .top-node span { color: var(--muted); font-size: .8rem; }
-  .top-node small { color: var(--accent-2); font-size: .72rem; font-variant-numeric: tabular-nums; }
-  .top-node.client { border-color: rgba(249,115,22,.5); }
-  .top-node.dc { border-color: rgba(99,102,241,.6); }
-  .top-node.lnx { border-color: rgba(16,185,129,.6); }
-  .top-node.mon { border-color: rgba(249,115,22,.45); }
-  .top-link {
-    flex: 0 0 auto; color: var(--accent); font-size: .72rem; text-transform: uppercase;
-    letter-spacing: .1em; display: flex; align-items: center; gap: 6px;
-  }
-  .top-link::before, .top-link::after { content: ""; width: 26px; height: 1px; background: var(--border); }
-  .top-group { display: flex; gap: 10px; flex-wrap: wrap; }
-  .next {
-    margin-top: 16px; padding: 14px 16px; border: 1px solid var(--border);
-    border-radius: 12px; background: var(--panel);
-  }
-  .next span {
-    display: block; font-size: .7rem; text-transform: uppercase;
-    letter-spacing: .12em; color: var(--accent-2); margin-bottom: 4px;
-  }
-  .next strong { display: block; color: var(--text); margin-bottom: 4px; }
-  .next p { margin: 0; font-size: .92rem; }
-  .two-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: start; }
-  .big-quote {
-    font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.4; color: var(--text);
-    max-width: 30ch;
-  }
+
   #nav {
     position: fixed; right: 18px; bottom: 16px; display: flex; gap: 8px; z-index: 60;
   }
@@ -192,10 +161,8 @@
     color: var(--muted); background: var(--panel);
   }
   @media (max-width: 900px) {
-    .grid.cols-2, .grid.cols-3, .two-col { grid-template-columns: 1fr; }
-    .slide { padding: 58px 6vw 70px; }
-    .topology { align-items: flex-start; }
-    .top-group { flex-direction: column; }
+    .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
+    .slide { padding: 48px 5vw 50px; }
   }
 </style>
 </head>
@@ -203,32 +170,25 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 25</div>
-  <div id="counter">1 / 10</div>
+  <div id="counter">1 / 2</div>
 </header>
 <main id="deck">
-    <section class="slide active"><span class="kicker">UC7 · Bloco 4 · Aula 25</span><h1>DNS no Linux</h1><p class="lead">Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.</p>
-      <div class="meta-row"><span class="pill">26/01/2027 (terça-feira)</span><span class="pill">Linux Server e Segurança</span><span class="pill">3 horas</span><span class="pill">Laboratório VirtualBox · cliente/servidor</span></div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p></section>
-    <section class="slide"><span class="kicker">Situação de aprendizagem</span><h2>O desafio da NexaTech</h2>
-      <div class="two-col"><div><p class="lead">O DNS do Windows atende o domínio; a NexaTech quer uma alternativa Linux para entender e comparar a configuração.</p></div><div class="grid"><div class="card highlight"><h3>Objetivo da aula</h3><p>Instalar e configurar o BIND9 no Ubuntu Server para resolver nomes da rede.</p></div><div class="card"><h3>Entrega principal</h3><p>Zonas BIND9 configuradas e evidências de resolução direta e reversa.</p></div></div></div></section>
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(1/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">01</span><h3>BIND9 e named.conf</h3></div><div class="card"><span class="card-num">02</span><h3>Zonas direta e reversa</h3></div><div class="card"><span class="card-num">03</span><h3>Registros e serial</h3></div></div></section>
-    <section class="slide"><span class="kicker">Conceitos</span><h2>Conceitos-chave <span class="muted">(2/2)</span></h2><div class="grid cols-3"><div class="card"><span class="card-num">04</span><h3>Forwarders</h3></div><div class="card"><span class="card-num">05</span><h3>named-checkconf e named-checkzone</h3></div><div class="card"><span class="card-num">06</span><h3>Convivência com o DNS do Windows</h3></div></div></section>
-    <section class="slide"><span class="kicker">Prática</span><h2>No laboratório VirtualBox</h2><p class="lead">Configuração do DNS Linux com BIND9.</p>
-      <div class="grid cols-2"><div class="card"><h3>Roteiro da aula</h3><ol class="steps"><li>Instalar o bind9 no APP01</li><li>Configurar zonas para senactech.edu.br</li><li>Criar a zona reversa</li><li>Definir forwarders 8.8.8.8 e 8.8.4.4</li><li>Validar com named-checkzone e testar com dig</li></ol></div><div class="card"><h3>Ferramentas e ambiente</h3><p>Ubuntu Server, BIND9, dig e nslookup</p><div class="note">Tire um snapshot antes de mudanças arriscadas e registre prints, saídas de comando e testes no portfólio do grupo.</div></div></div></section>
-    <section class="slide"><span class="kicker">Infraestrutura · VirtualBox</span><h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway pelo FW01</p>
-      <p class="note"><strong>Nesta aula:</strong> use DC01, CLI01, CLI02, APP01, DB01 e FW01 conforme a necessidade.</p></section>
-    <section class="slide"><span class="kicker">Entrega</span><h2>O que deve ser entregue</h2>
-      <div class="card highlight"><h3>Zonas BIND9 configuradas e evidências de resolução direta e reversa.</h3><p>Use o enunciado completo em <code>atividade.md</code> e registre as evidências no portfólio do grupo.</p></div>
-      <div class="grid cols-2" style="margin-top:14px"><div class="card"><h3>Evidências esperadas</h3><ul class="check"><li>Configurações e decisões documentadas.</li><li>Prints ou saídas de comando dos testes.</li><li>Dificuldades encontradas e como foram resolvidas.</li></ul></div></div></section>
-    <section class="slide"><span class="kicker">Discussão</span><h2>Para pensar e discutir</h2><blockquote>Quais cuidados são necessários para não conflitar com o DNS do domínio Windows?</blockquote>
-      <div class="grid cols-2"><div class="card"><h3>Impacto no negócio</h3><p>Aumenta a resiliência e o repertório de operação de DNS.</p></div><div class="card"><h3>O que fica em aberto</h3><p>Com DNS e DHCP dominados nos dois sistemas, é hora da aplicação web.</p></div></div></section>
-    <section class="slide"><span class="kicker">Cenário das aulas</span><h2>Conexão com a NexaTech</h2><p class="lead">Espelha o serviço de DNS entre Windows e Linux.</p>
-      <div class="grid cols-2"><div class="card"><h3>Entrega que sustenta o projeto</h3><p>Zonas BIND9 configuradas e evidências de resolução direta e reversa.</p></div><div class="card"><h3>Próximo gargalo</h3><p>Com DNS e DHCP dominados nos dois sistemas, é hora da aplicação web.</p></div></div>
-      <div class="note">Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado pela consistência entre o que foi planejado, instalado, testado e monitorado.</div></section>
-    <section class="slide"><span class="kicker">Fechamento</span><h2>Resumo da aula</h2><ul class="check"><li>BIND9 organiza zonas direta e reversa.</li><li>Os arquivos de zona precisam de serial e validação.</li><li>Forwarders permitem resolver nomes externos.</li></ul>
-      <div class="next"><span>Próxima aula</span><strong>Aula 26 - Servidor web Apache + PHP</strong><p>Publicar a aplicação web em Apache e PHP no Ubuntu Server.</p></div>
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do seu projeto individual.</p></section>
+<section class="slide active">
+              <span class="kicker">UC7 · Bloco 4 · Aula 25</span>
+              <h1>DNS no Linux com BIND9</h1>
+              <p class="lead">Aprenda a instalar e configurar o BIND9 (Berkeley Internet Name Domain), o servidor DNS mais utilizado no mundo.</p>
+              <div class="meta-row"><span class="pill">Carga: 3 horas</span><span class="pill">DNS BIND9</span></div>
+              <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou utilize os botões no canto inferior direito.</p>
+            </section>
+<section class="slide">
+              <span class="kicker">Fechamento</span>
+              <h2>Conclusão da Aula 25</h2>
+              <div class="next">
+                <span>Próxima Aula</span>
+                <strong>Aula 26 - Servidor Web Apache + PHP</strong>
+                <p>Instalação do servidor Apache2, módulo PHP e Virtual Hosts para hospedar a aplicação NexaTech.</p>
+              </div>
+            </section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>
@@ -247,9 +207,7 @@
     progress.style.width = (((index + 1) / slides.length) * 100) + '%';
     try {
       if (history.replaceState) history.replaceState(null, '', '#' + (index + 1));
-    } catch (error) {
-      /* alguns navegadores bloqueiam replaceState em file:// */
-    }
+    } catch (error) {}
   }
 
   document.getElementById('prev').addEventListener('click', () => show(index - 1));

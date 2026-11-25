@@ -1,63 +1,29 @@
-# Laboratório VirtualBox - Aula 16: Roteamento e NAT
+# Roteiro Prático Passo a Passo — Aula 16: Roteamento IP, Encaminhamento e NAT
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Configuração de NAT aplicada e teste de internet a partir do cliente.
+## 1. Identificação
+- **Tema:** Roteamento entre Sub-redes, IP Forwarding e Conceito de Gateway
+- **Ambiente:** VirtualBox (Simulação de 2 Redes Distintas)
 
----
+## 2. Objetivos
+1. Visualizar tabelas de roteamento com `route print` (Windows) e `ip route` (Linux).
+2. Compreender a métrica e a rota padrão `0.0.0.0/0`.
+3. Adicionar rotas estáticas manuais para alcançar redes remotas.
+4. Testar o encaminhamento de pacotes entre adaptadores de rede.
 
-## Objetivo
-
-Entender como um servidor ou firewall encaminha pacotes entre redes e aplica NAT para liberar internet.
-
-## VMs desta aula
-
-APP01 (ou DC01) como gateway/NAT e CLI01/CLI02 como clientes. Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-
-## Roteiro
-
-1. Habilitar ip_forward no Linux ou RRAS no Windows
-2. Configurar NAT de saída na interface WAN
-3. Ajustar o gateway no cliente
-4. Testar internet e registrar as regras
-5. Tirar snapshot da configuração
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula16"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula16"
-```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Prepara a camada de saída que o pfSense vai assumir.
-
-**O que fica em aberto:** Centralizar as regras em um firewall dedicado e auditável.
-
----
-
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula16.html) e a [atividade](../atividade.md).
+## 3. Passo a Passo Detalhado
+1. **Inspecionar a Tabela de Rotas no Windows:**
+   ```powershell
+   route print -4
+   ```
+   - Localize a linha `0.0.0.0 | 0.0.0.0` e identifique o Gateway padrão da interface.
+2. **Adicionar uma Rota Estática de Teste:**
+   - Para alcançar a rede de filiais `10.50.0.0/24` através do gateway `192.168.10.1`:
+     ```powershell
+     route add 10.50.0.0 mask 255.255.255.0 192.168.10.1 -p
+     ```
+   - O parâmetro `-p` torna a rota persistente após reinicializações.
+3. **Rastrear o Caminho de Saltos (Hop-by-Hop):**
+   ```powershell
+   tracert -d 8.8.8.8
+   ```
+   - Observe que o primeiro salto é obrigatoriamente o seu Gateway local.

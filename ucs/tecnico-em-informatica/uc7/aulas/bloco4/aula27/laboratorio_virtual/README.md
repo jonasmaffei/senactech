@@ -1,62 +1,80 @@
-# Laboratório VirtualBox - Aula 27: Banco de dados e integração da aplicação
+# Roteiro Prático Passo a Passo — Aula 27: Banco de Dados MariaDB e Conexão com o PHP
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Aplicação de teste:** [`aplicacao-teste/`](../../../../laboratorio_virtual/aplicacao-teste/README.md)  
-**Entrega da aula:** Aplicação integrada ao banco funcionando nos clientes, com evidências do fluxo completo.
+## 1. Identificação
+- **Tema:** Banco de Dados Relacional Corporativo (MariaDB/MySQL)
+- **Servidores:** `DB01` (Banco de Dados em `192.168.10.30`) e `APP01` (Web em `192.168.10.20`)
 
----
+## 2. Objetivos
+1. Instalar e configurar o SGBD MariaDB no servidor `DB01`.
+2. Liberar o bind address para conexões de rede seguras.
+3. Criar a base de dados `nexatech_db` e o usuário `app_user` restrito ao IP do `APP01`.
+4. Criar um script PHP no `APP01` que consulta e grava dados no `DB01`.
 
-## Objetivo
+## 3. Passo a Passo Detalhado
 
-Configurar o servidor de banco de dados e integrar a aplicação PHP ao DB01.
+### Parte A — Instalação e Hardening do MariaDB no DB01
+1. No terminal do `DB01`:
+   ```bash
+   sudo apt update && sudo apt install -y mariadb-server
+   sudo mysql_secure_installation
+   ```
+   - Responda `Y` para todas as perguntas de segurança (remover usuários anônimos, desabilitar root remoto e remover banco de teste).
+2. Configurar o MariaDB para escutar na interface de rede local:
+   ```bash
+   sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+   ```
+   - Localize a linha `bind-address` e altere para:
+     ```text
+     bind-address = 0.0.0.0
+     ```
+3. Reinicie o serviço:
+   ```bash
+   sudo systemctl restart mariadb
+   ```
 
-## VMs desta aula
-
-APP01 (aplicação), DB01 (banco) e CLI01/CLI02 (teste do fluxo). Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-## Roteiro
-
-1. Executar install-db.sh no DB01
-2. Validar banco, usuário e permissões com check-db.sh
-3. Copiar a senha para o APP01 e executar deploy-app.sh
-4. Executar test-connection.sh e testar o fluxo nos clientes
-5. Registrar backup inicial e documentar a arquitetura
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
+### Parte B — Criação do Banco e Permissões Restritas
+Acesse o console SQL no `DB01`:
 ```bash
-# Ubuntu
-sudo systemctl status apache2
-sudo systemctl status mariadb
-sudo systemctl status isc-dhcp-server
-sudo systemctl status bind9
+sudo mysql -u root -p
+```
+Execute os comandos SQL:
+```sql
+CREATE DATABASE nexatech_db;
+
+-- Criar usuário com permissão EXCLUSIVA vindo do IP do APP01 (192.168.10.20):
+CREATE USER 'app_user'@'192.168.10.20' IDENTIFIED BY 'BancoSenha@123';
+GRANT ALL PRIVILEGES ON nexatech_db.* TO 'app_user'@'192.168.10.20';
+FLUSH PRIVILEGES;
+
+-- Criar tabela de teste:
+USE nexatech_db;
+CREATE TABLE funcionarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(50) NOT NULL
+);
+
+INSERT INTO funcionarios (nome, cargo) VALUES ('João Silva', 'Analista Financeiro'), ('Maria Souza', 'Gerente');
+EXIT;
 ```
 
-## Observações
-
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-- O Windows Server mantém o DNS e o DHCP oficiais do domínio; os serviços Linux são usados para comparação e prática.
-
-## Relação com o projeto
-
-Valida o fluxo completo da aplicação da NexaTech.
-
-**O que fica em aberto:** Com a aplicação funcionando, é preciso endurecer a segurança.
-
----
-
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula27.html) e a [atividade](../atividade.md).
+### Parte C — Teste de Integração a partir do APP01
+No servidor `APP01`, crie o arquivo de teste `dados.php`:
+```bash
+sudo nano /var/www/nexatech/public/dados.php
+```
+Insira:
+```php
+<?php
+$conn = new mysqli("192.168.10.30", "app_user", "BancoSenha@123", "nexatech_db");
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+echo "<h2>Conexão com o Banco DB01 realizada com Sucesso!</h2>";
+$res = $conn->query("SELECT * FROM funcionarios");
+while($row = $res->fetch_assoc()) {
+    echo "<p>ID: " . $row["id"] . " | Nome: " . $row["nome"] . " | Cargo: " . $row["cargo"] . "</p>";
+}
+?>
+```
+Acesse pelo navegador no cliente: `http://app.nexatech.local/dados.php`.

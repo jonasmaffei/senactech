@@ -1,48 +1,32 @@
-# Atividade - Aula 11: Unidades organizacionais, grupos e usuários
+# Atividade - Aula 11: Estrutura Organizacional e Grupos no Active Directory
 
-**Entrega:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.  
-**Formato:** individual ou em dupla, conforme orientação do docente  
-**Peso sugerido:** atividade do bloco
+**Entrega:** Documentação e prints da estrutura de OUs, Grupos de Domínio e teste de Delegação de Controle no DC01.  
+**Formato:** Individual ou em dupla  
+**Carga:** 3 horas  
 
 ---
 
 ## Objetivo
 
-Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
-
-## Contexto
-
-A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo, não por pessoa.
-
-## Dor e solução
-
-**Dor:** A NexaTech precisa refletir seus setores no Active Directory e aplicar permissões por grupo.  
-**Impacto:** Permissões por pessoa não escalam e aumentam o risco de acesso indevido.  
-**Exemplo de solução:** Criar OUs por setor, grupos e usuários, com permissões atribuídas aos grupos.  
-**Prioridade:** Essencial
-
-## O que deve ser entregue
-
-Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
-
-## Etapas
-
-1. Criar as OUs ADM, RH, PROD e TI
-2. Criar grupos de segurança por setor
-3. Criar usuários e adicionar aos grupos
-4. Testar login de um usuário comum
-5. Documentar a estrutura criada
-
-## Evidências esperadas
-
-- Documento ou planilha com as decisões e justificativas.
-- Capturas de tela ou saídas de comando que comprovem a execução.
-- Registro das dificuldades encontradas e como foram resolvidas.
-
-## Para refletir
-
-Por que é melhor conceder permissão a grupos do que a usuários individuais?
+Substituir o modelo de contas locais das Aulas 07/08 pela governança corporativa no Active Directory através de OUs e Grupos Globais.
 
 ---
 
-> Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).
+## Etapas da Atividade
+
+1. **Criar a árvore de OUs no Active Directory (`dsa.msc`):**
+   - OU `NexaTech`
+     - `Financeiro`
+     - `Gerencia`
+     - `Secretaria`
+     - `TI`
+     - `Computadores`
+2. **Criar os Grupos Globais de Domínio:**
+   - `GG_Financeiro`, `GG_Gerencia`, `GG_Secretaria`, `GG_TI`.
+3. **Criar os Usuários de Domínio:**
+   - Criar contas corporativas padronizadas com UPN (ex: `financeiro@nexatech.local`).
+4. **Delegação de Tarefas:**
+   - Botão direito na OU `Secretaria` -> **Delegate Control** -> atribuir ao usuário de TI a permissão de redefinir senhas e desbloquear contas.
+5. **Evidências:**
+   - Print da árvore de OUs expandida.
+   - Print das propriedades de um usuário demonstrando associação ao grupo de domínio.

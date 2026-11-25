@@ -1,62 +1,66 @@
-# Laboratório VirtualBox - Aula 15: GPOs e políticas de segurança
+# Roteiro Prático Passo a Passo — Aula 15: GPOs e Políticas de Segurança Corporativas
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Catálogo de GPOs com objetivo, escopo, configuração e evidência de aplicação.
-
----
-
-## Objetivo
-
-Aplicar políticas de grupo para padronizar segurança e configurações nos clientes do domínio.
-
-## VMs desta aula
-
-DC01 e CLI01/CLI02.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-
-## Roteiro
-
-1. Criar GPO de política de senha e bloqueio de tela
-2. Mapear unidades de rede e impressoras por setor
-3. Aplicar configurações de firewall e atualizações
-4. Validar com gpresult e testar com usuários de OUs diferentes
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula15"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula15"
-```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Aplica em escala as permissões e padrões definidos nas aulas anteriores.
-
-**O que fica em aberto:** O ambiente interno está padronizado; falta publicar serviços e permitir administração remota segura.
+## 1. Identificação
+- **Tema:** Group Policy Objects (GPOs)
+- **Ambiente:** Servidor DC01 e Clientes Windows 10
+- **Console Principal:** Group Policy Management (`gpmc.msc`)
 
 ---
 
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula15.html) e a [atividade](../atividade.md).
+## 2. Objetivos
+1. Criar uma política corporativa de senhas na raiz do domínio.
+2. Criar uma GPO de bloqueio automático de tela após inatividade na OU Computadores.
+3. Criar uma GPO de Mapeamento Automático da unidade de rede `Z:`.
+4. Forçar e diagnosticar a aplicação das políticas nos clientes com `gpupdate` e `gpresult`.
+
+---
+
+## 3. Passo a Passo Detalhado (No Servidor DC01)
+
+### Parte A — Política de Complexidade de Senhas
+1. Abra **Server Manager &rarr; Tools &rarr; Group Policy Management (`gpmc.msc`)**.
+2. Expanda `Forest: nexatech.local &rarr; Domains &rarr; nexatech.local`.
+3. Clique com o botão direito na **Default Domain Policy** &rarr; **Edit...**.
+4. Navegue até:
+   ```text
+   Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Account Policies -> Password Policy
+   ```
+5. Configure os seguintes itens:
+   - **Minimum password length (Tamanho mínimo):** 8 caracteres.
+   - **Password must meet complexity requirements:** Enabled.
+   - **Maximum password age (Validade máxima):** 60 dias.
+6. Feche o editor de GPO.
+
+---
+
+### Parte B — Mapeamento Automático de Unidade de Rede (Drive Mapping)
+1. No console `gpmc.msc`, clique com botão direito na sub-OU **NexaTech** &rarr; **Create a GPO in this domain, and Link it here...**.
+2. **Name:** `GPO_Mapeamento_Rede_Z` &rarr; Clique em **OK**.
+3. Clique com o botão direito na nova GPO &rarr; **Edit...**.
+4. Navegue até:
+   ```text
+   User Configuration -> Preferences -> Windows Settings -> Drive Maps
+   ```
+5. Clique com o botão direito em **Drive Maps &rarr; New &rarr; Mapped Drive**:
+   - **Action:** Update (Atualizar).
+   - **Location:** `\\DC01\Financeiro` (ou a pasta do setor).
+   - **Reconnect:** Marcado.
+   - **Drive Letter:** Usar a letra `Z:`.
+   - Clique em **Apply** e **OK**.
+
+---
+
+## 4. Testes e Validação no Cliente
+
+1. Vá até a VM cliente Windows 10.
+2. Abra o CMD ou PowerShell e execute o comando para forçar a sincronização de políticas:
+   ```cmd
+   gpupdate /force
+   ```
+3. Abra o **Explorador de Arquivos &rarr; Este Computador**.
+4. *Resultado esperado:* A unidade de rede `Z:` surge mapeada automaticamente apontando para o servidor, sem intervenção manual do usuário!
+5. Para auditar todas as GPOs aplicadas com sucesso:
+   ```cmd
+   gpresult /r
+   ```
+   *Confira na lista de 'Applied Group Policy Objects' se constam a `Default Domain Policy` e a `GPO_Mapeamento_Rede_Z`.*

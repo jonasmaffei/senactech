@@ -1,47 +1,22 @@
-# Atividade - Aula 14: Compartilhamento de arquivos, permissões e quotas
+# Atividade - Aula 14: File Server Avançado com FSRM e Cópias de Sombra
 
-**Entrega:** Matriz de permissões e relatório de testes de acesso.  
-**Formato:** individual ou em dupla, conforme orientação do docente  
-**Peso sugerido:** atividade do bloco
-
----
-
-## Objetivo
-
-Configurar compartilhamentos SMB com permissões, quotas, versionamento e backup.
-
-## Contexto
-
-A NexaTech guarda contratos, propostas e documentos fiscais em uma pasta compartilhada sem controle. A diretoria quer acesso por setor, rastreabilidade e possibilidade de recuperar arquivos apagados.
-
-## Dor e solução
-
-**Dor:** Contratos, propostas e documentos fiscais ficam em uma pasta compartilhada sem controle.  
-**Impacto:** Qualquer usuário acessa ou apaga arquivos, sem rastreabilidade nem recuperação.  
-**Exemplo de solução:** Criar pastas por setor, aplicar permissões NTFS por grupo, quotas e cópias de sombra.  
-**Prioridade:** Essencial
-
-## O que deve ser entregue
-
-Matriz de permissões e relatório de testes de acesso.
-
-## Etapas
-
-1. Criar pastas por setor e compartilhar via SMB
-2. Aplicar permissões NTFS usando grupos
-3. Configurar quotas e cópias de sombra
-4. Mapear unidades e testar acessos permitidos e negados
-
-## Evidências esperadas
-
-- Documento ou planilha com as decisões e justificativas.
-- Capturas de tela ou saídas de comando que comprovem a execução.
-- Registro das dificuldades encontradas e como foram resolvidas.
-
-## Para refletir
-
-Por que a permissão efetiva é a mais restritiva entre compartilhamento e NTFS?
+**Entrega:** Relatório de implementação de Cotas de Disco (FSRM), Bloqueio de Extensões e Teste de Restauração de Arquivo via Cópias de Sombra.  
+**Formato:** Individual ou em dupla  
+**Carga:** 3 horas  
 
 ---
 
-> Consulte o [guia da aula](README.md) e o [plano de aulas](../../../docs/04_plano-de-aulas.md).
+## Etapas da Atividade
+
+1. **Instalação do FSRM:**
+   - Adicionar função *File Server Resource Manager* no Server Manager do Windows Server.
+2. **Configuração de Quota:**
+   - Definir cota rígida de 500 MB para a pasta `Financeiro`.
+   - Tentar copiar um arquivo maior que 500 MB a partir do cliente e comprovar o bloqueio pelo sistema operacional.
+3. **Triagem de Arquivos (File Screening):**
+   - Bloquear arquivos de grupo *Audio and Video Files* na pasta `Secretaria`.
+   - Tentar salvar um arquivo `.mp3` ou `.mp4` e comprovar o acesso negado.
+4. **Cópias de Sombra (VSS):**
+   - Botão direito no disco `D:` -> **Configure Shadow Copies** -> Habilitar.
+   - Criar um arquivo `teste_vss.txt`, forçar a criação de uma cópia de sombra, alterar ou apagar o arquivo.
+   - Pelo cliente Windows, abrir as propriedades da pasta -> aba **Versões Anteriores** e restaurar o arquivo apagado.

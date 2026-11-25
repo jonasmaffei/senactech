@@ -1,63 +1,84 @@
-# Laboratório VirtualBox - Aula 11: Unidades organizacionais, grupos e usuários
+# Roteiro Prático Passo a Passo — Aula 11: Estrutura de OUs, Grupos de Domínio e Delegação
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Estrutura de OUs, grupos e usuários documentada, com evidência de logins.
-
----
-
-## Objetivo
-
-Criar a estrutura organizacional do domínio e gerenciar usuários e grupos por setor.
-
-## VMs desta aula
-
-DC01 e CLI01/CLI02. Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-
-## Roteiro
-
-1. Criar as OUs ADM, RH, PROD e TI
-2. Criar grupos de segurança por setor
-3. Criar usuários e adicionar aos grupos
-4. Testar login de um usuário comum
-5. Documentar a estrutura criada
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula11"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula11"
-```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Organiza a identidade e as permissões da NexaTech.
-
-**O que fica em aberto:** Publicar serviços de rede que dependem do domínio: DNS e DHCP.
+## 1. Identificação
+- **Tema:** Unidades Organizacionais (OUs), Grupos Globais e Delegação de Controle
+- **Ambiente:** Servidor DC01 (`nexatech.local`)
+- **Console Principal:** Active Directory Users and Computers (`dsa.msc`)
 
 ---
 
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula11.html) e a [atividade](../atividade.md).
+## 2. Objetivos
+1. Criar a árvore hierárquica de OUs da empresa NexaTech.
+2. Criar os Grupos Globais de Domínio por setor.
+3. Criar os usuários do domínio associados aos seus respectivos grupos.
+4. Aplicar a Delegação de Controle na OU Secretaria para o usuário de TI.
+5. Testar a governança a partir de uma estação cliente ingressada no domínio.
+
+---
+
+## 3. Passo a Passo Detalhado (No Servidor DC01)
+
+### Parte A — Criar a Estrutura de OUs
+1. No DC01, abra o **Server Manager → Tools → Active Directory Users and Computers (`dsa.msc`)**.
+2. Clique com o botão direito no domínio `nexatech.local` &rarr; **New &rarr; Organizational Unit**.
+3. No nome, digite: `NexaTech`.
+   - Certifique-se de marcar a opção: *"Protect container from accidental deletion"*.
+   - Clique em **OK**.
+4. Agora clique com o botão direito **dentro da OU NexaTech** recém-criada &rarr; **New &rarr; Organizational Unit** e crie:
+   - `Financeiro`
+   - `Gerencia`
+   - `Secretaria`
+   - `TI`
+   - `Computadores`
+5. Mova os computadores clientes que estão na pasta raiz `Computers` para dentro da sub-OU `NexaTech/Computadores`.
+
+---
+
+### Parte B — Criar os Grupos de Segurança de Domínio
+1. Clique com o botão direito dentro da sub-OU `Financeiro` &rarr; **New &rarr; Group**:
+   - **Group name:** `GG_Financeiro`
+   - **Group scope:** Global
+   - **Group type:** Security
+   - Clique em **OK**.
+2. Repita o processo nas respectivas OUs:
+   - Na OU `Gerencia`: criar `GG_Gerencia`
+   - Na OU `Secretaria`: criar `GG_Secretaria`
+   - Na OU `TI`: criar `GG_TI`
+
+---
+
+### Parte C — Criar os Usuários Corporativos
+1. Dentro da OU `Financeiro`, clique com botão direito &rarr; **New &rarr; User**:
+   - **First name:** Ana
+   - **Last name:** Finanças
+   - **User logon name:** `ana.financeiro` (UPN: `ana.financeiro@nexatech.local`)
+   - Clique em **Next**.
+   - Defina a senha (ex: `Senha@123`).
+   - Marque: *"Password never expires"* (para fins didáticos de laboratório).
+   - Clique em **Next &rarr; Finish**.
+2. Clique com botão direito na usuária `ana.financeiro` &rarr; **Add to a group...** &rarr; Digite `GG_Financeiro` &rarr; **Check Names** &rarr; **OK**.
+3. Crie os demais usuários nas suas respectivas OUs:
+   - Na OU `Secretaria`: `carlos.secretaria` &rarr; Membro de `GG_Secretaria`.
+   - Na OU `TI`: `marcos.suporte` &rarr; Membro de `GG_TI`.
+
+---
+
+### Parte D — Configurar a Delegação de Tarefas (Delegação de Controle)
+1. Clique com o botão direito na sub-OU **Secretaria** &rarr; **Delegate Control... (Delegar Controle)**.
+2. Na tela de boas-vindas do assistente, clique em **Next**.
+3. Clique em **Add...** &rarr; Digite `marcos.suporte` &rarr; Clique em **Check Names** &rarr; **OK** &rarr; **Next**.
+4. Na tela *Tasks to Delegate (Tarefas a Delegar)*:
+   - Marque a caixa: **Reset user passwords and force password change at next logon**.
+   - Marque a caixa: **Read all user information**.
+   - Clique em **Next &rarr; Finish**.
+
+---
+
+## 4. Testes e Validação no Cliente
+
+1. Vá até a VM cliente `CLI-FIN`.
+2. Na tela de login, entre com a credencial criada:
+   - **Usuário:** `ana.financeiro@nexatech.local` (ou `NEXATECH\ana.financeiro`)
+   - **Senha:** `Senha@123`
+3. O Windows criará o perfil de usuário corporativo normalmente.
+4. Acesse a pasta compartilhada `\\DC01\Financeiro` e confirme o acesso total aos arquivos do setor.

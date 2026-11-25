@@ -16,28 +16,21 @@
     --accent-2: #10b981;
     --accent-3: #f97316;
     --accent-4: #ef4444;
-    --accent-5: #7e22ce;
-    --code-bg: #0a0f22;
     --radius: 14px;
     --shadow: 0 18px 50px rgba(0,0,0,.45);
-    font-size: 15px;
   }
-
   * { box-sizing: border-box; }
-
   html, body {
     margin: 0; padding: 0; height: 100%;
     background: var(--bg); color: var(--text);
     font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
     overflow: hidden;
   }
-
   #progress {
     position: fixed; top: 0; left: 0; height: 4px; width: 0%;
     background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
     z-index: 50; transition: width .18s ease;
   }
-
   #topbar {
     position: fixed; top: 4px; left: 0; right: 0; height: 40px;
     display: flex; align-items: center; justify-content: space-between;
@@ -49,904 +42,274 @@
     width: 9px; height: 9px; border-radius: 50%; background: var(--accent-2);
     box-shadow: 0 0 12px var(--accent-2);
   }
-
+  #counter { font-variant-numeric: tabular-nums; }
   #deck { position: relative; height: 100%; width: 100%; }
-
   .slide {
     position: absolute; inset: 0; display: none; flex-direction: column;
-    justify-content: center; padding: 66px 7vw 76px; opacity: 0;
-    transform: translateY(14px); transition: opacity .3s ease, transform .3s ease;
+    justify-content: center; padding: 50px 6vw 60px; opacity: 0;
+    transform: translateY(14px); transition: opacity .25s ease, transform .25s ease;
     overflow-y: auto;
   }
   .slide.active { display: flex; opacity: 1; transform: translateY(0); }
-  .slide::-webkit-scrollbar { width: 10px; }
-  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
-
+  .slide::-webkit-scrollbar { width: 8px; }
+  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
   .kicker {
     display: inline-block; align-self: flex-start; font-size: .7rem;
     letter-spacing: .16em; text-transform: uppercase; color: var(--accent-2);
     border: 1px solid var(--border); background: rgba(16,185,129,.08);
-    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
   }
-
-  h1 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; margin: 0 0 16px; font-weight: 700; letter-spacing: -.02em; }
-  h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); margin: 0 0 16px; line-height: 1.15; letter-spacing: -.01em; }
-  h2 .num { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: .4em; }
-  h3 { font-size: 1.05rem; margin: 0 0 8px; color: var(--text); }
-  p { font-size: 1rem; line-height: 1.6; color: var(--muted); margin: 0 0 12px; max-width: 68ch; }
+  h1 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); line-height: 1.1; margin: 0 0 14px; font-weight: 700; }
+  h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 14px; line-height: 1.15; }
+  h3 { font-size: 1.05rem; margin: 0 0 6px; color: var(--text); }
+  p { font-size: 0.98rem; line-height: 1.55; color: var(--muted); margin: 0 0 10px; max-width: 75ch; }
   p strong, li strong { color: var(--text); }
-  .lead { font-size: 1.2rem; color: var(--text); max-width: 70ch; }
-
-  ul.clean { list-style: none; padding: 0; margin: 0; }
-  ul.clean > li {
-    position: relative; padding: 7px 0 7px 28px; font-size: 1rem;
-    line-height: 1.5; color: var(--muted); max-width: 72ch;
+  .lead { font-size: 1.12rem; color: var(--text); max-width: 75ch; }
+  .muted { color: var(--muted); font-weight: 400; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .pill {
+    font-size: .76rem; letter-spacing: .04em; color: var(--muted);
+    border: 1px solid var(--border); background: var(--panel);
+    padding: 5px 10px; border-radius: 999px;
   }
-  ul.clean > li::before {
-    content: ""; position: absolute; left: 4px; top: 15px;
-    width: 9px; height: 9px; border-radius: 3px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  }
-  ul.check > li::before { content: "\2713"; background: none; color: var(--accent-2); font-weight: 700; left: 0; top: 6px; width: auto; height: auto; }
-
-  .grid { display: grid; gap: 16px; }
+  .hint { margin-top: 14px; font-size: .8rem; color: var(--muted); }
+  .grid { display: grid; gap: 12px; }
   .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
   .card {
     background: linear-gradient(180deg, var(--panel), var(--panel-2));
     border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 17px 19px; box-shadow: var(--shadow);
+    padding: 14px 16px; box-shadow: var(--shadow);
   }
-  .card h3 { display: flex; align-items: center; gap: 10px; }
-  .card .ico { font-size: .95rem; color: var(--accent-2); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .card p { font-size: .94rem; margin: 0; }
+  .card h3 { line-height: 1.3; }
+  .card p { font-size: .92rem; margin: 0; }
+  .card-num {
+    display: inline-block; font-size: .7rem; letter-spacing: .12em;
+    color: var(--accent-2); font-weight: 700; margin-bottom: 4px;
+  }
+  .card.highlight {
+    border-color: rgba(16,185,129,.5);
+    background: linear-gradient(180deg, rgba(16,185,129,.14), var(--panel-2));
+  }
+  .card.warning {
+    border-color: rgba(249,115,22,.5);
+    background: linear-gradient(180deg, rgba(249,115,22,.12), var(--panel-2));
+  }
+  .card.danger {
+    border-color: rgba(239,68,68,.5);
+    background: linear-gradient(180deg, rgba(239,68,68,.12), var(--panel-2));
+  }
+  .code-box {
+    background: #060913; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; font-family: "Cascadia Code", Consolas, monospace;
+    font-size: .82rem; color: #a5b4fc; overflow-x: auto; margin-top: 8px;
+  }
+  .code-box span.comment { color: #64748b; }
+  .code-box span.green { color: var(--accent-2); }
+  .code-box span.orange { color: var(--accent-3); }
 
-  .stat { display: flex; flex-direction: column; gap: 4px; }
-  .stat .big { font-size: 1.75rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1; }
-  .stat .cap { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  /* Tabela de Comparação de Camadas */
+  .layers-table {
+    width: 100%; border-collapse: collapse; font-size: .86rem; margin-top: 8px;
+  }
+  .layers-table th, .layers-table td {
+    padding: 8px 12px; border: 1px solid var(--border); text-align: left;
+  }
+  .layers-table th {
+    background: var(--panel-2); color: var(--text); font-weight: 600;
+  }
+  .layers-table tr:nth-child(even) { background: rgba(255,255,255,.02); }
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: .75rem; font-weight: bold;
+  }
+  .b-app { background: #3b82f6; color: white; }
+  .b-trans { background: #8b5cf6; color: white; }
+  .b-net { background: #10b981; color: white; }
+  .b-link { background: #f59e0b; color: #1e1e1e; }
+  .b-phy { background: #64748b; color: white; }
 
-  code {
-    font-family: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
-    font-size: .9em; background: rgba(99,102,241,.16);
-    border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
-    padding: 1px 6px; border-radius: 6px;
+  /* Diagrama de Encapsulamento */
+  .encap-flow {
+    display: flex; flex-direction: column; gap: 8px; margin: 10px 0;
+  }
+  .encap-step {
+    display: flex; align-items: center; gap: 10px; font-size: .88rem;
+  }
+  .encap-layer {
+    width: 140px; padding: 6px 10px; border-radius: 6px; font-weight: bold; text-align: center;
+  }
+  .encap-pdu {
+    padding: 6px 12px; background: #060913; border: 1px dashed var(--border); border-radius: 6px;
+    font-family: monospace; color: var(--accent-2); flex: 1;
   }
 
-  .pipeline { display: flex; align-items: stretch; gap: 9px; flex-wrap: wrap; }
-  .pipe-step {
-    flex: 1 1 130px; background: linear-gradient(180deg, var(--panel), var(--panel-2));
-    border: 1px solid var(--border); border-radius: 12px; padding: 13px 11px; text-align: center;
+  #nav {
+    position: fixed; right: 18px; bottom: 16px; display: flex; gap: 8px; z-index: 60;
   }
-  .pipe-step .step-ico { font-size: .95rem; display: block; margin-bottom: 6px; color: var(--accent-2); font-weight: 700; }
-  .pipe-step .step-title { font-weight: 600; color: var(--text); font-size: .9rem; display: block; margin-bottom: 3px; }
-  .pipe-step .step-sub { font-size: .74rem; color: var(--muted); }
-  .pipe-arrow { align-self: center; color: var(--accent); font-size: 1.4rem; flex: 0 0 auto; }
-
-  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
-  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  th { color: var(--text); font-size: .76rem; text-transform: uppercase; letter-spacing: .09em; }
-  td { color: var(--muted); }
-  tr:last-child td { border-bottom: none; }
-  .yes { color: var(--accent-2); font-weight: 600; }
-  .mid { color: var(--accent-3); font-weight: 600; }
-
-  .debate {
-    display: flex; gap: 12px; align-items: flex-start; padding: 11px 14px;
-    border: 1px solid var(--border); border-radius: 12px; background: var(--panel); margin-bottom: 9px;
+  #nav button {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--border); background: rgba(22,31,61,.9);
+    color: var(--text); font-size: 1.1rem; cursor: pointer;
+    display: grid; place-items: center; transition: .15s ease;
   }
-  .debate .q {
-    flex: 0 0 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
-    background: var(--accent); color: #fff; font-weight: 700; font-size: .9rem;
+  #nav button:hover { border-color: var(--accent); background: var(--panel-2); }
+  #nav button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .kbd {
+    font-family: "Cascadia Code", Consolas, monospace; font-size: .78rem;
+    border: 1px solid var(--border); border-radius: 5px; padding: 1px 5px;
+    color: var(--muted); background: var(--panel);
   }
-  .debate p { margin: 0; font-size: .95rem; }
-
-  .timeline { display: flex; flex-direction: column; gap: 8px; }
-  .tl-item {
-    display: flex; gap: 14px; align-items: center;
-    border: 1px solid var(--border); border-radius: 11px;
-    background: var(--panel); padding: 10px 14px;
-  }
-  .tl-item .tl-time {
-    flex: 0 0 auto; font-variant-numeric: tabular-nums; color: var(--accent-2);
-    font-weight: 700; font-size: .82rem; min-width: 76px;
-  }
-  .tl-item .tl-txt { font-size: .92rem; color: var(--muted); }
-
-  #bottombar {
-    position: fixed; bottom: 0; left: 0; right: 0; height: 52px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 22px; z-index: 40;
-    background: linear-gradient(180deg, rgba(11,16,32,0), rgba(11,16,32,.92));
-  }
-  #counter { font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: .06em; }
-  .nav-buttons { display: flex; gap: 8px; }
-  .nav-buttons button {
-    background: var(--panel); border: 1px solid var(--border); color: var(--text);
-    border-radius: 9px; padding: 7px 13px; font-size: .88rem; cursor: pointer;
-    transition: background .15s, border-color .15s, transform .1s;
-  }
-  .nav-buttons button:hover { background: var(--panel-2); border-color: var(--accent); }
-  .nav-buttons button:active { transform: scale(.96); }
-  .hint { font-size: .74rem; color: var(--muted); opacity: .8; }
-
-  .title-slide { align-items: flex-start; }
-  .title-slide h1 {
-    background: linear-gradient(120deg, #fff 20%, #a5b4fc 60%, #6ee7b7 100%);
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .meta-row { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 22px; }
-  .meta-row .meta .k { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
-  .meta-row .meta .v { font-size: 1rem; color: var(--text); }
-
-  .note {
-    display: flex; align-items: center; gap: 10px; font-size: .86rem; color: var(--muted);
-    border: 1px dashed var(--border); border-radius: 10px; padding: 9px 14px;
-    margin-bottom: 14px; align-self: flex-start;
-  }
-  .note .ico { font-size: .9rem; color: var(--accent-2); font-weight: 700; }
-  .note code { font-size: .82em; }
-
   @media (max-width: 900px) {
-    .grid.cols-3, .grid.cols-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .slide { padding: 60px 6vw 72px; }
-  }
-  @media (max-width: 620px) {
     .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
-    #topbar { font-size: .62rem; }
+    .slide { padding: 48px 5vw 50px; }
   }
 </style>
 </head>
 <body>
-
-<div id="topbar">
-  <div class="brand"><span class="dot"></span><span>UC7 - Sistemas Operacionais de Redes Locais</span></div>
-  <div>Bloco 1 - Fundamentos e Planejamento</div>
-</div>
-
+<div id="progress"></div>
+<header id="topbar">
+  <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 00</div>
+  <div id="counter">1 / 5</div>
+</header>
 <main id="deck">
-
-  <!-- 01 - Titulo -->
-  <section class="slide title-slide active">
-    <div class="kicker">Aula 00 - Boas-vindas e VirtualBox</div>
-    <h1>Quem sou eu, a UC7 e o VirtualBox</h1>
-    <p class="lead">Uma conversa de abertura e uma aula prática de <strong>VirtualBox</strong>: hypervisor,
-      criação de VMs, discos, snapshots e os modos de rede <strong>NAT</strong>, <strong>bridge</strong>
-      e <strong>rede interna (local)</strong>.</p>
-    <div class="meta-row">
-      <div class="meta"><div class="k">Professor</div><div class="v">Jonas Maffei</div></div>
-      <div class="meta"><div class="k">UC</div><div class="v">UC7 - 96 h - 32 aulas · 3 h por noite</div></div>
-      <div class="meta"><div class="k">Formato</div><div class="v">Apresentação + aula prática</div></div>
-    </div>
-    <div class="grid cols-2" style="margin-top:26px">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">01</span> De onde eu venho</h3>
-        <p>Da monitoria de laboratório na escola ao trabalho como <strong>SRE e DevOps</strong>:
-          uma carreira construída na prática de infraestrutura.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">02</span> Para onde vamos</h3>
-        <p>Planejar, instalar, configurar, proteger e monitorar <strong>servidores Windows e
-          Linux</strong> em uma rede local real.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 02 - Quem sou eu -->
-  <section class="slide">
-    <div class="kicker">Apresentação</div>
-    <h2>Quem sou eu</h2>
-    <p>Sou <strong>Jonas Maffei</strong>. Trabalho com TI desde <strong>2009</strong> e hoje atuo
-      como <strong>SRE e DevOps</strong>. Também sou professor - e foi na escola que a minha
-      carreira começou.</p>
-    <div class="grid cols-3">
-      <div class="card stat" style="border-top:3px solid var(--accent)">
-        <div class="big">2009</div>
-        <div class="cap">Início na TI</div>
-        <p style="margin-top:8px">Primeiros passos como monitor de laboratório.</p>
-      </div>
-      <div class="card stat" style="border-top:3px solid var(--accent-2)">
-        <div class="big">17 anos</div>
-        <div class="cap">De estrada</div>
-        <p style="margin-top:8px">Suporte, laboratórios, sysadmin, docência e cloud.</p>
-      </div>
-      <div class="card stat" style="border-top:3px solid var(--accent-3)">
-        <div class="big">6 anos</div>
-        <div class="cap">Como SRE / DevOps</div>
-        <p style="margin-top:8px">EKS, AWS, migrações de sistemas e FinOps.</p>
-      </div>
-    </div>
-    <div class="note" style="margin-top:16px">
-      <span class="ico">Ideia</span>
-      <span>Quase tudo o que vou ensinar nesta UC eu usei de verdade no trabalho - muitas vezes
-        quebrado, às pressas ou fora do horário.</span>
-    </div>
-  </section>
-
-  <!-- 03 - Linha do tempo -->
-  <section class="slide">
-    <div class="kicker">Trajetória</div>
-    <h2>A carreira em uma linha do tempo</h2>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-time">2009</div>
-        <div class="tl-txt">Começo na TI como <strong>monitor de laboratório</strong> em escola.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">Depois</div>
-        <div class="tl-txt"><strong>Estágio</strong> para cuidar da manutenção dos laboratórios.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">Em seguida</div>
-        <div class="tl-txt"><strong>Suporte e sysadmin</strong> na Escola Alcides Maya.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">Formação</div>
-        <div class="tl-txt">Conclusão da <strong>faculdade</strong> e início da <strong>docência</strong>
-          no curso técnico da mesma escola.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">Hoje</div>
-        <div class="tl-txt">Há <strong>6 anos</strong> como <strong>SRE e DevOps</strong>: EKS, contas
-          AWS, migração de sistemas e FinOps.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 - A escola como começo -->
-  <section class="slide">
-    <div class="kicker">O começo</div>
-    <h2>Tudo começou na escola</h2>
-    <p>Meu primeiro contato profissional com tecnologia foi bem perto da sala de aula:
-      <strong>monitor de laboratório</strong>. Depois veio o estágio de manutenção e, na sequência,
-      o trabalho de <strong>suporte e sysadmin</strong>.</p>
-    <div class="grid cols-3">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">01</span> Monitor</h3>
-        <p>Ajudar alunos, cuidar das máquinas e entender, na prática, como um laboratório funciona.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">02</span> Estágio em manutenção</h3>
-        <p>Montar, trocar peças, instalar sistemas e resolver o que ninguém queria resolver.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-3)">
-        <h3><span class="ico">03</span> Suporte e sysadmin</h3>
-        <p>Redes, servidores, usuários e a responsabilidade de manter a escola funcionando.</p>
-      </div>
-    </div>
-    <div class="note" style="margin-top:16px">
-      <span class="ico">Lição</span>
-      <span>A base que você aprende agora - rede, servidor, sistema operacional - é exatamente o
-        que sustenta uma carreira em infraestrutura.</span>
-    </div>
-  </section>
-
-  <!-- 05 - Formação e docência -->
-  <section class="slide">
-    <div class="kicker">Formação e docência</div>
-    <h2>Da bancada para a sala de aula</h2>
-    <p>Concluí a faculdade e comecei a dar aula no <strong>curso técnico da Escola Alcides
-      Maya</strong> - a mesma escola onde eu tinha trabalhado como suporte e sysadmin.</p>
-    <div class="grid cols-2">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">01</span> O que a faculdade mudou</h3>
-        <ul class="clean" style="margin-top:6px">
-          <li>Deu nome ao que eu já fazia na prática.</li>
-          <li>Trouxe método para diagnosticar e documentar.</li>
-          <li>Abriu espaço para ensinar com mais segurança.</li>
-        </ul>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">02</span> O que a docência ensinou</h3>
-        <ul class="clean" style="margin-top:6px">
-          <li>Explicar bem é entender duas vezes.</li>
-          <li>Quem aprende precisa errar sem medo.</li>
-          <li>O exemplo real vale mais que a definição.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 06 - Hoje -->
-  <section class="slide">
-    <div class="kicker">Hoje - Mercado</div>
-    <h2>SRE e DevOps há 6 anos</h2>
-    <p>Hoje trabalho para manter sistemas funcionando, escalando e com custo sob controle.
-      Quatro frentes resumem o dia a dia:</p>
-    <div class="grid cols-2">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">01</span> Administração de EKS</h3>
-        <p>Clusters <strong>Kubernetes gerenciados na AWS</strong>: implantar, atualizar, monitorar
-          e resolver incidentes.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">02</span> Contas AWS</h3>
-        <p>Organização de contas, permissões, redes e serviços usados pelas aplicações.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-3)">
-        <h3><span class="ico">03</span> Migração de sistemas</h3>
-        <p>Levar aplicações do ambiente antigo para um novo, sem parar o negócio.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-5)">
-        <h3><span class="ico">04</span> FinOps</h3>
-        <p>Cuidar para que a conta de nuvem faça sentido: medir, comparar e otimizar custos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07 - Ponte carreira x UC7 -->
-  <section class="slide">
-    <div class="kicker">Conexão</div>
-    <h2>O que isso tem a ver com a UC7</h2>
-    <p>Cada etapa da minha carreira usou algo que vamos estudar aqui:</p>
-    <table>
-      <thead><tr><th>Etapa da carreira</th><th>O que usei</th><th>Onde aparece na UC7</th></tr></thead>
-      <tbody>
-        <tr><td>Monitor e suporte</td><td>Hardware, rede e usuários</td><td class="yes">Bloco 1 - Fundamentos</td></tr>
-        <tr><td>Estágio em manutenção</td><td>Virtualização, RAID e instalação</td><td class="yes">Bloco 1 - Aulas 05 e 06</td></tr>
-        <tr><td>Sysadmin na escola</td><td>Windows Server, AD, DNS, DHCP e arquivos</td><td class="yes">Bloco 2 - Windows Server</td></tr>
-        <tr><td>Operação de servidores</td><td>Linux, segurança, backup e troubleshooting</td><td class="yes">Bloco 4 - Linux e Segurança</td></tr>
-        <tr><td>Redes e firewall</td><td>Roteamento, NAT e pfSense</td><td class="yes">Bloco 3 - Redes, Roteamento e Firewall</td></tr>
-        <tr><td>SRE e DevOps hoje</td><td>Monitoramento, governança e custo</td><td class="yes">Bloco 5 - Operação e Projeto</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- 08 - O que é a UC7 -->
-  <section class="slide">
-    <div class="kicker">A UC7</div>
-    <h2>Sistemas Operacionais de Redes Locais</h2>
-    <p>O objetivo é formar o profissional capaz de <strong>planejar, instalar, configurar,
-      proteger e monitorar</strong> servidores em uma rede local.</p>
-    <div class="pipeline">
-      <div class="pipe-step"><span class="step-ico">B1</span><span class="step-title">Fundamentos</span><span class="step-sub">Rede, hardware, RAID, VirtualBox e planejamento</span></div>
-      <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B2</span><span class="step-title">Windows Server</span><span class="step-sub">AD, DNS/DHCP, arquivos e GPOs</span></div>
-      <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B3</span><span class="step-title">Redes e Firewall</span><span class="step-sub">Roteamento, NAT e pfSense</span></div>
-      <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B4</span><span class="step-title">Linux Server</span><span class="step-sub">Serviços, SSH, hardening e CMS</span></div>
-      <span class="pipe-arrow">→</span>
-      <div class="pipe-step"><span class="step-ico">B5</span><span class="step-title">Operação e Projeto</span><span class="step-sub">Monitoramento, governança e defesa</span></div>
-    </div>
-    <div class="grid cols-2" style="margin-top:18px">
-      <div class="card">
-        <h3><span class="ico">Cenário</span> NexaTech</h3>
-        <p>Uma empresa fictícia com 45 colaboradores e uma rede local sem servidores centralizados.
-          A turma atua como a <strong>equipe de infraestrutura</strong>.</p>
-      </div>
-      <div class="card">
-        <h3><span class="ico">Entrega</span> Do plano à defesa</h3>
-        <p>Diagnóstico, topologia, servidores configurados, segurança, monitoramento e
-          <strong>projeto integrador</strong> apresentado à banca.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 09 - Redes em 1 minuto -->
-  <section class="slide">
-    <div class="kicker">Aquecimento - Redes</div>
-    <h2>Redes em 1 minuto</h2>
-    <p>Antes de instalar qualquer servidor, precisamos entender como os computadores conversam
-      entre si. Tudo começa com quatro ideias simples:</p>
-    <div class="grid cols-2">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">01</span> LAN</h3>
-        <p>Rede local: computadores, servidores e impressoras no mesmo espaço físico, ligados por
-          switch e roteador.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">02</span> Cliente e servidor</h3>
-        <p>O <strong>cliente</strong> pede; o <strong>servidor</strong> responde. Ex.: o navegador pede
-          uma página, o servidor web entrega.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-3)">
-        <h3><span class="ico">03</span> Endereço IP</h3>
-        <p>É o "número da casa" de cada máquina na rede. Sem endereço, ninguém encontra ninguém.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-5)">
-        <h3><span class="ico">04</span> Serviços</h3>
-        <p>DNS traduz nomes em IPs; DHCP entrega endereços; o servidor de arquivos guarda os dados
-          da empresa.</p>
-      </div>
-    </div>
-    <div class="note" style="margin-top:16px">
-      <span class="ico">Próximo passo</span>
-      <span>Na Aula 01 vamos aprofundar TCP/IP e IPv4; na Aula 02, vamos entender por que a NexaTech precisa centralizar seus serviços em servidores.</span>
-    </div>
-  </section>
-
-  <!-- 10 - VirtualBox: o que e por que usar -->
-  <section class="slide">
-    <div class="kicker">Virtualização - VirtualBox</div>
-    <h2>VirtualBox: o que é e por que usar</h2>
-    <p>O <strong>VirtualBox</strong> é um hypervisor de <strong>tipo 2</strong>: um programa
-      instalado no computador físico que cria e executa <strong>máquinas virtuais</strong> completas.</p>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>O que é</h3>
-        <ul class="clean">
-          <li>Software de virtualização gratuito e multiplataforma.</li>
-          <li>Cria VMs com CPU, memória, disco e rede virtuais.</li>
-          <li>Cada VM tem sistema operacional e IP próprios.</li>
-          <li>Permite snapshots, clones e redes virtuais.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Por que usar na UC</h3>
-        <ul class="clean">
-          <li>Simular vários servidores em um único computador.</li>
-          <li>Reduzir custo de hardware.</li>
-          <li>Permitir errar e refazer sem estragar o host.</li>
-          <li>Isolar a rede do laboratório da rede real.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Atenção</span>
-      <span>O VirtualBox não é o sistema operacional da VM: ele apenas hospeda e gerencia as VMs.</span>
-    </div>
-  </section>
-
-  <!-- 11 - Instalacao e requisitos -->
-  <section class="slide">
-    <div class="kicker">VirtualBox - Instalação</div>
-    <h2>Instalação e requisitos</h2>
-    <p>Antes de criar as VMs, prepare o computador físico. A virtualização precisa estar
-      habilitada e o host precisa ter recursos livres.</p>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Checklist de instalação</h3>
-        <ul class="clean">
-          <li>Baixar o VirtualBox no site oficial.</li>
-          <li>Instalar o Extension Pack (opcional, para USB).</li>
-          <li>Habilitar <strong>VT-x/AMD-V</strong> na BIOS/UEFI.</li>
-          <li>Reiniciar o host após a instalação.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Cuidados</h3>
-        <ul class="clean">
-          <li>Hyper-V e WSL2 podem conflitar com o VirtualBox.</li>
-          <li>Antivírus e atualizações podem deixar a VM lenta.</li>
-          <li>Reserve espaço em disco para os arquivos VDI.</li>
-          <li>Não exceda a RAM e as vCPUs do host.</li>
-        </ul>
-      </div>
-    </div>
-    <table style="margin-top:16px">
-      <thead><tr><th>Recurso do host</th><th>Mínimo</th><th>Recomendado</th></tr></thead>
-      <tbody>
-        <tr><td>RAM</td><td>8 GB</td><td>16 GB</td></tr>
-        <tr><td>Disco livre</td><td>120 GB</td><td>180 GB</td></tr>
-        <tr><td>CPU</td><td>4 núcleos</td><td>8 núcleos</td></tr>
-        <tr><td>Virtualização</td><td>VT-x/AMD-V</td><td>habilitada na BIOS/UEFI</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- 12 - Conhecendo a interface -->
-  <section class="slide">
-    <div class="kicker">VirtualBox - Interface</div>
-    <h2>Conhecendo a interface</h2>
-    <p>O gerenciador do VirtualBox concentra a criação e a configuração das VMs.</p>
-    <div class="grid cols-3">
-      <div class="card"><h3>Gerenciador</h3><p>Lista as VMs, mostra o estado e permite criar, iniciar e remover.</p></div>
-      <div class="card"><h3>Configurações</h3><p>CPU, memória, vídeo, rede, pastas compartilhadas e USB.</p></div>
-      <div class="card"><h3>Armazenamento</h3><p>Controladora, disco virtual e ISO de instalação.</p></div>
-      <div class="card"><h3>Rede</h3><p>Modo (NAT, bridge, interna, host-only) e nome da rede.</p></div>
-      <div class="card"><h3>Snapshots</h3><p>Linha do tempo do estado da VM para voltar atrás.</p></div>
-      <div class="card"><h3>Logs</h3><p>Diagnóstico de erros de inicialização e de rede.</p></div>
-    </div>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Boa prática</span>
-      <span>Revise as Configurações antes de iniciar a VM e tire um snapshot após a instalação.</span>
-    </div>
-  </section>
-
-  <!-- 13 - Hypervisor e recursos do host -->
-  <section class="slide">
-    <div class="kicker">Virtualização - Hypervisor</div>
-    <h2>Hypervisor: quem controla o quê</h2>
-    <p>O <strong>hypervisor</strong> é a camada entre o hardware e as VMs. Ele divide os recursos
-      do host e impede que uma VM acesse diretamente o hardware da outra.</p>
-    <div class="grid cols-2">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">Tipo 1</span> Bare-metal</h3>
-        <p>Roda direto sobre o hardware. Ex.: <strong>Hyper-V</strong>, VMware ESXi e Proxmox.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">Tipo 2</span> Hospedado</h3>
-        <p>Roda como programa no sistema operacional. Ex.: <strong>VirtualBox</strong> e VMware Workstation.</p>
-      </div>
-    </div>
-    <table style="margin-top:16px">
-      <thead><tr><th>Recurso do host</th><th>Como a VM enxerga</th><th>Risco se exagerar</th></tr></thead>
-      <tbody>
-        <tr><td>CPU / núcleos</td><td>vCPUs (ex.: 2 vCPU)</td><td>Host e VMs lentos</td></tr>
-        <tr><td>Memória RAM</td><td>Memória reservada para a VM</td><td>Swap e travamentos</td></tr>
-        <tr><td>Disco</td><td>Arquivo de disco virtual (VDI/VMDK)</td><td>Disco do host cheio</td></tr>
-        <tr><td>Rede</td><td>Adaptadores virtuais</td><td>Sem comunicação entre VMs</td></tr>
-      </tbody>
-    </table>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Regra</span>
-      <span>A soma de CPU/RAM das VMs ligadas não deve ultrapassar a capacidade real do host.</span>
-    </div>
-  </section>
-
-  <!-- 14 - Criando a primeira VM -->
-  <section class="slide">
-    <div class="kicker">Virtualização - Prática</div>
-    <h2>Criando a primeira VM</h2>
-    <p>O roteiro abaixo será repetido nas próximas aulas, sempre com um <strong>snapshot</strong>
-      antes de mudanças arriscadas.</p>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Passo a passo</h3>
-        <ul class="clean">
-          <li><strong>Novo</strong> -> nome da VM e ISO do sistema.</li>
-          <li>Definir <strong>CPU</strong>, <strong>memória</strong> e <strong>disco</strong>.</li>
-          <li>Adicionar os <strong>adaptadores de rede</strong>.</li>
-          <li>Iniciar, instalar o sistema e atualizar.</li>
-          <li>Tirar um <strong>snapshot baseline</strong>.</li>
-        </ul>
-      </div>
-      <div>
-        <table>
-          <thead><tr><th>Recurso</th><th>Sugestão</th></tr></thead>
-          <tbody>
-            <tr><td>vCPU</td><td>2</td></tr>
-            <tr><td>Memória</td><td>4 GB (2 GB para Linux sem interface)</td></tr>
-            <tr><td>Disco</td><td>60 GB (Windows Server) / 50 GB (Ubuntu)</td></tr>
-            <tr><td>Rede</td><td>NAT + rede interna</td></tr>
-          </tbody>
-        </table>
-        <div class="note" style="margin-top:12px">
-          <span class="ico">Ajuste</span>
-          <span>Host com 8 GB: reduza a memória das VMs e ligue uma por vez.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 15 - Discos, snapshots e clones -->
-  <section class="slide">
-    <div class="kicker">VirtualBox - Armazenamento</div>
-    <h2>Discos, snapshots e clones</h2>
-    <p>O disco da VM é um arquivo no host. Snapshots e clones ajudam a testar mudanças sem perder
-      o estado anterior.</p>
-    <div class="grid cols-3">
-      <div class="card"><h3>Disco virtual</h3><p>VDI ou VMDK. Pode ser de alocação dinâmica ou fixa.</p></div>
-      <div class="card"><h3>Snapshot</h3><p>Foto do estado da VM. Permite voltar atrás após uma mudança.</p></div>
-      <div class="card"><h3>Clone</h3><p>Cópia completa ou vinculada da VM, útil para criar laboratórios iguais.</p></div>
-    </div>
-    <table style="margin-top:16px">
-      <thead><tr><th>Formato</th><th>Vantagem</th><th>Cuidado</th></tr></thead>
-      <tbody>
-        <tr><td>Alocação dinâmica</td><td>Ocupa espaço conforme o uso</td><td>Pode fragmentar o disco do host</td></tr>
-        <tr><td>Alocação fixa</td><td>Desempenho mais previsível</td><td>Reserva todo o espaço de uma vez</td></tr>
-        <tr><td>Snapshot</td><td>Volta rápida no tempo</td><td>Muitos snapshots consomem disco</td></tr>
-        <tr><td>Clone completo</td><td>VM independente</td><td>Ocupa mais espaço</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- 16 - NAT -->
-  <section class="slide">
-    <div class="kicker">Redes - NAT</div>
-    <h2>NAT: acesso à internet</h2>
-    <p>No modo <strong>NAT</strong>, a VM usa o IP do host para sair à internet. O VirtualBox
-      fornece DHCP e tradução de endereços para a VM.</p>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Como funciona</h3>
-        <ul class="clean">
-          <li>A VM recebe um IP privado do VirtualBox.</li>
-          <li>O host traduz o endereço para acessar a internet.</li>
-          <li>A VM inicia conexões de saída normalmente.</li>
-          <li>Para receber conexões, use <strong>port forwarding</strong>.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Quando usar</h3>
-        <ul class="clean">
-          <li>Atualizações do sistema e downloads.</li>
-          <li>Instalação de pacotes e softwares.</li>
-          <li>Acesso à internet sem expor a VM.</li>
-          <li>Quando não é preciso acessar a VM de fora.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Limitação</span>
-      <span>Por padrão, a VM em NAT não é visível para outros computadores e não se comunica
-        diretamente com outras VMs.</span>
-    </div>
-    <div class="note" style="margin-top:8px">
-      <span class="ico">Na UC</span>
-      <span>Usamos NAT para atualizações e instalação de pacotes no laboratório.</span>
-    </div>
-  </section>
-
-  <!-- 17 - Bridge -->
-  <section class="slide">
-    <div class="kicker">Redes - Bridge</div>
-    <h2>Bridge: a VM na rede física</h2>
-    <p>No modo <strong>bridge (ponte)</strong>, a VM se conecta à placa de rede física do host e
-      passa a fazer parte da rede real, como um computador comum.</p>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Como funciona</h3>
-        <ul class="clean">
-          <li>A VM usa a interface física do host.</li>
-          <li>Recebe IP do DHCP da rede física ou um IP fixo.</li>
-          <li>Fica visível para outros computadores da LAN.</li>
-          <li>Pode ser acessada por IP, se o firewall permitir.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Quando usar</h3>
-        <ul class="clean">
-          <li>Acessar a VM a partir de outro computador.</li>
-          <li>Simular um servidor na rede física.</li>
-          <li>Testar serviços com clientes reais.</li>
-          <li>Quando a VM precisa ser descoberta na LAN.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Atenção</span>
-      <span>A VM fica exposta à rede física. Cuide de firewall, senhas e conflitos de IP.</span>
-    </div>
-    <div class="note" style="margin-top:8px">
-      <span class="ico">Na UC</span>
-      <span>Bridge é usado quando precisamos acessar uma VM a partir de outro computador.</span>
-    </div>
-  </section>
-
-  <!-- 18 - Rede interna (local) -->
-  <section class="slide">
-    <div class="kicker">Redes - Rede interna (local)</div>
-    <h2>Rede interna (local): laboratório isolado</h2>
-    <p>No modo <strong>rede interna</strong> (ou rede local), apenas as VMs conectadas ao mesmo
-      nome de rede se enxergam. Não há acesso ao host nem à internet diretamente.</p>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Como funciona</h3>
-        <ul class="clean">
-          <li>Todas as VMs usam o mesmo nome de rede interna.</li>
-          <li>Os IPs são definidos manualmente (ou por um DHCP interno).</li>
-          <li>O host não participa da rede interna.</li>
-          <li>Não há saída para a internet sem um gateway/NAT.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Quando usar</h3>
-        <ul class="clean">
-          <li>Simular a LAN isolada da empresa.</li>
-          <li>Testar comunicação entre VMs.</li>
-          <li>Montar o lado LAN do pfSense.</li>
-          <li>Evitar que o laboratório acesse a rede real.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Na UC</span>
-      <span>A rede <code>rede-nexatech</code> (<code>192.168.10.0/24</code>) usa o modo interno.
-        O pfSense faz a ponte entre a rede interna (LAN) e o NAT (WAN).</span>
-    </div>
-  </section>
-
-  <!-- 19 - Host-only e comparativo -->
-  <section class="slide">
-    <div class="kicker">Redes - Comparativo</div>
-    <h2>Host-only e comparativo dos modos</h2>
-    <p>O modo <strong>host-only</strong> conecta o host e as VMs, sem internet. É útil para
-      administrar a VM pelo próprio computador físico.</p>
-    <table>
-      <thead><tr><th>Modo</th><th>Internet</th><th>Host acessa a VM</th><th>VMs se enxergam</th><th>Outros PCs da rede</th><th>IP</th></tr></thead>
-      <tbody>
-        <tr><td><strong>NAT</strong></td><td>Sim</td><td>Com port forwarding</td><td>Não (por padrão)</td><td>Não</td><td>DHCP do VirtualBox</td></tr>
-        <tr><td><strong>Bridge</strong></td><td>Sim</td><td>Sim</td><td>Sim</td><td>Sim</td><td>DHCP/IP da rede física</td></tr>
-        <tr><td><strong>Interna (local)</strong></td><td>Não</td><td>Não</td><td>Sim</td><td>Não</td><td>Manual</td></tr>
-        <tr><td><strong>Host-only</strong></td><td>Não</td><td>Sim</td><td>Sim</td><td>Não</td><td>Manual/DHCP do host</td></tr>
-      </tbody>
-    </table>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Resumo</span>
-      <span>NAT para internet; bridge para a rede física; interna para isolar a LAN;
-        host-only para acessar a VM pelo host.</span>
-    </div>
-  </section>
-
-  <!-- 20 - Aplicando na UC7 -->
-  <section class="slide">
-    <div class="kicker">VirtualBox - Aplicação</div>
-    <h2>Aplicando na UC7</h2>
-    <p>Uma VM pode ter mais de um adaptador. No laboratório, combinamos NAT e rede interna para
-      ter internet e LAN isolada ao mesmo tempo.</p>
-    <table>
-      <thead><tr><th>Necessidade</th><th>Modo indicado</th></tr></thead>
-      <tbody>
-        <tr><td>Atualizar pacotes e instalar softwares</td><td><strong>NAT</strong></td></tr>
-        <tr><td>Simular a LAN da NexaTech</td><td><strong>Rede interna <code>rede-nexatech</code></strong></td></tr>
-        <tr><td>Acessar a VM de outro computador</td><td><strong>Bridge</strong></td></tr>
-        <tr><td>Administrar a VM pelo host</td><td><strong>Host-only</strong></td></tr>
-        <tr><td>pfSense como roteador/firewall</td><td><strong>NAT na WAN + rede interna na LAN</strong></td></tr>
-      </tbody>
-    </table>
-    <div class="note" style="margin-top:14px">
-      <span class="ico">Padrão da UC</span>
-      <span>Cada servidor/cliente usa NAT (Adaptador 1) + rede interna (Adaptador 2).
-        O FW01 usa NAT como WAN e a rede interna como LAN.</span>
-    </div>
-  </section>
-
-  <!-- 21 - Problemas comuns e boas praticas -->
-  <section class="slide">
-    <div class="kicker">VirtualBox - Diagnóstico</div>
-    <h2>Problemas comuns e boas práticas</h2>
-    <table>
-      <thead><tr><th>Sintoma</th><th>Causa provável</th><th>Solução</th></tr></thead>
-      <tbody>
-        <tr><td>VM não inicia</td><td>Virtualização desabilitada</td><td>Habilitar VT-x/AMD-V na BIOS/UEFI</td></tr>
-        <tr><td>VM lenta</td><td>RAM/vCPU acima do host</td><td>Reduzir recursos ou fechar programas</td></tr>
-        <tr><td>Sem internet</td><td>Adaptador NAT ausente</td><td>Adicionar NAT ou configurar gateway</td></tr>
-        <tr><td>VMs não se enxergam</td><td>Redes internas diferentes</td><td>Usar o mesmo nome de rede interna</td></tr>
-        <tr><td>IP em conflito</td><td>IP repetido na mesma rede</td><td>Revisar o plano de IPs</td></tr>
-        <tr><td>Snapshot não restaura</td><td>VM ligada ou snapshot filho</td><td>Desligar e restaurar na ordem correta</td></tr>
-      </tbody>
-    </table>
-    <div class="grid cols-2" style="margin-top:14px">
-      <div class="card"><h3>Boas práticas</h3><ul class="clean"><li>Snapshot antes de mudanças.</li><li>Nomes padronizados.</li><li>Não exceder os recursos do host.</li><li>Documentar IPs e redes.</li></ul></div>
-      <div class="card"><h3>Antes de encerrar</h3><ul class="clean"><li>Desligar as VMs corretamente.</li><li>Guardar prints e configurações.</li><li>Exportar OVA ao final do bloco.</li><li>Manter o host atualizado.</li></ul></div>
-    </div>
-  </section>
-
-  <!-- 22 - Laboratorio da UC -->
-  <section class="slide">
-    <div class="kicker">Nosso laboratório</div>
-    <h2>As VMs da UC7</h2>
-    <p>A base comum fica em <code>laboratorio_virtual/</code> e as VMs são criadas
-      <strong>manualmente no VirtualBox</strong>, sem Vagrant.</p>
-    <table>
-      <thead><tr><th>VM</th><th>Papel</th><th>IP</th></tr></thead>
-      <tbody>
-        <tr><td>DC01</td><td>Windows Server: AD, DNS, DHCP e arquivos</td><td>192.168.10.10</td></tr>
-        <tr><td>APP01</td><td>Ubuntu Server: Apache + PHP e práticas de DNS/DHCP</td><td>192.168.10.20</td></tr>
-        <tr><td>DB01</td><td>Ubuntu Server: banco de dados e práticas de serviços</td><td>192.168.10.30</td></tr>
-        <tr><td>CLI01</td><td>Windows 10: cliente para testes</td><td>192.168.10.100</td></tr>
-        <tr><td>CLI02</td><td>Windows 10: segundo cliente para testes</td><td>192.168.10.101</td></tr>
-        <tr><td>FW01</td><td>pfSense: firewall, NAT e DHCP</td><td>192.168.10.1</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:10px">Rede interna <code>rede-nexatech</code> - <code>192.168.10.0/24</code>.</p>
-    <div class="note" style="margin-top:12px">
-      <span class="ico">Sequência</span>
-      <span>A Aula 01 cria os clientes CLI01/CLI02; a Aula 06 cria DC01, APP01 e DB01;
-        a Aula 17 cria o FW01.</span>
-    </div>
-  </section>
-
-  <!-- 23 - Como vamos trabalhar -->
-  <section class="slide">
-    <div class="kicker">Método</div>
-    <h2>Como vamos trabalhar</h2>
-    <div class="grid cols-2">
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">01</span> Apresentações</h3>
-        <p>Conceito primeiro: slides curtos, diagramas e exemplos reais. Sem decorar comando.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">02</span> Laboratório virtual</h3>
-        <p>Prática guiada nas VMs com VirtualBox, registrando evidências de cada etapa.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-3)">
-        <h3><span class="ico">03</span> Documentação</h3>
-        <p>Cada entrega precisa de print, comando, configuração e justificativa técnica.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent-5)">
-        <h3><span class="ico">04</span> Projeto integrador</h3>
-        <p>O cenário da NexaTech evolui a cada bloco até a apresentação e defesa final.</p>
-      </div>
-    </div>
-    <div class="note" style="margin-top:16px">
-      <span class="ico">Avaliação</span>
-      <span>Atividades e entregas (30%), laboratórios e evidências (30%), projeto integrador
-        (30%) e participação/postura profissional (10%).</span>
-    </div>
-  </section>
-
-  <!-- 24 - Combinados e próximos passos -->
-  <section class="slide">
-    <div class="kicker">Combinados</div>
-    <h2>O que eu espero de vocês</h2>
-    <div class="debate"><div class="q">1</div><p><strong>Curiosidade</strong> antes da resposta pronta: perguntar "por quê?" é parte do trabalho.</p></div>
-    <div class="debate"><div class="q">2</div><p><strong>Prática</strong>: subir a VM, errar, corrigir e subir de novo.</p></div>
-    <div class="debate"><div class="q">3</div><p><strong>Organização</strong>: guardar prints, comandos e configurações de cada aula.</p></div>
-    <div class="debate"><div class="q">4</div><p><strong>Colaboração</strong>: ajudar o colega do lado também ensina.</p></div>
-    <div class="grid cols-2" style="margin-top:16px">
-      <div class="card" style="border-top:3px solid var(--accent-2)">
-        <h3><span class="ico">Próxima</span> Aula 01</h3>
-        <p>TCP/IP e IPv4: endereçamento, rede interna e testes de ping.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--accent)">
-        <h3><span class="ico">Resumo</span> A ideia desta aula</h3>
-        <p>Minha história mostra um caminho possível: começar no suporte, aprender a operar,
-          documentar e automatizar. A base é a mesma que vamos construir aqui.</p>
-      </div>
-    </div>
-  </section>
-
+<section class="slide active">
+              <span class="kicker">UC7 · Bloco 1 · Aula 00</span>
+              <h1>Quem sou eu, a UC7 e o VirtualBox</h1>
+              <p class="lead">Entenda os objetivos da unidade curricular, a metodologia por competências do Senac e como o VirtualBox viabiliza a infraestrutura de laboratório.</p>
+              <div class="meta-row">
+                <span class="pill">Fundamentos e Planejamento</span>
+                <span class="pill">Carga: 3 horas</span>
+                <span class="pill">Metodologia Prática</span>
+              </div>
+              <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou utilize os botões no canto inferior direito.</p>
+            </section>
+<section class="slide">
+              <span class="kicker">O que é a UC7?</span>
+              <h2>Planejar, Instalar, Configurar e Monitorar Servidores</h2>
+              <p class="lead">A UC7 prepara o profissional de TI para ser o guardião da infraestrutura local de qualquer organização.</p>
+              <div class="grid cols-3" style="margin-top:14px;">
+                <div class="card">
+                  <span class="card-num">01</span>
+                  <h3>Windows Server 2022</h3>
+                  <p>Active Directory, DNS integrado, DHCP com autorização, Compartilhamento SMB, Permissões NTFS e GPOs corporativas.</p>
+                </div>
+                <div class="card">
+                  <span class="card-num">02</span>
+                  <h3>pfSense & Redes</h3>
+                  <p>Roteamento entre sub-redes, Firewall com regras de entrada/saída, NAT (PAT), VPN e proteção da borda.</p>
+                </div>
+                <div class="card">
+                  <span class="card-num">03</span>
+                  <h3>Ubuntu Server 24.04</h3>
+                  <p>Servidores LAMP (Linux, Apache, MariaDB, PHP), DNS BIND9, SSH seguro, automação e monitoramento.</p>
+                </div>
+              </div>
+            </section>
+<section class="slide">
+              <span class="kicker">Fundamentos Teóricos</span>
+              <h2>O que é Virtualização e por que usá-la?</h2>
+              <p class="lead">Virtualização é a técnica de particionar os recursos físicos de um hardware (CPU, RAM, Disco e Rede) em múltiplas máquinas virtuais isoladas.</p>
+              <div class="grid cols-2" style="margin-top:14px;">
+                <div class="card">
+                  <h3>Hypervisor Tipo 1 (Bare-Metal)</h3>
+                  <p>Roda diretamente sobre o hardware físico, sem sistema operacional intermediário.</p>
+                  <p><strong>Exemplos:</strong> VMware ESXi, Proxmox VE, Microsoft Hyper-V Server.</p>
+                  <p><strong>Uso:</strong> Datacenters e servidores corporativos de produção por entregar altíssimo desempenho.</p>
+                </div>
+                <div class="card highlight">
+                  <h3>Hypervisor Tipo 2 (Hosted)</h3>
+                  <p>Roda como um aplicativo dentro de um SO hospedeiro (Windows, macOS, Linux).</p>
+                  <p><strong>Exemplos:</strong> Oracle VirtualBox, VMware Workstation.</p>
+                  <p><strong>Uso:</strong> Laboratórios didáticos, testes, homologação e desenvolvimento sem risco de danificar a máquina host.</p>
+                </div>
+              </div>
+            </section>
+<section class="slide">
+              <span class="kicker">Mecânica do VirtualBox</span>
+              <h2>Conceitos Vitais: Snapshots e Tipos de Rede</h2>
+              <div class="grid cols-2" style="margin-top:14px;">
+                <div class="card warning">
+                  <h3>Snapshots (Instantâneos)</h3>
+                  <p>Congela o estado exato da VM (disco e memória) em um ponto do tempo.</p>
+                  <ul class="clean" style="margin-top:8px;">
+                    <li><strong>Regra de Ouro:</strong> Crie um Snapshot antes de alterar serviços críticos (ex: antes de promover um DC ou alterar o Apache).</li>
+                    <li><strong>Rollback:</strong> Se a configuração falhar ou quebrar a VM, volte ao snapshot em 5 segundos.</li>
+                  </ul>
+                </div>
+                <div class="card">
+                  <h3>Modos de Rede no VirtualBox</h3>
+                  <ul class="clean" style="margin-top:4px;">
+                    <li><strong>NAT:</strong> A VM acessa a internet via IP compartilhado da máquina real, mas a rede externa não vê a VM.</li>
+                    <li><strong>Rede Interna (Internal Network):</strong> Cria um switch virtual isolado apenas entre VMs (usado na NexaTech para simular uma LAN corporativa real).</li>
+                    <li><strong>Placa em Modo Bridge:</strong> A VM se conecta diretamente ao roteador físico da sua casa/sala como um dispositivo real.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+<section class="slide">
+              <span class="kicker">Fechamento</span>
+              <h2>Próximos Passos</h2>
+              <p class="lead">Com o VirtualBox dominado, começaremos na Aula 01 a estudar como os computadores conversam entre si usando TCP/IP e IPv4.</p>
+              <div class="next">
+                <span>Próxima Aula</span>
+                <strong>Aula 01 - TCP/IP e IPv4</strong>
+                <p>Estrutura de endereçamento de rede, máscaras, cálculo de sub-rede e testes práticos de conectividade entre VMs.</p>
+              </div>
+            </section>
 </main>
-
-<div id="bottombar">
-  <div id="counter">01 / 12</div>
-  <div class="hint">← → · espaço · Home/End</div>
-  <div class="nav-buttons">
-    <button id="prev" aria-label="Slide anterior">← Anterior</button>
-    <button id="next" aria-label="Próximo slide">Próximo →</button>
-  </div>
-</div>
-
+<nav id="nav" aria-label="Navegação da apresentação">
+  <button id="prev" type="button" aria-label="Slide anterior">←</button>
+  <button id="next" type="button" aria-label="Próximo slide">→</button>
+</nav>
 <script>
-  (function () {
-    var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
-    var progress = document.getElementById("progress");
-    var counter = document.getElementById("counter");
-    var current = 0;
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let index = 0;
 
-    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function show(n) {
+    index = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    counter.textContent = (index + 1) + ' / ' + slides.length;
+    progress.style.width = (((index + 1) / slides.length) * 100) + '%';
+    try {
+      if (history.replaceState) history.replaceState(null, '', '#' + (index + 1));
+    } catch (error) {}
+  }
 
-    function render() {
-      slides.forEach(function (s, i) { s.classList.toggle("active", i === current); });
-      var pct = slides.length > 1 ? (current / (slides.length - 1)) * 100 : 100;
-      progress.style.width = pct + "%";
-      counter.textContent = pad(current + 1) + " / " + pad(slides.length);
-      if (window.location.hash !== "#" + (current + 1)) {
-        history.replaceState(null, "", "#" + (current + 1));
-      }
+  document.getElementById('prev').addEventListener('click', () => show(index - 1));
+  document.getElementById('next').addEventListener('click', () => show(index + 1));
+
+  document.addEventListener('keydown', (event) => {
+    if (['ArrowRight', 'PageDown', ' '].includes(event.key)) {
+      event.preventDefault();
+      show(index + 1);
+    } else if (['ArrowLeft', 'PageUp'].includes(event.key)) {
+      event.preventDefault();
+      show(index - 1);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      show(0);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      show(slides.length - 1);
     }
+  });
 
-    function go(delta) {
-      var next = current + delta;
-      if (next < 0 || next >= slides.length) return;
-      current = next;
-      render();
-    }
+  let touchX = null;
+  document.addEventListener('touchstart', (event) => {
+    touchX = event.changedTouches[0].clientX;
+  }, { passive: true });
+  document.addEventListener('touchend', (event) => {
+    if (touchX === null) return;
+    const dx = event.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+    touchX = null;
+  }, { passive: true });
 
-    function goTo(index) {
-      if (index < 0 || index >= slides.length) return;
-      current = index;
-      render();
-    }
-
-    document.getElementById("next").addEventListener("click", function () { go(1); });
-    document.getElementById("prev").addEventListener("click", function () { go(-1); });
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
-        e.preventDefault(); go(1);
-      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
-        e.preventDefault(); go(-1);
-      } else if (e.key === "Home") {
-        e.preventDefault(); goTo(0);
-      } else if (e.key === "End") {
-        e.preventDefault(); goTo(slides.length - 1);
-      }
-    });
-
-    window.addEventListener("hashchange", function () {
-      var n = parseInt(window.location.hash.replace("#", ""), 10);
-      if (!isNaN(n)) goTo(n - 1);
-    });
-
-    var start = parseInt(window.location.hash.replace("#", ""), 10);
-    if (!isNaN(start)) current = Math.min(Math.max(start - 1, 0), slides.length - 1);
-    render();
-  })();
+  const initial = parseInt(location.hash.replace('#', ''), 10);
+  show(Number.isFinite(initial) ? initial - 1 : 0);
 </script>
 </body>
 </html>

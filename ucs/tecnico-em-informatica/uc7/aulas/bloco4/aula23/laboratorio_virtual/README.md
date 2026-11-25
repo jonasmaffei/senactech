@@ -1,63 +1,54 @@
-# Laboratório VirtualBox - Aula 23: SSH e administração remota
+# Roteiro Prático Passo a Passo — Aula 23: Hardening de SSH e Acesso por Chaves
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Checklist de SSH seguro com testes de acesso e bloqueio de root.
+## 1. Identificação
+- **Tema:** Acesso Remoto Seguro com Criptografia Assimétrica (Ed25519)
+- **Servidor:** `APP01` (`192.168.10.20`)
+- **Arquivo de Configuração:** `/etc/ssh/sshd_config`
 
----
+## 2. Objetivos
+1. Gerar um par de chaves SSH assimétricas na máquina cliente.
+2. Copiar a chave pública para o servidor Linux.
+3. Desabilitar login de root e login por senha no daemon SSH.
+4. Testar o login instantâneo sem digitação de senha e comprovar a imunidade a ataques de força bruta.
 
-## Objetivo
+## 3. Passo a Passo Detalhado
 
-Habilitar e endurecer o SSH para administrar o servidor Linux remotamente.
+### Parte A — Geração da Chave no Cliente (Windows / PowerShell)
+1. No cliente Windows, abra o PowerShell e execute:
+   ```powershell
+   ssh-keygen -t ed25519 -C "admin@nexatech.local"
+   ```
+2. Pressione Enter para aceitar o local padrão (`C:\Users\aluno\.ssh\id_ed25519`).
+3. (Opcional) Digite uma passphrase para proteger a chave.
+4. Envie a chave pública para o servidor Ubuntu:
+   ```powershell
+   type $env:USERPROFILE\.ssh\id_ed25519.pub | ssh administrador@192.168.10.20 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys"
+   ```
 
-## VMs desta aula
+### Parte B — Blindagem do Arquivo <code>sshd_config</code> (No Servidor Linux)
+1. No terminal do `APP01`, abra o arquivo de configuração:
+   ```bash
+   sudo nano /etc/ssh/sshd_config
+   ```
+2. Localize e altere as seguintes diretivas:
+   ```text
+   PermitRootLogin no
+   PasswordAuthentication no
+   PubkeyAuthentication yes
+   ```
+3. Salve com `Ctrl + O` e saia com `Ctrl + X`.
+4. Teste a sintaxe do arquivo antes de reiniciar o serviço:
+   ```bash
+   sudo sshd -t
+   ```
+5. Se não retornar erros, reinicie o SSH:
+   ```bash
+   sudo systemctl restart ssh
+   ```
 
-APP01 e DB01. Mantenha o snapshot da aula anterior.
-
-## Antes de começar
-
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
-
-
-## Roteiro
-
-1. Instalar o openssh-server
-2. Desabilitar login root e senhas vazias
-3. Criar par de chaves e copiar para o servidor
-4. Testar login e acesso negado
-5. Registrar a configuração final
-
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
+### Parte C — Teste de Acesso
+No cliente Windows, conecte-se com:
 ```powershell
-VBoxManage list vms
-VBoxManage list runningvms
-VBoxManage snapshot "NOME_DA_VM" take "baseline-aula23"
-VBoxManage snapshot "NOME_DA_VM" restore "baseline-aula23"
+ssh administrador@192.168.10.20
 ```
-
-
-## Observações
-
-- Mantenha o snapshot da aula anterior antes de iniciar novas configurações.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-
-## Relação com o projeto
-
-Habilita a operação remota segura do servidor Linux.
-
-**O que fica em aberto:** Endurecer o restante do servidor e revisar os serviços expostos.
-
----
-
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula23.html) e a [atividade](../atividade.md).
+*Resultado esperado:* O terminal abre diretamente autenticado pela chave criptográfica, sem pedir senha!

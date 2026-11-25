@@ -1,59 +1,106 @@
-# Laboratório VirtualBox - Aula 10: Controlador de domínio e ingresso de clientes
+# Roteiro Prático Passo a Passo — Aula 10: Ingresso de Estações Clientes no Domínio (Domain Join)
 
-**Ambiente:** VirtualBox (criação manual das VMs)  
-**Base comum:** [`laboratorio_virtual/`](../../../../laboratorio_virtual/README.md)  
-**Entrega da aula:** Evidência de login dos clientes CLI01 e CLI02 no domínio.
+## 1. Identificação
+- **Tema:** Ingresso de Clientes e Autenticação de Domínio
+- **Ambiente:** Oracle VM VirtualBox (Rede Interna `rede-nexatech`)
+- **VMs:**
+  - Servidor: `DC01` (`192.168.10.2`) com domínio `nexatech.local` ativo.
+  - Clientes: `CLI-FIN`, `CLI-GER`, `CLI-SEC` (Windows 10/11).
 
 ---
 
-## Objetivo
+## 2. Objetivos
+Ao final desta atividade, o estudante será capaz de:
+1. Configurar o apontamento de DNS das estações clientes para o IP do DC01.
+2. Testar a resolução do registro SRV do Active Directory pelo cliente.
+3. Ingressar as 3 máquinas virtuais no domínio `nexatech.local`.
+4. Validar o registro automático da conta de computador no console do AD.
+5. Realizar o primeiro logon com credencial de domínio.
 
-Validar o controlador de domínio e ingressar os clientes Windows 10 no domínio nexatech.local.
+---
 
-## VMs desta aula
+## 3. O Passo Crítico: Ajuste do DNS no Cliente
 
-DC01, CLI01 e CLI02. Mantenha o snapshot da aula anterior.
+> **ATENÇÃO:** O cliente NUNCA conseguirá ingressar no domínio se o seu DNS primário estiver apontando para o roteador, para o Google (`8.8.8.8`) ou obtido automaticamente sem o DC01!
 
-## Antes de começar
+### No Cliente Windows (ex: CLI-FIN):
+1. Pressione `Win + R`, digite `ncpa.cpl` e pressione Enter.
+2. Clique com o botão direito no adaptador de rede (ex: *Ethernet*) e selecione **Propriedades**.
+3. Dê duplo clique em **Protocolo IP Versão 4 (TCP/IPv4)**.
+4. Mantenha o IP estático da máquina (ex: `192.168.10.100`).
+5. No campo **Servidor DNS Preferencial**, configure OBRIGATORIAMENTE:
+   ```text
+   192.168.10.2   (ou o IP exato do seu DC01)
+   ```
+6. Clique em **OK** e **OK**.
 
-1. Abra o VirtualBox e confirme que as VMs da UC estão desligadas ou com snapshot.
-2. Verifique se a rede interna `rede-nexatech` existe e está ligada à VM correta.
-3. Registre o estado atual antes de alterar qualquer configuração.
+---
 
-## Roteiro
+## 4. Teste de Conectividade e Resolução antes do Join
 
-1. Verificar IP e DNS do DC01
-2. Configurar o CLI01 e o CLI02 com o DNS do DC01
-3. Ingressar as duas VMs no domínio nexatech.local
-4. Fazer login com usuário do domínio
-5. Validar com whoami /fqdn e registrar eventos
+No cliente, abra o CMD ou PowerShell e execute:
+```cmd
+# 1. Testar se alcança o servidor:
+ping 192.168.10.2
 
-## Testes e evidências
-
-- Registre prints ou saídas de comando de cada etapa.
-- Anote as decisões de configuração e os valores usados (IPs, nomes, escopos, permissões).
-- Teste o serviço de um cliente ou de outra VM sempre que possível.
-- Atualize o documento do projeto integrador com o que foi feito.
-
-## Comandos úteis
-
-```powershell
-dcdiag
-nltest /dsgetdc:nexatech.local
-whoami /fqdn
+# 2. Testar se o DNS do servidor responde pelo nome do domínio:
+nslookup nexatech.local
 ```
-
-## Observações
-
-- O cliente precisa usar o DNS do DC01 para ingressar no domínio.
-- A rede interna não dá acesso à internet por si só; para isso use NAT/bridge ou o pfSense.
-
-## Relação com o projeto
-
-Completa a integração dos clientes ao domínio da NexaTech.
-
-**O que fica em aberto:** Com os clientes no domínio, é preciso organizar setores, grupos, usuários e permissões.
+*Saída obrigatória:* O comando `nslookup` deve responder com o IP do DC01 (`192.168.10.2`). Se responder "Não foi possível encontrar", revise o passo 3!
 
 ---
 
-> Consulte também o [guia da aula](../README.md), a [apresentação](../apresentacao_aula10.html) e a [atividade](../atividade.md).
+## 5. Passo a Passo do Ingresso no Domínio (GUI)
+
+1. No cliente, pressione `Win + R`, digite `sysdm.cpl` e pressione Enter (abre as Propriedades do Sistema).
+2. Na aba **Nome do Computador**, clique no botão **Alterar... (Change...)**.
+3. Na parte inferior, em *Membro de*:
+   - Mude de **Grupo de trabalho (Workgroup)** para **Domínio (Domain)**.
+   - Digite exatamente:
+     ```text
+     nexatech.local
+     ```
+4. Clique em **OK**.
+5. Uma janela de autenticação solicitará usuário e senha:
+   - **Nome de usuário:** `NEXATECH\Administrador` (ou `Administrador@nexatech.local`)
+   - **Senha:** A senha do Administrador do DC01.
+6. Clique em **OK**.
+7. Após alguns segundos, surgirá a mensagem de sucesso:
+   > *"Bem-vindo ao domínio nexatech.local."*
+8. Clique em **OK**. O Windows avisará que o computador precisa ser reiniciado.
+9. Clique em **Reiniciar Agora**.
+
+---
+
+## 6. Procedimento Rápido via PowerShell (No Cliente)
+
+Em vez da interface gráfica, você pode ingressar a máquina com um comando no PowerShell de Administrador:
+```powershell
+Add-Computer -DomainName "nexatech.local" -Credential (Get-Credential) -Restart -Force
+```
+*(Digite o usuário `NEXATECH\Administrador` e a senha na janela que surgir).*
+
+---
+
+## 7. Verificação no Servidor DC01
+
+1. Vá até o servidor Windows Server (DC01).
+2. Abra o **Server Manager → Tools → Active Directory Users and Computers (`dsa.msc`)**.
+3. Expanda o domínio `nexatech.local` e clique na pasta **Computers**.
+4. Confira que os computadores clientes (`CLI-FIN`, etc.) aparecem listados com seus nomes oficiais.
+
+---
+
+## 8. Matriz de Testes e Critério de Aceite
+
+1. **Logon de Teste no Cliente:**
+   - Na tela de login do Windows 10, clique em **Outro usuário**.
+   - No campo usuário, digite: `NEXATECH\Administrador` e a senha do DC.
+   - O Windows preparará a área de trabalho do primeiro logon de domínio.
+2. **Conferir no CMD do cliente:**
+   ```cmd
+   whoami
+   echo %USERDOMAIN%
+   ```
+   *Saída esperada:* `nexatech\administrador` e domínio `NEXATECH`.
+3. Repita o procedimento para os demais clientes de bancada.

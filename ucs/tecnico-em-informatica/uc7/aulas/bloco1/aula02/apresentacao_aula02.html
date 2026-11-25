@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aula 02 - O servidor na rede local e a UC7 | UC7</title>
+<title>Aula 02 - Conceito de Servidores | UC7</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -46,140 +46,104 @@
   #deck { position: relative; height: 100%; width: 100%; }
   .slide {
     position: absolute; inset: 0; display: none; flex-direction: column;
-    justify-content: center; padding: 64px 7vw 72px; opacity: 0;
-    transform: translateY(14px); transition: opacity .3s ease, transform .3s ease;
+    justify-content: center; padding: 50px 6vw 60px; opacity: 0;
+    transform: translateY(14px); transition: opacity .25s ease, transform .25s ease;
     overflow-y: auto;
   }
   .slide.active { display: flex; opacity: 1; transform: translateY(0); }
-  .slide::-webkit-scrollbar { width: 10px; }
-  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+  .slide::-webkit-scrollbar { width: 8px; }
+  .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
   .kicker {
     display: inline-block; align-self: flex-start; font-size: .7rem;
     letter-spacing: .16em; text-transform: uppercase; color: var(--accent-2);
     border: 1px solid var(--border); background: rgba(16,185,129,.08);
-    padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
   }
-  h1 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; margin: 0 0 16px; font-weight: 700; letter-spacing: -.02em; }
-  h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); margin: 0 0 16px; line-height: 1.15; letter-spacing: -.01em; }
-  h3 { font-size: 1.02rem; margin: 0 0 8px; color: var(--text); }
-  p { font-size: 1rem; line-height: 1.6; color: var(--muted); margin: 0 0 12px; max-width: 70ch; }
+  h1 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); line-height: 1.1; margin: 0 0 14px; font-weight: 700; }
+  h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 14px; line-height: 1.15; }
+  h3 { font-size: 1.05rem; margin: 0 0 6px; color: var(--text); }
+  p { font-size: 0.98rem; line-height: 1.55; color: var(--muted); margin: 0 0 10px; max-width: 75ch; }
   p strong, li strong { color: var(--text); }
-  .lead { font-size: 1.18rem; color: var(--text); max-width: 72ch; }
+  .lead { font-size: 1.12rem; color: var(--text); max-width: 75ch; }
   .muted { color: var(--muted); font-weight: 400; }
-  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .pill {
     font-size: .76rem; letter-spacing: .04em; color: var(--muted);
     border: 1px solid var(--border); background: var(--panel);
-    padding: 6px 10px; border-radius: 999px;
+    padding: 5px 10px; border-radius: 999px;
   }
-  .hint { margin-top: 18px; font-size: .8rem; color: var(--muted); }
-  .grid { display: grid; gap: 14px; }
+  .hint { margin-top: 14px; font-size: .8rem; color: var(--muted); }
+  .grid { display: grid; gap: 12px; }
   .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .card {
     background: linear-gradient(180deg, var(--panel), var(--panel-2));
     border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 16px 18px; box-shadow: var(--shadow);
+    padding: 14px 16px; box-shadow: var(--shadow);
   }
   .card h3 { line-height: 1.3; }
-  .card p { font-size: .94rem; margin: 0; }
+  .card p { font-size: .92rem; margin: 0; }
   .card-num {
     display: inline-block; font-size: .7rem; letter-spacing: .12em;
-    color: var(--accent-2); font-weight: 700; margin-bottom: 6px;
+    color: var(--accent-2); font-weight: 700; margin-bottom: 4px;
   }
   .card.highlight {
     border-color: rgba(16,185,129,.5);
     background: linear-gradient(180deg, rgba(16,185,129,.14), var(--panel-2));
   }
-  ul.clean, ul.check, ol.steps { margin: 0; padding: 0; }
-  ul.clean { list-style: none; }
-  ul.clean > li {
-    position: relative; padding: 7px 0 7px 26px; font-size: .98rem;
-    line-height: 1.5; color: var(--muted);
+  .card.warning {
+    border-color: rgba(249,115,22,.5);
+    background: linear-gradient(180deg, rgba(249,115,22,.12), var(--panel-2));
   }
-  ul.clean > li::before {
-    content: ""; position: absolute; left: 4px; top: 15px;
-    width: 9px; height: 9px; border-radius: 3px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  .card.danger {
+    border-color: rgba(239,68,68,.5);
+    background: linear-gradient(180deg, rgba(239,68,68,.12), var(--panel-2));
   }
-  ul.check { list-style: none; }
-  ul.check > li {
-    position: relative; padding: 7px 0 7px 30px; font-size: .98rem;
-    line-height: 1.5; color: var(--muted);
+  .code-box {
+    background: #060913; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; font-family: "Cascadia Code", Consolas, monospace;
+    font-size: .82rem; color: #a5b4fc; overflow-x: auto; margin-top: 8px;
   }
-  ul.check > li::before {
-    content: "✓"; position: absolute; left: 0; top: 6px;
-    color: var(--accent-2); font-weight: 700;
+  .code-box span.comment { color: #64748b; }
+  .code-box span.green { color: var(--accent-2); }
+  .code-box span.orange { color: var(--accent-3); }
+
+  /* Tabela de Comparação de Camadas */
+  .layers-table {
+    width: 100%; border-collapse: collapse; font-size: .86rem; margin-top: 8px;
   }
-  ol.steps { list-style: none; counter-reset: step; }
-  ol.steps > li {
-    counter-increment: step; position: relative; padding: 8px 0 8px 36px;
-    font-size: .96rem; line-height: 1.5; color: var(--muted);
+  .layers-table th, .layers-table td {
+    padding: 8px 12px; border: 1px solid var(--border); text-align: left;
   }
-  ol.steps > li::before {
-    content: counter(step); position: absolute; left: 0; top: 5px;
-    width: 24px; height: 24px; border-radius: 50%;
-    display: grid; place-items: center; font-size: .72rem; font-weight: 700;
-    background: rgba(99,102,241,.2); color: #c7d0ff; border: 1px solid var(--border);
+  .layers-table th {
+    background: var(--panel-2); color: var(--text); font-weight: 600;
   }
-  blockquote {
-    margin: 0 0 16px; padding: 16px 18px; border-left: 4px solid var(--accent-3);
-    background: var(--panel); border-radius: 0 12px 12px 0;
-    color: var(--text); font-size: 1.05rem; line-height: 1.55;
+  .layers-table tr:nth-child(even) { background: rgba(255,255,255,.02); }
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: .75rem; font-weight: bold;
   }
-  code {
-    font-family: "Cascadia Code", "Fira Code", Consolas, "Courier New", monospace;
-    font-size: .9em; background: rgba(99,102,241,.16);
-    border: 1px solid rgba(99,102,241,.32); color: #c7d0ff;
-    padding: 1px 6px; border-radius: 6px;
+  .b-app { background: #3b82f6; color: white; }
+  .b-trans { background: #8b5cf6; color: white; }
+  .b-net { background: #10b981; color: white; }
+  .b-link { background: #f59e0b; color: #1e1e1e; }
+  .b-phy { background: #64748b; color: white; }
+
+  /* Diagrama de Encapsulamento */
+  .encap-flow {
+    display: flex; flex-direction: column; gap: 8px; margin: 10px 0;
   }
-  table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: .92rem; }
-  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { color: var(--text); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
-  td { color: var(--muted); }
-  tbody tr:last-child td { border-bottom: none; }
-  .note {
-    margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border);
-    border-radius: 10px; background: rgba(99,102,241,.06);
-    font-size: .9rem; color: var(--muted);
+  .encap-step {
+    display: flex; align-items: center; gap: 10px; font-size: .88rem;
   }
-  .topology {
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    margin: 8px 0 16px;
+  .encap-layer {
+    width: 140px; padding: 6px 10px; border-radius: 6px; font-weight: bold; text-align: center;
   }
-  .top-node {
-    min-width: 128px; padding: 12px 14px; border-radius: 12px;
-    border: 1px solid var(--border); background: var(--panel);
-    display: flex; flex-direction: column; gap: 3px;
+  .encap-pdu {
+    padding: 6px 12px; background: #060913; border: 1px dashed var(--border); border-radius: 6px;
+    font-family: monospace; color: var(--accent-2); flex: 1;
   }
-  .top-node strong { color: var(--text); font-size: .95rem; }
-  .top-node span { color: var(--muted); font-size: .8rem; }
-  .top-node small { color: var(--accent-2); font-size: .72rem; font-variant-numeric: tabular-nums; }
-  .top-node.client { border-color: rgba(249,115,22,.5); }
-  .top-node.dc { border-color: rgba(99,102,241,.6); }
-  .top-node.lnx { border-color: rgba(16,185,129,.6); }
-  .top-node.mon { border-color: rgba(249,115,22,.45); }
-  .top-link {
-    flex: 0 0 auto; color: var(--accent); font-size: .72rem; text-transform: uppercase;
-    letter-spacing: .1em; display: flex; align-items: center; gap: 6px;
-  }
-  .top-link::before, .top-link::after { content: ""; width: 26px; height: 1px; background: var(--border); }
-  .top-group { display: flex; gap: 10px; flex-wrap: wrap; }
-  .next {
-    margin-top: 16px; padding: 14px 16px; border: 1px solid var(--border);
-    border-radius: 12px; background: var(--panel);
-  }
-  .next span {
-    display: block; font-size: .7rem; text-transform: uppercase;
-    letter-spacing: .12em; color: var(--accent-2); margin-bottom: 4px;
-  }
-  .next strong { display: block; color: var(--text); margin-bottom: 4px; }
-  .next p { margin: 0; font-size: .92rem; }
-  .two-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: start; }
-  .big-quote {
-    font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.4; color: var(--text);
-    max-width: 30ch;
-  }
+
   #nav {
     position: fixed; right: 18px; bottom: 16px; display: flex; gap: 8px; z-index: 60;
   }
@@ -197,10 +161,8 @@
     color: var(--muted); background: var(--panel);
   }
   @media (max-width: 900px) {
-    .grid.cols-2, .grid.cols-3, .two-col { grid-template-columns: 1fr; }
-    .slide { padding: 58px 6vw 70px; }
-    .topology { align-items: flex-start; }
-    .top-group { flex-direction: column; }
+    .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
+    .slide { padding: 48px 5vw 50px; }
   }
 </style>
 </head>
@@ -208,336 +170,72 @@
 <div id="progress"></div>
 <header id="topbar">
   <div class="brand"><span class="dot"></span> UC7 · Redes Locais · Aula 02</div>
-  <div id="counter">1 / 18</div>
+  <div id="counter">1 / 4</div>
 </header>
 <main id="deck">
-
-    <section class="slide active">
-      <span class="kicker">UC7 · Bloco 1 · Aula 02</span>
-      <h1>O servidor na rede local e a UC7</h1>
-      <p class="lead">Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.</p>
-      <div class="meta-row">
-        <span class="pill">16/11/2026 (segunda-feira)</span>
-        <span class="pill">Fundamentos e Planejamento</span>
-        <span class="pill">3 horas</span>
-        <span class="pill">Laboratório VirtualBox · cliente/servidor</span>
-      </div>
-      <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou com os botões no canto inferior direito.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Situação de aprendizagem</span>
-      <h2>O desafio da NexaTech</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">A NexaTech Soluções Digitais tem 45 colaboradores em dois andares. Hoje os arquivos ficam em um computador comum, não há autenticação centralizada e as falhas de rede são resolvidas no improviso. A direção contratou você para planejar, instalar, configurar e monitorar a nova infraestrutura de servidores.</p>
-        </div>
-        <div class="grid">
-          <div class="card highlight">
-            <h3>Objetivo da aula</h3>
-            <p>Reconhecer o papel dos servidores em uma rede local, os principais tipos de serviço e criar um servidor de arquivos básico com compartilhamento SMB.</p>
-          </div>
-          <div class="card">
-            <h3>Entrega principal</h3>
-            <p>Servidor de arquivos básico na FS01 (Windows 10) acessível pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Diagnóstico</span>
-      <h2>As dores da NexaTech e como resolvê-las</h2>
-      <table><thead><tr><th>Dor</th><th>Como aparece hoje</th><th>Exemplo de solução</th></tr></thead><tbody>
-        <tr><td>Arquivos espalhados</td><td>Todos usam um PC comum. Há cópias duplicadas, versões perdidas e backup manual.</td><td>Servidor de arquivos com pasta compartilhada, permissões e rotina de backup.</td></tr>
-        <tr><td>Sem autenticação central</td><td>Cada estação tem conta local. As senhas se repetem e ninguém sabe quem acessou o quê.</td><td>Active Directory com usuários e grupos únicos para toda a empresa.</td></tr>
-        <tr><td>Rede resolvida no improviso</td><td>As falhas são corrigidas sem padrão e sem registro, então o problema volta.</td><td>Topologia documentada, plano de IPs e DNS/DHCP padronizados.</td></tr>
-        <tr><td>Sem monitoramento</td><td>A equipe só descobre a queda quando o usuário reclama.</td><td>Monitoramento de disponibilidade, disco e logs, com alertas.</td></tr>
-      </tbody></table>
-      <div class="grid cols-3">
-        <div class="card highlight"><h3>Essenciais</h3><p>Sem eles a empresa para: autenticação, arquivos, DNS e DHCP.</p></div>
-        <div class="card"><h3>Importantes</h3><p>Afetam produtividade e continuidade: backup, impressão e monitoramento.</p></div>
-        <div class="card"><h3>Opcionais</h3><p>Agregam valor, mas podem esperar: web interna, banco da aplicação e nuvem.</p></div>
-      </div>
-      <p class="note"><strong>Na prática:</strong> use essas quatro dores como ponto de partida. A classificação pode mudar conforme o setor e o impacto no negócio.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Mapa da UC</span>
-      <h2>O caminho das 32 aulas</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>Bloco 1 - Fundamentos e Planejamento</h3><ul class="clean"><li><strong>Aula 01</strong> TCP/IP e IPv4</li><li><strong>Aula 02</strong> O servidor na rede local e a UC7</li><li><strong>Aula 03</strong> Arquitetura e topologia de rede local</li><li><strong>Aula 04</strong> Protocolos e serviços de rede</li><li><strong>Aula 05</strong> Hardware de servidor, armazenamento e RAID</li><li><strong>Aula 06</strong> Laboratório de servidores: dimensionamento e criação das VMs</li><li><strong>Aula 07</strong> Planejamento, laboratório e plano diretor da rede</li></ul></div><div class="card"><h3>Bloco 2 - Windows Server</h3><ul class="clean"><li><strong>Aula 08</strong> Instalação e configuração inicial do Windows Server</li><li><strong>Aula 09</strong> Active Directory Domain Services</li><li><strong>Aula 10</strong> Controlador de domínio e ingresso de clientes</li><li><strong>Aula 11</strong> Unidades organizacionais, grupos e usuários</li><li><strong>Aula 12</strong> DNS no Windows Server</li><li><strong>Aula 13</strong> DHCP no Windows Server</li><li><strong>Aula 14</strong> Compartilhamento de arquivos, permissões e quotas</li><li><strong>Aula 15</strong> GPOs e políticas de segurança</li></ul></div><div class="card"><h3>Bloco 3 - Redes, Roteamento e Firewall</h3><ul class="clean"><li><strong>Aula 16</strong> Roteamento e NAT</li><li><strong>Aula 17</strong> pfSense: instalação e configuração inicial</li><li><strong>Aula 18</strong> pfSense: firewall, NAT e liberação de internet</li><li><strong>Aula 19</strong> Serviços web (IIS), acesso remoto e administração</li></ul></div><div class="card"><h3>Bloco 4 - Servidores e Segurança</h3><ul class="clean"><li><strong>Aula 20</strong> Instalação e configuração inicial de servidores</li><li><strong>Aula 21</strong> Administração e operação de servidores</li><li><strong>Aula 22</strong> Usuários, grupos e permissões em servidores</li><li><strong>Aula 23</strong> SSH e administração remota</li><li><strong>Aula 24</strong> DHCP em servidores</li><li><strong>Aula 25</strong> DNS em servidores</li><li><strong>Aula 26</strong> Servidor web</li><li><strong>Aula 27</strong> Banco de dados e integração da aplicação</li><li><strong>Aula 28</strong> Segurança em servidores</li><li><strong>Aula 29</strong> Backup, continuidade e recuperação de dados</li></ul></div><div class="card"><h3>Bloco 5 - Operação, Monitoramento e Projeto</h3><ul class="clean"><li><strong>Aula 30</strong> Monitoramento, automação e troubleshooting</li><li><strong>Aula 31</strong> Governança de TI, segurança e certificações</li><li><strong>Aula 32</strong> Projeto integrador: apresentação e defesa</li></ul></div>
-      </div>
-      <div class="note">
-        O fio condutor é o ciclo de vida do servidor: planejar, instalar, configurar,
-        proteger, monitorar e melhorar. Cada bloco entrega uma parte da infraestrutura da NexaTech.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>O que é um servidor?</h2>
-      <div class="two-col">
-        <div>
-          <p class="lead">Servidor é o computador ou serviço dedicado a atender solicitações de outros computadores, os clientes. Ele centraliza dados, serviços ou recursos que não devem ficar espalhados pelas estações.</p>
-          <p>Um servidor pode ser um equipamento físico dedicado, uma máquina virtual ou até um serviço na nuvem. O que o define é o papel que exerce na rede, não o tamanho da máquina.</p>
-          <p class="note"><strong>Características esperadas:</strong> disponibilidade, centralização, controle de acesso, backup e capacidade de crescer com a empresa.</p>
-        </div>
-        <div class="card">
-          <h3>Peer-to-peer x cliente/servidor</h3>
-          <table><thead><tr><th>Aspecto</th><th>Peer-to-peer</th><th>Cliente/servidor</th></tr></thead><tbody>
-            <tr><td>Arquivos</td><td>Em cada estação</td><td>No servidor</td></tr>
-            <tr><td>Login</td><td>Local e sem padrão</td><td>Centralizado</td></tr>
-            <tr><td>Backup</td><td>Manual e disperso</td><td>Concentrado</td></tr>
-            <tr><td>Escala</td><td>Poucos computadores</td><td>Dezenas ou centenas</td></tr>
-            <tr><td>Exemplo</td><td>Pasta compartilhada entre dois PCs</td><td>DC01 com AD e arquivos</td></tr>
-          </tbody></table>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Tipos de servidor <span class="muted">(1/2)</span></h2>
-      <div class="grid cols-2">
-        <div class="card"><span class="card-num">01</span><h3>Servidor de arquivos</h3><p>Centraliza documentos em pastas compartilhadas via SMB ou NFS. Facilita backup, permissões e acesso de qualquer estação autorizada.</p></div>
-        <div class="card"><span class="card-num">02</span><h3>Servidor de autenticação e diretório</h3><p>Guarda usuários e senhas e permite login único na rede. No ambiente Windows, esse papel é exercido pelo Active Directory.</p></div>
-        <div class="card"><span class="card-num">03</span><h3>Servidor DNS</h3><p>Traduz nomes em endereços IP. Sem ele, os clientes não encontram servidores e serviços pelo nome, apenas pelo número.</p></div>
-        <div class="card"><span class="card-num">04</span><h3>Servidor DHCP</h3><p>Distribui IP, máscara, gateway e DNS automaticamente, evitando configuração manual e conflitos de endereço.</p></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Tipos de servidor <span class="muted">(2/2)</span></h2>
-      <div class="grid cols-2">
-        <div class="card"><span class="card-num">05</span><h3>Servidor web</h3><p>Publica sites e aplicações para a rede interna ou para a internet. No ambiente Windows, o papel é exercido pelo IIS.</p></div>
-        <div class="card"><span class="card-num">06</span><h3>Servidor de banco de dados</h3><p>Armazena e organiza os dados usados pelas aplicações. Exemplos: MySQL, PostgreSQL e SQL Server.</p></div>
-        <div class="card"><span class="card-num">07</span><h3>Servidor de virtualização</h3><p>Hospeda várias máquinas virtuais em um único hardware, economizando energia e facilitando a criação de laboratórios e réplicas.</p></div>
-        <div class="card"><span class="card-num">08</span><h3>Servidor de nuvem e backup</h3><p>Oferece armazenamento, cópias de segurança e serviços externos. Pode complementar a estrutura local em um modelo híbrido.</p></div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Virtualização: um servidor que hospeda vários servidores</h2>
-      <p class="lead">Antes de comprar um equipamento para cada função, a NexaTech usa a virtualização para separar os serviços em VMs isoladas.</p>
-      <div class="grid cols-2">
-        <div class="card"><h3>Hypervisor tipo 1 (bare-metal)</h3><p>Roda direto sobre o hardware e hospeda as VMs. É comum em servidores de produção, com melhor desempenho e isolamento.</p></div>
-        <div class="card"><h3>Hypervisor tipo 2 (hospedado)</h3><p>Roda sobre o sistema operacional do host. É o caso do VirtualBox, ideal para laboratório, testes e treinamento.</p></div>
-        <div class="card"><h3>Capacidade do host</h3><p>Cada VM recebe vCPU, memória e disco. Não aloque todos os recursos do host: o sistema anfitrião também precisa deles.</p></div>
-        <div class="card"><h3>Snapshots, clones e templates</h3><p>O snapshot protege antes de mudanças; o clone duplica uma VM; o template padroniza a criação das próximas.</p></div>
-      </div>
-      <p class="note"><strong>Na NexaTech:</strong> o VirtualBox é o hypervisor tipo 2 do laboratório. O dimensionamento das VMs de servidor será feito na Aula 06.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Ciclo de vida de uma VM de servidor</h2>
-      <ol class="steps">
-        <li><strong>Planejar o papel:</strong> definir se a VM será DC01, APP01, DB01 ou FS01.</li>
-        <li><strong>Dimensionar:</strong> escolher vCPU, memória e disco conforme o serviço.</li>
-        <li><strong>Criar e instalar:</strong> montar a VM, anexar a ISO e instalar o sistema.</li>
-        <li><strong>Configurar a rede:</strong> NAT para atualizações e rede interna para a LAN.</li>
-        <li><strong>Testar:</strong> validar IP, comunicação e acesso ao serviço.</li>
-        <li><strong>Proteger:</strong> tirar o snapshot baseline antes de novas mudanças.</li>
-        <li><strong>Documentar:</strong> registrar nome, recursos, IP, função e evidências.</li>
-      </ol>
-      <p class="note">A VM não é descartável: ela precisa de nome, função e documentação desde o primeiro dia.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Serviços essenciais de uma LAN corporativa</h2>
-      <p class="lead">Uma rede de empresa não depende de um único servidor, mas da combinação de serviços que se apoiam uns nos outros.</p>
-      <table><thead><tr><th>Serviço</th><th>Para que serve</th><th>Exemplo na NexaTech</th></tr></thead><tbody>
-        <tr><td>Autenticação</td><td>Garantir quem pode entrar e o que pode acessar</td><td>Login único no domínio</td></tr>
-        <tr><td>Arquivos</td><td>Centralizar documentos e evitar cópias espalhadas</td><td>Pastas por setor com backup</td></tr>
-        <tr><td>DNS</td><td>Encontrar servidores e serviços pelo nome</td><td><code>dc01.nexatech.local</code></td></tr>
-        <tr><td>DHCP</td><td>Entregar configuração de rede automaticamente</td><td>Faixa <code>192.168.10.100-200</code></td></tr>
-        <tr><td>Impressão</td><td>Compartilhar impressoras e controlar filas</td><td>Impressora do financeiro</td></tr>
-        <tr><td>Backup</td><td>Recuperar dados após falha, erro ou ataque</td><td>Cópia diária das pastas</td></tr>
-        <tr><td>Monitoramento</td><td>Detectar falhas antes que os usuários reclamem</td><td>Alertas de disco e disponibilidade</td></tr>
-      </tbody></table>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Onde a infraestrutura roda</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3>On-premise</h3><p>Servidores instalados na própria empresa. Dão controle total e independem da internet, mas exigem espaço, energia, refrigeração e equipe.</p></div>
-        <div class="card"><h3>Nuvem</h3><p>Serviços contratados de um provedor externo. Reduzem investimento inicial e facilitam a escala, mas dependem da internet e do contrato.</p></div>
-        <div class="card"><h3>Híbrido</h3><p>Combina estrutura local com serviços em nuvem. É o modelo mais comum: autenticação e arquivos locais, backup e aplicações na nuvem.</p></div>
-      </div>
-      <p class="note"><strong>Decisão de projeto:</strong> a escolha não é técnica apenas. Envolve custo, prazo, disponibilidade, segurança e a realidade da empresa.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Conceitos</span>
-      <h2>Ciclo de vida do servidor</h2>
-      <ol class="steps">
-        <li><strong>Planejar:</strong> levantar necessidades, dimensionar hardware e definir o papel de cada servidor.</li>
-        <li><strong>Instalar:</strong> preparar o sistema operacional, a rede, o armazenamento e as atualizações.</li>
-        <li><strong>Configurar:</strong> criar usuários, serviços, permissões e políticas de segurança.</li>
-        <li><strong>Testar:</strong> validar acesso, desempenho, backup e recuperação antes de entregar.</li>
-        <li><strong>Monitorar:</strong> acompanhar disponibilidade, disco, logs e alertas.</li>
-        <li><strong>Manter e melhorar:</strong> aplicar atualizações, revisar permissões e planejar a substituição.</li>
-      </ol>
-      <p class="note">Toda entrega da UC7 será avaliada pela consistência entre o que foi planejado, instalado, testado e monitorado.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Prática</span>
-      <h2>Servidor de arquivos básico</h2>
-      <p class="lead">Criar uma terceira VM Windows 10, a FS01, e usá-la como servidor de arquivos simples, compartilhando uma pasta via SMB com o CLI01 e o CLI02.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Roteiro da aula</h3>
-          <ol class="steps">
-            <li>Preencher a ficha de dores com as quatro situações da NexaTech: arquivos no PC comum, falta de autenticação central, falhas resolvidas no improviso e ausência de monitoramento</li>
-            <li>Classificar os serviços em essenciais, importantes e opcionais, justificando cada escolha</li>
-            <li>Criar a VM <code>FS01</code> com Windows 10 e adicioná-la à rede interna <code>rede-nexatech</code></li>
-            <li>Configurar na FS01 o IP <code>192.168.10.102</code> e confirmar os IPs do CLI01 e do CLI02</li>
-            <li>Na FS01, criar a pasta <code>C:\Compartilhado</code> com um arquivo de teste</li>
-            <li>Compartilhar a pasta via SMB com o nome <code>nexatech</code></li>
-            <li>Definir permissões de leitura e alteração para os usuários do laboratório</li>
-            <li>No CLI01 e no CLI02, acessar <code>\\192.168.10.102\nexatech</code> e testar leitura e gravação</li>
-            <li>Mapear a unidade <code>Z:</code> e registrar prints e saídas de <code>net share</code> e <code>net use</code></li>
-          </ol>
-        </div>
-        <div class="card">
-          <h3>Ferramentas e ambiente</h3>
-          <p>VirtualBox, Windows 10 (FS01, CLI01 e CLI02), Explorador de Arquivos e prompt de comando</p>
-          <div class="note">
-            Este é um compartilhamento introdutório. Permissões NTFS, quotas, versionamento e backup
-            serão aprofundados na Aula 14, já no Windows Server.
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Infraestrutura · VirtualBox</span>
-      <h2>Rede cliente/servidor do laboratório</h2>
-      <p>Rede interna <code>rede-nexatech</code> · <code>192.168.10.0/24</code> · gateway sugerido <code>192.168.10.1</code></p>
-      <p class="hint">As VMs são criadas <strong>manualmente no VirtualBox</strong>. Os serviços são configurados nas aulas.</p>
-      
-    <div class="topology" aria-label="Topologia do laboratório">
-      <div class="top-group">
-        <div class="top-node client">
-          <strong>CLI01</strong>
-          <span>cliente Windows</span>
-          <small>192.168.10.100</small>
-        </div>
-        <div class="top-node client">
-          <strong>CLI02</strong>
-          <span>cliente Windows</span>
-          <small>192.168.10.101</small>
-        </div>
-      </div>
-      <div class="top-link"><span>switch interno</span></div>
-      <div class="top-group">
-        <div class="top-node dc">
-          <strong>FS01</strong>
-          <span>servidor de arquivos básico</span>
-          <small>192.168.10.102</small>
-        </div>
-      </div>
-    </div>
-    
-      <div class="grid cols-2">
-        <div class="card"><h3>FS01</h3><p>Windows 10. Hospeda a pasta compartilhada <code>nexatech</code> via SMB e concentra os arquivos da prática.</p></div>
-        <div class="card"><h3>CLI01 e CLI02</h3><p>Windows 10. Clientes que acessam o compartilhamento da FS01 pela rede interna.</p></div>
-      </div>
-      <p class="note"><strong>Nesta aula:</strong> a FS01 é a terceira VM Windows 10 do laboratório e faz o papel de servidor de arquivos básico. O DC01 e os demais servidores entram nas próximas aulas.</p>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Entrega</span>
-      <h2>O que deve ser entregue</h2>
-      <div class="card highlight">
-        <h3>Servidor de arquivos básico em funcionamento: pasta compartilhada na FS01 acessada pelo CLI01 e pelo CLI02, com ficha de configuração e evidências.</h3>
-        <p>Inclua também o diagnóstico inicial dos serviços que precisam ser centralizados. O enunciado completo está em <code>atividade.md</code>.</p>
-      </div>
-      <div class="grid cols-2" style="margin-top:14px">
-        <div class="card">
-          <h3>Evidências esperadas</h3>
-          <ul class="check">
-            <li>Print da pasta compartilhada e das permissões na FS01.</li>
-            <li>Print do acesso e da gravação de arquivo pelo CLI01 e pelo CLI02.</li>
-            <li>Saídas de <code>net share</code> e <code>net use</code>.</li>
-            <li>Dificuldades encontradas e como foram resolvidas.</li>
-          </ul>
-        </div>
-        
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Discussão</span>
-      <h2>Para pensar e discutir</h2>
-      <blockquote>Por que um simples compartilhamento de pasta já melhora o trabalho da equipe, mas ainda não é uma infraestrutura corporativa?</blockquote>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Impacto no negócio</h3>
-          <p>Centralizar arquivos reduz cópias espalhadas e retrabalho, além de facilitar o backup.</p>
-        </div>
-        <div class="card">
-          <h3>O que fica em aberto</h3>
-          <p>Sem autenticação central, permissões finas e backup, o compartilhamento ainda é frágil.</p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Projeto integrador</span>
-      <h2>Conexão com a NexaTech</h2>
-      <p class="lead">Apresenta o cenário da NexaTech e o problema de negócio que conduzirá a UC.</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Entrega que sustenta o projeto</h3>
-          <p>Servidor de arquivos básico na FS01 e diagnóstico dos serviços a centralizar.</p>
-        </div>
-        <div class="card">
-          <h3>Próximo gargalo</h3>
-          <p>Quais serviços serão necessários e como eles se conectam fisicamente?</p>
-        </div>
-      </div>
-      <div class="note">
-        Atualize a documentação do projeto ao final da aula. O projeto integrador é avaliado
-        pela consistência entre o que foi planejado, instalado, testado e monitorado.
-      </div>
-    </section>
-    
-
-    <section class="slide">
-      <span class="kicker">Fechamento</span>
-      <h2>Resumo da aula</h2>
-      <ul class="check">
-        <li>Servidor é um computador ou serviço dedicado a atender clientes com funções especializadas.</li><li>Os tipos mais comuns são arquivos, autenticação, DNS, DHCP, web, banco, virtualização e nuvem.</li><li>Um compartilhamento SMB básico já centraliza arquivos, mas ainda precisa de autenticação, permissões e backup.</li>
-      </ul>
-      
-        <div class="next"><span>Próxima aula</span><strong>Aula 03 - Arquitetura e topologia de rede local</strong><p>Interpretar topologias, meios físicos, rack e endereçamento IP para projetar a LAN da NexaTech.</p></div>
-        
-      <p class="hint">Antes de sair: salve as evidências e atualize o README do seu projeto individual.</p>
-    </section>
-    
+<section class="slide active">
+              <span class="kicker">UC7 · Aula 02</span>
+              <h1>Conceito de Servidores</h1>
+              <p class="lead">Entenda a evolução da infraestrutura: o fim do modelo ponto a ponto (P2P), a centralização com Cliente/Servidor e os principais papéis de servidores.</p>
+              <div class="meta-row">
+                <span class="pill">Carga: 3 horas</span>
+                <span class="pill">Arquitetura de Sistemas</span>
+                <span class="pill">Cliente / Servidor</span>
+              </div>
+              <p class="hint">Navegue com <span class="kbd">←</span> <span class="kbd">→</span> ou utilize os botões no canto inferior direito.</p>
+            </section>
+<section class="slide">
+              <span class="kicker">Arquitetura</span>
+              <h2>P2P (Workgroup) vs. Cliente / Servidor (Domínio)</h2>
+              <div class="grid cols-2" style="margin-top:14px;">
+                <div class="card danger">
+                  <h3>Redes Ponto a Ponto (P2P)</h3>
+                  <p>Sem hierarquia. Cada computador gerencia seus próprios usuários e senhas.</p>
+                  <ul class="clean" style="margin-top:8px;">
+                    <li>Impossível gerenciar mais de 5 a 10 máquinas sem retrabalho massivo.</li>
+                    <li>Sem controle centralizado de backups e alta vulnerabilidade a vazamento de dados.</li>
+                  </ul>
+                </div>
+                <div class="card highlight">
+                  <h3>Arquitetura Cliente / Servidor</h3>
+                  <p>Servidores dedicados centralizam autenticação, dados e políticas.</p>
+                  <ul class="clean" style="margin-top:8px;">
+                    <li><strong>Single Sign-On:</strong> O funcionário usa o mesmo login em qualquer máquina.</li>
+                    <li><strong>Controle Total:</strong> Políticas de segurança e permissões aplicadas centralizadamente.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+<section class="slide">
+              <span class="kicker">Hardware de Servidor</span>
+              <h2>Por que servidores usam hardware especial?</h2>
+              <div class="grid cols-3" style="margin-top:12px;">
+                <div class="card">
+                  <span class="card-num">Confiabilidade</span>
+                  <h3>Memória RAM ECC</h3>
+                  <p>Detecta e corrige erros de bits sozinhos, impedindo que o servidor trave com tela azul em plena operação.</p>
+                </div>
+                <div class="card highlight">
+                  <span class="card-num">Disponibilidade</span>
+                  <h3>Fontes Redundantes Hot-Swap</h3>
+                  <p>Duas fontes de alimentação conectadas a nobreaks distintos. Se uma queimar, a outra assume sem desligar a máquina.</p>
+                </div>
+                <div class="card">
+                  <span class="card-num">Tolerância a Falhas</span>
+                  <h3>Arranjos RAID</h3>
+                  <p>Combina múltiplos discos SAS/NVMe para continuar operando mesmo se um disco físico queimar.</p>
+                </div>
+              </div>
+            </section>
+<section class="slide">
+              <span class="kicker">Fechamento</span>
+              <h2>Próxima Aula</h2>
+              <div class="next">
+                <span>Próxima Aula</span>
+                <strong>Aula 03 - VirtualBox: Overview da Ferramenta</strong>
+                <p>O que é virtualização, Hypervisors Tipo 1 e Tipo 2 e apresentação completa da interface do Oracle VirtualBox.</p>
+              </div>
+            </section>
 </main>
 <nav id="nav" aria-label="Navegação da apresentação">
   <button id="prev" type="button" aria-label="Slide anterior">←</button>
@@ -556,9 +254,7 @@
     progress.style.width = (((index + 1) / slides.length) * 100) + '%';
     try {
       if (history.replaceState) history.replaceState(null, '', '#' + (index + 1));
-    } catch (error) {
-      /* alguns navegadores bloqueiam replaceState em file:// */
-    }
+    } catch (error) {}
   }
 
   document.getElementById('prev').addEventListener('click', () => show(index - 1));
