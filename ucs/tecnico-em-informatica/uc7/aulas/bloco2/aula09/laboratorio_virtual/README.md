@@ -6,6 +6,8 @@
 - **VM Utilizada:** `SRV-ARQUIVOS` (renomeada para `DC01`)
 - **Domínio a criar:** `nexatech.local`
 
+> Para o passo a passo detalhado de IP (`192.168.10.2`), DNS (`127.0.0.1`), renomeação para `DC01` e instalação da função, consulte [`passo-a-passo-ad-ds.md`](../passo-a-passo-ad-ds.md).
+
 ---
 
 ## 2. Objetivos
@@ -26,7 +28,7 @@ Ao final desta atividade, o estudante será capaz de:
    ipconfig /all
    ```
 3. O servidor **DEVE** estar com:
-   - **Endereço IPv4:** `192.168.10.2` (ou `192.168.10.10`)
+   - **Endereço IPv4:** `192.168.10.2`
    - **Máscara:** `255.255.255.0`
    - **Servidor DNS Primário:** `127.0.0.1` (loopback) ou o próprio IP do servidor.
 

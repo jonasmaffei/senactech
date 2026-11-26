@@ -28,6 +28,7 @@ A NexaTech quer centralizar a autenticação; o primeiro passo é criar o domín
 
 | Item | O que é |
 | :--- | :--- |
+| [`passo-a-passo-ad-ds.md`](passo-a-passo-ad-ds.md) | Passo a passo de configuração inicial (IP e nome) e instalação/promoção do AD DS. |
 | [`atividade.md`](atividade.md) | Entrega da aula: Domínio nexatech.local criado, com evidência de promoção e verificação do controlador. |
 | [`apresentacao_aula09.html`](apresentacao_aula09.html) | Slides de conceito (abra no navegador) |
 | [`laboratorio_virtual/`](laboratorio_virtual/README.md) | Roteiro prático com VirtualBox |
